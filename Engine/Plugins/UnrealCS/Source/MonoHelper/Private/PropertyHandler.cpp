@@ -1143,7 +1143,7 @@ FString EnumTypePropertyHandler::BuildCppFuncPostSet(UProperty* P)
 //×ª»»
 FString EnumTypePropertyHandler::BuildCppFuncReturn(UProperty* P)
 {
-	return "return (int)___ret;";
+	return "return (int)___ret.GetValue();";
 }
 
 FString EnumTypePropertyHandler::GetCSharpTypeName(UProperty* P)
@@ -1868,7 +1868,6 @@ FMonoTextBuilder MulticastDelegatePropertyHandler::BuildCSharpStructProperty(con
 
 
 //////////////////////////////PropertyHandlerFactroy//////////////////////////////////
-#pragma optimize( "", off )
 
 PropertyHandlerFactroy::PropertyHandlerFactroy()
 {
@@ -1941,6 +1940,3 @@ bool PropertyHandlerFactroy::IsPropertySupported(UProperty* Property)
 	}
 	return false;
 }
-
-
-#pragma optimize( "", on )

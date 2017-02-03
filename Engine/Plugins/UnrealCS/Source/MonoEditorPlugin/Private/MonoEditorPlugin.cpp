@@ -75,6 +75,7 @@ public:
 	void ExtendFileMenu(FMenuBuilder& MenuBuilder);
 	void HotReload();
 	void OpenProject();
+	void AOT();
 
 	TSharedPtr<FExtender> MainMenuExtender;
 
@@ -221,6 +222,11 @@ void FScriptEditorPlugin::ExtendFileMenu(FMenuBuilder& MenuBuilder)
 			LOCTEXT("MonoPluginMenuEntryToolTip", "Open C# Script Project"),
 			FSlateIcon(FEditorStyle::GetStyleSetName(), "LevelEditor.UnrealCS"),
 			FUIAction(FExecuteAction::CreateRaw(this, &FScriptEditorPlugin::OpenProject)));
+		MenuBuilder.AddMenuEntry(
+			LOCTEXT("MonoPluginMenuEntryTitle_Aot", "AOT For IOS"),
+			LOCTEXT("MonoPluginMenuEntryToolTip_Aot", "ahead of time full compile .Net library for package IOS platform"),
+			FSlateIcon(FEditorStyle::GetStyleSetName(), "LevelEditor.UnrealCS"),
+			FUIAction(FExecuteAction::CreateRaw(this, &FScriptEditorPlugin::AOT)));
 	}
 	MenuBuilder.EndSection();
 }
@@ -236,3 +242,7 @@ void FScriptEditorPlugin::OpenProject()
 	IMonoPlugin::Get().SendCommand("OpenProject");
 }
 
+void FScriptEditorPlugin::AOT()
+{
+	IMonoPlugin::Get().SendCommand("AOT");
+}

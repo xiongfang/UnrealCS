@@ -1,0 +1,4 @@
+The Plugin is copyright (c) ÐÜ·½(xg_55).All rights reserved¡£Support E-mail: xg_55@126.com. 
+
+The Mono Class Libraries and Mono.Cecil are distributed under the MIT License,and are copyright (c) the authors. For details see http://github.com/mono/mono and https://github.com/jbevain/cecil.
+

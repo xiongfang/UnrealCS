@@ -10,7 +10,7 @@
 #include "MonoDomain.h"
 #include "MonoScriptBind_Component.h"
 
-#pragma optimize( "", off )
+
 FMonoContext::FMonoContext()
 {
 	Obj = NULL;
@@ -598,6 +598,11 @@ void FMonoContext::FetchScriptPropertyValues(UMonoScriptClass* ScriptClass, UObj
 	// @todo: optimize this
 	for (auto Property : ScriptClass->ScriptProperties)
 	{
+		if (Property->GetOffset_ForInternal() == 0)
+		{
+			UE_LOG(LogMono, Warning, TEXT("Property %s Offset == 0  Is Not Initialized"), *Property->GetName());
+			return;
+		}
 		if (UFloatProperty* FloatProperty = Cast<UFloatProperty>(Property))
 		{
 			float Value = GetFloatProperty(Property->GetName());
@@ -1152,5 +1157,3 @@ void FMonoContext::CreateFunctions(UMonoScriptClass* NewClass)
 
 
 #endif //WITH_EDITOR
-#pragma optimize( "", on )
-//#endif //WITH_MONO

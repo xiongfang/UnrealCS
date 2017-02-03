@@ -47,15 +47,15 @@ namespace Game
             else
                 LogInfo("Class " + this.GetOuter().GetName());
 
-            FTransform trans = GetOwner().GetTransform();
-            trans.Scale3D.X = 3.0f;
-            trans.Scale3D.Y = 3.0f;
-            trans.Scale3D.Z = 3.0f;
-            LogInfo("more methods:" + string.Format("Actor Name {0}, Pos {1},{2},{3}",
-                this.GetOwner().GetName(),
-                trans.Translation.X,
-                trans.Translation.Y,
-                trans.Translation.Z));
+            //FTransform trans = GetOwner().GetTransform();
+            //trans.Scale3D.X = 3.0f;
+            //trans.Scale3D.Y = 3.0f;
+            //trans.Scale3D.Z = 3.0f;
+            //LogInfo("more methods:" + string.Format("Actor Name {0}, Pos {1},{2},{3}",
+            //    this.GetOwner().GetName(),
+            //    trans.Translation.X,
+            //    trans.Translation.Y,
+            //    trans.Translation.Z));
 
             LogInfo("Tick Group " + this.PrimaryComponentTick.TickGroup);
 

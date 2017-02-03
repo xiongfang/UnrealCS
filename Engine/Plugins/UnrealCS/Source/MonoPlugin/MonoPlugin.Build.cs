@@ -13,6 +13,16 @@ namespace UnrealBuildTool.Rules
             get { return Path.GetFullPath(Path.Combine(ModuleDirectory, "..", "ThirdParty")); }
         }
 
+        void AddAllAOTFiles()
+        {
+            string aot_path = Path.GetFullPath(Path.Combine(ModuleDirectory, "..","..", "AOT"));
+            string[] aot_files = Directory.GetFiles(aot_path, "*.a");
+            PublicLibraryPaths.Add(aot_path);
+            foreach(var f in aot_files)
+            {
+                PublicAdditionalLibraries.Add(f);
+            }
+        }
 
         void LoadMono(TargetInfo Target)
         {
@@ -112,7 +122,8 @@ namespace UnrealBuildTool.Rules
                 PublicLibraryPaths.Add(MonoLibPath + "/ARMv7");
                 PublicAdditionalLibraries.Add("iconv");
                 PublicAdditionalLibraries.Add("monosgen-2.0");
-                //AddAllFrameworkFiles();
+                //所有AOT文件
+                AddAllAOTFiles();
             }
             else
             {

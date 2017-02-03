@@ -23,7 +23,7 @@ namespace UnrealEngine
 		}
 		static UObject* Get(FWeakObjectPtr* _this)
 		{
-			return _this->Get();
+            return _this->Get();
 		}
 	public:
 		static  void BindFunctions()

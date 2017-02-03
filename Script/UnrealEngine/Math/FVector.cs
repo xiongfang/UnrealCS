@@ -1,6 +1,4 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using FMath=System.Math;
+﻿using System.Runtime.CompilerServices;
 
 namespace UnrealEngine
 {

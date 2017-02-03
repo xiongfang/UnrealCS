@@ -6,8 +6,6 @@
 #include "MonoIntegration.h"
 #include "MonoScriptBind_Component.h"
 
-#pragma optimize( "", off )
-
 UMonoScriptClass::UMonoScriptClass(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
@@ -118,4 +116,3 @@ UObject* UMonoScriptClass::CreateDefaultObject()
 	}
 	return ClassDefaultObject;
 }
-#pragma optimize( "", on )

@@ -6,7 +6,7 @@
 #include "DocHelper.h"
 #include "IPluginManager.h"
 
-#pragma optimize( "", off )
+
 FMonoScriptCodeGenerator::FMonoScriptCodeGenerator(const FString& RootLocalPath, const FString& RootBuildPath, const FString& OutputDirectory, const FString& InIncludeBase)
 	: FScriptCodeGeneratorBase(RootLocalPath, RootBuildPath, OutputDirectory, InIncludeBase)
 {
@@ -587,4 +587,4 @@ bool FMonoScriptCodeGenerator::IsFunctionSupported(UClass* Class, UFunction* Fun
 	}
 	return true;
 }
-#pragma optimize( "", on )
+

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FMath=System.Math;
-
-namespace UnrealEngine
+﻿namespace UnrealEngine
 {
     public partial struct FPlane
     {

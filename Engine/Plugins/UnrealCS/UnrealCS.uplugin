@@ -18,24 +18,24 @@
 			"Name" : "MonoHelper",
 			"Type" : "Runtime",
 			"LoadingPhase" : "PreDefault",
-			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
+			"BlacklistPlatforms": [ "Linux" ]
 		},
     		{
     			"Name" : "MonoScriptGeneratorPlugin",
     			"Type" : "Program",
     			"LoadingPhase" : "PostConfigInit",
-			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
+			"BlacklistPlatforms": [ "Linux" ]
     		},
 		{
 			"Name" : "MonoPlugin",
 			"Type" : "Runtime",
 			"LoadingPhase" : "PreDefault",
-			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
+			"BlacklistPlatforms": [ "Linux" ]
 		},
 		{
 			"Name" : "MonoEditorPlugin",
 			"Type" : "Editor",
-			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
+			"BlacklistPlatforms": [ "Linux" ]
 		}
 	]
 }

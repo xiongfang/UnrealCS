@@ -1,0 +1,1 @@
+ MONOARGS="--debugger-agent=transport=dt_socket,address=127.0.0.1:58000,server=y"
