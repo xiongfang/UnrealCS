@@ -1,0 +1,33 @@
+#if WITH_EDITOR
+#if PLATFORM_64BITS
+using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+namespace UnrealEngine
+{
+	/// <summary>
+	/// SplineMeshActor is an actor with a SplineMeshComponent.
+	/// @see USplineMeshComponent
+	/// </summary>
+	public partial class ASplineMeshActor
+	{
+		static readonly int SplineMeshComponent__Offset;
+		public USplineMeshComponent SplineMeshComponent
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + SplineMeshComponent__Offset); if (v == IntPtr.Zero)return null; USplineMeshComponent retValue = new USplineMeshComponent(); retValue._this = v; return retValue; }
+			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + SplineMeshComponent__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + SplineMeshComponent__Offset, value._this.Get()); }
+			
+		}
+		
+		static ASplineMeshActor()
+		{
+			IntPtr NativeClassPtr=GetNativeClassFromName("SplineMeshActor");
+			SplineMeshComponent__Offset=GetPropertyOffset(NativeClassPtr,"SplineMeshComponent");
+			
+		}
+		
+	}
+	
+}
+#endif
+#endif

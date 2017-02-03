@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Game/AssemblyExportedClass.cs">
+    <Files>
+      <File FileName="Game/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="Game/Class1.cs" Line="1" Column="1" />
+      <File FileName="Game/AssemblyExportedClass.cs" Line="34" Column="4" />
+      <File FileName="UnrealEngine/AActor.cs" Line="1" Column="1" />
+      <File FileName="UnrealEngine/UActorComponent.cs" Line="1" Column="1" />
+      <File FileName="UnrealEngine/UObject.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

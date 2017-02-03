@@ -1,0 +1,1 @@
+"D:\Program Files\Epic Games\4.13\Engine\Build\BatchFiles\RunUAT.bat" BuildPlugin -Plugin=E:\UnrealCS\UnrealCS.uplugin -Package=E:\Package -Rocket

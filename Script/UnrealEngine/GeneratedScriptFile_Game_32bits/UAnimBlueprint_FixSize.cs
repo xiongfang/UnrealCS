@@ -1,0 +1,37 @@
+#if WITH_GAME
+#if PLATFORM_32BITS
+using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+namespace UnrealEngine
+{
+	public partial class UAnimBlueprint
+	{
+		static readonly int TargetSkeleton__Offset;
+		public USkeleton TargetSkeleton
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + TargetSkeleton__Offset); if (v == IntPtr.Zero)return null; USkeleton retValue = new USkeleton(); retValue._this = v; return retValue; }
+			
+		}
+		
+		static readonly int Groups__Offset;
+		public TStructArray<FAnimGroupInfo> Groups
+		{
+			get{ CheckIsValid();return new TStructArray<FAnimGroupInfo>((FScriptArray)Marshal.PtrToStructure(_this.Get()+Groups__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+Groups__Offset, false);}
+			
+		}
+		
+		static UAnimBlueprint()
+		{
+			IntPtr NativeClassPtr=GetNativeClassFromName("AnimBlueprint");
+			TargetSkeleton__Offset=GetPropertyOffset(NativeClassPtr,"TargetSkeleton");
+			Groups__Offset=GetPropertyOffset(NativeClassPtr,"Groups");
+			
+		}
+		
+	}
+	
+}
+#endif
+#endif

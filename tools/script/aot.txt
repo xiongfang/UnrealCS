@@ -1,0 +1,2 @@
+#../mono_target/mac/x64/bin/mono --aot=full ../mono_target/mac/x64/lib/mono/4.5/mscorlib.dll
+for i in *.dll; do echo $i; /Volumes/MAC/mono_target/mac/x64/bin/mono --aot=full $i; done

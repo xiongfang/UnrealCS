@@ -1,0 +1,86 @@
+插件版权归 作者(XF) 所有.所有权利保留。
+联系邮箱: xg_55@126.com.  
+官方论坛: www.unrealcs.com
+
+
+用户须知：您必须同意以下所有条款才能使用本软件或任何本软件未来的更新。如果您不同意以下任一条款，请不要使用本软件或其任何更新。使用本软件即表明您同意以下所有条款。
+
+第I部分 免责声明 
+
+本软件供您免费使用。
+
+您同意未就软件进行任何明示担保，以及本软件是在不做出任何形式担保的情况下按“现状”提供。作者(XF)不对软件进行任何明示或默示担保，包括但不限于适用于特定用途、适销性、可销售品质或不侵犯第三方权利的默示担保。
+前述责任排除和限制在适用法律的最大允许范围内有效，即使补救措施未能有效发挥作用。作者(XF)可不为本软件提供支持服务。
+
+
+第II部分 软件许可协议 
+1.定义。 
+“软件”是指上述名称之软件，包括与本软件相关的所有介质和文档。术语“软件”还包括不是依据单独条款提供给您的将来所有软件更新（“更新”）。
+
+2.软件许可。 
+如果您是从作者(XF)或其授权被许可人之处获得本软件，那么只要您遵守本协议的所有条款，就可以按其文档描述的方式和目的使用软件。
+
+3.限制和义务。 
+3.1不得修改。不得修改、翻译或改编本软件，或基于本软件创作同类衍生作品。 
+3.2不得用于非法用途。不得以不符合本软件设计的方式来安装或使用本软件，包括规避内容保护技术，以及在非设计用于运行和使用本软件的计算机上使用本软件。 
+3.3不得进行逆向工程。不得对有关软件的源代码进行逆向工程、反编译或试图以其他方式发现软件的源代码。
+
+4.知识产权。 
+作者(XF)拥有本软件的所有知识产权。作者(XF)保留本协议未明确授予的其他所有权利。
+
+5.更新版。 
+使用更新版即表明您自愿终止使用本软件任何以前版本之权利。作者(XF)可能会依据不同的条款将更新发送给您。本软件可能会造成计算机自动连接到因特网，检查是否有可自动下载到您的计算机的更新。
+
+6.责任限制。
+作者(XF)在任何情况下都不对任何损失、损害、索赔或费用，包括任何间接、相应而生、附带的损失或任何失去的利润或储蓄，或因业务中断、人身伤害或不履行照顾责任或第三方索赔而引致的任何损害承担任何责任，即使作者(XF)已被告知出现这种损失、损害、索赔或费用的可能性。即使在实质性或严重违反本协议或违反本协议的实质性或重要条款的情况下，本限制仍将适用。
+
+
+Copyright author(XF) , all rights reserved. Support E-mail: xg_55@126.com.  Official forum: www.unrealcs.com
+ 
+User note: you must agree to the following terms and conditions to use the software or any future updates of this software. If you do not agree to any of the following terms, please do not use this software or any of its updates. The use of this software means that you agree to the following terms and conditions.
+
+
+Part I Disclaimer
+
+
+This software is free for you to use.
+You agree not to make any express warranty on the software, and the software is provided in the absence of any form of guarantee. author(XF) no software for any express or implied warranties, including but not limited to fitness for a particular purpose, merchantability, or implied warranty of the quality of sales does not infringe the rights of third parties.
+The foregoing exclusions and limitations are valid within the maximum permitted scope of applicable law, even if remedial measures fail to function effectively. author(XF) can not provide support services for the software.
+
+
+Part II software license agreement
+
+
+1 definition.
+"Software" means the software of the above name, including all the media and documents related to the software. The term "software" also includes all future software updates that are not based on separate terms ("updates").
+
+
+2 software license.
+If you obtain this software from the author(XF) or its authorized licensee, you may use the software in accordance with the terms and purposes described in the document as long as you comply with all the terms and conditions of this agreement.
+
+
+3 restrictions and obligations.
+
+
+3.1 may not be modified. Shall not modify, translate or adapt the software, or create derivative works of the same kind.
+
+3.2 shall not be used for illegal purposes. It is not necessary to install or use the software in a manner that does not conform to the design of the software, including the avoidance of content protection techniques, and the use of this software on computers that are not designed to run and use the software.
+
+3.3 no reverse engineering. Do not reverse engineer, decompile, or attempt to discover the source code of the software in other ways.
+
+
+4 intellectual property rights.
+
+
+author(XF) owns all intellectual property rights of the software. author(XF) retains all other rights not expressly granted in this agreement.
+
+
+5 updated edition.
+
+
+The use of an updated version indicates that you are voluntarily terminating the use of any previous version of this software. author(XF) may send you updates based on different terms. This software may cause the computer to automatically connect to the Internet to check if there are any updates that can be automatically downloaded to your computer.
+6 limitation of liability.
+author(XF) in any case without any loss, damages, claims or costs, including any indirect, consequential, incidental loss or any lost profits or savings, any liability for any damage or personal injury due to interruption of business, or does not fulfill the duty of care or third party claim cause bear, even author(XF) has been informed of the loss, damage, expenses or the possibility of claims. This limitation shall apply even in the event of a material or serious breach of this agreement or of any substantial or important provision of this agreement.
+
+The Mono Class Libraries and Mono.Cecil are distributed under the MIT License,and are copyright (c) the authors. For details see http://github.com/mono/mono and https://github.com/jbevain/cecil.
+

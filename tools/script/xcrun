@@ -1,0 +1,243 @@
+#!/bin/bash
+BUILD_MAC_X64=0
+BUILD_MAC_i386=0
+BUILD_ARMv7_ANDROID=0
+BUILD_I386_IOS_SIM=0
+BUILD_ARMV7_IPHONE=0
+BUILD_ARMV7S_IPHONE=1
+BUILD_AOT_HOST_MAC_TARGET_ARMv7=0
+
+BUILD_TARGET=mono_target
+
+
+
+
+IOS_MIN_SDK=6.1
+(
+PWD=`pwd`
+PREFIX=${PWD}/${BUILD_TARGET}
+
+
+
+
+
+
+EXTRA_MAKE_FLAGS="-j4"
+
+
+
+
+if [ $BUILD_MAC_X64 -eq 1 ]
+then
+
+
+echo "##################"
+echo " x64 for MAC "
+echo "##################"
+(
+rm -rf ${PREFIX}/mac/x64
+
+make clean
+./configure --prefix="${PREFIX}/mac/x64" --enable-nls=no
+make ${EXTRA_MAKE_FLAGS}
+make ${EXTRA_MAKE_FLAGS} install
+)
+
+echo "##################"
+echo " x64 for MAC End"
+echo "##################"
+fi
+
+if [ $BUILD_MAC_i386 -eq 1 ]
+then
+
+
+echo "##################"
+echo " i386 for MAC "
+echo "##################"
+(
+rm -rf ${PREFIX}/mac/i386
+
+make clean
+./configure --prefix="${PREFIX}/mac/i386" --enable-nls=no --host=i386-apple-darwin
+make ${EXTRA_MAKE_FLAGS}
+make ${EXTRA_MAKE_FLAGS} install
+)
+
+echo "##################"
+echo " i386 for MAC End"
+echo "##################"
+fi
+
+
+if [ $BUILD_AOT_HOST_MAC_TARGET_ARMv7 -eq 1 ]
+then
+
+echo "##################"
+echo " Aot host MAC target armv7 "
+echo "##################"
+(
+rm -rf ${PREFIX}/mac/aot_host_mac_target_armv7
+
+make clean
+./configure --prefix="${PREFIX}/mac/aot_host_mac_target_armv7" --enable-small-config=yes --with-ikvm-native=no --with-sigaltstack=no --with-tls=pthread --without-mcs-docs --disable-mcs-build --enable-nls=no --enable-minimal=profiler,logging,full_messages,reflection_emit,reflection_emit_save --host=x86_64-apple-darwin --target=armv7-apple-darwin
+make ${EXTRA_MAKE_FLAGS}
+make ${EXTRA_MAKE_FLAGS} install
+make clean
+)
+
+echo "##################"
+echo " Aot host MAC target armv7 end"
+echo "##################"
+fi
+
+
+
+if [ $BUILD_ARMv7_ANDROID -eq 1 ]
+then
+
+
+echo "##################"
+echo " armv7 for android"
+echo "##################"
+(
+rm -rf ${PREFIX}/android/ARMv7
+
+
+make clean
+
+
+export NDK=/Users/user/Desktop/Mono/android-ndk-r10e
+#$NDK/build/tools/make-standalone-toolchain.sh --platform=android-19 --install-dir=/Users/user/Desktop/Mono/tmp/my-android-toolchain --arch=arm
+export PATH=/Users/user/Desktop/Mono/tmp/my-android-toolchain/bin:$PATH
+export CC="arm-linux-androideabi-gcc -DPLATFORM_ANDROID"
+export CXX=arm-linux-androideabi-g++
+export AR=arm-linux-androideabi-ar
+export AS=arm-linux-androideabi-as
+export CPP=arm-linux-androideabi-cpp
+export LD=arm-linux-androideabi-ld
+export RANLIB=arm-linux-androideabi-ranlib
+export STRIP=arm-linux-androideabi-strip
+export SYSROOT=$NDK/plarforms/android-19/arch-arm
+
+./configure --prefix="${PREFIX}/android/ARMv7" --host=armv7-linux-androideabi --enable-minimal=profiler,logging --with-tls=pthread --with-monotouch=no --without-mcs-docs --with-sigaltstack=no --disable-mcs-build --enable-nls=no
+make ${EXTRA_MAKE_FLAGS}
+make ${EXTRA_MAKE_FLAGS} install
+)
+
+echo "##################"
+echo " armv7 for android End "
+echo "##################"
+fi
+
+
+
+XCODEDIR=`xcode-select --print-path`
+
+
+
+
+IOS_SDK=$(xcodebuild -showsdks | grep iphoneos | sort | head -n 1 | awk '{print $NF}')
+SIM_SDK=$(xcodebuild -showsdks | grep iphonesimulator | sort | head -n 1 | awk '{print $NF}')
+
+
+
+
+IPHONEOS_PLATFORM=${XCODEDIR}/Platforms/iPhoneOS.platform
+IPHONEOS_SYSROOT=${IPHONEOS_PLATFORM}/Developer/SDKs/${IOS_SDK}.sdk
+
+
+
+
+IPHONESIMULATOR_PLATFORM=${XCODEDIR}/Platforms/iPhoneSimulator.platform
+IPHONESIMULATOR_SYSROOT=${IPHONESIMULATOR_PLATFORM}/Developer/SDKs/${SIM_SDK}.sdk
+
+
+
+
+CC=clang
+CFLAGS="-O2 -std=gnu99 -DHOST_IOS"
+CXX=clang
+CXXFLAGS="${CFLAGS} -stdlib=libc++"
+LDFLAGS="-stdlib=libc++"
+LIBS="-lc++ -lc++abi"
+CPP="xcrun -sdk iphoneos cpp"
+AR="xcrun -sdk iphoneos ar rcu"
+CPPFLAGS="${CFLAGS}"
+
+
+
+
+if [ $BUILD_ARMV7_IPHONE -eq 1 ]
+then
+
+
+
+
+echo "##################"
+echo " armv7 for iPhone"
+echo "##################"
+(
+rm -rf ${PREFIX}/ios/armv7
+
+make clean
+    ./configure  --enable-small-config=yes --with-ikvm-native=no --with-sigaltstack=no --with-tls=pthread --without-mcs-docs --disable-mcs-build --enable-nls=no --enable-minimal=profiler,logging,full_messages,reflection_emit,reflection_emit_save --build=x86_64-apple-darwin --host=armv7-apple-darwin --prefix="${PREFIX}/ios/armv7" CC=clang "CFLAGS=${CFLAGS} -miphoneos-version-min=${IOS_MIN_SDK} -arch armv7 -isysroot ${IPHONEOS_SYSROOT}" "CXX=${CXX}" "CXXFLAGS=${CXXFLAGS} -arch armv7 -isysroot ${IPHONEOS_SYSROOT}" LDFLAGS="-arch armv7 -miphoneos-version-min=${IOS_MIN_SDK} ${LDFLAGS}" "LIBS=${LIBS}"
+make ${EXTRA_MAKE_FLAGS}
+make ${EXTRA_MAKE_FLAGS} install
+)
+
+echo "##################"
+echo " armv7 for iPhone end"
+echo "##################"
+
+fi
+
+
+if [ $BUILD_ARMV7S_IPHONE -eq 1 ]
+then
+echo "###################"
+echo " armv7s for iPhone"
+echo "###################"
+ (
+rm -rf ${PREFIX}/ios/armv7s
+make clean
+    ./configure  --enable-small-config=yes --with-ikvm-native=no --with-sigaltstack=no --with-tls=pthread --without-mcs-docs --disable-mcs-build --enable-nls=no --enable-minimal=profiler,logging,full_messages,reflection_emit,reflection_emit_save --build=x86_64-apple-darwin --host=armv7s-apple-darwin --prefix="${PREFIX}/ios/armv7s" "CC=${CC}" "CFLAGS=${CFLAGS} -miphoneos-version-min=${IOS_MIN_SDK} -arch armv7s -isysroot ${IPHONEOS_SYSROOT}" "CXX=${CXX}" "CXXFLAGS=${CXXFLAGS} -arch armv7s -isysroot ${IPHONEOS_SYSROOT}" LDFLAGS="-arch armv7s -miphoneos-version-min=${IOS_MIN_SDK} ${LDFLAGS}" "LIBS=${LIBS}"  --disable-icall-tables
+make ${EXTRA_MAKE_FLAGS}
+make ${EXTRA_MAKE_FLAGS} install
+)
+
+echo "###################"
+echo " armv7s for iPhone end"
+echo "###################"
+fi
+
+
+
+
+if [ $BUILD_I386_IOS_SIM -eq 1 ]
+then
+echo "###########################"
+echo " i386 for iPhone Simulator"
+echo "###########################"
+ (
+rm -rf ${PREFIX}/ios/sim
+make clean
+    ./configure  --enable-small-config=yes --with-ikvm-native=no --with-sigaltstack=no --with-tls=pthread --without-mcs-docs --disable-mcs-build --enable-nls=no --enable-minimal=profiler,logging,full_messages,reflection_emit,reflection_emit_save --build=x86_64-apple-darwin --host=i386-apple-darwin --prefix="${PREFIX}/ios/sim" "CC=${CC}" "CFLAGS=${CFLAGS} -miphoneos-version-min=${IOS_MIN_SDK} -arch i386 -isysroot ${IPHONESIMULATOR_SYSROOT}" "CXX=${CXX}" "CXXFLAGS=${CXXFLAGS} -arch i386 -isysroot ${IPHONESIMULATOR_SYSROOT}" LDFLAGS="-arch i386 -miphoneos-version-min=${IOS_MIN_SDK} ${LDFLAGS}" "LIBS=${LIBS}"
+    make ${EXTRA_MAKE_FLAGS}
+make ${EXTRA_MAKE_FLAGS} install
+)
+echo "###########################"
+echo " i386 for iPhone Simulator end"
+echo "###########################"
+fi
+
+
+
+
+) 2>&1
+#) >build.log 2>&1
+
+
+
+
+echo "done"

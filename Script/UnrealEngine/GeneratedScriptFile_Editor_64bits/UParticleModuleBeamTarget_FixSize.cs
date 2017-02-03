@@ -1,0 +1,130 @@
+#if WITH_EDITOR
+#if PLATFORM_64BITS
+using System;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+namespace UnrealEngine
+{
+	public partial class UParticleModuleBeamTarget
+	{
+		static readonly int TargetMethod__Offset;
+		/// <summary>The method flag.</summary>
+		public Beam2SourceTargetMethod TargetMethod
+		{
+			get{ CheckIsValid();return (Beam2SourceTargetMethod)Marshal.PtrToStructure(_this.Get()+TargetMethod__Offset, typeof(Beam2SourceTargetMethod));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TargetMethod__Offset, false);}
+			
+		}
+		
+		static readonly int TargetName__Offset;
+		/// <summary>The target point sources of each beam, when using the end point method.</summary>
+		public FName TargetName
+		{
+			get{ CheckIsValid();return (FName)Marshal.PtrToStructure(_this.Get()+TargetName__Offset, typeof(FName));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TargetName__Offset, false);}
+			
+		}
+		
+		static readonly int Target__Offset;
+		/// <summary>Default target-point information to use if the beam method is endpoint.</summary>
+		public FRawDistributionVector Target
+		{
+			get{ CheckIsValid();return (FRawDistributionVector)Marshal.PtrToStructure(_this.Get()+Target__Offset, typeof(FRawDistributionVector));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Target__Offset, false);}
+			
+		}
+		
+		static readonly int bTargetAbsolute__Offset;
+		/// <summary>Whether to treat the as an absolute position in world space.</summary>
+		public bool bTargetAbsolute
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bTargetAbsolute__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bTargetAbsolute__Offset, 1,0,1,1);}
+			
+		}
+		
+		static readonly int bLockTarget__Offset;
+		/// <summary>Whether to lock the Target to the life of the particle.</summary>
+		public bool bLockTarget
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLockTarget__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLockTarget__Offset, 1,0,2,2);}
+			
+		}
+		
+		static readonly int TargetTangentMethod__Offset;
+		/// <summary>The method to use for the Target tangent.</summary>
+		public Beam2SourceTargetTangentMethod TargetTangentMethod
+		{
+			get{ CheckIsValid();return (Beam2SourceTargetTangentMethod)Marshal.PtrToStructure(_this.Get()+TargetTangentMethod__Offset, typeof(Beam2SourceTargetTangentMethod));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TargetTangentMethod__Offset, false);}
+			
+		}
+		
+		static readonly int TargetTangent__Offset;
+		/// <summary>The tangent for the Target point for each beam.</summary>
+		public FRawDistributionVector TargetTangent
+		{
+			get{ CheckIsValid();return (FRawDistributionVector)Marshal.PtrToStructure(_this.Get()+TargetTangent__Offset, typeof(FRawDistributionVector));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TargetTangent__Offset, false);}
+			
+		}
+		
+		static readonly int bLockTargetTangent__Offset;
+		/// <summary>Whether to lock the Target to the life of the particle.</summary>
+		public bool bLockTargetTangent
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLockTargetTangent__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLockTargetTangent__Offset, 1,0,1,1);}
+			
+		}
+		
+		static readonly int TargetStrength__Offset;
+		/// <summary>The strength of the tangent from the Target point for each beam.</summary>
+		public FRawDistributionFloat TargetStrength
+		{
+			get{ CheckIsValid();return (FRawDistributionFloat)Marshal.PtrToStructure(_this.Get()+TargetStrength__Offset, typeof(FRawDistributionFloat));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TargetStrength__Offset, false);}
+			
+		}
+		
+		static readonly int bLockTargetStength__Offset;
+		/// <summary>Whether to lock the Target to the life of the particle.</summary>
+		public bool bLockTargetStength
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLockTargetStength__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLockTargetStength__Offset, 1,0,1,1);}
+			
+		}
+		
+		static readonly int LockRadius__Offset;
+		/// <summary>Default target-point information to use if the beam method is endpoint.</summary>
+		public float LockRadius
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+LockRadius__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LockRadius__Offset, false);}
+			
+		}
+		
+		static UParticleModuleBeamTarget()
+		{
+			IntPtr NativeClassPtr=GetNativeClassFromName("ParticleModuleBeamTarget");
+			TargetMethod__Offset=GetPropertyOffset(NativeClassPtr,"TargetMethod");
+			TargetName__Offset=GetPropertyOffset(NativeClassPtr,"TargetName");
+			Target__Offset=GetPropertyOffset(NativeClassPtr,"Target");
+			bTargetAbsolute__Offset=GetPropertyOffset(NativeClassPtr,"bTargetAbsolute");
+			bLockTarget__Offset=GetPropertyOffset(NativeClassPtr,"bLockTarget");
+			TargetTangentMethod__Offset=GetPropertyOffset(NativeClassPtr,"TargetTangentMethod");
+			TargetTangent__Offset=GetPropertyOffset(NativeClassPtr,"TargetTangent");
+			bLockTargetTangent__Offset=GetPropertyOffset(NativeClassPtr,"bLockTargetTangent");
+			TargetStrength__Offset=GetPropertyOffset(NativeClassPtr,"TargetStrength");
+			bLockTargetStength__Offset=GetPropertyOffset(NativeClassPtr,"bLockTargetStength");
+			LockRadius__Offset=GetPropertyOffset(NativeClassPtr,"LockRadius");
+			
+		}
+		
+	}
+	
+}
+#endif
+#endif
