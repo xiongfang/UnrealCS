@@ -173,7 +173,7 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bActorEnableCollision
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -184,8 +184,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bReplicates
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,4,4);}
 			
 		}
 		
@@ -579,7 +579,7 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bAllowReceiveTickEventOnDedicatedServer
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowReceiveTickEventOnDedicatedServer__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowReceiveTickEventOnDedicatedServer__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -587,7 +587,7 @@ namespace UnrealEngine
 		/// <summary>Indicates the actor was pulled through a seamless travel.</summary>
 		public bool bActorSeamlessTraveled
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorSeamlessTraveled__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorSeamlessTraveled__Offset, 1, 0, 16, 16);}
 			
 		}
 		
@@ -595,8 +595,8 @@ namespace UnrealEngine
 		/// <summary>Whether this actor should not be affected by world origin shifting.</summary>
 		public bool bIgnoresOriginShifting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoresOriginShifting__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIgnoresOriginShifting__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoresOriginShifting__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIgnoresOriginShifting__Offset, 1,0,32,32);}
 			
 		}
 		
@@ -604,8 +604,8 @@ namespace UnrealEngine
 		/// <summary>If true, and if World setting has bEnableHigerarhicalLOD is true, then it will generate LODActor from groups of clustered Actor</summary>
 		public bool bEnableAutoLODGeneration
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableAutoLODGeneration__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableAutoLODGeneration__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableAutoLODGeneration__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableAutoLODGeneration__Offset, 1,0,64,64);}
 			
 		}
 		

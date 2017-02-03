@@ -349,15 +349,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int AllowTranslucentCustomDepthWrites__Offset;
-		/// <summary>Allows a translucenct material to be used with custom depth writing by compiling additional shaders.</summary>
-		public bool AllowTranslucentCustomDepthWrites
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), AllowTranslucentCustomDepthWrites__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), AllowTranslucentCustomDepthWrites__Offset, 1,0,1,1);}
-			
-		}
-		
 		static readonly int TranslucentShadowDensityScale__Offset;
 		/// <summary>Scale used to make translucent shadows more or less opaque than the material's actual opacity.</summary>
 		public float TranslucentShadowDensityScale
@@ -679,10 +670,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bUseHQForwardReflections__Offset;
-		/// <summary>
-		/// * Forward renderer: enables multiple parallax-corrected reflection captures that blend together.
-		/// * Mobile renderer: blend between nearest 3 reflection captures, but reduces the number of samplers available to the material as two more samplers will be used for reflection cubemaps.
-		/// </summary>
+		/// <summary>Enables high quality reflections in the forward renderer. Enabling this setting reduces the number of samplers available to the material as two more samplers will be used for reflection cubemaps.</summary>
 		public bool bUseHQForwardReflections
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseHQForwardReflections__Offset, 1, 0, 64, 64);}
@@ -696,15 +684,6 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUsePlanarForwardReflections__Offset, 1, 0, 128, 128);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUsePlanarForwardReflections__Offset, 1,0,128,128);}
-			
-		}
-		
-		static readonly int bNormalCurvatureToRoughness__Offset;
-		/// <summary>Reduce roughness based on screen space normal changes.</summary>
-		public bool bNormalCurvatureToRoughness
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bNormalCurvatureToRoughness__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bNormalCurvatureToRoughness__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -909,15 +888,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int BlendableOutputAlpha__Offset;
-		/// <summary>If this is enabled, the blendable will output alpha</summary>
-		public bool BlendableOutputAlpha
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), BlendableOutputAlpha__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), BlendableOutputAlpha__Offset, 1,0,1,255);}
-			
-		}
-		
 		static readonly int RefractionMode__Offset;
 		/// <summary>Controls how the Refraction input is interpreted and how the refraction offset into scene color is computed for this material.</summary>
 		public ERefractionMode RefractionMode
@@ -1011,7 +981,6 @@ namespace UnrealEngine
 			NumCustomizedUVs__Offset=GetPropertyOffset(NativeClassPtr,"NumCustomizedUVs");
 			TranslucencyLightingMode__Offset=GetPropertyOffset(NativeClassPtr,"TranslucencyLightingMode");
 			TranslucencyDirectionalLightingIntensity__Offset=GetPropertyOffset(NativeClassPtr,"TranslucencyDirectionalLightingIntensity");
-			AllowTranslucentCustomDepthWrites__Offset=GetPropertyOffset(NativeClassPtr,"AllowTranslucentCustomDepthWrites");
 			TranslucentShadowDensityScale__Offset=GetPropertyOffset(NativeClassPtr,"TranslucentShadowDensityScale");
 			TranslucentSelfShadowDensityScale__Offset=GetPropertyOffset(NativeClassPtr,"TranslucentSelfShadowDensityScale");
 			TranslucentSelfShadowSecondDensityScale__Offset=GetPropertyOffset(NativeClassPtr,"TranslucentSelfShadowSecondDensityScale");
@@ -1043,7 +1012,6 @@ namespace UnrealEngine
 			bUseLightmapDirectionality__Offset=GetPropertyOffset(NativeClassPtr,"bUseLightmapDirectionality");
 			bUseHQForwardReflections__Offset=GetPropertyOffset(NativeClassPtr,"bUseHQForwardReflections");
 			bUsePlanarForwardReflections__Offset=GetPropertyOffset(NativeClassPtr,"bUsePlanarForwardReflections");
-			bNormalCurvatureToRoughness__Offset=GetPropertyOffset(NativeClassPtr,"bNormalCurvatureToRoughness");
 			D3D11TessellationMode__Offset=GetPropertyOffset(NativeClassPtr,"D3D11TessellationMode");
 			bEnableCrackFreeDisplacement__Offset=GetPropertyOffset(NativeClassPtr,"bEnableCrackFreeDisplacement");
 			bEnableAdaptiveTessellation__Offset=GetPropertyOffset(NativeClassPtr,"bEnableAdaptiveTessellation");
@@ -1068,7 +1036,6 @@ namespace UnrealEngine
 			UsageFlagWarnings__Offset=GetPropertyOffset(NativeClassPtr,"UsageFlagWarnings");
 			BlendableLocation__Offset=GetPropertyOffset(NativeClassPtr,"BlendableLocation");
 			BlendablePriority__Offset=GetPropertyOffset(NativeClassPtr,"BlendablePriority");
-			BlendableOutputAlpha__Offset=GetPropertyOffset(NativeClassPtr,"BlendableOutputAlpha");
 			RefractionMode__Offset=GetPropertyOffset(NativeClassPtr,"RefractionMode");
 			RefractionDepthBias__Offset=GetPropertyOffset(NativeClassPtr,"RefractionDepthBias");
 			StateId__Offset=GetPropertyOffset(NativeClassPtr,"StateId");

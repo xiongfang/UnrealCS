@@ -77,6 +77,13 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bPrecomputedLightingIsValid__Offset;
+		public bool bPrecomputedLightingIsValid
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bPrecomputedLightingIsValid__Offset, 1, 0, 32, 32);}
+			
+		}
+		
 		static readonly int IndirectLightingIntensity__Offset;
 		public float IndirectLightingIntensity
 		{
@@ -97,6 +104,7 @@ namespace UnrealEngine
 			CastStaticShadows__Offset=GetPropertyOffset(NativeClassPtr,"CastStaticShadows");
 			CastDynamicShadows__Offset=GetPropertyOffset(NativeClassPtr,"CastDynamicShadows");
 			bAffectTranslucentLighting__Offset=GetPropertyOffset(NativeClassPtr,"bAffectTranslucentLighting");
+			bPrecomputedLightingIsValid__Offset=GetPropertyOffset(NativeClassPtr,"bPrecomputedLightingIsValid");
 			IndirectLightingIntensity__Offset=GetPropertyOffset(NativeClassPtr,"IndirectLightingIntensity");
 			
 		}

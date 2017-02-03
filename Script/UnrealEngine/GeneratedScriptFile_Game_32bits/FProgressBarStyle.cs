@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=352)]
+	[StructLayout(LayoutKind.Explicit,Size=368)]
 	public partial struct FProgressBarStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FSlateBrush BackgroundImage;
-		[FieldOffset(120)]
+		[FieldOffset(128)]
 		public FSlateBrush FillImage;
-		[FieldOffset(236)]
+		[FieldOffset(248)]
 		public FSlateBrush MarqueeImage;
 		
 	}

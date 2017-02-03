@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=248)]
+	[StructLayout(LayoutKind.Explicit,Size=192)]
 	public partial struct FBPVariableDescription
 	{
 		[FieldOffset(0)]
@@ -14,23 +14,21 @@ namespace UnrealEngine
 		public FGuid VarGuid;
 		[FieldOffset(24)]
 		public FEdGraphPinType VarType;
-		[FieldOffset(152)]
+		[FieldOffset(104)]
 		public FString FriendlyName;
-		[FieldOffset(168)]
+		[FieldOffset(120)]
 		public FText Category;
-		[FieldOffset(192)]
+		[FieldOffset(144)]
 		public ulong PropertyFlags;
-		[FieldOffset(200)]
+		[FieldOffset(152)]
 		public FName RepNotifyFunc;
-		[FieldOffset(208)]
-		public ELifetimeCondition ReplicationCondition;
 		public TStructArray<FBPVariableMetaDataEntry> MetaDataArray
 		{
-						get{ unsafe { fixed (void* p = &this) { return new TStructArray<FBPVariableMetaDataEntry>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+216, typeof(FScriptArray)));}}}
-						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+216, false);}}}
+						get{ unsafe { fixed (void* p = &this) { return new TStructArray<FBPVariableMetaDataEntry>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+160, typeof(FScriptArray)));}}}
+						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+160, false);}}}
 			
 		}
-		[FieldOffset(232)]
+		[FieldOffset(176)]
 		public FString DefaultValue;
 		
 	}

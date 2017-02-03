@@ -15,58 +15,54 @@ namespace UnrealEngine
 			
 		}
 		[FieldOffset(4)]
+		public int TargetLightMapUVChannel;
+		[FieldOffset(8)]
 		public int TargetLightMapResolution;
 		public bool bImportVertexColors
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 8, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 8, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 12, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 12, 1, 0, 1, 255); } }}
 			
 		}
 		public bool bPivotPointAtZero
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 9, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 9, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 13, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 13, 1, 0, 1, 255); } }}
 			
 		}
 		public bool bMergePhysicsData
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 10, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 10, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 14, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 14, 1, 0, 1, 255); } }}
 			
 		}
 		public bool bMergeMaterials
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 11, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 11, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 15, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 15, 1, 0, 1, 255); } }}
 			
 		}
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public FMaterialProxySettings MaterialSettings;
 		public bool bBakeVertexDataToMesh
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 116, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 116, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 120, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 120, 1, 0, 1, 255); } }}
 			
 		}
 		public bool bUseVertexDataForBakingMaterial
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 117, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 117, 1, 0, 1, 255); } }}
-			
-		}
-		public bool bUseTextureBinning
-		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 118, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 118, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 121, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 121, 1, 0, 1, 255); } }}
 			
 		}
 		public bool bCalculateCorrectLODModel
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 119, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 119, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 122, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 122, 1, 0, 1, 255); } }}
 			
 		}
-		[FieldOffset(120)]
+		[FieldOffset(123)]
 		public EMeshLODSelectionType LODSelectionType;
 		[FieldOffset(124)]
 		public int ExportSpecificLOD;

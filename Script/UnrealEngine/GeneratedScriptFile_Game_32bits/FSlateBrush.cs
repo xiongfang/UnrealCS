@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=116)]
+	[StructLayout(LayoutKind.Explicit,Size=120)]
 	public partial struct FSlateBrush
 	{
 		[FieldOffset(4)]
@@ -24,21 +24,21 @@ namespace UnrealEngine
 		public ESlateBrushMirrorType Mirroring;
 		[FieldOffset(78)]
 		public ESlateBrushImageType ImageType;
-		[FieldOffset(84)]
+		[FieldOffset(88)]
 		public FName ResourceName;
 		public bool bIsDynamicallyLoaded
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 92, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 92, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 96, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 96, 1, 0, 1, 255); } }}
 			
 		}
 		public bool bHasUObject
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 93, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 93, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 97, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 97, 1, 0, 1, 255); } }}
 			
 		}
-		[FieldOffset(96)]
+		[FieldOffset(100)]
 		public FBox2D UVRegion;
 		
 	}

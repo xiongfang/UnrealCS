@@ -22,13 +22,6 @@ namespace UnrealEngine
 		}
 		[FieldOffset(36)]
 		public FClothPhysicsProperties PhysicsProperties;
-		/// <summary>Apex stores only the bones that cloth needs. We need a mapping from apex bone index to UE bone index.</summary>
-		public TStructArray<int> ApexToUnrealBoneMapping
-		{
-						get{ unsafe { fixed (void* p = &this) { return new TStructArray<int>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+120, typeof(FScriptArray)));}}}
-						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+120, false);}}}
-			
-		}
 		
 	}
 	

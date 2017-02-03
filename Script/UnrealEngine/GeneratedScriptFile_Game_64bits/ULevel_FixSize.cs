@@ -29,20 +29,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int NumTextureStreamingUnbuiltComponents__Offset;
-		public int NumTextureStreamingUnbuiltComponents
-		{
-			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+NumTextureStreamingUnbuiltComponents__Offset, typeof(int));}
-			
-		}
-		
-		static readonly int NumTextureStreamingDirtyResources__Offset;
-		public int NumTextureStreamingDirtyResources
-		{
-			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+NumTextureStreamingDirtyResources__Offset, typeof(int));}
-			
-		}
-		
 		static readonly int LevelScriptActor__Offset;
 		public ALevelScriptActor LevelScriptActor
 		{
@@ -104,34 +90,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bIsLightingScenario__Offset;
-		public bool bIsLightingScenario
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsLightingScenario__Offset, 1, 0, 1, 255);}
-			
-		}
-		
-		static readonly int LevelBuildDataId__Offset;
-		public FGuid LevelBuildDataId
-		{
-			get{ CheckIsValid();return (FGuid)Marshal.PtrToStructure(_this.Get()+LevelBuildDataId__Offset, typeof(FGuid));}
-			
-		}
-		
-		static readonly int MapBuildData__Offset;
-		public UMapBuildDataRegistry MapBuildData
-		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + MapBuildData__Offset); if (v == IntPtr.Zero)return null; UMapBuildDataRegistry retValue = new UMapBuildDataRegistry(); retValue._this = v; return retValue; }
-			
-		}
-		
-		static readonly int LightBuildLevelOffset__Offset;
-		public FIntVector LightBuildLevelOffset
-		{
-			get{ CheckIsValid();return (FIntVector)Marshal.PtrToStructure(_this.Get()+LightBuildLevelOffset__Offset, typeof(FIntVector));}
-			
-		}
-		
 		static readonly int bTextureStreamingRotationChanged__Offset;
 		public bool bTextureStreamingRotationChanged
 		{
@@ -174,8 +132,6 @@ namespace UnrealEngine
 			OwningWorld__Offset=GetPropertyOffset(NativeClassPtr,"OwningWorld");
 			Model__Offset=GetPropertyOffset(NativeClassPtr,"Model");
 			ModelComponents__Offset=GetPropertyOffset(NativeClassPtr,"ModelComponents");
-			NumTextureStreamingUnbuiltComponents__Offset=GetPropertyOffset(NativeClassPtr,"NumTextureStreamingUnbuiltComponents");
-			NumTextureStreamingDirtyResources__Offset=GetPropertyOffset(NativeClassPtr,"NumTextureStreamingDirtyResources");
 			LevelScriptActor__Offset=GetPropertyOffset(NativeClassPtr,"LevelScriptActor");
 			NavListStart__Offset=GetPropertyOffset(NativeClassPtr,"NavListStart");
 			NavListEnd__Offset=GetPropertyOffset(NativeClassPtr,"NavListEnd");
@@ -184,10 +140,6 @@ namespace UnrealEngine
 			ShadowmapTotalSize__Offset=GetPropertyOffset(NativeClassPtr,"ShadowmapTotalSize");
 			StaticNavigableGeometry__Offset=GetPropertyOffset(NativeClassPtr,"StaticNavigableGeometry");
 			StreamingTextureGuids__Offset=GetPropertyOffset(NativeClassPtr,"StreamingTextureGuids");
-			bIsLightingScenario__Offset=GetPropertyOffset(NativeClassPtr,"bIsLightingScenario");
-			LevelBuildDataId__Offset=GetPropertyOffset(NativeClassPtr,"LevelBuildDataId");
-			MapBuildData__Offset=GetPropertyOffset(NativeClassPtr,"MapBuildData");
-			LightBuildLevelOffset__Offset=GetPropertyOffset(NativeClassPtr,"LightBuildLevelOffset");
 			bTextureStreamingRotationChanged__Offset=GetPropertyOffset(NativeClassPtr,"bTextureStreamingRotationChanged");
 			bIsVisible__Offset=GetPropertyOffset(NativeClassPtr,"bIsVisible");
 			Blocked__Offset=GetPropertyOffset(NativeClassPtr,"Blocked");

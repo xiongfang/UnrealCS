@@ -102,18 +102,6 @@ namespace UnrealEngine
 			_this->OnRep_IsCrouched();
 			
 		}
-		static FRotator GetBaseRotationOffsetRotator(ACharacter* _this)
-		{
-			FRotator ___ret = _this->GetBaseRotationOffsetRotator();
-			return ___ret;
-			
-		}
-		static FVector GetBaseTranslationOffset(ACharacter* _this)
-		{
-			FVector ___ret = _this->GetBaseTranslationOffset();
-			return ___ret;
-			
-		}
 		static void SetReplicateMovement(ACharacter* _this,int32 bInReplicateMovement)
 		{
 			_this->SetReplicateMovement(bInReplicateMovement>0?true:false);
@@ -146,8 +134,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.ACharacter::StopJumping",(const void*)StopJumping);
 			mono_add_internal_call("UnrealEngine.ACharacter::Jump",(const void*)Jump);
 			mono_add_internal_call("UnrealEngine.ACharacter::OnRep_IsCrouched",(const void*)OnRep_IsCrouched);
-			mono_add_internal_call("UnrealEngine.ACharacter::GetBaseRotationOffsetRotator",(const void*)GetBaseRotationOffsetRotator);
-			mono_add_internal_call("UnrealEngine.ACharacter::GetBaseTranslationOffset",(const void*)GetBaseTranslationOffset);
 			mono_add_internal_call("UnrealEngine.ACharacter::SetReplicateMovement",(const void*)SetReplicateMovement);
 			mono_add_internal_call("UnrealEngine.ACharacter::OnRep_ReplicatedBasedMovement",(const void*)OnRep_ReplicatedBasedMovement);
 			mono_add_internal_call("UnrealEngine.ACharacter::StaticClass",(const void*)StaticClass);

@@ -28,20 +28,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bF11TogglesFullscreen__Offset;
-		public bool bF11TogglesFullscreen
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bF11TogglesFullscreen__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bF11TogglesFullscreen__Offset, 1,0,2,2);}
-			
-		}
-		
 		static readonly int bUseMouseForTouch__Offset;
 		/// <summary>Allow mouse to be used for touch</summary>
 		public bool bUseMouseForTouch
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMouseForTouch__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseMouseForTouch__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMouseForTouch__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseMouseForTouch__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -49,8 +41,8 @@ namespace UnrealEngine
 		/// <summary>Mouse smoothing control</summary>
 		public bool bEnableMouseSmoothing
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableMouseSmoothing__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableMouseSmoothing__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableMouseSmoothing__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableMouseSmoothing__Offset, 1,0,4,4);}
 			
 		}
 		
@@ -58,8 +50,8 @@ namespace UnrealEngine
 		/// <summary>Scale the mouse based on the player camera manager's field of view</summary>
 		public bool bEnableFOVScaling
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableFOVScaling__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableFOVScaling__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableFOVScaling__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableFOVScaling__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -183,7 +175,6 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("InputSettings");
 			AxisConfig__Offset=GetPropertyOffset(NativeClassPtr,"AxisConfig");
 			bAltEnterTogglesFullscreen__Offset=GetPropertyOffset(NativeClassPtr,"bAltEnterTogglesFullscreen");
-			bF11TogglesFullscreen__Offset=GetPropertyOffset(NativeClassPtr,"bF11TogglesFullscreen");
 			bUseMouseForTouch__Offset=GetPropertyOffset(NativeClassPtr,"bUseMouseForTouch");
 			bEnableMouseSmoothing__Offset=GetPropertyOffset(NativeClassPtr,"bEnableMouseSmoothing");
 			bEnableFOVScaling__Offset=GetPropertyOffset(NativeClassPtr,"bEnableFOVScaling");

@@ -99,6 +99,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bPrecomputedLightingIsValid__Offset;
+		/// <summary>The precomputed lighting for that light source is valid. It might become invalid if some properties change (e.g. position, brightness).</summary>
+		public bool bPrecomputedLightingIsValid
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bPrecomputedLightingIsValid__Offset, 1, 0, 32, 32);}
+			
+		}
+		
 		static readonly int IndirectLightingIntensity__Offset;
 		/// <summary>
 		/// Scales the indirect lighting contribution from this light.
@@ -155,6 +163,7 @@ namespace UnrealEngine
 			CastStaticShadows__Offset=GetPropertyOffset(NativeClassPtr,"CastStaticShadows");
 			CastDynamicShadows__Offset=GetPropertyOffset(NativeClassPtr,"CastDynamicShadows");
 			bAffectTranslucentLighting__Offset=GetPropertyOffset(NativeClassPtr,"bAffectTranslucentLighting");
+			bPrecomputedLightingIsValid__Offset=GetPropertyOffset(NativeClassPtr,"bPrecomputedLightingIsValid");
 			IndirectLightingIntensity__Offset=GetPropertyOffset(NativeClassPtr,"IndirectLightingIntensity");
 			StaticEditorTexture__Offset=GetPropertyOffset(NativeClassPtr,"StaticEditorTexture");
 			StaticEditorTextureScale__Offset=GetPropertyOffset(NativeClassPtr,"StaticEditorTextureScale");

@@ -426,19 +426,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bStoreEmptyTileLayers__Offset;
-		/// <summary>If set, tiles generated without any navmesh data will be marked to distinguish them from not generated / streamed out ones. Defaults to false.</summary>
-		public bool bStoreEmptyTileLayers
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStoreEmptyTileLayers__Offset, 1, 0, 32, 32);}
-			
-		}
-		
 		static readonly int bUseVirtualFilters__Offset;
 		/// <summary>Indicates whether default navigation filters will use virtual functions. Defaults to true.</summary>
 		public bool bUseVirtualFilters
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVirtualFilters__Offset, 1, 0, 64, 64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVirtualFilters__Offset, 1, 0, 32, 32);}
 			
 		}
 		
@@ -446,7 +438,7 @@ namespace UnrealEngine
 		/// <summary>Cache rasterized voxels instead of just collision vertices/indices in navigation octree</summary>
 		public bool bUseVoxelCache
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVoxelCache__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVoxelCache__Offset, 1, 0, 64, 64);}
 			
 		}
 		
@@ -526,7 +518,6 @@ namespace UnrealEngine
 			bMarkLowHeightAreas__Offset=GetPropertyOffset(NativeClassPtr,"bMarkLowHeightAreas");
 			bDoFullyAsyncNavDataGathering__Offset=GetPropertyOffset(NativeClassPtr,"bDoFullyAsyncNavDataGathering");
 			bUseBetterOffsetsFromCorners__Offset=GetPropertyOffset(NativeClassPtr,"bUseBetterOffsetsFromCorners");
-			bStoreEmptyTileLayers__Offset=GetPropertyOffset(NativeClassPtr,"bStoreEmptyTileLayers");
 			bUseVirtualFilters__Offset=GetPropertyOffset(NativeClassPtr,"bUseVirtualFilters");
 			bUseVoxelCache__Offset=GetPropertyOffset(NativeClassPtr,"bUseVoxelCache");
 			TileSetUpdateInterval__Offset=GetPropertyOffset(NativeClassPtr,"TileSetUpdateInterval");

@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=16)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FRigTransformConstraint
 	{
 		[FieldOffset(0)]
 		public EConstraintTransform TranformType;
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName ParentSpace;
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public float Weight;
 		
 	}

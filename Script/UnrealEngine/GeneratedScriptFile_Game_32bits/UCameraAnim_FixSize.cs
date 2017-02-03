@@ -48,7 +48,6 @@ namespace UnrealEngine
 		public float BaseFOV
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+BaseFOV__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+BaseFOV__Offset, false);}
 			
 		}
 		

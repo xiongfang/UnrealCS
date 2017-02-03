@@ -38,7 +38,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int SpeedScale__Offset;
-		/// <summary>Allows control over the speed of the spectator pawn. This scales the speed based on the InitialMaxSpeed. Use Set Pawn Movement Speed Scale during runtime</summary>
+		/// <summary>Allows control over the speed of the spectator pawn. This scales the speed based on the InitialMaxSpeed.</summary>
 		public float SpeedScale
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SpeedScale__Offset, typeof(float));}

@@ -253,12 +253,17 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bWasJumping__Offset;
-		/// <summary>Tracks whether or not the character was already jumping last frame.</summary>
-		public bool bWasJumping
+		static readonly int bJumpMaxCountExceeded__Offset;
+		/// <summary>
+		/// Whether or not the JumpMaxCount value has been exceeded.
+		/// This is set in CheckJumpInput, used in CanJump_Implementation, and reset in OnMovementModeChanged.
+		/// When providing overrides for these methods, it's recommended to either manually
+		/// set / reset this value, or call the Super:: method.
+		/// </summary>
+		public bool bJumpMaxCountExceeded
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasJumping__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWasJumping__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bJumpMaxCountExceeded__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bJumpMaxCountExceeded__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -357,7 +362,7 @@ namespace UnrealEngine
 			JumpMaxHoldTime__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxHoldTime");
 			JumpMaxCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxCount");
 			JumpCurrentCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpCurrentCount");
-			bWasJumping__Offset=GetPropertyOffset(NativeClassPtr,"bWasJumping");
+			bJumpMaxCountExceeded__Offset=GetPropertyOffset(NativeClassPtr,"bJumpMaxCountExceeded");
 			OnReachedJumpApex__Offset=GetPropertyOffset(NativeClassPtr,"OnReachedJumpApex");
 			OnCharacterMovementUpdated__Offset=GetPropertyOffset(NativeClassPtr,"OnCharacterMovementUpdated");
 			SavedRootMotion__Offset=GetPropertyOffset(NativeClassPtr,"SavedRootMotion");

@@ -23,17 +23,8 @@ public static string AsTimespan_Timespan(FTimespan InTimespan)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static string AsTimeZoneTime_DateTime(IntPtr _this,ref FDateTime InDateTime,string InTimeZone);
-/// <summary>Converts a passed in date & time to a text, formatted as a time using the given timezone (default is the local timezone). This will convert the given date & time from UTC to the given timezone (taking into account DST).</summary>
-public static string AsTimeZoneTime_DateTime(FDateTime InDateTime,string InTimeZone)
-{
-	string ___ret = AsTimeZoneTime_DateTime(IntPtr.Zero,ref InDateTime,InTimeZone);
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static string AsTime_DateTime(IntPtr _this,ref FDateTime In);
-/// <summary>Converts a passed in date & time to a text, formatted as a time using an invariant timezone. This will use the given date & time as-is, so it's assumed to already be in the correct timezone.</summary>
+/// <summary>Converts a passed in date & time to a text, formatted as a time</summary>
 public static string AsTime_DateTime(FDateTime In)
 {
 	string ___ret = AsTime_DateTime(IntPtr.Zero,ref In);
@@ -41,17 +32,8 @@ public static string AsTime_DateTime(FDateTime In)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static string AsTimeZoneDateTime_DateTime(IntPtr _this,ref FDateTime InDateTime,string InTimeZone);
-/// <summary>Converts a passed in date & time to a text, formatted as a date & time using the given timezone (default is the local timezone). This will convert the given date & time from UTC to the given timezone (taking into account DST).</summary>
-public static string AsTimeZoneDateTime_DateTime(FDateTime InDateTime,string InTimeZone)
-{
-	string ___ret = AsTimeZoneDateTime_DateTime(IntPtr.Zero,ref InDateTime,InTimeZone);
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static string AsDateTime_DateTime(IntPtr _this,ref FDateTime In);
-/// <summary>Converts a passed in date & time to a text, formatted as a date & time using an invariant timezone. This will use the given date & time as-is, so it's assumed to already be in the correct timezone.</summary>
+/// <summary>Converts a passed in date & time to a text, formatted as a date & time</summary>
 public static string AsDateTime_DateTime(FDateTime In)
 {
 	string ___ret = AsDateTime_DateTime(IntPtr.Zero,ref In);
@@ -59,17 +41,8 @@ public static string AsDateTime_DateTime(FDateTime In)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static string AsTimeZoneDate_DateTime(IntPtr _this,ref FDateTime InDateTime,string InTimeZone);
-/// <summary>Converts a passed in date & time to a text, formatted as a date using the given timezone (default is the local timezone). This will convert the given date & time from UTC to the given timezone (taking into account DST).</summary>
-public static string AsTimeZoneDate_DateTime(FDateTime InDateTime,string InTimeZone)
-{
-	string ___ret = AsTimeZoneDate_DateTime(IntPtr.Zero,ref InDateTime,InTimeZone);
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static string AsDate_DateTime(IntPtr _this,ref FDateTime InDateTime);
-/// <summary>Converts a passed in date & time to a text, formatted as a date using an invariant timezone. This will use the given date & time as-is, so it's assumed to already be in the correct timezone.</summary>
+/// <summary>Converts a passed in date & time to a text, formatted as a date</summary>
 public static string AsDate_DateTime(FDateTime InDateTime)
 {
 	string ___ret = AsDate_DateTime(IntPtr.Zero,ref InDateTime);

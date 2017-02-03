@@ -149,56 +149,6 @@ public static int RandomIntegerFromStream(int Max,FRandomStream Stream)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ResetVectorSpringState(IntPtr _this,out FVectorSpringState SpringState);
-/// <summary>Resets the state of a given spring</summary>
-public static void ResetVectorSpringState(out FVectorSpringState SpringState)
-{
-	ResetVectorSpringState(IntPtr.Zero,out SpringState);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ResetFloatSpringState(IntPtr _this,out FFloatSpringState SpringState);
-/// <summary>Resets the state of a given spring</summary>
-public static void ResetFloatSpringState(out FFloatSpringState SpringState)
-{
-	ResetFloatSpringState(IntPtr.Zero,out SpringState);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FVector VectorSpringInterp(IntPtr _this,ref FVector Current,ref FVector Target,out FVectorSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass);
-/// <summary>
-/// Uses a simple spring model to interpolate a vector from Current to Target.
-/// @param Current                                Current value
-/// @param Target                                 Target value
-/// @param SpringState                    Data related to spring model (velocity, error, etc..) - Create a unique variable per spring
-/// @param Stiffness                              How stiff the spring model is (more stiffness means more oscillation around the target value)
-/// @param CriticalDampingFactor  How much damping to apply to the spring (0 means no damping, 1 means critically damped which means no oscillation)
-/// @param Mass                                   Multiplier that acts like mass on a spring
-/// </summary>
-public static FVector VectorSpringInterp(FVector Current,FVector Target,out FVectorSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass=1.000000f)
-{
-	FVector ___ret = VectorSpringInterp(IntPtr.Zero,ref Current,ref Target,out SpringState,Stiffness,CriticalDampingFactor,DeltaTime,Mass);
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static float FloatSpringInterp(IntPtr _this,float Current,float Target,out FFloatSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass);
-/// <summary>
-/// Uses a simple spring model to interpolate a float from Current to Target.
-/// @param Current                               Current value
-/// @param Target                                Target value
-/// @param SpringState                   Data related to spring model (velocity, error, etc..) - Create a unique variable per spring
-/// @param Stiffness                             How stiff the spring model is (more stiffness means more oscillation around the target value)
-/// @param CriticalDampingFactor How much damping to apply to the spring (0 means no damping, 1 means critically damped which means no oscillation)
-/// @param Mass                                  Multiplier that acts like mass on a spring
-/// </summary>
-public static float FloatSpringInterp(float Current,float Target,out FFloatSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass=1.000000f)
-{
-	float ___ret = FloatSpringInterp(IntPtr.Zero,Current,Target,out SpringState,Stiffness,CriticalDampingFactor,DeltaTime,Mass);
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static FLinearColor CInterpTo(IntPtr _this,ref FLinearColor Current,ref FLinearColor Target,float DeltaTime,float InterpSpeed);
 /// <summary>
 /// Interpolates towards a varying target color smoothly.
@@ -1953,11 +1903,11 @@ public static bool EqualEqual_RotatorRotator(FRotator A,FRotator B,float ErrorTo
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FVector GetDirectionUnitVector(IntPtr _this,ref FVector From,ref FVector To);
+extern static FVector GetDirectionVector(IntPtr _this,ref FVector From,ref FVector To);
 /// <summary>Find the unit direction vector from one position to another.</summary>
-public static FVector GetDirectionUnitVector(FVector From,FVector To)
+public static FVector GetDirectionVector(FVector From,FVector To)
 {
-	FVector ___ret = GetDirectionUnitVector(IntPtr.Zero,ref From,ref To);
+	FVector ___ret = GetDirectionVector(IntPtr.Zero,ref From,ref To);
 	return ___ret;
 	
 }

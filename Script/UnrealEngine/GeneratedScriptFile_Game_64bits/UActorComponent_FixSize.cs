@@ -91,11 +91,10 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bIsEditorOnly__Offset;
-		public bool bIsEditorOnly
+		static readonly int bWantsBeginPlay__Offset;
+		public bool bWantsBeginPlay
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsEditorOnly__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsEditorOnly__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWantsBeginPlay__Offset, 1, 0, 128, 128);}
 			
 		}
 		
@@ -144,7 +143,7 @@ namespace UnrealEngine
 			bIsActive__Offset=GetPropertyOffset(NativeClassPtr,"bIsActive");
 			bEditableWhenInherited__Offset=GetPropertyOffset(NativeClassPtr,"bEditableWhenInherited");
 			bCanEverAffectNavigation__Offset=GetPropertyOffset(NativeClassPtr,"bCanEverAffectNavigation");
-			bIsEditorOnly__Offset=GetPropertyOffset(NativeClassPtr,"bIsEditorOnly");
+			bWantsBeginPlay__Offset=GetPropertyOffset(NativeClassPtr,"bWantsBeginPlay");
 			CreationMethod__Offset=GetPropertyOffset(NativeClassPtr,"CreationMethod");
 			UCSModifiedProperties__Offset=GetPropertyOffset(NativeClassPtr,"UCSModifiedProperties");
 			OnComponentActivated__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentActivated");

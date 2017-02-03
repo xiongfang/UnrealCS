@@ -220,7 +220,7 @@ namespace UnrealEngine
 		}
 		static void K2_DetachFromActor(AActor* _this,int32 LocationRule,int32 RotationRule,int32 ScaleRule)
 		{
-			_this->K2_DetachFromActor((EDetachmentRule)LocationRule,(EDetachmentRule)RotationRule,(EDetachmentRule)ScaleRule);
+			_this->K2_DetachFromActor((TEnumAsByte<EDetachmentRule>)LocationRule,(TEnumAsByte<EDetachmentRule>)RotationRule,(TEnumAsByte<EDetachmentRule>)ScaleRule);
 			
 		}
 		static void DetachRootComponentFromParent(AActor* _this,int32 bMaintainWorldPosition)
@@ -231,7 +231,7 @@ namespace UnrealEngine
 		static void K2_AttachToActor(AActor* _this,AActor* ParentActor,MonoString* SocketName,int32 LocationRule,int32 RotationRule,int32 ScaleRule,int32 bWeldSimulatedBodies)
 		{
 			FName SocketName_temp=MonoStringToFName(SocketName);
-			_this->K2_AttachToActor(ParentActor,SocketName_temp,(EAttachmentRule)LocationRule,(EAttachmentRule)RotationRule,(EAttachmentRule)ScaleRule,bWeldSimulatedBodies>0?true:false);
+			_this->K2_AttachToActor(ParentActor,SocketName_temp,(TEnumAsByte<EAttachmentRule>)LocationRule,(TEnumAsByte<EAttachmentRule>)RotationRule,(TEnumAsByte<EAttachmentRule>)ScaleRule,bWeldSimulatedBodies>0?true:false);
 			
 		}
 		static void K2_AttachRootComponentToActor(AActor* _this,AActor* InParentActor,MonoString* InSocketName,int32 AttachLocationType,int32 bWeldSimulatedBodies)
@@ -243,7 +243,7 @@ namespace UnrealEngine
 		static void K2_AttachToComponent(AActor* _this,USceneComponent* Parent,MonoString* SocketName,int32 LocationRule,int32 RotationRule,int32 ScaleRule,int32 bWeldSimulatedBodies)
 		{
 			FName SocketName_temp=MonoStringToFName(SocketName);
-			_this->K2_AttachToComponent(Parent,SocketName_temp,(EAttachmentRule)LocationRule,(EAttachmentRule)RotationRule,(EAttachmentRule)ScaleRule,bWeldSimulatedBodies>0?true:false);
+			_this->K2_AttachToComponent(Parent,SocketName_temp,(TEnumAsByte<EAttachmentRule>)LocationRule,(TEnumAsByte<EAttachmentRule>)RotationRule,(TEnumAsByte<EAttachmentRule>)ScaleRule,bWeldSimulatedBodies>0?true:false);
 			
 		}
 		static void K2_AttachRootComponentTo(AActor* _this,USceneComponent* InParent,MonoString* InSocketName,int32 AttachLocationType,int32 bWeldSimulatedBodies)
@@ -520,7 +520,7 @@ namespace UnrealEngine
 		static int32 GetRemoteRole(AActor* _this)
 		{
 			TEnumAsByte<ENetRole> ___ret = _this->GetRemoteRole();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static void SetReplicateMovement(AActor* _this,int32 bInReplicateMovement)

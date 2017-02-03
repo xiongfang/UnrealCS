@@ -5,18 +5,16 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=68)]
+	[StructLayout(LayoutKind.Explicit,Size=48)]
 	public partial struct FSlateFontInfo
 	{
-		[FieldOffset(8)]
-		public FFontOutlineSettings OutlineSettings;
-		[FieldOffset(44)]
+		[FieldOffset(16)]
 		public FName TypefaceFontName;
-		[FieldOffset(52)]
+		[FieldOffset(24)]
 		public int Size;
-		[FieldOffset(56)]
+		[FieldOffset(32)]
 		public FName FontName;
-		[FieldOffset(64)]
+		[FieldOffset(40)]
 		public EFontHinting Hinting;
 		
 	}

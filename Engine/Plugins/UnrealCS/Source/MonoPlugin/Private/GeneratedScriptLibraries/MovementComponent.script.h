@@ -61,13 +61,13 @@ namespace UnrealEngine
 		}
 		static int32 GetPlaneConstraintAxisSetting(UMovementComponent* _this)
 		{
-			EPlaneConstraintAxisSetting ___ret = _this->GetPlaneConstraintAxisSetting();
-			return (int)___ret;
+			TEnumAsByte<EPlaneConstraintAxisSetting> ___ret = _this->GetPlaneConstraintAxisSetting();
+			return (int)___ret.GetValue();
 			
 		}
 		static void SetPlaneConstraintAxisSetting(UMovementComponent* _this,int32 NewAxisSetting)
 		{
-			_this->SetPlaneConstraintAxisSetting((EPlaneConstraintAxisSetting)NewAxisSetting);
+			_this->SetPlaneConstraintAxisSetting((TEnumAsByte<EPlaneConstraintAxisSetting>)NewAxisSetting);
 			
 		}
 		static int32 K2_MoveUpdatedComponent(UMovementComponent* _this,FVector* Delta,FRotator* NewRotation,FHitResult* OutHit,int32 bSweep,int32 bTeleport)

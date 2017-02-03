@@ -5,16 +5,16 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=808)]
+	[StructLayout(LayoutKind.Explicit,Size=848)]
 	public partial struct FComboButtonStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FButtonStyle ButtonStyle;
-		[FieldOffset(560)]
+		[FieldOffset(592)]
 		public FSlateBrush DownArrowImage;
-		[FieldOffset(676)]
+		[FieldOffset(712)]
 		public FSlateBrush MenuBorderBrush;
-		[FieldOffset(792)]
+		[FieldOffset(832)]
 		public FMargin MenuBorderPadding;
 		
 	}

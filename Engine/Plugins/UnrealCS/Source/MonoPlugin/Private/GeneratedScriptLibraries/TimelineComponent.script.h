@@ -4,35 +4,6 @@ namespace UnrealEngine
 {
 	class _UTimelineComponent
 	{
-		static void SetLinearColorCurve(UTimelineComponent* _this,UCurveLinearColor* NewLinearColorCurve,MonoString* LinearColorTrackName)
-		{
-			FName LinearColorTrackName_temp=MonoStringToFName(LinearColorTrackName);
-			_this->SetLinearColorCurve(NewLinearColorCurve,LinearColorTrackName_temp);
-			
-		}
-		static void SetVectorCurve(UTimelineComponent* _this,UCurveVector* NewVectorCurve,MonoString* VectorTrackName)
-		{
-			FName VectorTrackName_temp=MonoStringToFName(VectorTrackName);
-			_this->SetVectorCurve(NewVectorCurve,VectorTrackName_temp);
-			
-		}
-		static void SetFloatCurve(UTimelineComponent* _this,UCurveFloat* NewFloatCurve,MonoString* FloatTrackName)
-		{
-			FName FloatTrackName_temp=MonoStringToFName(FloatTrackName);
-			_this->SetFloatCurve(NewFloatCurve,FloatTrackName_temp);
-			
-		}
-		static int32 GetIgnoreTimeDilation(UTimelineComponent* _this)
-		{
-			bool ___ret = _this->GetIgnoreTimeDilation();
-			return ___ret?1:0;
-			
-		}
-		static void SetIgnoreTimeDilation(UTimelineComponent* _this,int32 bNewIgnoreTimeDilation)
-		{
-			_this->SetIgnoreTimeDilation(bNewIgnoreTimeDilation>0?true:false);
-			
-		}
 		static void SetTimelineLengthMode(UTimelineComponent* _this,int32 NewLengthMode)
 		{
 			_this->SetTimelineLengthMode((TEnumAsByte<ETimelineLengthMode>)NewLengthMode);
@@ -128,11 +99,6 @@ namespace UnrealEngine
 		public:
 		static void BindFunctions()
 		{
-			mono_add_internal_call("UnrealEngine.UTimelineComponent::SetLinearColorCurve",(const void*)SetLinearColorCurve);
-			mono_add_internal_call("UnrealEngine.UTimelineComponent::SetVectorCurve",(const void*)SetVectorCurve);
-			mono_add_internal_call("UnrealEngine.UTimelineComponent::SetFloatCurve",(const void*)SetFloatCurve);
-			mono_add_internal_call("UnrealEngine.UTimelineComponent::GetIgnoreTimeDilation",(const void*)GetIgnoreTimeDilation);
-			mono_add_internal_call("UnrealEngine.UTimelineComponent::SetIgnoreTimeDilation",(const void*)SetIgnoreTimeDilation);
 			mono_add_internal_call("UnrealEngine.UTimelineComponent::SetTimelineLengthMode",(const void*)SetTimelineLengthMode);
 			mono_add_internal_call("UnrealEngine.UTimelineComponent::SetTimelineLength",(const void*)SetTimelineLength);
 			mono_add_internal_call("UnrealEngine.UTimelineComponent::GetTimelineLength",(const void*)GetTimelineLength);

@@ -85,7 +85,7 @@ MonoArray* TArrayToMonoArray(const TArray<T>& TA,FString ClassName)
 	if (!Ret)
 		return NULL;
 
-	for (int32 i = 0; i < TA.Num(); ++i)
+	for (uintptr_t i = 0; i < TA.Num(); ++i)
 	{
 		mono_array_set(Ret, T, i, TA[i]);
 	}

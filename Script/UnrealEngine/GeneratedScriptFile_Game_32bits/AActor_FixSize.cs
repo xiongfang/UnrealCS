@@ -124,15 +124,15 @@ namespace UnrealEngine
 		static readonly int bActorEnableCollision__Offset;
 		public bool bActorEnableCollision
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 1, 1);}
 			
 		}
 		
 		static readonly int bReplicates__Offset;
 		public bool bReplicates
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,4,4);}
 			
 		}
 		

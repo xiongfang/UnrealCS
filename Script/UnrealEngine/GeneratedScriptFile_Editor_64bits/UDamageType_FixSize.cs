@@ -32,21 +32,21 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bRadialDamageVelChange__Offset;
-		/// <summary>When applying radial impulses, whether to treat as impulse or velocity change.</summary>
-		public bool bRadialDamageVelChange
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRadialDamageVelChange__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRadialDamageVelChange__Offset, 1,0,4,4);}
-			
-		}
-		
 		static readonly int DamageImpulse__Offset;
 		/// <summary>The magnitude of impulse to apply to the Actors damaged by this type.</summary>
 		public float DamageImpulse
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DamageImpulse__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DamageImpulse__Offset, false);}
+			
+		}
+		
+		static readonly int bRadialDamageVelChange__Offset;
+		/// <summary>When applying radial impulses, whether to treat as impulse or velocity change.</summary>
+		public bool bRadialDamageVelChange
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRadialDamageVelChange__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRadialDamageVelChange__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -82,8 +82,8 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("DamageType");
 			bCausedByWorld__Offset=GetPropertyOffset(NativeClassPtr,"bCausedByWorld");
 			bScaleMomentumByMass__Offset=GetPropertyOffset(NativeClassPtr,"bScaleMomentumByMass");
-			bRadialDamageVelChange__Offset=GetPropertyOffset(NativeClassPtr,"bRadialDamageVelChange");
 			DamageImpulse__Offset=GetPropertyOffset(NativeClassPtr,"DamageImpulse");
+			bRadialDamageVelChange__Offset=GetPropertyOffset(NativeClassPtr,"bRadialDamageVelChange");
 			DestructibleImpulse__Offset=GetPropertyOffset(NativeClassPtr,"DestructibleImpulse");
 			DestructibleDamageSpreadScale__Offset=GetPropertyOffset(NativeClassPtr,"DestructibleDamageSpreadScale");
 			DamageFalloff__Offset=GetPropertyOffset(NativeClassPtr,"DamageFalloff");

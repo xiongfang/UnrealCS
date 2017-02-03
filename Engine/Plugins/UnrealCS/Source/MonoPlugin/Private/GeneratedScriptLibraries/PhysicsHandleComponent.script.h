@@ -54,16 +54,10 @@ namespace UnrealEngine
 			_this->ReleaseComponent();
 			
 		}
-		static void GrabComponentAtLocationWithRotation(UPhysicsHandleComponent* _this,UPrimitiveComponent* Component,MonoString* InBoneName,FVector* Location,FRotator* Rotation)
+		static void GrabComponent(UPhysicsHandleComponent* _this,UPrimitiveComponent* Component,MonoString* InBoneName,FVector* GrabLocation,int32 bConstrainRotation)
 		{
 			FName InBoneName_temp=MonoStringToFName(InBoneName);
-			_this->GrabComponentAtLocationWithRotation(Component,InBoneName_temp,*Location,*Rotation);
-			
-		}
-		static void GrabComponentAtLocation(UPhysicsHandleComponent* _this,UPrimitiveComponent* Component,MonoString* InBoneName,FVector* GrabLocation)
-		{
-			FName InBoneName_temp=MonoStringToFName(InBoneName);
-			_this->GrabComponentAtLocation(Component,InBoneName_temp,*GrabLocation);
+			_this->GrabComponent(Component,InBoneName_temp,*GrabLocation,bConstrainRotation>0?true:false);
 			
 		}
 		static UClass* StaticClass(){return UPhysicsHandleComponent::StaticClass();}
@@ -80,8 +74,7 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UPhysicsHandleComponent::SetTargetRotation",(const void*)SetTargetRotation);
 			mono_add_internal_call("UnrealEngine.UPhysicsHandleComponent::SetTargetLocation",(const void*)SetTargetLocation);
 			mono_add_internal_call("UnrealEngine.UPhysicsHandleComponent::ReleaseComponent",(const void*)ReleaseComponent);
-			mono_add_internal_call("UnrealEngine.UPhysicsHandleComponent::GrabComponentAtLocationWithRotation",(const void*)GrabComponentAtLocationWithRotation);
-			mono_add_internal_call("UnrealEngine.UPhysicsHandleComponent::GrabComponentAtLocation",(const void*)GrabComponentAtLocation);
+			mono_add_internal_call("UnrealEngine.UPhysicsHandleComponent::GrabComponent",(const void*)GrabComponent);
 			mono_add_internal_call("UnrealEngine.UPhysicsHandleComponent::StaticClass",(const void*)StaticClass);
 			
 		}

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=200)]
+	[StructLayout(LayoutKind.Explicit,Size=104)]
 	public partial struct FClothingAssetData
 	{
 		[FieldOffset(0)]
@@ -20,12 +20,6 @@ namespace UnrealEngine
 		}
 		[FieldOffset(24)]
 		public FClothPhysicsProperties PhysicsProperties;
-		public TStructArray<int> ApexToUnrealBoneMapping
-		{
-						get{ unsafe { fixed (void* p = &this) { return new TStructArray<int>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+104, typeof(FScriptArray)));}}}
-						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+104, false);}}}
-			
-		}
 		
 	}
 	

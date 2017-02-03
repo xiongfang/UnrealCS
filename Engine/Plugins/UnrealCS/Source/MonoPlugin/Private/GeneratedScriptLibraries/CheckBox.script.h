@@ -6,7 +6,7 @@ namespace UnrealEngine
 	{
 		static void SetCheckedState(UCheckBox* _this,int32 InCheckedState)
 		{
-			_this->SetCheckedState((ECheckBoxState)InCheckedState);
+			_this->SetCheckedState((TEnumAsByte<ECheckBoxState>)InCheckedState);
 			
 		}
 		static void SetIsChecked(UCheckBox* _this,int32 InIsChecked)
@@ -16,8 +16,8 @@ namespace UnrealEngine
 		}
 		static int32 GetCheckedState(UCheckBox* _this)
 		{
-			ECheckBoxState ___ret = _this->GetCheckedState();
-			return (int)___ret;
+			TEnumAsByte<ECheckBoxState> ___ret = _this->GetCheckedState();
+			return (int)___ret.GetValue();
 			
 		}
 		static int32 IsChecked(UCheckBox* _this)

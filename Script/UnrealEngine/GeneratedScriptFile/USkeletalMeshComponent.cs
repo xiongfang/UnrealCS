@@ -49,20 +49,6 @@ public  void BreakConstraint(FVector Impulse,FVector HitLocation,string InBoneNa
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static string FindConstraintBoneName(IntPtr _this,int ConstraintIndex);
-/// <summary>
-/// Find Constraint Name from index
-/// @param       ConstraintIndex Index of constraint to look for
-/// @return      Constraint Joint Name
-/// </summary>
-public  string FindConstraintBoneName(int ConstraintIndex)
-{
-	CheckIsValid();
-	string ___ret = FindConstraintBoneName(_this.Get(),ConstraintIndex);
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetConstraintProfileForAll(IntPtr _this,string ProfileName,int bDefaultIfNotFound);
 /// <summary>Sets the constraint profile properties (limits, motors, etc...) to match the constraint profile as defined in the physics asset for all constraints. If profile name is not found the joint is set to use the default constraint profile.</summary>
 public  void SetConstraintProfileForAll(string ProfileName,bool bDefaultIfNotFound=false)
@@ -213,30 +199,6 @@ public  void AddForceToAllBodiesBelow(FVector Force,string BoneName="None",bool 
 {
 	CheckIsValid();
 	AddForceToAllBodiesBelow(_this.Get(),ref Force,BoneName,bAccelChange?1:0,bIncludeSelf?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FVector GetSkeletalCenterOfMass(IntPtr _this);
-/// <summary>Returns the center of mass of the skeletal mesh, instead of the root body's location</summary>
-public  FVector GetSkeletalCenterOfMass()
-{
-	CheckIsValid();
-	FVector ___ret = GetSkeletalCenterOfMass(_this.Get());
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static float GetBoneMass(IntPtr _this,string BoneName,int bScaleMass);
-/// <summary>
-/// Returns the mass (in kg) of the given bone
-/// @param BoneName         Name of the body to return. 'None' indicates root body.
-/// @param bScaleMass       If true, the mass is scaled by the bone's MassScale.
-/// </summary>
-public  float GetBoneMass(string BoneName="None",bool bScaleMass=true)
-{
-	CheckIsValid();
-	float ___ret = GetBoneMass(_this.Get(),BoneName,bScaleMass?1:0);
-	return ___ret;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -440,28 +402,7 @@ public  void SetMorphTarget(string MorphTargetName,float Value,bool bRemoveZeroW
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void OverrideAnimationData(IntPtr _this,IntPtr InAnimToPlay,int bIsLooping,int bIsPlaying,float Position,float PlayRate);
-/// <summary>
-/// This overrides current AnimationData parameter in the SkeletalMeshComponent. This will serialize when the component serialize
-/// so it can be used during construction script. However note that this will override current existing data
-/// This can be useful if you'd like to make a blueprint with custom default animation per component
-/// This sets single player mode, which means you can't use AnimBlueprint with it
-/// </summary>
-public  void OverrideAnimationData(UAnimationAsset InAnimToPlay,bool bIsLooping=true,bool bIsPlaying=true,float Position=0.000000f,float PlayRate=1.000000f)
-{
-	CheckIsValid();
-	OverrideAnimationData(_this.Get(),InAnimToPlay,bIsLooping?1:0,bIsPlaying?1:0,Position,PlayRate);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static float GetPlayRate(IntPtr _this);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  float GetPlayRate()
 {
 	CheckIsValid();
@@ -471,13 +412,6 @@ public  float GetPlayRate()
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetPlayRate(IntPtr _this,float Rate);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  void SetPlayRate(float Rate)
 {
 	CheckIsValid();
@@ -486,13 +420,6 @@ public  void SetPlayRate(float Rate)
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static float GetPosition(IntPtr _this);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  float GetPosition()
 {
 	CheckIsValid();
@@ -502,13 +429,6 @@ public  float GetPosition()
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetPosition(IntPtr _this,float InPos,int bFireNotifies);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  void SetPosition(float InPos,bool bFireNotifies=true)
 {
 	CheckIsValid();
@@ -517,13 +437,6 @@ public  void SetPosition(float InPos,bool bFireNotifies=true)
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static int IsPlaying(IntPtr _this);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  bool IsPlaying()
 {
 	CheckIsValid();
@@ -533,13 +446,6 @@ public  bool IsPlaying()
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void Stop(IntPtr _this);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  void Stop()
 {
 	CheckIsValid();
@@ -548,13 +454,6 @@ public  void Stop()
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void Play(IntPtr _this,int bLooping);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  void Play(bool bLooping)
 {
 	CheckIsValid();
@@ -563,13 +462,6 @@ public  void Play(bool bLooping)
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetAnimation(IntPtr _this,IntPtr NewAnimToPlay);
-/// <summary>
-/// Animation play functions
-///       *
-///       * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///       * Becuase of that reason, it is not safe to be used during construction script
-///       * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  void SetAnimation(UAnimationAsset NewAnimToPlay)
 {
 	CheckIsValid();
@@ -578,13 +470,6 @@ public  void SetAnimation(UAnimationAsset NewAnimToPlay)
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void PlayAnimation(IntPtr _this,IntPtr NewAnimToPlay,int bLooping);
-/// <summary>
-/// Animation play functions
-///        *
-///        * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-///        * Becuase of that reason, it is not safe to be used during construction script
-///        * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-/// </summary>
 public  void PlayAnimation(UAnimationAsset NewAnimToPlay,bool bLooping)
 {
 	CheckIsValid();
@@ -610,24 +495,10 @@ public  void SetAnimationMode(EAnimationMode InAnimationMode)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static IntPtr GetPostProcessInstance(IntPtr _this);
-/// <summary>
-/// Returns the active post process instance is one is available. This is set on the mesh that this
-/// component is using, and is evaluated immediately after the main instance.
-/// </summary>
-public  UAnimInstance GetPostProcessInstance()
-{
-	CheckIsValid();
-	IntPtr ___ret = GetPostProcessInstance(_this.Get());
-	if(___ret==IntPtr.Zero) return null; UAnimInstance ___ret2= new UAnimInstance(){ _this = ___ret }; return ___ret2;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static IntPtr GetAnimInstance(IntPtr _this);
 /// <summary>
 /// Returns the animation instance that is driving the class (if available). This is typically an instance of
 /// the class set as AnimBlueprintGeneratedClass (generated by an animation blueprint)
-/// Since this instance is transient, it is not safe to be used during construction script
 /// </summary>
 public  UAnimInstance GetAnimInstance()
 {

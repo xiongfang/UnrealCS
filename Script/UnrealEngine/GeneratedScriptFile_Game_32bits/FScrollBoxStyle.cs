@@ -5,16 +5,16 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=468)]
+	[StructLayout(LayoutKind.Explicit,Size=488)]
 	public partial struct FScrollBoxStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FSlateBrush TopShadowBrush;
-		[FieldOffset(120)]
+		[FieldOffset(128)]
 		public FSlateBrush BottomShadowBrush;
-		[FieldOffset(236)]
+		[FieldOffset(248)]
 		public FSlateBrush LeftShadowBrush;
-		[FieldOffset(352)]
+		[FieldOffset(368)]
 		public FSlateBrush RightShadowBrush;
 		
 	}

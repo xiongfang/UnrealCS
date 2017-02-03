@@ -32,29 +32,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int VirtualBoneGuid__Offset;
-		/// <summary>
-		/// Guid for virtual bones.
-		/// Separate so that we don't have to dirty the original guid when only changing virtual bones
-		/// </summary>
-		public FGuid VirtualBoneGuid
-		{
-			get{ CheckIsValid();return (FGuid)Marshal.PtrToStructure(_this.Get()+VirtualBoneGuid__Offset, typeof(FGuid));}
-			
-		}
-		
-		static readonly int VirtualBones__Offset;
-		/// <summary>
-		/// Array of this skeletons virtual bones. These are new bones are links between two existing bones
-		/// and are baked into all the skeletons animations
-		/// </summary>
-		public TStructArray<FVirtualBone> VirtualBones
-		{
-			get{ CheckIsValid();return new TStructArray<FVirtualBone>((FScriptArray)Marshal.PtrToStructure(_this.Get()+VirtualBones__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+VirtualBones__Offset, false);}
-			
-		}
-		
 		static readonly int LinkupCache__Offset;
 		/// <summary>Non-serialised cache of linkups between different skeletal meshes and this Skeleton.</summary>
 		public TStructArray<FSkeletonToMeshLinkup> LinkupCache
@@ -131,8 +108,6 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("Skeleton");
 			BoneTree__Offset=GetPropertyOffset(NativeClassPtr,"BoneTree");
 			RefLocalPoses__Offset=GetPropertyOffset(NativeClassPtr,"RefLocalPoses");
-			VirtualBoneGuid__Offset=GetPropertyOffset(NativeClassPtr,"VirtualBoneGuid");
-			VirtualBones__Offset=GetPropertyOffset(NativeClassPtr,"VirtualBones");
 			LinkupCache__Offset=GetPropertyOffset(NativeClassPtr,"LinkupCache");
 			Sockets__Offset=GetPropertyOffset(NativeClassPtr,"Sockets");
 			SmartNames__Offset=GetPropertyOffset(NativeClassPtr,"SmartNames");

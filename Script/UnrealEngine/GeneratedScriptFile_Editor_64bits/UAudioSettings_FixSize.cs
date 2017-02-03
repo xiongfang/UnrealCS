@@ -26,15 +26,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DefaultSoundSubmixName__Offset;
-		/// <summary>The SoundSubmix assigned to newly created sounds</summary>
-		public FStringAssetReference DefaultSoundSubmixName
-		{
-			get{ CheckIsValid();return (FStringAssetReference)Marshal.PtrToStructure(_this.Get()+DefaultSoundSubmixName__Offset, typeof(FStringAssetReference));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultSoundSubmixName__Offset, false);}
-			
-		}
-		
 		static readonly int DefaultBaseSoundMix__Offset;
 		/// <summary>The SoundMix to use as base when no other system has specified a Base SoundMix</summary>
 		public FStringAssetReference DefaultBaseSoundMix
@@ -109,7 +100,6 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("AudioSettings");
 			DefaultSoundClassName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultSoundClassName");
 			DefaultSoundConcurrencyName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultSoundConcurrencyName");
-			DefaultSoundSubmixName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultSoundSubmixName");
 			DefaultBaseSoundMix__Offset=GetPropertyOffset(NativeClassPtr,"DefaultBaseSoundMix");
 			VoiPSoundClass__Offset=GetPropertyOffset(NativeClassPtr,"VoiPSoundClass");
 			LowPassFilterResonance__Offset=GetPropertyOffset(NativeClassPtr,"LowPassFilterResonance");

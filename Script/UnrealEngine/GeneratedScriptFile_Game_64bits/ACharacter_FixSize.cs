@@ -197,11 +197,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bWasJumping__Offset;
-		public bool bWasJumping
+		static readonly int bJumpMaxCountExceeded__Offset;
+		public bool bJumpMaxCountExceeded
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasJumping__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWasJumping__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bJumpMaxCountExceeded__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bJumpMaxCountExceeded__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -279,7 +279,7 @@ namespace UnrealEngine
 			JumpMaxHoldTime__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxHoldTime");
 			JumpMaxCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxCount");
 			JumpCurrentCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpCurrentCount");
-			bWasJumping__Offset=GetPropertyOffset(NativeClassPtr,"bWasJumping");
+			bJumpMaxCountExceeded__Offset=GetPropertyOffset(NativeClassPtr,"bJumpMaxCountExceeded");
 			OnReachedJumpApex__Offset=GetPropertyOffset(NativeClassPtr,"OnReachedJumpApex");
 			OnCharacterMovementUpdated__Offset=GetPropertyOffset(NativeClassPtr,"OnCharacterMovementUpdated");
 			SavedRootMotion__Offset=GetPropertyOffset(NativeClassPtr,"SavedRootMotion");

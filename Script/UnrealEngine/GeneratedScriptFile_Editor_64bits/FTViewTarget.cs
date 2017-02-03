@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>A ViewTarget is the primary actor the camera is associated with.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=1328)]
+	[StructLayout(LayoutKind.Explicit,Size=1000)]
 	public partial struct FTViewTarget
 	{
 		/// <summary>Target Actor used to compute POV</summary>
 		/// <summary>Computed point of view</summary>
-		[FieldOffset(16)]
+		[FieldOffset(8)]
 		public FMinimalViewInfo POV;
 		/// <summary>PlayerState (used to follow same player through pawn transitions, etc., when spectating)</summary>
 		

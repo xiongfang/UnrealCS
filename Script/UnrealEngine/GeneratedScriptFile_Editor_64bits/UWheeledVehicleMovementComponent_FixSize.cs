@@ -8,15 +8,6 @@ namespace UnrealEngine
 	/// <summary>Component to handle the vehicle simulation for an actor.</summary>
 	public partial class UWheeledVehicleMovementComponent
 	{
-		static readonly int bDeprecatedSpringOffsetMode__Offset;
-		/// <summary>Supports the old (before 4.14) way of applying spring forces. We used to offset from the vehicle center of mass instead of the spring location center of mass. You should only use this for existing content that hasn't been re-tuned</summary>
-		public bool bDeprecatedSpringOffsetMode
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDeprecatedSpringOffsetMode__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDeprecatedSpringOffsetMode__Offset, 1,0,1,1);}
-			
-		}
-		
 		static readonly int WheelSetups__Offset;
 		/// <summary>Wheels to create</summary>
 		public TStructArray<FWheelSetup> WheelSetups
@@ -62,15 +53,6 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+ChassisHeight__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ChassisHeight__Offset, false);}
-			
-		}
-		
-		static readonly int bReverseAsBrake__Offset;
-		/// <summary>If true, the brake and reverse controls will behave in a more arcade fashion where holding reverse also functions as brake. For a more realistic approach turn this off</summary>
-		public bool bReverseAsBrake
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReverseAsBrake__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReverseAsBrake__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -323,14 +305,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int RawBrakeInput__Offset;
-		/// <summary>What the player has the brake set to. Range -1...1</summary>
-		public float RawBrakeInput
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+RawBrakeInput__Offset, typeof(float));}
-			
-		}
-		
 		static readonly int bRawHandbrakeInput__Offset;
 		/// <summary>True if the player is holding the handbrake</summary>
 		public bool bRawHandbrakeInput
@@ -461,13 +435,11 @@ namespace UnrealEngine
 		static UWheeledVehicleMovementComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("WheeledVehicleMovementComponent");
-			bDeprecatedSpringOffsetMode__Offset=GetPropertyOffset(NativeClassPtr,"bDeprecatedSpringOffsetMode");
 			WheelSetups__Offset=GetPropertyOffset(NativeClassPtr,"WheelSetups");
 			Mass__Offset=GetPropertyOffset(NativeClassPtr,"Mass");
 			DragCoefficient__Offset=GetPropertyOffset(NativeClassPtr,"DragCoefficient");
 			ChassisWidth__Offset=GetPropertyOffset(NativeClassPtr,"ChassisWidth");
 			ChassisHeight__Offset=GetPropertyOffset(NativeClassPtr,"ChassisHeight");
-			bReverseAsBrake__Offset=GetPropertyOffset(NativeClassPtr,"bReverseAsBrake");
 			DragArea__Offset=GetPropertyOffset(NativeClassPtr,"DragArea");
 			EstimatedMaxEngineSpeed__Offset=GetPropertyOffset(NativeClassPtr,"EstimatedMaxEngineSpeed");
 			MaxEngineRPM__Offset=GetPropertyOffset(NativeClassPtr,"MaxEngineRPM");
@@ -496,7 +468,6 @@ namespace UnrealEngine
 			ReplicatedState__Offset=GetPropertyOffset(NativeClassPtr,"ReplicatedState");
 			RawSteeringInput__Offset=GetPropertyOffset(NativeClassPtr,"RawSteeringInput");
 			RawThrottleInput__Offset=GetPropertyOffset(NativeClassPtr,"RawThrottleInput");
-			RawBrakeInput__Offset=GetPropertyOffset(NativeClassPtr,"RawBrakeInput");
 			bRawHandbrakeInput__Offset=GetPropertyOffset(NativeClassPtr,"bRawHandbrakeInput");
 			bRawGearUpInput__Offset=GetPropertyOffset(NativeClassPtr,"bRawGearUpInput");
 			bRawGearDownInput__Offset=GetPropertyOffset(NativeClassPtr,"bRawGearDownInput");

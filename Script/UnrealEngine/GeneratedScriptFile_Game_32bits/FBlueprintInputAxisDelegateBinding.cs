@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=20)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FBlueprintInputAxisDelegateBinding
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName InputAxisName;
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public FName FunctionNameToBind;
 		public bool bConsumeInput
 		{

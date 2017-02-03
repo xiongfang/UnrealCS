@@ -95,21 +95,12 @@ public  void ReleaseComponent()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void GrabComponentAtLocationWithRotation(IntPtr _this,IntPtr Component,string InBoneName,ref FVector Location,ref FRotator Rotation);
-/// <summary>Grab the specified component at a given location and rotation. Constrains rotation.</summary>
-public  void GrabComponentAtLocationWithRotation(UPrimitiveComponent Component,string InBoneName,FVector Location,FRotator Rotation)
+extern static void GrabComponent(IntPtr _this,IntPtr Component,string InBoneName,ref FVector GrabLocation,int bConstrainRotation);
+/// <summary>Grab the specified component</summary>
+public  void GrabComponent(UPrimitiveComponent Component,string InBoneName,FVector GrabLocation,bool bConstrainRotation)
 {
 	CheckIsValid();
-	GrabComponentAtLocationWithRotation(_this.Get(),Component,InBoneName,ref Location,ref Rotation);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void GrabComponentAtLocation(IntPtr _this,IntPtr Component,string InBoneName,ref FVector GrabLocation);
-/// <summary>Grab the specified component at a given location. Does NOT constraint rotation which means the handle will pivot about GrabLocation.</summary>
-public  void GrabComponentAtLocation(UPrimitiveComponent Component,string InBoneName,FVector GrabLocation)
-{
-	CheckIsValid();
-	GrabComponentAtLocation(_this.Get(),Component,InBoneName,ref GrabLocation);
+	GrabComponent(_this.Get(),Component,InBoneName,ref GrabLocation,bConstrainRotation?1:0);
 	
 }
 	[MethodImplAttribute(MethodImplOptions.InternalCall)]

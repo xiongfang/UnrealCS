@@ -286,7 +286,7 @@ namespace UnrealEngine
 		static int32 GetSplinePointType(USplineComponent* _this,int32 PointIndex)
 		{
 			TEnumAsByte<ESplinePointType::Type> ___ret = _this->GetSplinePointType(PointIndex);
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static void SetUpVectorAtSplinePoint(USplineComponent* _this,int32 PointIndex,FVector* InUpVector,int32 CoordinateSpace,int32 bUpdateSpline)

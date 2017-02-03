@@ -254,23 +254,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int CapsuleIndirectShadowMinVisibility__Offset;
-		/// <summary>Controls how dark the capsule indirect shadow can be.</summary>
-		public float CapsuleIndirectShadowMinVisibility
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+CapsuleIndirectShadowMinVisibility__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+CapsuleIndirectShadowMinVisibility__Offset, false);}
-			
-		}
-		
-		static readonly int bCPUSkinning__Offset;
-		/// <summary>CPU skinning rendering - only for previewing in Persona and conversion tools</summary>
-		public bool bCPUSkinning
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCPUSkinning__Offset, 1, 0, 1, 1);}
-			
-		}
-		
 		static readonly int CachedLocalBounds__Offset;
 		/// <summary>LocalBounds cached, so they're computed just once.</summary>
 		public FBoxSphereBounds CachedLocalBounds
@@ -340,8 +323,6 @@ namespace UnrealEngine
 			CustomSortAlternateIndexMode__Offset=GetPropertyOffset(NativeClassPtr,"CustomSortAlternateIndexMode");
 			bCastCapsuleDirectShadow__Offset=GetPropertyOffset(NativeClassPtr,"bCastCapsuleDirectShadow");
 			bCastCapsuleIndirectShadow__Offset=GetPropertyOffset(NativeClassPtr,"bCastCapsuleIndirectShadow");
-			CapsuleIndirectShadowMinVisibility__Offset=GetPropertyOffset(NativeClassPtr,"CapsuleIndirectShadowMinVisibility");
-			bCPUSkinning__Offset=GetPropertyOffset(NativeClassPtr,"bCPUSkinning");
 			CachedLocalBounds__Offset=GetPropertyOffset(NativeClassPtr,"CachedLocalBounds");
 			bCachedLocalBoundsUpToDate__Offset=GetPropertyOffset(NativeClassPtr,"bCachedLocalBoundsUpToDate");
 			bEnableUpdateRateOptimizations__Offset=GetPropertyOffset(NativeClassPtr,"bEnableUpdateRateOptimizations");

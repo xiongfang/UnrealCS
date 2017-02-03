@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=12)]
+	[StructLayout(LayoutKind.Explicit,Size=16)]
 	public partial struct FEventTrackKey
 	{
 		[FieldOffset(0)]
 		public float Time;
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName EventName;
 		
 	}

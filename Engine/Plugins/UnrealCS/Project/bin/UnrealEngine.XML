@@ -209,7 +209,7 @@
         <member name="M:UnrealEngine.AActor.GetComponentsByClass(UnrealEngine.TSubclassOf{UnrealEngine.UActorComponent})">
             <summary>
             Gets all the components that inherit from the given class.
-                  Currently returns an array of UActorComponent which must be cast to the correct type.
+                          Currently returns an array of UActorComponent which must be cast to the correct type.
             </summary>
         </member>
         <member name="M:UnrealEngine.AActor.GetComponentByClass(UnrealEngine.TSubclassOf{UnrealEngine.UActorComponent})">
@@ -686,7 +686,7 @@
             </summary>
         </member>
         <member name="M:UnrealEngine.AActor.OnRep_Instigator">
-            <summary>Called on clients when Instigator is replicated.</summary>
+            <summary>Called on clients when Instigatolr is replicated.</summary>
         </member>
         <member name="M:UnrealEngine.AActor.OnRep_AttachmentReplication">
             <summary>Called on client when updated AttachmentReplication value is received for this actor.</summary>
@@ -1161,12 +1161,6 @@
         <member name="M:UnrealEngine.ACharacter.OnRep_IsCrouched">
             <summary>Handle Crouching replicated from server</summary>
         </member>
-        <member name="M:UnrealEngine.ACharacter.GetBaseRotationOffsetRotator">
-            <summary>Get the saved rotation offset of mesh. This is how much extra rotation is applied from the capsule rotation.</summary>
-        </member>
-        <member name="M:UnrealEngine.ACharacter.GetBaseTranslationOffset">
-            <summary>Get the saved translation offset of mesh. This is how much extra offset is applied from the center of the capsule.</summary>
-        </member>
         <member name="M:UnrealEngine.ACharacter.SetReplicateMovement(System.Boolean)">
             <summary>Set whether this actor's movement replicates to network clients.</summary>
         </member>
@@ -1263,8 +1257,13 @@
             increment / reset this value, or call the Super:: method.
             </summary>
         </member>
-        <member name="P:UnrealEngine.ACharacter.bWasJumping">
-            <summary>Tracks whether or not the character was already jumping last frame.</summary>
+        <member name="P:UnrealEngine.ACharacter.bJumpMaxCountExceeded">
+            <summary>
+            Whether or not the JumpMaxCount value has been exceeded.
+            This is set in CheckJumpInput, used in CanJump_Implementation, and reset in OnMovementModeChanged.
+            When providing overrides for these methods, it's recommended to either manually
+            set / reset this value, or call the Super:: method.
+            </summary>
         </member>
         <member name="P:UnrealEngine.ACharacter.OnReachedJumpApex">
             <summary>Broadcast when Character's jump reaches its apex. Needs CharacterMovement->bNotifyApex = true</summary>
@@ -1440,9 +1439,6 @@
             in DefaultPawn.cpp for the camera controls.
             </summary>
         </member>
-        <member name="M:UnrealEngine.ADebugCameraController.SetPawnMovementSpeedScale(System.Single)">
-            <summary>Sets the pawn movement speed scale.</summary>
-        </member>
         <member name="M:UnrealEngine.ADebugCameraController.ToggleDisplay">
             <summary>Toggles the display of debug info and input commands for the Debug Camera.</summary>
         </member>
@@ -1459,7 +1455,7 @@
             <summary>@todo document</summary>
         </member>
         <member name="P:UnrealEngine.ADebugCameraController.SpeedScale">
-            <summary>Allows control over the speed of the spectator pawn. This scales the speed based on the InitialMaxSpeed. Use Set Pawn Movement Speed Scale during runtime</summary>
+            <summary>Allows control over the speed of the spectator pawn. This scales the speed based on the InitialMaxSpeed.</summary>
         </member>
         <member name="P:UnrealEngine.ADebugCameraController.InitialMaxSpeed">
             <summary>Initial max speed of the spectator pawn when we start possession.</summary>
@@ -1584,19 +1580,45 @@
         </member>
         <member name="T:UnrealEngine.AGameMode">
             <summary>
-            GameMode is a subclass of GameModeBase that behaves like a multiplayer match-based game.
-            It has default behavior for picking spawn points and match state.
-            If you want a simpler base, inherit from GameModeBase instead.
+            The GameMode defines the game being played. It governs the game rules, scoring, what actors
+            are allowed to exist in this game type, and who may enter the game.
+            It is only instanced on the server and will never exist on the client.
+            A GameMode actor is instantiated when the level is initialized for gameplay in
+            C++ UGameEngine::LoadMap().
+            The class of this GameMode actor is determined by (in order) either the URL ?game=xxx,
+            the GameMode Override value set in the World Settings, or the DefaultGameMode entry set
+            in the game's Project Settings.
+            @see https://docs.unrealengine.com/latest/INT/Gameplay/Framework/GameMode/index.html
+            </summary>
+        </member>
+        <member name="M:UnrealEngine.AGameMode.K2_FindPlayerStart(UnrealEngine.AController)">
+            <summary>Calls code to select the best player start for this player to start from.</summary>
+        </member>
+        <member name="M:UnrealEngine.AGameMode.ChangeName(UnrealEngine.AController,System.String,System.Boolean)">
+            <summary>
+            Sets the name for a controller
+            @param Controller    The controller of the player to change the name of
+            @param NewName               The name to set the player to
+            @param bNameChange   Whether the name is changing or if this is the first time it has been set
+            </summary>
+        </member>
+        <member name="M:UnrealEngine.AGameMode.GetNumPlayers">
+            <summary>Total number of players</summary>
+        </member>
+        <member name="M:UnrealEngine.AGameMode.ResetLevel">
+            <summary>
+            Overridable function called when resetting level.
+            Default implementation calls Reset() on all actors except GameMode and Controllers
             </summary>
         </member>
         <member name="M:UnrealEngine.AGameMode.SetBandwidthLimit(System.Single)">
             <summary>Alters the synthetic bandwidth limit for a running game.</summary>
         </member>
-        <member name="M:UnrealEngine.AGameMode.Say(System.String)">
-            <summary>Exec command to broadcast a string to all players</summary>
-        </member>
         <member name="M:UnrealEngine.AGameMode.AbortMatch">
             <summary>Report that a match has failed due to unrecoverable error</summary>
+        </member>
+        <member name="M:UnrealEngine.AGameMode.ReturnToMainMenuHost">
+            <summary>Return to main menu, and disconnect any players</summary>
         </member>
         <member name="M:UnrealEngine.AGameMode.RestartGame">
             <summary>Restart the game, by default travel to the current map</summary>
@@ -1607,11 +1629,17 @@
         <member name="M:UnrealEngine.AGameMode.StartMatch">
             <summary>Transition from WaitingToStart to InProgress. You can call this manually, will also get called if ReadyToStartMatch returns true</summary>
         </member>
+        <member name="M:UnrealEngine.AGameMode.StartPlay">
+            <summary>Transitions to WaitingToStart and calls BeginPlay on actors.</summary>
+        </member>
         <member name="M:UnrealEngine.AGameMode.HasMatchEnded">
             <summary>Returns true if the match state is WaitingPostMatch or later</summary>
         </member>
         <member name="M:UnrealEngine.AGameMode.IsMatchInProgress">
             <summary>Returns true if the match state is InProgress or other gameplay state</summary>
+        </member>
+        <member name="M:UnrealEngine.AGameMode.HasMatchStarted">
+            <summary>Returns true if the match state is InProgress or later</summary>
         </member>
         <member name="M:UnrealEngine.AGameMode.GetMatchState">
             <summary>Returns the current match state, this is an accessor to protect the state machine flow</summary>
@@ -1619,8 +1647,29 @@
         <member name="P:UnrealEngine.AGameMode.MatchState">
             <summary>What match state we are currently in</summary>
         </member>
+        <member name="P:UnrealEngine.AGameMode.bUseSeamlessTravel">
+            <summary>
+            perform map travels using SeamlessTravel() which loads in the background and doesn't disconnect clients
+            @see World::SeamlessTravel()
+            </summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.bPauseable">
+            <summary>Whether the game is pauseable.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.bStartPlayersAsSpectators">
+            <summary>Whether players should immediately spawn when logging in, or stay as spectators until they manually spawn</summary>
+        </member>
         <member name="P:UnrealEngine.AGameMode.bDelayedStart">
             <summary>Whether the game should immediately start when the first player logs in. Affects the default behavior of ReadyToStartMatch</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.OptionsString">
+            <summary>Save options string and parse it when needed</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.DefaultPawnClass">
+            <summary>The default pawn class used by players.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.HUDClass">
+            <summary>HUD class this game uses.</summary>
         </member>
         <member name="P:UnrealEngine.AGameMode.NumSpectators">
             <summary>Current number of spectators.</summary>
@@ -1634,125 +1683,47 @@
         <member name="P:UnrealEngine.AGameMode.MinRespawnDelay">
             <summary>Minimum time before player can respawn after dying.</summary>
         </member>
+        <member name="P:UnrealEngine.AGameMode.GameSession">
+            <summary>Game Session handles login approval, arbitration, online game interface</summary>
+        </member>
         <member name="P:UnrealEngine.AGameMode.NumTravellingPlayers">
             <summary>Number of players that are still traveling from a previous map</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.DefaultPlayerName">
+            <summary>The default player name assigned to players that join with no name specified.</summary>
         </member>
         <member name="P:UnrealEngine.AGameMode.EngineMessageClass">
             <summary>Contains strings describing localized game agnostic messages.</summary>
         </member>
+        <member name="P:UnrealEngine.AGameMode.PlayerControllerClass">
+            <summary>The class of PlayerController to spawn for players logging in.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.SpectatorClass">
+            <summary>The pawn class used by the PlayerController for players when spectating.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.ReplaySpectatorPlayerControllerClass">
+            <summary>The PlayerController class used when spectating a network replay.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.PlayerStateClass">
+            <summary>A PlayerState of this class will be associated with every player to replicate relevant player information to all clients.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.GameStateClass">
+            <summary>Class of GameState associated with this GameMode.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.GameState">
+            <summary>GameState is used to replicate game state relevant properties to all clients.</summary>
+        </member>
         <member name="P:UnrealEngine.AGameMode.InactivePlayerArray">
             <summary>PlayerStates of players who have disconnected from the server (saved in case they reconnect)</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameMode.GameModeClassAliases">
+            <summary>Handy alternate short names for GameMode classes (e.g. "DM" could be an alias for "MyProject.MyGameModeMP_DM".</summary>
         </member>
         <member name="P:UnrealEngine.AGameMode.InactivePlayerStateLifeSpan">
             <summary>Time a playerstate will stick around in an inactive state after a player logout</summary>
         </member>
         <member name="P:UnrealEngine.AGameMode.bHandleDedicatedServerReplays">
             <summary>If true, dedicated servers will record replays when HandleMatchHasStarted/HandleMatchHasStopped is called</summary>
-        </member>
-        <member name="T:UnrealEngine.AGameModeBase">
-            <summary>
-            The GameModeBase defines the game being played. It governs the game rules, scoring, what actors
-            are allowed to exist in this game type, and who may enter the game.
-            It is only instanced on the server and will never exist on the client.
-            A GameModeBase actor is instantiated when the level is initialized for gameplay in
-            C++ UGameEngine::LoadMap().
-            The class of this GameMode actor is determined by (in order) either the URL ?game=xxx,
-            the GameMode Override value set in the World Settings, or the DefaultGameMode entry set
-            in the game's Project Settings.
-            @see https://docs.unrealengine.com/latest/INT/Gameplay/Framework/GameMode/index.html
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.RestartPlayerAtTransform(UnrealEngine.AController,UnrealEngine.FTransform)">
-            <summary>Tries to spawn the player's pawn at a specific location</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.RestartPlayerAtPlayerStart(UnrealEngine.AController,UnrealEngine.AActor)">
-            <summary>Tries to spawn the player's pawn at the specified actor's location</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.RestartPlayer(UnrealEngine.AController)">
-            <summary>Tries to spawn the player's pawn, at the location returned by FindPlayerStart</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.K2_FindPlayerStart(UnrealEngine.AController,System.String)">
-            <summary>
-            Return the specific player start actor that should be used for the next spawn
-            This will either use a previously saved startactor, or calls ChoosePlayerStart
-            @param Player The AController for whom we are choosing a Player Start
-            @param IncomingName Specifies the tag of a Player Start to use
-            @returns Actor chosen as player start (usually a PlayerStart)
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.ChangeName(UnrealEngine.AController,System.String,System.Boolean)">
-            <summary>
-            Sets the name for a controller
-            @param Controller    The controller of the player to change the name of
-            @param NewName               The name to set the player to
-            @param bNameChange   Whether the name is changing or if this is the first time it has been set
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.ReturnToMainMenuHost">
-            <summary>Return to main menu, and disconnect any players</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.ResetLevel">
-            <summary>
-            Overridable function called when resetting level. This is used to reset the game state while staying in the same map
-            Default implementation calls Reset() on all actors except GameMode and Controllers
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.HasMatchStarted">
-            <summary>Returns true if the match start callbacks have been called</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.StartPlay">
-            <summary>Transitions to calls BeginPlay on actors.</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.GetNumSpectators">
-            <summary>Returns number of human players currently spectating</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameModeBase.GetNumPlayers">
-            <summary>Returns number of active human players, excluding spectators</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.OptionsString">
-            <summary>Save options string and parse it when needed</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.GameSessionClass">
-            <summary>Class of GameSession, which handles login approval and online game interface</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.GameStateClass">
-            <summary>Class of GameState associated with this GameMode.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.PlayerControllerClass">
-            <summary>The class of PlayerController to spawn for players logging in.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.PlayerStateClass">
-            <summary>A PlayerState of this class will be associated with every player to replicate relevant player information to all clients.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.HUDClass">
-            <summary>HUD class this game uses.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.DefaultPawnClass">
-            <summary>The default pawn class used by players.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.SpectatorClass">
-            <summary>The pawn class used by the PlayerController for players when spectating.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.ReplaySpectatorPlayerControllerClass">
-            <summary>The PlayerController class used when spectating a network replay.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.GameSession">
-            <summary>Game Session handles login approval, arbitration, online game interface</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.GameState">
-            <summary>GameState is used to replicate game state relevant properties to all clients.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.DefaultPlayerName">
-            <summary>The default player name assigned to players that join with no name specified.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.bUseSeamlessTravel">
-            <summary>Whether the game perform map travels using SeamlessTravel() which loads in the background and doesn't disconnect clients</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.bStartPlayersAsSpectators">
-            <summary>Whether players should immediately spawn when logging in, or stay as spectators until they manually spawn</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameModeBase.bPauseable">
-            <summary>Whether the game is pauseable.</summary>
         </member>
         <member name="T:UnrealEngine.AGameNetworkManager">
             <summary>Handles game-specific networking management (cheat detection, bandwidth management, etc.).</summary>
@@ -1897,16 +1868,31 @@
             <summary>SessionName local copy from PlayerState class.  should really be define in this class, but need to address replication issues</summary>
         </member>
         <member name="T:UnrealEngine.AGameState">
-            <summary>
-            GameState is a subclass of GameStateBase that behaves like a multiplayer match-based game.
-            It is tied to functionality in GameMode.
-            </summary>
+            <summary>GameState is replicated and is valid on servers and clients.</summary>
+        </member>
+        <member name="M:UnrealEngine.AGameState.GetServerWorldTimeSeconds">
+            <summary>Returns the simulated TimeSeconds on the server</summary>
         </member>
         <member name="M:UnrealEngine.AGameState.OnRep_ElapsedTime">
             <summary>Gives clients the chance to do something when time gets updates</summary>
         </member>
         <member name="M:UnrealEngine.AGameState.OnRep_MatchState">
             <summary>Match state has changed</summary>
+        </member>
+        <member name="M:UnrealEngine.AGameState.OnRep_SpectatorClass">
+            <summary>Callback when we receive the spectator class</summary>
+        </member>
+        <member name="M:UnrealEngine.AGameState.OnRep_GameModeClass">
+            <summary>GameMode class notification callback.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameState.GameModeClass">
+            <summary>Class of the server's game mode, assigned by GameMode.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameState.AuthorityGameMode">
+            <summary>Instance of the current game mode, exists only on the server. For non-authority clients, this will be NULL.</summary>
+        </member>
+        <member name="P:UnrealEngine.AGameState.SpectatorClass">
+            <summary>Class used by spectators, assigned by GameMode.</summary>
         </member>
         <member name="P:UnrealEngine.AGameState.MatchState">
             <summary>What match state we are currently in</summary>
@@ -1917,49 +1903,16 @@
         <member name="P:UnrealEngine.AGameState.ElapsedTime">
             <summary>Elapsed game time since match has started.</summary>
         </member>
-        <member name="T:UnrealEngine.AGameStateBase">
-            <summary>
-            GameStateBase is a class that manages the game's global state, and is spawned by GameModeBase.
-            It exists on both the client and the server and is fully replicated.
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.AGameStateBase.GetPlayerRespawnDelay(UnrealEngine.AController)">
-            <summary>Returns how much time needs to be spent before a player can respawn</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameStateBase.GetPlayerStartTime(UnrealEngine.AController)">
-            <summary>Returns the time that should be used as when a player started</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameStateBase.HasMatchStarted">
-            <summary>Returns true if the world has started match (called MatchStarted callbacks)</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameStateBase.HasBegunPlay">
-            <summary>Returns true if the world has started play (called BeginPlay on actors)</summary>
-        </member>
-        <member name="M:UnrealEngine.AGameStateBase.GetServerWorldTimeSeconds">
-            <summary>Returns the simulated TimeSeconds on the server, will be synchronized on client and server</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameStateBase.GameModeClass">
-            <summary>Class of the server's game mode, assigned by GameModeBase.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameStateBase.AuthorityGameMode">
-            <summary>Instance of the current game mode, exists only on the server. For non-authority clients, this will be NULL.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameStateBase.SpectatorClass">
-            <summary>Class used by spectators, assigned by GameModeBase.</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameStateBase.PlayerArray">
+        <member name="P:UnrealEngine.AGameState.PlayerArray">
             <summary>Array of all PlayerStates, maintained on both server and clients (PlayerStates are always relevant)</summary>
         </member>
-        <member name="P:UnrealEngine.AGameStateBase.bReplicatedHasBegunPlay">
-            <summary>Replicated when GameModeBase->StartPlay has been called so the client will also start play</summary>
-        </member>
-        <member name="P:UnrealEngine.AGameStateBase.ReplicatedWorldTimeSeconds">
+        <member name="P:UnrealEngine.AGameState.ReplicatedWorldTimeSeconds">
             <summary>Server TimeSeconds. Useful for syncing up animation and gameplay.</summary>
         </member>
-        <member name="P:UnrealEngine.AGameStateBase.ServerWorldTimeSecondsDelta">
+        <member name="P:UnrealEngine.AGameState.ServerWorldTimeSecondsDelta">
             <summary>The difference from the local world's TimeSeconds and the server world's TimeSeconds.</summary>
         </member>
-        <member name="P:UnrealEngine.AGameStateBase.ServerWorldTimeSecondsUpdateFrequency">
+        <member name="P:UnrealEngine.AGameState.ServerWorldTimeSecondsUpdateFrequency">
             <summary>Frequency that the server updates the replicated TimeSeconds from the world. Set to zero to disable periodic updates.</summary>
         </member>
         <member name="T:UnrealEngine.AHUD">
@@ -3495,10 +3448,7 @@
         <member name="M:UnrealEngine.APlayerController.StartFire(System.Byte)">
             <summary>Fire the player's currently selected weapon with the optional firemode.</summary>
         </member>
-        <member name="M:UnrealEngine.APlayerController.SetMouseLocation(System.Int32,System.Int32)">
-            <summary>Positions the mouse cursor in screen space, in pixels.</summary>
-        </member>
-        <member name="M:UnrealEngine.APlayerController.ProjectWorldLocationToScreen(UnrealEngine.FVector,UnrealEngine.FVector2D@,System.Boolean)">
+        <member name="M:UnrealEngine.APlayerController.ProjectWorldLocationToScreen(UnrealEngine.FVector,UnrealEngine.FVector2D@)">
             <summary>
             Convert a World Space 3D position into a 2D Screen Space position.
             @return true if the world coordinate was successfully projected to the screen.
@@ -3593,7 +3543,7 @@
             <summary>Object that manages "cheat" commands.  Not instantiated in shipping builds.</summary>
         </member>
         <member name="P:UnrealEngine.APlayerController.CheatClass">
-            <summary>Class of my CheatManager.  The Cheat Manager is not created in shipping builds</summary>
+            <summary>class of my CheatManager.</summary>
         </member>
         <member name="P:UnrealEngine.APlayerController.PlayerInput">
             <summary>Object that manages player input.</summary>
@@ -3613,7 +3563,7 @@
             this is set on the OLD PlayerController when performing a swap over a network connection
             so we know what connection we're waiting on acknowledgment from to finish destroying this PC
             (or when the connection is closed)
-            @see GameModeBase::SwapPlayerControllers()
+            @see GameMode::SwapPlayerControllers()
             </summary>
         </member>
         <member name="P:UnrealEngine.APlayerController.NetConnection">
@@ -3668,7 +3618,7 @@
             <summary>Counter for this players seamless travels (used along with the below value, to restrict ServerNotifyLoadedWorld)</summary>
         </member>
         <member name="P:UnrealEngine.APlayerController.LastCompletedSeamlessTravelCount">
-            <summary>The value of SeamlessTravelCount, upon the last call to GameModeBase::HandleSeamlessTravelPlayer; used to detect seamless travel</summary>
+            <summary>The value of SeamlessTravelCount, upon the last call to GameMode::HandleSeamlessTravelPlayer; used to detect seamless travel</summary>
         </member>
         <member name="T:UnrealEngine.APlayerStart">
             <summary>
@@ -3879,9 +3829,6 @@
         <member name="P:UnrealEngine.ARecastNavMesh.bUseBetterOffsetsFromCorners">
             <summary>TODO: switch to disable new code from OffsetFromCorners if necessary - remove it later</summary>
         </member>
-        <member name="P:UnrealEngine.ARecastNavMesh.bStoreEmptyTileLayers">
-            <summary>If set, tiles generated without any navmesh data will be marked to distinguish them from not generated / streamed out ones. Defaults to false.</summary>
-        </member>
         <member name="P:UnrealEngine.ARecastNavMesh.bUseVirtualFilters">
             <summary>Indicates whether default navigation filters will use virtual functions. Defaults to true.</summary>
         </member>
@@ -3982,19 +3929,10 @@
         <member name="P:UnrealEngine.AWorldSettings.bEnableNavigationSystem">
             <summary>if set to false navigation system will not get created (and all navigation functionality won't be accessible)</summary>
         </member>
-        <member name="P:UnrealEngine.AWorldSettings.bEnableAISystem">
-            <summary>if set to false AI system will not get created. Use it to disable all AI-related activity on a map</summary>
-        </member>
         <member name="P:UnrealEngine.AWorldSettings.bEnableWorldComposition">
             <summary>
             Enables tools for composing a tiled world.
             Level has to be saved and all sub-levels removed before enabling this option.
-            </summary>
-        </member>
-        <member name="P:UnrealEngine.AWorldSettings.bUseClientSideLevelStreamingVolumes">
-            <summary>
-            Enables client-side streaming volumes instead of server-side.
-            Expected usage scenario: server has all streaming levels always loaded, clients independently stream levels in/out based on streaming volumes.
             </summary>
         </member>
         <member name="P:UnrealEngine.AWorldSettings.bEnableWorldOriginRebasing">
@@ -4026,6 +3964,9 @@
         </member>
         <member name="P:UnrealEngine.AWorldSettings.DefaultGameMode">
             <summary>The default GameMode to use when starting this map in the game. If this value is NULL, the INI setting for default game type is used.</summary>
+        </member>
+        <member name="P:UnrealEngine.AWorldSettings.DefaultMapPrefixes">
+            <summary>Used for loading appropriate game type if non-specified in URL</summary>
         </member>
         <member name="P:UnrealEngine.AWorldSettings.GameNetworkManagerClass">
             <summary>Class of GameNetworkManager to spawn for network games</summary>
@@ -4076,6 +4017,9 @@
             This is useful for improving iteration in levels with fully dynamic lighting and shadowing.
             Note that any lighting and shadowing interactions that are usually precomputed will be lost if this is enabled.
             </summary>
+        </member>
+        <member name="P:UnrealEngine.AWorldSettings.LevelLightingQuality">
+            <summary>The lighting quality the level was last built with</summary>
         </member>
         <member name="P:UnrealEngine.AWorldSettings.DefaultReverbSettings">
             <summary>Default reverb settings used by audio volumes.</summary>
@@ -4290,10 +4234,10 @@
             <summary>Element moves with its segment and will stay at a certain proportion through the segment.</summary>
         </member>
         <member name="T:UnrealEngine.EAntiAliasingMethod">
-            <summary>Used by rendering project settings.</summary>
+            <summary>Used by FPostProcessSettings Anti-aliasings</summary>
         </member>
-        <member name="F:UnrealEngine.EAntiAliasingMethod.AAM_MSAA">
-            <summary>Only supported with forward shading.  MSAA sample count is controlled by r.MSAACount.</summary>
+        <member name="T:UnrealEngine.EAntiAliasingMethodUI">
+            <summary>used by FPostProcessSettings Anti-aliasing</summary>
         </member>
         <member name="F:UnrealEngine.EAttachLocation.KeepRelativeOffset">
             <summary>Keeps current relative transform as the relative transform to the new parent.</summary>
@@ -4572,13 +4516,43 @@
             <summary>Draws a quad to perform the clear at the far plane, this is faster than a hardware clear on some GPUs.</summary>
         </member>
         <member name="T:UnrealEngine.ECollisionChannel">
-            <summary>Enum indicating different type of objects for rigid-body collision purposes.</summary>
+            <summary>
+            Enum indicating different type of objects for rigid-body collision purposes.
+            NOTE!! Some of these values are used to index into FCollisionResponseContainers and must be kept in sync.
+            @see FCollisionResponseContainer::SetResponse().
+            </summary>
+        </member>
+        <member name="F:UnrealEngine.ECollisionChannel.ECC_WorldStatic">
+            <summary>
+            @NOTE!!!! This DisplayName [DISPLAYNAME] SHOULD MATCH suffix of ECC_DISPLAYNAME
+            Otherwise it will mess up collision profile loading
+            If you change this, please also change FCollisionResponseContainers
+            If you add any more TraceQuery="1", you also should change UCollsionProfile::LoadProfileConfig
+            Metadata doesn't work outside of editor, so you'll need to add manually
+            </summary>
         </member>
         <member name="F:UnrealEngine.ECollisionChannel.ECC_EngineTraceChannel1">
-            <summary>Reserved for gizmo collision</summary>
+            <summary>Unspecified Engine Trace Channels</summary>
+        </member>
+        <member name="F:UnrealEngine.ECollisionChannel.ECC_EngineTraceChannel2">
+            <summary>IMPORTANT: This engine trace channel is reserved by the COLLISION_GIZMO definition</summary>
+        </member>
+        <member name="F:UnrealEngine.ECollisionChannel.ECC_GameTraceChannel1">
+            <summary>
+            in order to use this custom channels
+            we recommend to define in your local file
+            - i.e. #define COLLISION_WEAPON               ECC_GameTraceChannel1
+            and make sure you customize these it in INI file by
+            in DefaultEngine.ini
+            [/Script/Engine.CollisionProfile]
+            GameTraceChannel1="Weapon"
+            also in the INI file, you can override collision profiles that are defined by simply redefining
+            note that Weapon isn't defined in the BaseEngine.ini file, but "Trigger" is defined in Engine
+            +Profiles=(Name="Trigger",CollisionEnabled=QueryOnly,ObjectTypeName=WorldDynamic, DefaultResponse=ECR_Overlap, CustomResponses=((Channel=Visibility, Response=ECR_Ignore), (Channel=Weapon, Response=ECR_Ignore)))
+            </summary>
         </member>
         <member name="F:UnrealEngine.ECollisionChannel.ECC_OverlapAll_Deprecated">
-            <summary>Add only nonserialized/transient flags below // NOTE!!!! THESE ARE BEING DEPRECATED BUT STILL THERE FOR BLUEPRINT. PLEASE DO NOT USE THEM IN CODE</summary>
+            <summary>can't add displaynames because then it will show up in the collision channel option</summary>
         </member>
         <member name="T:UnrealEngine.ECollisionEnabled">
             <summary>Enum used to describe what type of collision is enabled on a body.</summary>
@@ -4807,10 +4781,10 @@
             <summary>Sinusoidal in/out interpolation.</summary>
         </member>
         <member name="F:UnrealEngine.EEasingFunc.EaseIn">
-            <summary>Smoothly accelerates, but does not decelerate into the target.  Ease amount controlled by BlendExp.</summary>
+            <summary>Immediately accelerates, but smoothly decelerates into the target.  Ease amount controlled by BlendExp.</summary>
         </member>
         <member name="F:UnrealEngine.EEasingFunc.EaseOut">
-            <summary>Immediately accelerates, but smoothly decelerates into the target.  Ease amount controlled by BlendExp.</summary>
+            <summary>Smoothly accelerates, but does not decelerate into the target.  Ease amount controlled by BlendExp.</summary>
         </member>
         <member name="F:UnrealEngine.EEasingFunc.EaseInOut">
             <summary>Smoothly accelerates and decelerates.  Ease amount controlled by BlendExp.</summary>
@@ -5079,48 +5053,6 @@
         </member>
         <member name="F:UnrealEngine.ELevelVisibility.Hidden">
             <summary>The streamed levels should be hidden.</summary>
-        </member>
-        <member name="T:UnrealEngine.ELifetimeCondition">
-            <summary>Secondary condition to check before considering the replication of a lifetime property.</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_InitialOnly">
-            <summary>This property has no condition, and will send anytime it changes</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_OwnerOnly">
-            <summary>This property will only attempt to send on the initial bunch</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_SkipOwner">
-            <summary>This property will only send to the actor's owner</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_SimulatedOnly">
-            <summary>This property send to every connection EXCEPT the owner</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_AutonomousOnly">
-            <summary>This property will only send to simulated actors</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_SimulatedOrPhysics">
-            <summary>This property will only send to autonomous actors</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_InitialOrOwner">
-            <summary>This property will send to simulated OR bRepPhysics actors</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_Custom">
-            <summary>This property will send on the initial packet, or to the actors owner</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_ReplayOrOwner">
-            <summary>This property has no particular condition, but wants the ability to toggle on/off via SetCustomIsActiveOverride</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_ReplayOnly">
-            <summary>This property will only send to the replay connection, or to the actors owner</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_SimulatedOnlyNoReplay">
-            <summary>This property will only send to the replay connection</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_SimulatedOrPhysicsNoReplay">
-            <summary>This property will send to actors only, but not to replay connections</summary>
-        </member>
-        <member name="F:UnrealEngine.ELifetimeCondition.COND_Max">
-            <summary>This property will send to simulated Or bRepPhysics actors, but not to replay connections</summary>
         </member>
         <member name="T:UnrealEngine.ELightingBuildQuality">
             <summary>Lighting build quality enumeration</summary>
@@ -6336,18 +6268,6 @@
         <member name="T:UnrealEngine.ESplinePointType">
             <summary>Permitted spline point types for SplineComponent.</summary>
         </member>
-        <member name="T:UnrealEngine.EStereoLayerShape">
-            <summary>The shape to use for the stereo layer.  Note that some shapes might not be supported on all platforms!</summary>
-        </member>
-        <member name="F:UnrealEngine.EStereoLayerShape.SLSH_QuadLayer">
-            <summary>Quad layer</summary>
-        </member>
-        <member name="F:UnrealEngine.EStereoLayerShape.SLSH_CylinderLayer">
-            <summary>Cylinder layer</summary>
-        </member>
-        <member name="F:UnrealEngine.EStereoLayerShape.SLSH_CubemapLayer">
-            <summary>Cubemap layer</summary>
-        </member>
         <member name="T:UnrealEngine.EStereoLayerType">
             <summary>Used by IStereoLayer</summary>
         </member>
@@ -7168,8 +7088,8 @@
         <member name="P:UnrealEngine.UActorComponent.bCanEverAffectNavigation">
             <summary>Whether this component can potentially influence navigation</summary>
         </member>
-        <member name="P:UnrealEngine.UActorComponent.bIsEditorOnly">
-            <summary>If true, the component will be excluded from non-editor builds</summary>
+        <member name="P:UnrealEngine.UActorComponent.bWantsBeginPlay">
+            <summary>If true, we call the virtual BeginPlay</summary>
         </member>
         <member name="P:UnrealEngine.UAnimationAsset.Skeleton">
             <summary>Pointer to the Skeleton this asset can be played on .</summary>
@@ -7179,18 +7099,6 @@
             Meta data that can be saved with the asset
             You can query by GetMetaData function
             </summary>
-        </member>
-        <member name="P:UnrealEngine.UAnimationAsset.ParentAsset">
-            <summary>
-            Parent Asset, if set, you won't be able to edit any data in here but just mapping table
-            During cooking, this data will be used to bake out to normal asset
-            </summary>
-        </member>
-        <member name="P:UnrealEngine.UAnimationAsset.ChildrenAssets">
-            <summary>note this is transient as they're added as they're loaded</summary>
-        </member>
-        <member name="P:UnrealEngine.UAnimationAsset.AssetMappingTable">
-            <summary>Asset mapping table when ParentAsset is set</summary>
         </member>
         <member name="P:UnrealEngine.UAnimationAsset.AssetUserData">
             <summary>Array of user data stored with the asset</summary>
@@ -7239,9 +7147,6 @@
         </member>
         <member name="P:UnrealEngine.UAnimationSettings.bTryIntervalKeyRemoval">
             <summary>If true, the resampling techniques will be tried</summary>
-        </member>
-        <member name="P:UnrealEngine.UAnimationSettings.bStripAnimationDataOnDedicatedServer">
-            <summary>If true, animation track data will be stripped from dedicated server cooked data</summary>
         </member>
         <member name="T:UnrealEngine.UAnimBlueprint">
             <summary>
@@ -7530,7 +7435,7 @@
         <member name="M:UnrealEngine.UAnimInstance.Montage_Stop(System.Single,UnrealEngine.UAnimMontage)">
             <summary>Stops the animation montage. If reference is NULL, it will stop ALL active montages.</summary>
         </member>
-        <member name="M:UnrealEngine.UAnimInstance.Montage_Play(UnrealEngine.UAnimMontage,System.Single,UnrealEngine.EMontagePlayReturnType,System.Single)">
+        <member name="M:UnrealEngine.UAnimInstance.Montage_Play(UnrealEngine.UAnimMontage,System.Single,UnrealEngine.EMontagePlayReturnType)">
             <summary>Plays an animation montage. Returns the length of the animation montage in seconds. Returns 0.f if failed to play.</summary>
         </member>
         <member name="M:UnrealEngine.UAnimInstance.IsPlayingSlotAnimation(UnrealEngine.UAnimSequenceBase,System.String)">
@@ -7539,7 +7444,7 @@
         <member name="M:UnrealEngine.UAnimInstance.StopSlotAnimation(System.Single,System.String)">
             <summary>Stops currently playing slot animation slot or all</summary>
         </member>
-        <member name="M:UnrealEngine.UAnimInstance.PlaySlotAnimationAsDynamicMontage(UnrealEngine.UAnimSequenceBase,System.String,System.Single,System.Single,System.Single,System.Int32,System.Single,System.Single)">
+        <member name="M:UnrealEngine.UAnimInstance.PlaySlotAnimationAsDynamicMontage(UnrealEngine.UAnimSequenceBase,System.String,System.Single,System.Single,System.Single,System.Int32,System.Single)">
             <summary>Play normal animation asset on the slot node by creating a dynamic UAnimMontage. You can only play one asset (whether montage or animsequence) at a time per SlotGroup.</summary>
         </member>
         <member name="M:UnrealEngine.UAnimInstance.GetOwningComponent">
@@ -7602,17 +7507,6 @@
             Currently Active AnimNotifyState, stored as a copy of the event as we need to
                           call NotifyEnd on the event after a deletion in the editor. After this the event
                           is removed correctly.
-            </summary>
-        </member>
-        <member name="T:UnrealEngine.UAnimMontage">
-            <summary>
-            * Any property you're adding to AnimMontage and parent class has to be considered for Child Asset
-            *
-            * Child Asset is considered to be only asset mapping feature using everything else in the class
-            * For example, you can just use all parent's setting  for the montage, but only remap assets
-            * This isn't magic bullet unfortunately and it is consistent effort of keeping the data synced with parent
-            * If you add new property, please make sure those property has to be copied for children.
-            * If it does, please add the copy in the function RefreshParentAssetData
             </summary>
         </member>
         <member name="P:UnrealEngine.UAnimMontage.BlendIn">
@@ -7970,16 +7864,6 @@
         <member name="P:UnrealEngine.UAssetImportData.SourceData">
             <summary>Source file data describing the files that were used to import this asset.</summary>
         </member>
-        <member name="T:UnrealEngine.UAssetMappingTable">
-            <summary>
-            UAssetMappingTable : that has AssetMappingTableging data
-                    - used for retargeting
-                    - support to share different animations
-            </summary>
-        </member>
-        <member name="P:UnrealEngine.UAssetMappingTable.MappedAssets">
-            <summary>Mappin of asset between source and target *</summary>
-        </member>
         <member name="T:UnrealEngine.UAtmosphericFogComponent">
             <summary>Used to create fogging effects such as clouds.</summary>
         </member>
@@ -8101,9 +7985,6 @@
         <member name="M:UnrealEngine.UAudioComponent.IsPlaying">
             <summary>@return true if this component is currently playing a SoundCue.</summary>
         </member>
-        <member name="M:UnrealEngine.UAudioComponent.SetPaused(System.Boolean)">
-            <summary>Pause an audio component playing its sound cue, issue any delegates if needed</summary>
-        </member>
         <member name="M:UnrealEngine.UAudioComponent.Stop">
             <summary>Stop an audio component playing its sound cue, issue any delegates if needed</summary>
         </member>
@@ -8156,17 +8037,11 @@
         <member name="P:UnrealEngine.UAudioComponent.bOverrideAttenuation">
             <summary>Should the Attenuation Settings asset be used (false) or should the properties set directly on the component be used for attenuation properties</summary>
         </member>
-        <member name="P:UnrealEngine.UAudioComponent.bOverrideSubtitlePriority">
-            <summary>Whether or not to override the sound's subtitle priority.</summary>
-        </member>
         <member name="P:UnrealEngine.UAudioComponent.bIsUISound">
             <summary>Whether or not this sound plays when the game is paused in the UI</summary>
         </member>
         <member name="P:UnrealEngine.UAudioComponent.bEnableLowPassFilter">
             <summary>Whether or not to apply a low-pass filter to the sound that plays in this audio component.</summary>
-        </member>
-        <member name="P:UnrealEngine.UAudioComponent.bSuppressSubtitles">
-            <summary>If true, subtitles in the sound data will be ignored.</summary>
         </member>
         <member name="P:UnrealEngine.UAudioComponent.PitchModulationMin">
             <summary>The lower bound to use when randomly determining a pitch multiplier</summary>
@@ -8186,9 +8061,6 @@
         <member name="P:UnrealEngine.UAudioComponent.Priority">
             <summary>A priority value that is used for sounds that play on this component that scales against final output volume.</summary>
         </member>
-        <member name="P:UnrealEngine.UAudioComponent.SubtitlePriority">
-            <summary>Used by the subtitle manager to prioritize subtitles wave instances spawned by this component.</summary>
-        </member>
         <member name="P:UnrealEngine.UAudioComponent.PitchMultiplier">
             <summary>A pitch multiplier to apply to sounds generated by this component</summary>
         </member>
@@ -8207,9 +8079,6 @@
         <member name="P:UnrealEngine.UAudioComponent.OnAudioFinished">
             <summary>called when we finish playing audio, either because it played to completion or because a Stop() call turned it off early</summary>
         </member>
-        <member name="P:UnrealEngine.UAudioComponent.OnAudioPlaybackPercent">
-            <summary>called when we finish playing audio, either because it played to completion or because a Stop() call turned it off early</summary>
-        </member>
         <member name="T:UnrealEngine.UAudioSettings">
             <summary>Audio settings.</summary>
         </member>
@@ -8218,9 +8087,6 @@
         </member>
         <member name="P:UnrealEngine.UAudioSettings.DefaultSoundConcurrencyName">
             <summary>The SoundConcurrency assigned to newly created sounds</summary>
-        </member>
-        <member name="P:UnrealEngine.UAudioSettings.DefaultSoundSubmixName">
-            <summary>The SoundSubmix assigned to newly created sounds</summary>
         </member>
         <member name="P:UnrealEngine.UAudioSettings.DefaultBaseSoundMix">
             <summary>The SoundMix to use as base when no other system has specified a Base SoundMix</summary>
@@ -8286,9 +8152,6 @@
         </member>
         <member name="P:UnrealEngine.UAutomationTestSettings.LaunchOnSettings">
             <summary>The map and device type to be used for the editor Launch On With Map Iterations test.</summary>
-        </member>
-        <member name="P:UnrealEngine.UAutomationTestSettings.DefaultScreenshotResolution">
-            <summary>The default resolution to take all automation screenshots at.</summary>
         </member>
         <member name="M:UnrealEngine.UAvoidanceManager.GetAvoidanceVelocity(UnrealEngine.FNavAvoidanceData,System.Single)">
             <summary>Only use if you want manual velocity planning. Will not ignore your own volume if you are registered.</summary>
@@ -8611,12 +8474,6 @@
             @param NotificationLaunchedApp Return true if a notification was used to launch the app
             @param ActivationEvent Returns the name of the ActivationEvent if a notification was used to launch the app
             @param FireDate Returns the time the notification was activated
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UBlueprintPlatformLibrary.CancelLocalNotification(System.String)">
-            <summary>
-            Cancel a local notification given the ActivationEvent
-            @param ActivationEvent The string passed into the Schedule call for the notification to be cancelled
             </summary>
         </member>
         <member name="M:UnrealEngine.UBlueprintPlatformLibrary.ScheduleLocalNotificationFromNow(System.Int32,System.String,System.String,System.String,System.String)">
@@ -8955,7 +8812,7 @@
             </summary>
         </member>
         <member name="P:UnrealEngine.UCameraAnim.BaseFOV">
-            <summary>The base FOV that all FOV keys are relative to.</summary>
+            <summary>The FOV</summary>
         </member>
         <member name="P:UnrealEngine.UCameraAnim.BasePostProcessSettings">
             <summary>Default PP settings to put on the animated camera. For modifying PP without keyframes.</summary>
@@ -9585,15 +9442,6 @@
         <member name="M:UnrealEngine.UCharacterMovementComponent.ServerMove(System.Single,UnrealEngine.FVector_NetQuantize10,UnrealEngine.FVector_NetQuantize100,System.Byte,System.Byte,System.UInt32,UnrealEngine.UPrimitiveComponent,System.String,System.Byte)">
             <summary>Replicated function sent by client to server - contains client movement and view info.</summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:UnrealEngine.UCharacterMovementComponent.K2_ComputeFloorDist(UnrealEngine.FVector,System.Single,System.Single,System.Single,UnrealEngine.FFindFloorResult@)" -->
-        <member name="M:UnrealEngine.UCharacterMovementComponent.K2_FindFloor(UnrealEngine.FVector,UnrealEngine.FFindFloorResult@)">
-            <summary>
-            Sweeps a vertical trace to find the floor for the capsule at the given location. Will attempt to perch if ShouldComputePerchResult() returns true for the downward sweep result.
-            No floor will be found if collision is disabled on the capsule!
-            @param CapsuleLocation                Location where the capsule sweep should originate
-            @param FloorResult                    Result of the floor check
-            </summary>
-        </member>
         <member name="M:UnrealEngine.UCharacterMovementComponent.SetWalkableFloorZ(System.Single)">
             <summary>Set the Z component of the normal of the steepest walkable surface for the character. Also computes WalkableFloorAngle.</summary>
         </member>
@@ -9855,10 +9703,7 @@
             <summary>Change in rotation per second, used when UseControllerDesiredRotation or OrientRotationToMovement are true. Set a negative value for infinite rotation rate and instant turns.</summary>
         </member>
         <member name="P:UnrealEngine.UCharacterMovementComponent.bUseControllerDesiredRotation">
-            <summary>
-            If true, smoothly rotate the Character toward the Controller's desired rotation (typically Controller->ControlRotation), using RotationRate as the rate of rotation change. Overridden by OrientRotationToMovement.
-            Normally you will want to make sure that other settings are cleared, such as bUseControllerRotationYaw on the Character.
-            </summary>
+            <summary>If true, smoothly rotate the Character toward the Controller's desired rotation, using RotationRate as the rate of rotation change. Overridden by OrientRotationToMovement.</summary>
         </member>
         <member name="P:UnrealEngine.UCharacterMovementComponent.bOrientRotationToMovement">
             <summary>
@@ -10275,12 +10120,6 @@
         <member name="P:UnrealEngine.UCharacterMovementComponent.bWasSimulatingRootMotion">
             <summary>True when SimulatedProxies are simulating RootMotion</summary>
         </member>
-        <member name="T:UnrealEngine.UCheatManager">
-            <summary>
-            Cheat Manager is a central blueprint to implement test and debug code and actions that are not to ship with the game.
-            As the Cheat Manager is not instanced in shipping builds, it is for debugging purposes only
-            </summary>
-        </member>
         <member name="M:UnrealEngine.UCheatManager.CheatScript(System.String)">
             <summary>Executes commands listed in CheatScript.ScriptName ini section of DefaultGame.ini</summary>
         </member>
@@ -10433,7 +10272,10 @@
             <summary>Debug camera - used to have independent camera without stopping gameplay</summary>
         </member>
         <member name="P:UnrealEngine.UCheatManager.DebugCameraControllerClass">
-            <summary>Debug camera - used to have independent camera without stopping gameplay</summary>
+            <summary>
+            Debug camera - used to have independent camera without stopping gameplay.
+            If the Outer PlayerController::DebugCameraClass is valid then it is used instead of default DebugCameraController class.
+            </summary>
         </member>
         <member name="T:UnrealEngine.UCheckBox">
             <summary>
@@ -10528,9 +10370,6 @@
         <member name="P:UnrealEngine.UChildActorComponent.ChildActor">
             <summary>The actor that we spawned and own</summary>
         </member>
-        <member name="P:UnrealEngine.UChildActorComponent.ChildActorTemplate">
-            <summary>Property to point to the template child actor for details panel purposes</summary>
-        </member>
         <member name="T:UnrealEngine.UChildConnection">
             <summary>Represents a secondary split screen connection that reroutes calls to the parent connection.</summary>
         </member>
@@ -10608,12 +10447,6 @@
             <summary>
             When false, the down arrow is not generated and it is up to the API consumer
             to make their own visual hint that this is a drop down.
-            </summary>
-        </member>
-        <member name="P:UnrealEngine.UComboBoxString.EnableGamepadNavigationMode">
-            <summary>
-            When false, directional keys will change the selection. When true, ComboBox
-            must be activated and will only capture arrow input while activated.
             </summary>
         </member>
         <member name="P:UnrealEngine.UComboBoxString.Font">
@@ -10719,11 +10552,11 @@
         <member name="P:UnrealEngine.UDamageType.bScaleMomentumByMass">
             <summary>True to scale imparted momentum by the receiving pawn's mass for pawns using character movement</summary>
         </member>
-        <member name="P:UnrealEngine.UDamageType.bRadialDamageVelChange">
-            <summary>When applying radial impulses, whether to treat as impulse or velocity change.</summary>
-        </member>
         <member name="P:UnrealEngine.UDamageType.DamageImpulse">
             <summary>The magnitude of impulse to apply to the Actors damaged by this type.</summary>
+        </member>
+        <member name="P:UnrealEngine.UDamageType.bRadialDamageVelChange">
+            <summary>When applying radial impulses, whether to treat as impulse or velocity change.</summary>
         </member>
         <member name="P:UnrealEngine.UDamageType.DestructibleImpulse">
             <summary>How large the impulse should be applied to destructible meshes</summary>
@@ -11177,7 +11010,7 @@
             <summary>Error/Warning description</summary>
         </member>
         <member name="P:UnrealEngine.UEdGraphNode.NodeGuid">
-            <summary>GUID to uniquely identify this node, to facilitate diffing versions of this graph</summary>
+            <summary>GUID to uniquely identify this node, to facilitate diff'ing versions of this graph</summary>
         </member>
         <member name="P:UnrealEngine.UEdGraphNode.AdvancedPinDisplay">
             <summary>Enum to indicate if a node has advanced-display-pins, and if they are shown</summary>
@@ -11970,6 +11803,13 @@
         <member name="P:UnrealEngine.UEngine.bSuppressMapWarnings">
             <summary>If true, then skip drawing map warnings on screen even in non (UE_BUILD_SHIPPING || UE_BUILD_TEST) builds</summary>
         </member>
+        <member name="P:UnrealEngine.UEngine.bCookSeparateSharedMPGameContent">
+            <summary>
+            if set, cook game classes into standalone packages (as defined in [Cooker.MPGameContentCookStandalone]) and load the appropriate
+            one at game time depending on the gametype specified on the URL
+            (the game class should then not be referenced in the maps themselves)
+            </summary>
+        </member>
         <member name="P:UnrealEngine.UEngine.bDisableAILogging">
             <summary>determines whether AI logging should be processed or not</summary>
         </member>
@@ -11984,9 +11824,6 @@
         </member>
         <member name="P:UnrealEngine.UEngine.SelectionHighlightIntensity">
             <summary>Used to alter the intensity level of the selection highlight on selected objects</summary>
-        </member>
-        <member name="P:UnrealEngine.UEngine.SelectionMeshSectionHighlightIntensity">
-            <summary>Used to alter the intensity level of the selection highlight on selected mesh sections in mesh editors</summary>
         </member>
         <member name="P:UnrealEngine.UEngine.BSPSelectionHighlightIntensity">
             <summary>Used to alter the intensity level of the selection highlight on selected BSP surfaces</summary>
@@ -12281,13 +12118,12 @@
             @param Value                 (out) Value portion of Pair. If no = in string will be empty.
             </summary>
         </member>
-        <member name="M:UnrealEngine.UGameplayStatics.ProjectWorldToScreen(UnrealEngine.APlayerController,UnrealEngine.FVector,UnrealEngine.FVector2D@,System.Boolean)">
+        <member name="M:UnrealEngine.UGameplayStatics.ProjectWorldToScreen(UnrealEngine.APlayerController,UnrealEngine.FVector,UnrealEngine.FVector2D@)">
             <summary>
             Transforms the given 3D world-space point into a its 2D screen space coordinate.
             @param Player                        Project using this player's view.
             @param WorldPosition         World position to project.
             @param ScreenPosition        (out) Corresponding 2D position in screen space
-            @param bPlayerViewportRelative       Should this be relative to the player viewport subregion (useful when using player attached widgets in split screen)
             </summary>
         </member>
         <member name="M:UnrealEngine.UGameplayStatics.DeprojectScreenToWorld(UnrealEngine.APlayerController,UnrealEngine.FVector2D,UnrealEngine.FVector@,UnrealEngine.FVector@)">
@@ -12296,7 +12132,7 @@
             @param Player                        Deproject using this player's view.
             @param ScreenPosition        2D screen space to deproject.
             @param WorldPosition         (out) Corresponding 3D position in world space.
-            @param WorldDirection        (out) World space direction vector away from the camera at the given 2d point.
+            @param WorldDirection        (out) World space direction vector away from the camera at the given 2d poiunt.
             </summary>
         </member>
         <member name="M:UnrealEngine.UGameplayStatics.GrassOverlappingSphereCount(UnrealEngine.UObject,UnrealEngine.UStaticMesh,UnrealEngine.FVector,System.Single)">
@@ -12307,12 +12143,6 @@
             @param        Radius                  The radius of the sphere.
             @return Number of foliage instances with their mesh set to Mesh that overlap the sphere.
             </summary>
-        </member>
-        <member name="M:UnrealEngine.UGameplayStatics.RebaseZeroOriginOntoLocal(UnrealEngine.UObject,UnrealEngine.FVector)">
-            <summary>Returns local location for origin based position.</summary>
-        </member>
-        <member name="M:UnrealEngine.UGameplayStatics.RebaseLocalOriginOntoZero(UnrealEngine.UObject,UnrealEngine.FVector)">
-            <summary>Returns origin based position for local world location.</summary>
         </member>
         <member name="M:UnrealEngine.UGameplayStatics.SetWorldOriginLocation(UnrealEngine.UObject,UnrealEngine.FIntVector)">
             <summary>Requests a new location for a world origin.</summary>
@@ -12385,12 +12215,6 @@
         </member>
         <member name="M:UnrealEngine.UGameplayStatics.GetRealTimeSeconds(UnrealEngine.UObject)">
             <summary>Returns time in seconds since world was brought up for play, does NOT stop when game pauses, NOT dilated/clamped</summary>
-        </member>
-        <member name="M:UnrealEngine.UGameplayStatics.GetUnpausedTimeSeconds(UnrealEngine.UObject)">
-            <summary>Returns time in seconds since world was brought up for play, adjusted by time dilation and IS NOT stopped when game pauses</summary>
-        </member>
-        <member name="M:UnrealEngine.UGameplayStatics.GetTimeSeconds(UnrealEngine.UObject)">
-            <summary>Returns time in seconds since world was brought up for play, adjusted by time dilation and IS stopped when game pauses</summary>
         </member>
         <member name="M:UnrealEngine.UGameplayStatics.GetWorldDeltaSeconds(UnrealEngine.UObject)">
             <summary>Returns the frame delta time in seconds, adjusted by time dilation.</summary>
@@ -12680,7 +12504,7 @@
             @param ConcurrencySettings - Override concurrency settings package to play sound with
             </summary>
         </member>
-        <member name="M:UnrealEngine.UGameplayStatics.CreateSound2D(UnrealEngine.UObject,UnrealEngine.USoundBase,System.Single,System.Single,System.Single,UnrealEngine.USoundConcurrency,System.Boolean)">
+        <member name="M:UnrealEngine.UGameplayStatics.CreateSound2D(UnrealEngine.UObject,UnrealEngine.USoundBase,System.Single,System.Single,System.Single,UnrealEngine.USoundConcurrency)">
             <summary>
             Creates a sound with no attenuation, perfect for UI sounds. This does NOT play the sound
             ● Not Replicated.
@@ -12691,7 +12515,7 @@
             @return An audio component to manipulate the spawned sound
             </summary>
         </member>
-        <member name="M:UnrealEngine.UGameplayStatics.SpawnSound2D(UnrealEngine.UObject,UnrealEngine.USoundBase,System.Single,System.Single,System.Single,UnrealEngine.USoundConcurrency,System.Boolean)">
+        <member name="M:UnrealEngine.UGameplayStatics.SpawnSound2D(UnrealEngine.UObject,UnrealEngine.USoundBase,System.Single,System.Single,System.Single,UnrealEngine.USoundConcurrency)">
             <summary>
             Spawns a sound with no attenuation, perfect for UI sounds.
             * Not Replicated.
@@ -12739,8 +12563,8 @@
             @param EmitterTemplate - particle system to create
             @param AttachComponent - Component to attach to.
             @param AttachPointName - Optional named point within the AttachComponent to spawn the emitter at
-            @param Location - Depending on the value of LocationType this is either a relative offset from the attach component/point or an absolute world location that will be translated to a relative offset (if LocationType is KeepWorldPosition).
-            @param Rotation - Depending on the value of LocationType this is either a relative offset from the attach component/point or an absolute world rotation that will be translated to a relative offset (if LocationType is KeepWorldPosition).
+            @param Location - Depending on the value of Location Type this is either a relative offset from the attach component/point or an absolute world position that will be translated to a relative offset
+            @param Rotation - Depending on the value of LocationType this is either a relative offset from the attach component/point or an absolute world rotation that will be translated to a realative offset
             @param LocationType - Specifies whether Location is a relative offset or an absolute world position
             @param bAutoDestroy - Whether the component will automatically be destroyed when the particle system completes playing or whether it can be reactivated
             </summary>
@@ -12844,14 +12668,8 @@
             @return Current time dilation.
             </summary>
         </member>
-        <member name="M:UnrealEngine.UGameplayStatics.GetObjectClass(UnrealEngine.UObject)">
-            <summary>Returns the class of a passed in Object, will always be valid if Object is not NULL</summary>
-        </member>
-        <member name="M:UnrealEngine.UGameplayStatics.GetGameState(UnrealEngine.UObject)">
-            <summary>Returns the current GameStateBase or Null if it can't be retrieved</summary>
-        </member>
         <member name="M:UnrealEngine.UGameplayStatics.GetGameMode(UnrealEngine.UObject)">
-            <summary>Returns the current GameModeBase or Null if it can't be retrieved, such as on the client</summary>
+            <summary>Returns the current GameMode or NULL if the GameMode can't be retrieved</summary>
         </member>
         <member name="M:UnrealEngine.UGameplayStatics.GetCurrentLevelName(UnrealEngine.UObject,System.Boolean)">
             <summary>
@@ -13099,9 +12917,6 @@
         <member name="M:UnrealEngine.UGameUserSettings.SetVSyncEnabled(System.Boolean)">
             <summary>Sets the user setting for vsync. See UGameUserSettings::bUseVSync.</summary>
         </member>
-        <member name="M:UnrealEngine.UGameUserSettings.GetPreferredFullscreenMode">
-            <summary>Returns the user setting for game window fullscreen mode.</summary>
-        </member>
         <member name="M:UnrealEngine.UGameUserSettings.SetFullscreenMode(UnrealEngine.EWindowMode)">
             <summary>Sets the user setting for the game window fullscreen mode. See UGameUserSettings::FullscreenMode.</summary>
         </member>
@@ -13146,6 +12961,12 @@
         </member>
         <member name="P:UnrealEngine.UGameUserSettings.WindowPosY">
             <summary>Window PosY</summary>
+        </member>
+        <member name="P:UnrealEngine.UGameUserSettings.bUseDesktopResolutionForFullscreen">
+            <summary>
+            Whether or not to use the desktop resolution.
+            This value only applies if ResolutionX and ResolutionY have not been set yet and only on desktop platforms
+            </summary>
         </member>
         <member name="P:UnrealEngine.UGameUserSettings.FullscreenMode">
             <summary>
@@ -13372,17 +13193,15 @@
         <member name="M:UnrealEngine.UHeadMountedDisplayFunctionLibrary.IsInLowPersistenceMode">
             <summary>Returns true, if HMD is in low persistence mode. 'false' otherwise.</summary>
         </member>
-        <member name="M:UnrealEngine.UHeadMountedDisplayFunctionLibrary.GetTrackingSensorParameters(UnrealEngine.FVector@,UnrealEngine.FRotator@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Boolean@,System.Int32)">
+        <member name="M:UnrealEngine.UHeadMountedDisplayFunctionLibrary.GetTrackingSensorParameters(UnrealEngine.FVector@,UnrealEngine.FRotator@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@,System.Boolean@,System.Int32)">
             <summary>
             If the HMD has a positional sensor, this will return the game-world location of it, as well as the parameters for the bounding region of tracking.
             This allows an in-game representation of the legal positional tracking range.  All values will be zeroed if the sensor is not available or the HMD does not support it.
             @param Index                         (in) Index of the tracking sensor to query
             @param Origin                        (out) Origin, in world-space, of the sensor
             @param Rotation                      (out) Rotation, in world-space, of the sensor
-            @param LeftFOV                       (out) Field-of-view, left from center, in degrees, of the valid tracking zone of the sensor
-            @param RightFOV                      (out) Field-of-view, right from center, in degrees, of the valid tracking zone of the sensor
-            @param TopFOV                        (out) Field-of-view, top from center, in degrees, of the valid tracking zone of the sensor
-            @param BottomFOV                     (out) Field-of-view, bottom from center, in degrees, of the valid tracking zone of the sensor
+            @param HFOV                          (out) Field-of-view, horizontal, in degrees, of the valid tracking zone of the sensor
+            @param VFOV                          (out) Field-of-view, vertical, in degrees, of the valid tracking zone of the sensor
             @param Distance                      (out) Nominal distance to sensor, in world-space
             @param NearPlane                     (out) Near plane distance of the tracking volume, in world-space
             @param FarPlane                      (out) Far plane distance of the tracking volume, in world-space
@@ -14312,34 +14131,6 @@
         <member name="M:UnrealEngine.UKismetMathLibrary.RandomIntegerFromStream(System.Int32,UnrealEngine.FRandomStream)">
             <summary>Returns a uniformly distributed random number between 0 and Max - 1</summary>
         </member>
-        <member name="M:UnrealEngine.UKismetMathLibrary.ResetVectorSpringState(UnrealEngine.FVectorSpringState@)">
-            <summary>Resets the state of a given spring</summary>
-        </member>
-        <member name="M:UnrealEngine.UKismetMathLibrary.ResetFloatSpringState(UnrealEngine.FFloatSpringState@)">
-            <summary>Resets the state of a given spring</summary>
-        </member>
-        <member name="M:UnrealEngine.UKismetMathLibrary.VectorSpringInterp(UnrealEngine.FVector,UnrealEngine.FVector,UnrealEngine.FVectorSpringState@,System.Single,System.Single,System.Single,System.Single)">
-            <summary>
-            Uses a simple spring model to interpolate a vector from Current to Target.
-            @param Current                                Current value
-            @param Target                                 Target value
-            @param SpringState                    Data related to spring model (velocity, error, etc..) - Create a unique variable per spring
-            @param Stiffness                              How stiff the spring model is (more stiffness means more oscillation around the target value)
-            @param CriticalDampingFactor  How much damping to apply to the spring (0 means no damping, 1 means critically damped which means no oscillation)
-            @param Mass                                   Multiplier that acts like mass on a spring
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UKismetMathLibrary.FloatSpringInterp(System.Single,System.Single,UnrealEngine.FFloatSpringState@,System.Single,System.Single,System.Single,System.Single)">
-            <summary>
-            Uses a simple spring model to interpolate a float from Current to Target.
-            @param Current                               Current value
-            @param Target                                Target value
-            @param SpringState                   Data related to spring model (velocity, error, etc..) - Create a unique variable per spring
-            @param Stiffness                             How stiff the spring model is (more stiffness means more oscillation around the target value)
-            @param CriticalDampingFactor How much damping to apply to the spring (0 means no damping, 1 means critically damped which means no oscillation)
-            @param Mass                                  Multiplier that acts like mass on a spring
-            </summary>
-        </member>
         <member name="M:UnrealEngine.UKismetMathLibrary.CInterpTo(UnrealEngine.FLinearColor,UnrealEngine.FLinearColor,System.Single,System.Single)">
             <summary>
             Interpolates towards a varying target color smoothly.
@@ -15002,7 +14793,7 @@
         <member name="M:UnrealEngine.UKismetMathLibrary.EqualEqual_RotatorRotator(UnrealEngine.FRotator,UnrealEngine.FRotator,System.Single)">
             <summary>Returns true if rotator A is equal to rotator B (A == B) within a specified error tolerance</summary>
         </member>
-        <member name="M:UnrealEngine.UKismetMathLibrary.GetDirectionUnitVector(UnrealEngine.FVector,UnrealEngine.FVector)">
+        <member name="M:UnrealEngine.UKismetMathLibrary.GetDirectionVector(UnrealEngine.FVector,UnrealEngine.FVector)">
             <summary>Find the unit direction vector from one position to another.</summary>
         </member>
         <member name="M:UnrealEngine.UKismetMathLibrary.GetVectorArrayAverage(UnrealEngine.FVector[])">
@@ -15670,7 +15461,6 @@
         <member name="M:UnrealEngine.UKismetRenderingLibrary.BeginDrawCanvasToRenderTarget(UnrealEngine.UObject,UnrealEngine.UTextureRenderTarget2D,UnrealEngine.UCanvas@,UnrealEngine.FVector2D@,UnrealEngine.FDrawToRenderTargetContext@)">
             <summary>
             Returns a Canvas object that can be used to draw to the specified render target.
-            Canvas has functions like DrawMaterial with size parameters that can be used to draw to a specific area of a render target.
             Be sure to call EndDrawCanvasToRenderTarget to complete the rendering!
             </summary>
         </member>
@@ -16141,31 +15931,6 @@
         <member name="M:UnrealEngine.UKismetSystemLibrary.ShowPlatformSpecificLeaderboardScreen(System.String)">
             <summary>Displays the built-in leaderboard GUI (iOS and Android only; this function may be renamed or moved in a future release)</summary>
         </member>
-        <member name="M:UnrealEngine.UKismetSystemLibrary.ShowInterstitialAd">
-            <summary>
-            Shows the loaded interstitial ad (loaded with LoadInterstitialAd)
-            (Android only)
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UKismetSystemLibrary.IsInterstitialAdRequested">
-            <summary>
-            Returns true if the requested interstitial ad has been successfully requested (false if load request fails)
-            (Android only)
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UKismetSystemLibrary.IsInterstitialAdAvailable">
-            <summary>
-            Returns true if the requested interstitial ad is loaded and ready
-            (Android only)
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UKismetSystemLibrary.LoadInterstitialAd(System.Int32)">
-            <summary>
-            Will load a fullscreen interstitial AdMob ad. Call this before using ShowInterstitialAd
-            (Android only)
-            @param AdIdIndex The index of the ID to select for the ad to show
-            </summary>
-        </member>
         <member name="M:UnrealEngine.UKismetSystemLibrary.ForceCloseAdBanner">
             <summary>
             Forces closed any displayed ad. Can lead to loss of revenue
@@ -16185,7 +15950,7 @@
             <summary>
             Will show an ad banner (iAd on iOS, or AdMob on Android) on the top or bottom of screen, on top of the GL view (doesn't resize the view)
             (iOS and Android only)
-            @param AdIdIndex The index of the ID to select for the ad to show
+            @param AdIdIndex The index of the ID to select for the add to show
             @param bShowOnBottomOfScreen If true, the iAd will be shown at the bottom of the screen, top otherwise
             </summary>
         </member>
@@ -16208,12 +15973,6 @@
             <summary>
             Gets the smallest Y resolution we want to support in the UI, clamped within reasons
             @return value in pixels
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UKismetSystemLibrary.GetConvenientWindowedResolutions(UnrealEngine.FIntPoint[]@)">
-            <summary>
-            Gets the list of windowed resolutions which are convenient for the current primary display size.
-            @return true if successfully queried the device for available resolutions.
             </summary>
         </member>
         <member name="M:UnrealEngine.UKismetSystemLibrary.GetSupportedFullscreenResolutions(UnrealEngine.FIntPoint[]@)">
@@ -16947,9 +16706,6 @@
         <member name="M:UnrealEngine.UKismetSystemLibrary.IsPackagedForDistribution">
             <summary>Returns whether this is a build that is packaged for distribution</summary>
         </member>
-        <member name="M:UnrealEngine.UKismetSystemLibrary.IsStandalone(UnrealEngine.UObject)">
-            <summary>Returns whether this game instance is stand alone (no networking).</summary>
-        </member>
         <member name="M:UnrealEngine.UKismetSystemLibrary.IsDedicatedServer(UnrealEngine.UObject)">
             <summary>Returns whether this is running on a dedicated server</summary>
         </member>
@@ -17005,11 +16761,8 @@
         <member name="M:UnrealEngine.UKismetTextLibrary.AsTimespan_Timespan(UnrealEngine.FTimespan)">
             <summary>Converts a passed in time span to a text, formatted as a time span</summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:UnrealEngine.UKismetTextLibrary.AsTimeZoneTime_DateTime(UnrealEngine.FDateTime,System.String)" -->
         <!-- Badly formed XML comment ignored for member "M:UnrealEngine.UKismetTextLibrary.AsTime_DateTime(UnrealEngine.FDateTime)" -->
-        <!-- Badly formed XML comment ignored for member "M:UnrealEngine.UKismetTextLibrary.AsTimeZoneDateTime_DateTime(UnrealEngine.FDateTime,System.String)" -->
         <!-- Badly formed XML comment ignored for member "M:UnrealEngine.UKismetTextLibrary.AsDateTime_DateTime(UnrealEngine.FDateTime)" -->
-        <!-- Badly formed XML comment ignored for member "M:UnrealEngine.UKismetTextLibrary.AsTimeZoneDate_DateTime(UnrealEngine.FDateTime,System.String)" -->
         <!-- Badly formed XML comment ignored for member "M:UnrealEngine.UKismetTextLibrary.AsDate_DateTime(UnrealEngine.FDateTime)" -->
         <member name="M:UnrealEngine.UKismetTextLibrary.AsPercent_Float(System.Single,UnrealEngine.ERoundingMode,System.Boolean,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>Converts a passed in float to a text, formatted as a percent</summary>
@@ -17136,15 +16889,6 @@
         <member name="P:UnrealEngine.ULevel.LevelScriptBlueprint">
             <summary>Reference to the blueprint for level scripting</summary>
         </member>
-        <member name="P:UnrealEngine.ULevel.TextureStreamingBuildGuids">
-            <summary>The Guid list of all materials and meshes Guid used in the last texture streaming build. Used to know if the streaming data needs rebuild. Only used for the persistent level.</summary>
-        </member>
-        <member name="P:UnrealEngine.ULevel.NumTextureStreamingUnbuiltComponents">
-            <summary>Num of components missing valid texture streaming data. Updated in map check.</summary>
-        </member>
-        <member name="P:UnrealEngine.ULevel.NumTextureStreamingDirtyResources">
-            <summary>Num of resources that have changed since the last texture streaming build. Updated in map check.</summary>
-        </member>
         <member name="P:UnrealEngine.ULevel.LevelScriptActor">
             <summary>The level scripting actor, created by instantiating the class from LevelScriptBlueprint.  This handles all level scripting</summary>
         </member>
@@ -17171,23 +16915,6 @@
         </member>
         <member name="P:UnrealEngine.ULevel.StreamingTextureGuids">
             <summary>The Guid of each texture refered by FStreamingTextureBuildInfo::TextureLevelIndex</summary>
-        </member>
-        <member name="P:UnrealEngine.ULevel.bIsLightingScenario">
-            <summary>
-            Whether the level is a lighting scenario.  Lighting is built separately for each lighting scenario level with all other scenario levels hidden.
-            Only one lighting scenario level should be visible at a time for correct rendering, and lightmaps from that level will be used on the rest of the world.
-            Note: When a lighting scenario level is present, lightmaps for all streaming levels are placed in the scenario's _BuildData package.
-                         This means that lightmaps for those streaming levels will not be streamed with them.
-            </summary>
-        </member>
-        <member name="P:UnrealEngine.ULevel.LevelBuildDataId">
-            <summary>Identifies map build data specific to this level, eg lighting volume samples.</summary>
-        </member>
-        <member name="P:UnrealEngine.ULevel.MapBuildData">
-            <summary>Registry for data from the map build.  This is stored in a separate package from the level to speed up saving / autosaving.</summary>
-        </member>
-        <member name="P:UnrealEngine.ULevel.LightBuildLevelOffset">
-            <summary>Level offset at time when lighting was built</summary>
         </member>
         <member name="P:UnrealEngine.ULevel.bTextureStreamingRotationChanged">
             <summary>Whether a level transform rotation was applied since the texture streaming builds. Invalidates the precomputed streaming bounds.</summary>
@@ -17270,12 +16997,6 @@
         <member name="P:UnrealEngine.ULevelStreaming.bShouldBeVisible">
             <summary>Whether the level should be visible if it is loaded</summary>
         </member>
-        <member name="P:UnrealEngine.ULevelStreaming.bIsStatic">
-            <summary>
-            Whether this level only contains static actors that aren't affected by gameplay or replication.
-            If true, the engine can make certain optimizations and will add this level to the StaticLevels collection.
-            </summary>
-        </member>
         <member name="P:UnrealEngine.ULevelStreaming.bShouldBlockOnLoad">
             <summary>Whether we want to force a blocking load</summary>
         </member>
@@ -17340,7 +17061,10 @@
             <summary>false: use white (D65) as illuminant.</summary>
         </member>
         <member name="P:UnrealEngine.ULightComponent.ShadowMapChannel">
-            <summary>Legacy shadowmap channel from the lighting build, now stored in FLightComponentMapBuildData.</summary>
+            <summary>
+            Shadow map channel which is used to match up with the appropriate static shadowing during a deferred shading pass.
+            This is generated during a lighting build.
+            </summary>
         </member>
         <member name="P:UnrealEngine.ULightComponent.MinRoughness">
             <summary>Min roughness effective for this light. Used for softening specular highlights.</summary>
@@ -17482,6 +17206,9 @@
         <member name="P:UnrealEngine.ULightComponentBase.bAffectTranslucentLighting">
             <summary>Whether the light affects translucency or not.  Disabling this can save GPU time when there are many small lights.</summary>
         </member>
+        <member name="P:UnrealEngine.ULightComponentBase.bPrecomputedLightingIsValid">
+            <summary>The precomputed lighting for that light source is valid. It might become invalid if some properties change (e.g. position, brightness).</summary>
+        </member>
         <member name="P:UnrealEngine.ULightComponentBase.IndirectLightingIntensity">
             <summary>
             Scales the indirect lighting contribution from this light.
@@ -17536,9 +17263,6 @@
         </member>
         <member name="P:UnrealEngine.ULocalPlayer.bSentSplitJoin">
             <summary>set when we've sent a split join request</summary>
-        </member>
-        <member name="P:UnrealEngine.UMapBuildDataRegistry.LevelLightingQuality">
-            <summary>The lighting quality the level was last built with</summary>
         </member>
         <member name="T:UnrealEngine.UMaterial">
             <summary>
@@ -17646,9 +17370,6 @@
             Useful for artificially increasing the influence of the normal on the lighting result for translucency.
             A value larger than 1 increases the influence of the normal, a value smaller than 1 makes the lighting more ambient.
             </summary>
-        </member>
-        <member name="P:UnrealEngine.UMaterial.AllowTranslucentCustomDepthWrites">
-            <summary>Allows a translucenct material to be used with custom depth writing by compiling additional shaders.</summary>
         </member>
         <member name="P:UnrealEngine.UMaterial.TranslucentShadowDensityScale">
             <summary>Scale used to make translucent shadows more or less opaque than the material's actual opacity.</summary>
@@ -17799,16 +17520,10 @@
             <summary>Use lightmap directionality and per pixel normals. If disabled, lighting from lightmaps will be flat but cheaper.</summary>
         </member>
         <member name="P:UnrealEngine.UMaterial.bUseHQForwardReflections">
-            <summary>
-            * Forward renderer: enables multiple parallax-corrected reflection captures that blend together.
-            * Mobile renderer: blend between nearest 3 reflection captures, but reduces the number of samplers available to the material as two more samplers will be used for reflection cubemaps.
-            </summary>
+            <summary>Enables high quality reflections in the forward renderer. Enabling this setting reduces the number of samplers available to the material as two more samplers will be used for reflection cubemaps.</summary>
         </member>
         <member name="P:UnrealEngine.UMaterial.bUsePlanarForwardReflections">
             <summary>Enables planar reflection when using the forward renderer or mobile. Enabling this setting reduces the number of samplers available to the material as one more sampler will be used for the planar reflection.</summary>
-        </member>
-        <member name="P:UnrealEngine.UMaterial.bNormalCurvatureToRoughness">
-            <summary>Reduce roughness based on screen space normal changes.</summary>
         </member>
         <member name="P:UnrealEngine.UMaterial.D3D11TessellationMode">
             <summary>The type of tessellation to apply to this object.  Note D3D11 required for anything except MTM_NoTessellation.</summary>
@@ -17867,9 +17582,6 @@
         <member name="P:UnrealEngine.UMaterial.BlendablePriority">
             <summary>If multiple nodes with the same  type are inserted at the same point, this defined order and if they get combined, only used if domain is PostProcess</summary>
         </member>
-        <member name="P:UnrealEngine.UMaterial.BlendableOutputAlpha">
-            <summary>If this is enabled, the blendable will output alpha</summary>
-        </member>
         <member name="P:UnrealEngine.UMaterial.RefractionMode">
             <summary>Controls how the Refraction input is interpreted and how the refraction offset into scene color is computed for this material.</summary>
         </member>
@@ -17901,9 +17613,6 @@
         </member>
         <member name="P:UnrealEngine.UMaterialBillboardComponent.Elements">
             <summary>Current array of material billboard elements</summary>
-        </member>
-        <member name="P:UnrealEngine.UMaterialExpression.GraphNode">
-            <summary>Expression's Graph representation</summary>
         </member>
         <member name="P:UnrealEngine.UMaterialExpression.MaterialExpressionGuid">
             <summary>GUID to uniquely identify this node, to help the tutorials out</summary>
@@ -17974,12 +17683,6 @@
         <member name="P:UnrealEngine.UMaterialExpressionAdd.ConstB">
             <summary>only used if B is not hooked up</summary>
         </member>
-        <member name="P:UnrealEngine.UMaterialExpressionBlendMaterialAttributes.PixelAttributeBlendType">
-            <summary>Optionally skip blending attributes of this type.</summary>
-        </member>
-        <member name="P:UnrealEngine.UMaterialExpressionBlendMaterialAttributes.VertexAttributeBlendType">
-            <summary>Optionally skip blending attributes of this type.</summary>
-        </member>
         <member name="P:UnrealEngine.UMaterialExpressionBumpOffset.Coordinate">
             <summary>Defaults to 'ConstCoordinate' if not specified</summary>
         </member>
@@ -18045,7 +17748,7 @@
             <summary>The name of the parameter Group to display in MaterialInstance Editor. Default is None group</summary>
         </member>
         <member name="P:UnrealEngine.UMaterialExpressionFunctionInput.Preview">
-            <summary>Used for previewing when editing the function, or when bUsePreviewValueAsDefault is enabled.</summary>
+            <summary>Used for previewing when editing the function, also temporarily used to connect to the outside material when compiling that material.</summary>
         </member>
         <member name="P:UnrealEngine.UMaterialExpressionFunctionInput.InputName">
             <summary>The input's name, which will be drawn on the connector in function call expressions that use this function.</summary>
@@ -18372,6 +18075,9 @@
         </member>
         <member name="P:UnrealEngine.UMaterialInstance.bOverrideSubsurfaceProfile">
             <summary>Defines if SubsurfaceProfile from this instance is used or it uses the parent one.</summary>
+        </member>
+        <member name="P:UnrealEngine.UMaterialInstance.ParentLightingGuid">
+            <summary>Unique ID for this material, used for caching during distributed lighting</summary>
         </member>
         <member name="P:UnrealEngine.UMaterialInstance.FontParameterValues">
             <summary>Font parameters.</summary>
@@ -19616,16 +19322,6 @@
         <member name="P:UnrealEngine.UNetworkSettings.bVerifyPeer">
             <summary>If true, libcurl authenticates the peer's certificate. Disable to allow self-signed certificates.</summary>
         </member>
-        <member name="P:UnrealEngine.UNetworkSettings.bEnableMultiplayerWorldOriginRebasing">
-            <summary>If true, origin rebasing is enabled in multiplayer games, meaning that servers and clients can have different local world origins.</summary>
-        </member>
-        <member name="M:UnrealEngine.UObject.TypeClass(System.Type)">
-            <summary>
-            返回类型的UClass类
-            </summary>
-            <param name="type">必须继承于UObject</param>
-            <returns></returns>
-        </member>
         <member name="M:UnrealEngine.UObject.TypeClass``1">
             <summary>
             返回泛型T的UClass
@@ -20643,15 +20339,8 @@
             PSA_Rectangle           - Non-uniform scale (via SizeX and SizeY) facing the camera
             PSA_Velocity            - Orient the particle towards both the camera and the direction
                                                       the particle is moving. Non-uniform scaling is allowed.
-            PSA_TypeSpecific        - Use the alignment method indicated in the type data module.
-            PSA_FacingCameraDistanceBlend - Blends between PSA_FacingCameraPosition and PSA_Square over specified distance.
+            PSA_TypeSpecific        - Use the alignment method indicated int he type data module.
             </summary>
-        </member>
-        <member name="P:UnrealEngine.UParticleModuleRequired.MinFacingCameraBlendDistance">
-            <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_Square</summary>
-        </member>
-        <member name="P:UnrealEngine.UParticleModuleRequired.MaxFacingCameraBlendDistance">
-            <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_FacingCameraPosition</summary>
         </member>
         <member name="P:UnrealEngine.UParticleModuleRequired.bUseLocalSpace">
             <summary>If true, update the emitter in local space</summary>
@@ -20683,9 +20372,6 @@
             loops, it adjusts the EmitterTime by the current EmitterDuration
             resulting in proper looping/delay behavior.
             </summary>
-        </member>
-        <member name="P:UnrealEngine.UParticleModuleRequired.bRemoveHMDRoll">
-            <summary>If true, removes the HMD view roll (e.g. in VR)</summary>
         </member>
         <member name="P:UnrealEngine.UParticleModuleRequired.EmitterDuration">
             <summary>How long, in seconds, the emitter will run before looping.</summary>
@@ -20787,25 +20473,6 @@
             If set to 0, it will use whatever number are present.
             </summary>
         </member>
-        <member name="P:UnrealEngine.UParticleModuleRequired.UVFlippingMode">
-            <summary>Controls UV Flipping for this emitter.</summary>
-        </member>
-        <member name="P:UnrealEngine.UParticleModuleRequired.CutoutTexture">
-            <summary>Texture to generate bounding geometry from.</summary>
-        </member>
-        <member name="P:UnrealEngine.UParticleModuleRequired.BoundingMode">
-            <summary>
-            More bounding vertices results in reduced overdraw, but adds more triangle overhead.
-            The eight vertex mode is best used when the SubUV texture has a lot of space to cut out that is not captured by the four vertex version,
-            and when the particles using the texture will be few and large.
-            </summary>
-        </member>
-        <member name="P:UnrealEngine.UParticleModuleRequired.AlphaThreshold">
-            <summary>
-            Alpha channel values larger than the threshold are considered occupied and will be contained in the bounding geometry.
-            Raising this threshold slightly can reduce overdraw in particles using this animation asset.
-            </summary>
-        </member>
         <member name="P:UnrealEngine.UParticleModuleRequired.EmitterNormalsMode">
             <summary>Normal generation mode for this emitter LOD.</summary>
         </member>
@@ -20824,6 +20491,9 @@
         </member>
         <member name="P:UnrealEngine.UParticleModuleRequired.bOrbitModuleAffectsVelocityAlignment">
             <summary>Ensures that movement generated from the orbit module is applied to velocity-aligned particles</summary>
+        </member>
+        <member name="P:UnrealEngine.UParticleModuleRequired.UVFlippingMode">
+            <summary>Controls UV Flipping for this emitter.</summary>
         </member>
         <member name="P:UnrealEngine.UParticleModuleRequired.NamedMaterialOverrides">
             <summary>
@@ -22333,11 +22003,8 @@
         <member name="M:UnrealEngine.UPhysicsHandleComponent.ReleaseComponent">
             <summary>Release the currently held component</summary>
         </member>
-        <member name="M:UnrealEngine.UPhysicsHandleComponent.GrabComponentAtLocationWithRotation(UnrealEngine.UPrimitiveComponent,System.String,UnrealEngine.FVector,UnrealEngine.FRotator)">
-            <summary>Grab the specified component at a given location and rotation. Constrains rotation.</summary>
-        </member>
-        <member name="M:UnrealEngine.UPhysicsHandleComponent.GrabComponentAtLocation(UnrealEngine.UPrimitiveComponent,System.String,UnrealEngine.FVector)">
-            <summary>Grab the specified component at a given location. Does NOT constraint rotation which means the handle will pivot about GrabLocation.</summary>
+        <member name="M:UnrealEngine.UPhysicsHandleComponent.GrabComponent(UnrealEngine.UPrimitiveComponent,System.String,UnrealEngine.FVector,System.Boolean)">
+            <summary>Grab the specified component</summary>
         </member>
         <member name="P:UnrealEngine.UPhysicsHandleComponent.GrabbedComponent">
             <summary>Component we are currently holding</summary>
@@ -22370,7 +22037,7 @@
             <summary>Default fluid friction for Physics Volumes.</summary>
         </member>
         <member name="P:UnrealEngine.UPhysicsSettings.SimulateScratchMemorySize">
-            <summary>Amount of memory to reserve for PhysX simulate(), this is per pxscene and will be rounded up to the next 16K boundary</summary>
+            <summary>Amount of memory to reserve for PhysX simulate(), this is per pxscene</summary>
         </member>
         <member name="P:UnrealEngine.UPhysicsSettings.RagdollAggregateThreshold">
             <summary>Threshold for ragdoll bodies above which they will be added to an aggregate before being added to the scene</summary>
@@ -22438,7 +22105,7 @@
         <member name="P:UnrealEngine.UPhysicsSettings.bSupportUVFromHitResults">
             <summary>If true, store extra information to allow FindCollisionUV to derive UV info from a line trace hit result, using the FindCollisionUV utility</summary>
         </member>
-        <member name="P:UnrealEngine.UPhysicsSettings.bDisableActiveActors">
+        <member name="P:UnrealEngine.UPhysicsSettings.bDisableActiveTransforms">
             <summary>If true, physx will not update unreal with any bodies that have moved during the simulation. This should only be used if you have no physx simulation or you are manually updating the unreal data via polling physx.</summary>
         </member>
         <member name="P:UnrealEngine.UPhysicsSettings.bDisableCCD">
@@ -22546,10 +22213,10 @@
             Larger values increase rendering thread and GPU cost, as more objects and triangles have to be rendered into the planar reflection.
             </summary>
         </member>
-        <member name="P:UnrealEngine.UPlanarReflectionComponent.DistanceFromPlaneFadeoutStart">
+        <member name="P:UnrealEngine.UPlanarReflectionComponent.DistanceFromPlaneFadeStart">
             <summary>Receiving pixels at this distance from the reflection plane will begin to fade out the planar reflection.</summary>
         </member>
-        <member name="P:UnrealEngine.UPlanarReflectionComponent.DistanceFromPlaneFadeoutEnd">
+        <member name="P:UnrealEngine.UPlanarReflectionComponent.DistanceFromPlaneFadeEnd">
             <summary>Receiving pixels at this distance from the reflection plane will have completely faded out the planar reflection.</summary>
         </member>
         <member name="P:UnrealEngine.UPlanarReflectionComponent.AngleFromPlaneFadeStart">
@@ -22803,12 +22470,6 @@
         <member name="P:UnrealEngine.UPostProcessComponent.bUnbound">
             <summary>set this to false to use the parent shape component as volume bounds. True affects the whole world regardless.</summary>
         </member>
-        <member name="T:UnrealEngine.UPreviewMeshCollection">
-            <summary>A simple collection of skeletal meshes used for in-editor preview</summary>
-        </member>
-        <member name="P:UnrealEngine.UPreviewMeshCollection.SkeletalMeshes">
-            <summary>The skeletal meshes that this collection contains</summary>
-        </member>
         <member name="T:UnrealEngine.UPrimitiveComponent">
             <summary>
             PrimitiveComponents are SceneComponents that contain or generate some sort of geometry, generally to be rendered or used as collision data.
@@ -22849,9 +22510,6 @@
             @param       Channel      The channel to change the response of
             @param       NewResponse  What the new response should be to the supplied Channel
             </summary>
-        </member>
-        <member name="M:UnrealEngine.UPrimitiveComponent.IsAnyRigidBodyAwake">
-            <summary>Returns if any body in this component is currently awake and simulating.</summary>
         </member>
         <member name="M:UnrealEngine.UPrimitiveComponent.ScaleByMomentOfInertia(UnrealEngine.FVector,System.String)">
             <summary>Scales the given vector by the world space moment of inertia. Useful for computing the torque needed to rotate an object.</summary>
@@ -23144,13 +22802,6 @@
             @param ElementIndex - The index of the skin to replace the material for.  If invalid, the material is unchanged and NULL is returned.
             </summary>
         </member>
-        <member name="M:UnrealEngine.UPrimitiveComponent.SetMaterialByName(System.String,UnrealEngine.UMaterialInterface)">
-            <summary>
-            Changes the material applied to an element of the mesh.
-            @param MaterialSlotName - The slot name to access the material of.
-            @return the material used by the indexed element of this mesh.
-            </summary>
-        </member>
         <member name="M:UnrealEngine.UPrimitiveComponent.SetMaterial(System.Int32,UnrealEngine.UMaterialInterface)">
             <summary>
             Changes the material applied to an element of the mesh.
@@ -23193,19 +22844,6 @@
             Check whether this component is overlapping another component.
             @param OtherComp Component to test this component against.
             @return Whether this component is overlapping another component.
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UPrimitiveComponent.ClearMoveIgnoreComponents">
-            <summary>Clear the list of components we ignore when moving.</summary>
-        </member>
-        <member name="M:UnrealEngine.UPrimitiveComponent.CopyArrayOfMoveIgnoreComponents">
-            <summary>Returns the list of actors we currently ignore when moving.</summary>
-        </member>
-        <member name="M:UnrealEngine.UPrimitiveComponent.IgnoreComponentWhenMoving(UnrealEngine.UPrimitiveComponent,System.Boolean)">
-            <summary>
-            Tells this component whether to ignore collision with another component when this component is moved.
-            The other components may also need to be told to do the same when they move.
-            Does not affect movement of this component when simulating physics.
             </summary>
         </member>
         <member name="M:UnrealEngine.UPrimitiveComponent.ClearMoveIgnoreActors">
@@ -23292,9 +22930,6 @@
         </member>
         <member name="P:UnrealEngine.UPrimitiveComponent.bHasMotionBlurVelocityMeshes">
             <summary>true if the primitive has motion blur velocity meshes</summary>
-        </member>
-        <member name="P:UnrealEngine.UPrimitiveComponent.bVisibleInReflectionCaptures">
-            <summary>If true, this component will be visible in reflection captures.</summary>
         </member>
         <member name="P:UnrealEngine.UPrimitiveComponent.bRenderInMainPass">
             <summary>If true, this component will be rendered in the main pass (z prepass, basepass, transparency)</summary>
@@ -23420,6 +23055,9 @@
             These channels only apply to opaque materials, direct lighting, and dynamic lighting and shadowing.
             </summary>
         </member>
+        <member name="P:UnrealEngine.UPrimitiveComponent.bStaticLightingBuildEnqueued">
+            <summary>If true, asynchronous static build lighting will be enqueued to be applied to this</summary>
+        </member>
         <member name="P:UnrealEngine.UPrimitiveComponent.bIgnoreRadialImpulse">
             <summary>Will ignore radial impulses applied to this component.</summary>
         </member>
@@ -23500,15 +23138,6 @@
             @see IgnoreActorWhenMoving()
             </summary>
         </member>
-        <member name="P:UnrealEngine.UPrimitiveComponent.MoveIgnoreComponents">
-            <summary>
-            Set of components to ignore during component sweeps in MoveComponent().
-            These components will be ignored when this component moves or updates overlaps.
-            The other components may also need to be told to do the same when they move.
-            Does not affect movement of this component when simulating physics.
-            @see IgnoreComponentWhenMoving()
-            </summary>
-        </member>
         <member name="P:UnrealEngine.UPrimitiveComponent.OnComponentHit">
             <summary>
             Event called when a component hits (or is hit by) something solid. This could happen due to things like Character movement, using Set Location with 'sweep' enabled, or physics simulation.
@@ -23516,7 +23145,6 @@
             @note For collisions during physics simulation to generate hit events, 'Simulation Generates Hit Events' must be enabled for this component.
             @note When receiving a hit from another object's movement, the directions of 'Hit.Normal' and 'Hit.ImpactNormal'
             will be adjusted to indicate force from the other object against this object.
-            @note NormalImpulse will be filled in for physics-simulating bodies, but will be zero for swept-component blocking collisions.
             </summary>
         </member>
         <member name="P:UnrealEngine.UPrimitiveComponent.OnComponentBeginOverlap">
@@ -23804,9 +23432,6 @@
         <member name="P:UnrealEngine.URendererSettings.bMobileEnableStaticAndCSMShadowReceivers">
             <summary>Allow primitives to receive both static and CSM shadows from a stationary light. Disabling will free a mobile texture sampler.</summary>
         </member>
-        <member name="P:UnrealEngine.URendererSettings.bMobileDisableVertexFog">
-            <summary>If true, vertex fog will be omitted from all mobile shaders, this can increase shading performance.</summary>
-        </member>
         <member name="P:UnrealEngine.URendererSettings.bDiscardUnusedQualityLevels">
             <summary>
             When running in game mode, whether to keep shaders for all quality levels in memory or only those needed for the current quality level.
@@ -23841,14 +23466,8 @@
         <member name="P:UnrealEngine.URendererSettings.ReflectionCaptureResolution">
             <summary>The cubemap resolution for all reflection capture probes. Must be power of 2. Note that for very high values the memory and performance impact may be severe.</summary>
         </member>
-        <member name="P:UnrealEngine.URendererSettings.ReflectionEnvironmentLightmapMixBasedOnRoughness">
-            <summary>Whether to reduce lightmap mixing with reflection captures for very smooth surfaces.  This is useful to make sure reflection captures match SSR / planar reflections in brightness.</summary>
-        </member>
         <member name="P:UnrealEngine.URendererSettings.bForwardShading">
-            <summary>Whether to use forward shading on desktop platforms, requires Shader Model 5 hardware.  Forward shading supports MSAA and has lower default cost, but fewer features supported overall.  Materials have to opt-in to more expensive features like high quality reflections.  Changing this setting requires restarting the editor.</summary>
-        </member>
-        <member name="P:UnrealEngine.URendererSettings.bVertexFoggingForOpaque">
-            <summary>Causes opaque materials to use per-vertex fogging, which costs less and integrates properly with MSAA.  Only supported with forward shading. Changing this setting requires restarting the editor.</summary>
+            <summary>Whether to use forward shading on desktop platforms.  Requires Shader Model 5 hardware.  Forward shading has lower constant cost, but fewer features supported.  Changing this setting requires restarting the editor.</summary>
         </member>
         <member name="P:UnrealEngine.URendererSettings.bAllowStaticLighting">
             <summary>Whether to allow any static lighting to be generated and used, like lightmaps and shadowmaps. Games that only use dynamic lighting should set this to 0 to save some static lighting overhead. Changing this setting requires restarting the editor.</summary>
@@ -23899,7 +23518,7 @@
             <summary>Whether the default for LensFlare is enabled or not (postprocess volume/camera/game setting can still override and enable or disable it independently)</summary>
         </member>
         <member name="P:UnrealEngine.URendererSettings.DefaultFeatureAntiAliasing">
-            <summary>What anti-aliasing mode is used by default</summary>
+            <summary>What anti-aliasing mode is used by default (postprocess volume/camera/game setting can still override and enable or disable it independently)</summary>
         </member>
         <member name="P:UnrealEngine.URendererSettings.bStencilForLODDither">
             <summary>Whether to use stencil for LOD dither fading.  This saves GPU time in the base pass for materials with dither fading enabled, but forces a full prepass. Changing this setting requires restarting the editor.</summary>
@@ -23911,7 +23530,7 @@
             <summary>Whether to render movable objects in the early Z pass. Need to reload the level!</summary>
         </member>
         <member name="P:UnrealEngine.URendererSettings.bDBuffer">
-            <summary>Whether to accumulate decal properties to a buffer before the base pass.  DBuffer decals correctly affect lightmap and sky lighting, unlike regular deferred decals.  DBuffer enabled forces a full prepass.  Changing this setting requires restarting the editor.</summary>
+            <summary>Experimental decal feature (see r.DBuffer, ideally combined with 'Movables in early Z-pass' and 'Early Z-pass')</summary>
         </member>
         <member name="P:UnrealEngine.URendererSettings.ClearSceneMethod">
             <summary>Select how the g-buffer is cleared in game mode (only affects deferred shading).</summary>
@@ -23921,9 +23540,6 @@
         </member>
         <member name="P:UnrealEngine.URendererSettings.bSelectiveBasePassOutputs">
             <summary>Enables not exporting to the GBuffer rendertargets that are not relevant. Changing this setting requires restarting the editor.</summary>
-        </member>
-        <member name="P:UnrealEngine.URendererSettings.bDefaultParticleCutouts">
-            <summary>When enabled, after changing the material on a Required particle module a Particle Cutout texture will be chosen automatically from the Opacity Mask texture if it exists, if not the Opacity Texture will be used if it exists.</summary>
         </member>
         <member name="P:UnrealEngine.URendererSettings.bGlobalClipPlane">
             <summary>Whether to support the global clip plane needed for planar reflections.  Enabling this increases BasePass triangle cost by ~15% regardless of whether planar reflections are active. Changing this setting requires restarting the editor.</summary>
@@ -23940,9 +23556,6 @@
         <member name="P:UnrealEngine.URendererSettings.bMultiView">
             <summary>Enable multi-view for instanced stereo rendering (only available on the PS4).</summary>
         </member>
-        <member name="P:UnrealEngine.URendererSettings.bMobileMultiView">
-            <summary>Enable mobile multi-view rendering (only available on some GearVR Android devices using OpenGL ES 3.1).</summary>
-        </member>
         <member name="P:UnrealEngine.URendererSettings.WireframeCullThreshold">
             <summary>Screen radius at which wireframe objects are culled. Larger values can improve performance when viewing a scene in wireframe.</summary>
         </member>
@@ -23957,9 +23570,6 @@
         </member>
         <member name="P:UnrealEngine.URendererSettings.bSupportAtmosphericFog">
             <summary>"Atmospheric fog requires permutations of the basepass shaders.  Disabling will reduce the number of shader permutations required per material. Changing this setting requires restarting the editor."</summary>
-        </member>
-        <member name="P:UnrealEngine.URendererSettings.bSupportSkinCacheShaders">
-            <summary>"Skincache allows a compute shader to skin once each vertex, save those results into a new buffer and reuse those calculations when later running the depth, base and velocity passes. This also allows opting into the 'recompute tangents' for skinned mesh instance feature. Disabling will reduce the number of shader permutations required per material. Changing this setting requires restarting the editor."</summary>
         </member>
         <member name="T:UnrealEngine.URetainerBox">
             <summary>
@@ -24002,9 +23612,6 @@
             <summary>
             The effect to optionally apply to the render target.  We will set the texture sampler based on the name
             set in the @TextureParameter property.
-            If you want to adjust transparency of the final image, make sure you set Blend Mode to AlphaComposite (Pre-Multiplied Alpha)
-            and make sure to multiply the alpha you're apply across the surface to the color and the alpha of the render target, otherwise
-            you won't see the expected color.
             </summary>
         </member>
         <member name="P:UnrealEngine.URetainerBox.TextureParameter">
@@ -24071,18 +23678,6 @@
         </member>
         <member name="P:UnrealEngine.URotatingMovementComponent.bRotationInLocalSpace">
             <summary>Whether rotation is applied in local or world space.</summary>
-        </member>
-        <member name="P:UnrealEngine.USafeZone.PadLeft">
-            <summary>If this safe zone should pad for the left side of the screen's safe zone</summary>
-        </member>
-        <member name="P:UnrealEngine.USafeZone.PadRight">
-            <summary>If this safe zone should pad for the right side of the screen's safe zone</summary>
-        </member>
-        <member name="P:UnrealEngine.USafeZone.PadTop">
-            <summary>If this safe zone should pad for the top side of the screen's safe zone</summary>
-        </member>
-        <member name="P:UnrealEngine.USafeZone.PadBottom">
-            <summary>If this safe zone should pad for the bottom side of the screen's safe zone</summary>
         </member>
         <member name="T:UnrealEngine.UScaleBox">
             <summary>
@@ -24681,14 +24276,14 @@
         <member name="P:UnrealEngine.UScrollBoxSlot.HorizontalAlignment">
             <summary>The alignment of the object horizontally.</summary>
         </member>
-        <member name="P:UnrealEngine.USCS_Node.ComponentClass">
-            <summary>Component class</summary>
-        </member>
         <member name="P:UnrealEngine.USCS_Node.ComponentTemplate">
             <summary>Template for the component to create</summary>
         </member>
         <member name="P:UnrealEngine.USCS_Node.CookedComponentInstancingData">
             <summary>Cached data for faster runtime instancing (only used in cooked builds)</summary>
+        </member>
+        <member name="P:UnrealEngine.USCS_Node.VariableName">
+            <summary>If non-None, creates a variable in the class and assigns the created blueprint to it</summary>
         </member>
         <member name="P:UnrealEngine.USCS_Node.CategoryName">
             <summary>If non-None, the assigned category name</summary>
@@ -24722,14 +24317,6 @@
         </member>
         <member name="P:UnrealEngine.USCS_Node.bVariableNameAutoGenerated">
             <summary>(DEPRECATED) If true, the variable name was a autogenerated and is not presented to the user</summary>
-        </member>
-        <member name="P:UnrealEngine.USCS_Node.InternalVariableName">
-            <summary>
-            Internal variable name. This is used for:
-                                  a) Generating the component template (archetype) object name.
-                                  b) A UObjectProperty in the generated Blueprint class. This holds a reference to the component instance created at Actor construction time.
-                                  c) Archetype lookup through the generated Blueprint class. All instances route back to the archetype through the variable name (i.e. not the template name).
-            </summary>
         </member>
         <member name="P:UnrealEngine.UShadowMapTexture2D.ShadowmapFlags">
             <summary>Bit-field with shadowmap flags.</summary>
@@ -24769,15 +24356,6 @@
         </member>
         <member name="P:UnrealEngine.USimpleConstructionScript.ActorComponentNodes">
             <summary>(DEPRECATED) Actor Component based nodes are stored here.  They cannot be in the tree hierarchy</summary>
-        </member>
-        <member name="M:UnrealEngine.USimpleWheeledVehicleMovementComponent.SetSteerAngle(System.Single,System.Int32)">
-            <summary>Set the steer angle (in degrees) to be applied to a specific wheel</summary>
-        </member>
-        <member name="M:UnrealEngine.USimpleWheeledVehicleMovementComponent.SetDriveTorque(System.Single,System.Int32)">
-            <summary>Set the drive torque to be applied to a specific wheel</summary>
-        </member>
-        <member name="M:UnrealEngine.USimpleWheeledVehicleMovementComponent.SetBrakeTorque(System.Single,System.Int32)">
-            <summary>Set the brake torque to be applied to a specific wheel</summary>
         </member>
         <member name="T:UnrealEngine.USizeBox">
             <summary>
@@ -24958,6 +24536,7 @@
         <member name="P:UnrealEngine.USkeletalMesh.PreviewAttachedAssetContainer">
             <summary>Attached assets component for this mesh</summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:UnrealEngine.USkeletalMesh.StreamingDistanceMultiplier" -->
         <member name="P:UnrealEngine.USkeletalMesh.SelectedEditorSection">
             <summary>The section currently selected in the Editor. Used for highlighting</summary>
         </member>
@@ -24972,13 +24551,6 @@
         </member>
         <member name="P:UnrealEngine.USkeletalMesh.ClothingAssets">
             <summary>Clothing asset data</summary>
-        </member>
-        <member name="P:UnrealEngine.USkeletalMesh.PostProcessAnimBlueprint">
-            <summary>
-            Animation Blueprint class to run as a post process for this mesh.
-            This blueprint will be ran before physics, but after the main
-            anim instance for any skeletal mesh component using this mesh.
-            </summary>
         </member>
         <member name="P:UnrealEngine.USkeletalMesh.AssetUserData">
             <summary>Array of user data stored with the asset</summary>
@@ -25020,13 +24592,6 @@
             @param       Impulse vector of impulse
             @param       HitLocation     location of the hit
             @param       InBoneName      Name of bone to break constraint for
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.FindConstraintBoneName(System.Int32)">
-            <summary>
-            Find Constraint Name from index
-            @param       ConstraintIndex Index of constraint to look for
-            @return      Constraint Joint Name
             </summary>
         </member>
         <member name="M:UnrealEngine.USkeletalMeshComponent.SetConstraintProfileForAll(System.String,System.Boolean)">
@@ -25088,16 +24653,6 @@
             @param  BoneName         If a SkeletalMeshComponent, name of body to apply force to. 'None' indicates root body.
             @param  bAccelChange If true, Force is taken as a change in acceleration instead of a physical force (i.e. mass will have no affect).
             @param  bIncludeSelf If false, Force is only applied to bodies below but not given bone name.
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.GetSkeletalCenterOfMass">
-            <summary>Returns the center of mass of the skeletal mesh, instead of the root body's location</summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.GetBoneMass(System.String,System.Boolean)">
-            <summary>
-            Returns the mass (in kg) of the given bone
-            @param BoneName         Name of the body to return. 'None' indicates root body.
-            @param bScaleMass       If true, the mass is scaled by the bone's MassScale.
             </summary>
         </member>
         <member name="M:UnrealEngine.USkeletalMeshComponent.K2_GetClosestPointOnPhysicsAsset(UnrealEngine.FVector,UnrealEngine.FVector@,UnrealEngine.FVector@,System.String@,System.Single@)">
@@ -25198,109 +24753,13 @@
             @param bRemoveZeroWeight : Used by editor code when it should stay in the active list with zero weight
             </summary>
         </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.OverrideAnimationData(UnrealEngine.UAnimationAsset,System.Boolean,System.Boolean,System.Single,System.Single)">
-            <summary>
-            This overrides current AnimationData parameter in the SkeletalMeshComponent. This will serialize when the component serialize
-            so it can be used during construction script. However note that this will override current existing data
-            This can be useful if you'd like to make a blueprint with custom default animation per component
-            This sets single player mode, which means you can't use AnimBlueprint with it
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.GetPlayRate">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.SetPlayRate(System.Single)">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.GetPosition">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.SetPosition(System.Single,System.Boolean)">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.IsPlaying">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.Stop">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.Play(System.Boolean)">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.SetAnimation(UnrealEngine.UAnimationAsset)">
-            <summary>
-            Animation play functions
-                  *
-                  * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                  * Becuase of that reason, it is not safe to be used during construction script
-                  * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.PlayAnimation(UnrealEngine.UAnimationAsset,System.Boolean)">
-            <summary>
-            Animation play functions
-                   *
-                   * These changes status of animation instance, which is transient data, which means it won't serialize with this compoennt
-                   * Becuase of that reason, it is not safe to be used during construction script
-                   * Please use OverrideAnimationDatat for construction script. That will override AnimationData to be serialized
-            </summary>
-        </member>
         <member name="M:UnrealEngine.USkeletalMeshComponent.SetAnimationMode(UnrealEngine.EAnimationMode)">
             <summary>Below are the interface to control animation when animation mode, not blueprint mode *</summary>
-        </member>
-        <member name="M:UnrealEngine.USkeletalMeshComponent.GetPostProcessInstance">
-            <summary>
-            Returns the active post process instance is one is available. This is set on the mesh that this
-            component is using, and is evaluated immediately after the main instance.
-            </summary>
         </member>
         <member name="M:UnrealEngine.USkeletalMeshComponent.GetAnimInstance">
             <summary>
             Returns the animation instance that is driving the class (if available). This is typically an instance of
             the class set as AnimBlueprintGeneratedClass (generated by an animation blueprint)
-            Since this instance is transient, it is not safe to be used during construction script
             </summary>
         </member>
         <member name="P:UnrealEngine.USkeletalMeshComponent.AnimationMode">
@@ -25317,12 +24776,6 @@
         </member>
         <member name="P:UnrealEngine.USkeletalMeshComponent.SubInstances">
             <summary>Any running sub anim instances that need to be updates on the game thread</summary>
-        </member>
-        <member name="P:UnrealEngine.USkeletalMeshComponent.PostProcessAnimInstance">
-            <summary>
-            An instance created from the PostPhysicsBlueprint property of the skeletal mesh we're using,
-            Runs after physics has been blended
-            </summary>
         </member>
         <member name="P:UnrealEngine.USkeletalMeshComponent.CachedBoneSpaceTransforms">
             <summary>Cached BoneSpaceTransforms for Update Rate optimization.</summary>
@@ -25457,11 +24910,11 @@
         <member name="P:UnrealEngine.USkeletalMeshComponent.bEnableLineCheckWithBounds">
             <summary>If true, line checks will test against the bounding box of this skeletal mesh component and return a hit if there is a collision.</summary>
         </member>
-        <member name="P:UnrealEngine.USkeletalMeshComponent.CachedAnimCurveUidVersion">
-            <summary>Cache AnimCurveUidVersion from Skeleton and this will be used to identify if it needs to be updated</summary>
-        </member>
         <member name="P:UnrealEngine.USkeletalMeshComponent.LineCheckBoundsScale">
             <summary>If bEnableLineCheckWithBounds is true, scale the bounds by this value before doing line check.</summary>
+        </member>
+        <member name="P:UnrealEngine.USkeletalMeshComponent.RagdollAggregateThreshold">
+            <summary>Threshold for physics asset bodies above which we use an aggregate for broadphase collisions</summary>
         </member>
         <member name="P:UnrealEngine.USkeletalMeshComponent.OnConstraintBroken">
             <summary>Notification when constraint is broken.</summary>
@@ -25522,18 +24975,6 @@
         </member>
         <member name="P:UnrealEngine.USkeleton.RefLocalPoses">
             <summary>Reference skeleton poses in local space</summary>
-        </member>
-        <member name="P:UnrealEngine.USkeleton.VirtualBoneGuid">
-            <summary>
-            Guid for virtual bones.
-            Separate so that we don't have to dirty the original guid when only changing virtual bones
-            </summary>
-        </member>
-        <member name="P:UnrealEngine.USkeleton.VirtualBones">
-            <summary>
-            Array of this skeletons virtual bones. These are new bones are links between two existing bones
-            and are baked into all the skeletons animations
-            </summary>
         </member>
         <member name="P:UnrealEngine.USkeleton.LinkupCache">
             <summary>Non-serialised cache of linkups between different skeletal meshes and this Skeleton.</summary>
@@ -25783,12 +25224,6 @@
         <member name="P:UnrealEngine.USkinnedMeshComponent.bCastCapsuleIndirectShadow">
             <summary>Whether to use the capsule representation (when present) from a skeletal mesh's ShadowPhysicsAsset for shadowing indirect lighting (from lightmaps or skylight).</summary>
         </member>
-        <member name="P:UnrealEngine.USkinnedMeshComponent.CapsuleIndirectShadowMinVisibility">
-            <summary>Controls how dark the capsule indirect shadow can be.</summary>
-        </member>
-        <member name="P:UnrealEngine.USkinnedMeshComponent.bCPUSkinning">
-            <summary>CPU skinning rendering - only for previewing in Persona and conversion tools</summary>
-        </member>
         <member name="P:UnrealEngine.USkinnedMeshComponent.CachedLocalBounds">
             <summary>LocalBounds cached, so they're computed just once.</summary>
         </member>
@@ -26023,17 +25458,8 @@
         <member name="P:UnrealEngine.USoundBase.SoundClassObject">
             <summary>Sound class this sound belongs to</summary>
         </member>
-        <member name="P:UnrealEngine.USoundBase.SoundSubmixObject">
-            <summary>Sound submix this sound belongs to</summary>
-        </member>
         <member name="P:UnrealEngine.USoundBase.bDebug">
             <summary>When "stat sounds -debug" has been specified, draw this sound's attenuation shape when the sound is audible. For debugging purpose only.</summary>
-        </member>
-        <member name="P:UnrealEngine.USoundBase.bOverrideConcurrency">
-            <summary>Whether or not to override the sound concurrency object with local concurrency settings.</summary>
-        </member>
-        <member name="P:UnrealEngine.USoundBase.bIgnoreFocus">
-            <summary>Whether or not to ignore focus on this sound.</summary>
         </member>
         <member name="P:UnrealEngine.USoundBase.SoundConcurrencySettings">
             <summary>If bOverridePlayback is false, the sound concurrency settings to use for this sound.</summary>
@@ -26052,9 +25478,6 @@
         </member>
         <member name="P:UnrealEngine.USoundBase.Priority">
             <summary>Sound priority (higher value is higher priority) used for concurrency resolution. This priority value is weighted against the final volume of the sound.</summary>
-        </member>
-        <member name="P:UnrealEngine.USoundBase.SourceEffectChain">
-            <summary>The source effect chain to use for this sound.</summary>
         </member>
         <member name="P:UnrealEngine.USoundClass.Properties">
             <summary>Configurable properties like volume and priority.</summary>
@@ -26277,12 +25700,6 @@
         </member>
         <member name="T:UnrealEngine.USoundNodeWavePlayer">
             <summary>Sound node that contains a reference to the raw wave file to be played</summary>
-        </member>
-        <member name="P:UnrealEngine.USoundSubmix.ChildSubmixes">
-            <summary>Child submixes to this sound mix</summary>
-        </member>
-        <member name="P:UnrealEngine.USoundSubmix.OutputWetLevel">
-            <summary>The output wet level to use for the output of this submix in parent submixes</summary>
         </member>
         <member name="P:UnrealEngine.USoundWave.CompressionQuality">
             <summary>Platform agnostic compression quality. 1..100 with 1 being best compression and 100 being best quality.</summary>
@@ -27003,14 +26420,14 @@
         <member name="P:UnrealEngine.UStaticMesh.SourceModels">
             <summary>Imported raw mesh bulk data.</summary>
         </member>
+        <member name="P:UnrealEngine.UStaticMesh.AutoLODPixelError">
+            <summary>The pixel error allowed when computing auto LOD distances.</summary>
+        </member>
         <member name="P:UnrealEngine.UStaticMesh.LODGroup">
             <summary>The LOD group to which this mesh belongs.</summary>
         </member>
         <member name="P:UnrealEngine.UStaticMesh.bAutoComputeLODScreenSize">
             <summary>If true, the distances at which LODs swap are computed automatically.</summary>
-        </member>
-        <member name="P:UnrealEngine.UStaticMesh.ImportVersion">
-            <summary>The last import version</summary>
         </member>
         <member name="P:UnrealEngine.UStaticMesh.MinLOD">
             <summary>Minimum LOD to use for rendering.  This is the default setting for the mesh and can be overridden by component settings.</summary>
@@ -27034,6 +26451,9 @@
             Collision representation does not change based on distance to camera.
             </summary>
         </member>
+        <member name="P:UnrealEngine.UStaticMesh.bUseMaximumStreamingTexelRatio">
+            <summary>If true, use a less-conservative method of mip LOD texture factor computation.  Requires mesh to be resaved to take effect as algorithm is applied on save</summary>
+        </member>
         <member name="P:UnrealEngine.UStaticMesh.bStripComplexCollisionForConsole">
             <summary>
             If true, strips unwanted complex collision data aka kDOP tree when cooking for consoles.
@@ -27046,6 +26466,7 @@
                       Set to false for distant meshes (always outside navigation bounds) to save memory on collision data.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:UnrealEngine.UStaticMesh.StreamingDistanceMultiplier" -->
         <member name="P:UnrealEngine.UStaticMesh.LpvBiasMultiplier">
             <summary>Bias multiplier for Light Propagation Volume lighting</summary>
         </member>
@@ -27140,18 +26561,6 @@
         </member>
         <member name="P:UnrealEngine.UStaticMeshComponent.SectionIndexPreview">
             <summary>Index of the section to preview. If set to INDEX_NONE, all section will be rendered. Used for isolating in Static Mesh Tool *</summary>
-        </member>
-        <member name="P:UnrealEngine.UStaticMeshComponent.StaticMeshImportVersion">
-            <summary>
-            * The import version of the static mesh when it was assign this is update when:
-            * - The user assign a new staticmesh to the component
-            * - The component is serialize (IsSaving)
-            * - Default value is BeforeImportStaticMeshVersionWasAdded
-            *
-            * If when the component get load (PostLoad) the version of the attach staticmesh is newer
-            * then this value, we will remap the material override because the order of the materials list
-            * in the staticmesh can be changed. Hopefully there is a remap table save in the staticmesh.
-            </summary>
         </member>
         <member name="P:UnrealEngine.UStaticMeshComponent.bOverrideNavigationExport">
             <summary>If true, bForceNavigationObstacle flag will take priority over navigation data stored in StaticMesh</summary>
@@ -27252,17 +26661,11 @@
         <member name="P:UnrealEngine.UStereoLayerComponent.bLiveTexture">
             <summary>True if the stereo layer texture needs to update itself every frame(scene capture, video, etc.)</summary>
         </member>
-        <member name="P:UnrealEngine.UStereoLayerComponent.bSupportsDepth">
-            <summary>True if the stereo layer needs to support depth intersections with the scene geometry, if available on the platform</summary>
-        </member>
         <member name="P:UnrealEngine.UStereoLayerComponent.bNoAlphaChannel">
-            <summary>True if the texture should not use its own alpha channel (1.0 will be substituted)</summary>
+            <summary>True if the texture should not use it's own alpha channel (1.0 will be substituted)</summary>
         </member>
         <member name="P:UnrealEngine.UStereoLayerComponent.Texture">
-            <summary>Texture displayed on the stereo layer (is stereocopic textures are supported on the platfrom and more than one texture is provided, this will be the right eye) *</summary>
-        </member>
-        <member name="P:UnrealEngine.UStereoLayerComponent.LeftTexture">
-            <summary>Texture displayed on the stereo layer for left eye, if stereoscopic textures are supported on the platform *</summary>
+            <summary>Texture displayed on the stereo layer *</summary>
         </member>
         <member name="P:UnrealEngine.UStereoLayerComponent.bQuadPreserveTextureRatio">
             <summary>True if the quad should internally set it's Y value based on the set texture's dimensions</summary>
@@ -27273,44 +26676,11 @@
         <member name="P:UnrealEngine.UStereoLayerComponent.UVRect">
             <summary>UV coordinates mapped to the quad face *</summary>
         </member>
-        <member name="P:UnrealEngine.UStereoLayerComponent.CylinderRadius">
-            <summary>Radial size of the rendered stereo layer cylinder *</summary>
-        </member>
-        <member name="P:UnrealEngine.UStereoLayerComponent.CylinderOverlayArc">
-            <summary>Arc angle for the stereo layer cylinder *</summary>
-        </member>
-        <member name="P:UnrealEngine.UStereoLayerComponent.CylinderHeight">
-            <summary>Height of the stereo layer cylinder *</summary>
-        </member>
         <member name="P:UnrealEngine.UStereoLayerComponent.StereoLayerType">
             <summary>Specifies how and where the quad is rendered to the screen *</summary>
         </member>
-        <member name="P:UnrealEngine.UStereoLayerComponent.StereoLayerShape">
-            <summary>Specifies which type of layer it is.  Note that some shapes will be supported only on certain platforms! *</summary>
-        </member>
         <member name="P:UnrealEngine.UStereoLayerComponent.Priority">
             <summary>Render priority among all stereo layers, higher priority render on top of lower priority *</summary>
-        </member>
-        <member name="M:UnrealEngine.UStereoLayerFunctionLibrary.EnableAutoLoadingSplashScreen(System.Boolean)">
-            <summary>
-            Enables/disables splash screen to be automatically shown when LoadMap is called.
-            @param       bAutoShowEnabled        (in)    True, if automatic showing of splash screens is enabled when map is being loaded.
-            </summary>
-        </member>
-        <member name="M:UnrealEngine.UStereoLayerFunctionLibrary.HideSplashScreen">
-            <summary>Hide the splash screen and return to normal display.</summary>
-        </member>
-        <member name="M:UnrealEngine.UStereoLayerFunctionLibrary.ShowSplashScreen">
-            <summary>Show the splash screen and override the VR display</summary>
-        </member>
-        <member name="M:UnrealEngine.UStereoLayerFunctionLibrary.SetSplashScreen(UnrealEngine.UTexture,UnrealEngine.FVector2D,UnrealEngine.FVector2D,System.Boolean,System.Boolean)">
-            <summary>
-            Set splash screen attributes
-            @param Texture                        (in) A texture to be used for the splash. B8R8G8A8 format.
-            @param Scale                          (in) Scale of the texture.
-            @param Offset                         (in) Position from which to start rendering the texture.
-            @param ShowLoadingMovie       (in) Whether the splash screen presents loading movies.
-            </summary>
         </member>
         <member name="T:UnrealEngine.UStreamingSettings">
             <summary>Rendering settings.</summary>
@@ -27350,9 +26720,6 @@
         </member>
         <member name="P:UnrealEngine.UStreamingSettings.LevelStreamingComponentsRegistrationGranularity">
             <summary>Batching granularity used to register actor components during level streaming.</summary>
-        </member>
-        <member name="P:UnrealEngine.UStreamingSettings.EventDrivenLoaderEnabled">
-            <summary>Enables the event driven loader in cooked builds.</summary>
         </member>
         <member name="T:UnrealEngine.USubDSurface">
             <summary>Subdivision Surface Asset (Experimental, Early work in progress)</summary>
@@ -27764,9 +27131,6 @@
         <member name="P:UnrealEngine.UTexture2D.bForceMiplevelsToBeResident">
             <summary>Override whether to fully stream even if texture hasn't been rendered.</summary>
         </member>
-        <member name="P:UnrealEngine.UTexture2D.bIgnoreStreamingMipBias">
-            <summary>Ignores the streaming mip bias used to accommodate memory constraints.</summary>
-        </member>
         <member name="P:UnrealEngine.UTexture2D.bGlobalForceMipLevelsToBeResident">
             <summary>Global and serialized version of ForceMiplevelsToBeResident.</summary>
         </member>
@@ -27906,21 +27270,6 @@
             Floats, vectors, and colors are interpolated between keyframes along the timeline.
             </summary>
         </member>
-        <member name="M:UnrealEngine.UTimelineComponent.SetLinearColorCurve(UnrealEngine.UCurveLinearColor,System.String)">
-            <summary>Update a certain linear color track's curve</summary>
-        </member>
-        <member name="M:UnrealEngine.UTimelineComponent.SetVectorCurve(UnrealEngine.UCurveVector,System.String)">
-            <summary>Update a certain vector track's curve</summary>
-        </member>
-        <member name="M:UnrealEngine.UTimelineComponent.SetFloatCurve(UnrealEngine.UCurveFloat,System.String)">
-            <summary>Update a certain float track's curve</summary>
-        </member>
-        <member name="M:UnrealEngine.UTimelineComponent.GetIgnoreTimeDilation">
-            <summary>Get whether to ignore time dilation.</summary>
-        </member>
-        <member name="M:UnrealEngine.UTimelineComponent.SetIgnoreTimeDilation(System.Boolean)">
-            <summary>Set whether to ignore time dilation.</summary>
-        </member>
         <member name="M:UnrealEngine.UTimelineComponent.SetTimelineLengthMode(UnrealEngine.ETimelineLengthMode)">
             <summary>Sets the length mode of the timeline</summary>
         </member>
@@ -27943,7 +27292,7 @@
             <summary>Get whether we are looping or not</summary>
         </member>
         <member name="M:UnrealEngine.UTimelineComponent.SetLooping(System.Boolean)">
-            <summary>true means we would loop, false means we should not.</summary>
+            <summary>true means we whould loop, false means we should not.</summary>
         </member>
         <member name="M:UnrealEngine.UTimelineComponent.GetPlaybackPosition">
             <summary>Get the current playback position of the Timeline</summary>
@@ -27979,9 +27328,6 @@
         <member name="P:UnrealEngine.UTimelineComponent.TheTimeline">
             <summary>The actual timeline structure</summary>
         </member>
-        <member name="P:UnrealEngine.UTimelineComponent.bIgnoreTimeDilation">
-            <summary>True if global time dilation should be ignored by this timeline, false otherwise.</summary>
-        </member>
         <member name="P:UnrealEngine.UTimelineTemplate.TimelineLength">
             <summary>Length of this timeline</summary>
         </member>
@@ -27999,9 +27345,6 @@
         </member>
         <member name="P:UnrealEngine.UTimelineTemplate.bValidatedAsWired">
             <summary>Compiler Validated As Wired up</summary>
-        </member>
-        <member name="P:UnrealEngine.UTimelineTemplate.bIgnoreTimeDilation">
-            <summary>If we want the timeline to ignore global time dilation</summary>
         </member>
         <member name="P:UnrealEngine.UTimelineTemplate.EventTracks">
             <summary>Set of event tracks</summary>
@@ -28449,7 +27792,7 @@
             <summary>How much longitudinal stiffness to have given longitudinal slip</summary>
         </member>
         <member name="P:UnrealEngine.UVehicleWheel.SuspensionForceOffset">
-            <summary>Vertical offset from where suspension forces are applied (along Z-axis)</summary>
+            <summary>Vertical offset from vehicle center of mass where suspension forces are applied</summary>
         </member>
         <member name="P:UnrealEngine.UVehicleWheel.SuspensionMaxRaise">
             <summary>How far the wheel can go above the resting position</summary>
@@ -28483,7 +27826,7 @@
             <summary>Lateral slip experienced by the wheel</summary>
         </member>
         <member name="P:UnrealEngine.UVehicleWheel.DebugNormalizedTireLoad">
-            <summary>How much force the tire experiences at rest divided by how much force it is experiencing now</summary>
+            <summary>How much force the tire experiences at rest devided by how much force it is experiencing now</summary>
         </member>
         <member name="P:UnrealEngine.UVehicleWheel.DebugWheelTorque">
             <summary>Wheel torque</summary>
@@ -28569,14 +27912,8 @@
         <member name="M:UnrealEngine.UWheeledVehicleMovementComponent.SetSteeringInput(System.Single)">
             <summary>Set the user input for the vehicle steering</summary>
         </member>
-        <member name="M:UnrealEngine.UWheeledVehicleMovementComponent.SetBrakeInput(System.Single)">
-            <summary>Set the user input for the vehicle Brake</summary>
-        </member>
         <member name="M:UnrealEngine.UWheeledVehicleMovementComponent.SetThrottleInput(System.Single)">
             <summary>Set the user input for the vehicle throttle</summary>
-        </member>
-        <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.bDeprecatedSpringOffsetMode">
-            <summary>Supports the old (before 4.14) way of applying spring forces. We used to offset from the vehicle center of mass instead of the spring location center of mass. You should only use this for existing content that hasn't been re-tuned</summary>
         </member>
         <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.WheelSetups">
             <summary>Wheels to create</summary>
@@ -28595,9 +27932,6 @@
         </member>
         <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.ChassisHeight">
             <summary>Chassis height used for drag force computation (cm)</summary>
-        </member>
-        <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.bReverseAsBrake">
-            <summary>If true, the brake and reverse controls will behave in a more arcade fashion where holding reverse also functions as brake. For a more realistic approach turn this off</summary>
         </member>
         <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.DragArea">
             <summary>Drag area in cm^2</summary>
@@ -28688,9 +28022,6 @@
         <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.RawThrottleInput">
             <summary>What the player has the accelerator set to. Range -1...1</summary>
         </member>
-        <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.RawBrakeInput">
-            <summary>What the player has the brake set to. Range -1...1</summary>
-        </member>
         <member name="P:UnrealEngine.UWheeledVehicleMovementComponent.bRawHandbrakeInput">
             <summary>True if the player is holding the handbrake</summary>
         </member>
@@ -28753,12 +28084,6 @@
         </member>
         <member name="T:UnrealEngine.UWidget">
             <summary>This is the base class for all wrapped Slate controls that are exposed to UObjects.</summary>
-        </member>
-        <member name="M:UnrealEngine.UWidget.GetOwningPlayer">
-            <summary>
-            Gets the player controller associated with this UI.
-            @return The player controller that owns the UI.
-            </summary>
         </member>
         <member name="M:UnrealEngine.UWidget.RemoveFromParent">
             <summary>
@@ -29114,13 +28439,13 @@
         </member>
         <member name="T:UnrealEngine.UWidgetComponent">
             <summary>
-            The widget component provides a surface in the 3D environment on which to render widgets normally rendered to the screen.
-            Widgets are first rendered to a render target, then that render target is displayed in the world.
-            Material Properties set by this component on whatever material overrides the default.
+            Beware! This feature is experimental and may be substantially changed or removed in future releases.
+            A 3D instance of a Widget Blueprint that can be interacted with in the world.
             SlateUI [Texture]
             BackColor [Vector]
             TintColorAndOpacity [Vector]
             OpacityFromTexture [Scalar]
+            ParabolaDistortion [Scalar]
             </summary>
         </member>
         <member name="M:UnrealEngine.UWidgetComponent.SetBackgroundColor(UnrealEngine.FLinearColor)">
@@ -29226,6 +28551,13 @@
         <member name="P:UnrealEngine.UWidgetComponent.bIsTwoSided">
             <summary>Is the component visible from behind?</summary>
         </member>
+        <member name="P:UnrealEngine.UWidgetComponent.ParabolaDistortion">
+            <summary>
+            When enabled, distorts the UI along a parabola shape giving the UI the appearance
+            that it's on a curved surface in front of the users face.  This only works for UI
+            rendered to a render target.
+            </summary>
+        </member>
         <member name="P:UnrealEngine.UWidgetComponent.TickWhenOffscreen">
             <summary>Should the component tick the widget when it's off screen?</summary>
         </member>
@@ -29270,17 +28602,15 @@
         </member>
         <member name="T:UnrealEngine.UWidgetInteractionComponent">
             <summary>
-            This is a component to allow interaction with the Widget Component.  This class allows you to
-            simulate a sort of laser pointer device, when it hovers over widgets it will send the basic signals
-            to show as if the mouse were moving on top of it.  You'll then tell the component to simulate key presses,
-            like Left Mouse, down and up, to simulate a mouse click.
+            This is a highly experimental component to allow interaction with the Widget Component.  Not
+            everything should be expected to work correctly.  This class allows you to simulate a sort of
+            laser pointer device, when it hovers over widgets it will send the basic signals to show as if the
+            mouse were moving on top of it.  You'll then tell the component to simulate key presses, like
+            Left Mouse, down and up, to simulate a mouse click.
             </summary>
         </member>
         <member name="M:UnrealEngine.UWidgetInteractionComponent.SetCustomHitResult(UnrealEngine.FHitResult)">
             <summary>Set custom hit result.  This is only taken into account if InteractionSource is set to EWidgetInteractionSource::Custom.</summary>
-        </member>
-        <member name="M:UnrealEngine.UWidgetInteractionComponent.Get2DHitLocation">
-            <summary>Gets the last hit location on the widget in 2D, local pixel units of the render target.</summary>
         </member>
         <member name="M:UnrealEngine.UWidgetInteractionComponent.GetLastHitResult">
             <summary>Gets the last hit result generated by the component.  Returns the custom hit result if that was set.</summary>
@@ -29357,9 +28687,6 @@
         </member>
         <member name="P:UnrealEngine.UWidgetInteractionComponent.PointerIndex">
             <summary>Each user virtual controller or virtual finger tips being simulated should use a different pointer index.</summary>
-        </member>
-        <member name="P:UnrealEngine.UWidgetInteractionComponent.TraceChannel">
-            <summary>The trace channel to use when tracing for widget components in the world.</summary>
         </member>
         <member name="P:UnrealEngine.UWidgetInteractionComponent.InteractionDistance">
             <summary>The distance in game units the component should be able to interact with a widget component.</summary>
@@ -29552,24 +28879,6 @@
         <member name="T:UnrealEngine.UWindDirectionalSourceComponent">
             <summary>Component that provides a directional wind source. Only affects SpeedTree assets.</summary>
         </member>
-        <member name="T:UnrealEngine.UWindowTitleBarArea">
-            <summary>A panel for defining a region of the UI that should allow users to drag the window on desktop platforms.</summary>
-        </member>
-        <member name="P:UnrealEngine.UWindowTitleBarArea.bDoubleClickTogglesFullscreen">
-            <summary>Should double clicking the title bar area toggle fullscreen instead of maximizing the window.</summary>
-        </member>
-        <member name="T:UnrealEngine.UWindowTitleBarAreaSlot">
-            <summary>The Slot for the UWindowTitleBarArea</summary>
-        </member>
-        <member name="P:UnrealEngine.UWindowTitleBarAreaSlot.Padding">
-            <summary>The padding area between the slot and the content it contains.</summary>
-        </member>
-        <member name="P:UnrealEngine.UWindowTitleBarAreaSlot.HorizontalAlignment">
-            <summary>The alignment of the object horizontally.</summary>
-        </member>
-        <member name="P:UnrealEngine.UWindowTitleBarAreaSlot.VerticalAlignment">
-            <summary>The alignment of the object vertically.</summary>
-        </member>
         <member name="T:UnrealEngine.UWorld">
             <summary>
             The World is the top level object representing a map or a sandbox in which Actors and Components will exist and be rendered.
@@ -29602,6 +28911,9 @@
         </member>
         <member name="P:UnrealEngine.UWorld.ForegroundLineBatcher">
             <summary>Foreground Line Batchers. This can't be Persistent.</summary>
+        </member>
+        <member name="P:UnrealEngine.UWorld.GameState">
+            <summary>The replicated actor which contains game state information that can be accessible to clients</summary>
         </member>
         <member name="P:UnrealEngine.UWorld.NetworkManager">
             <summary>Instance of this world's game-specific networking management</summary>
@@ -29643,18 +28955,11 @@
         <member name="P:UnrealEngine.UWorld.AuthorityGameMode">
             <summary>The current GameMode, valid only on the server</summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:UnrealEngine.UWorld.GameState" -->
-        <member name="P:UnrealEngine.UWorld.AISystem">
-            <summary>The AI System handles generating pathing information and AI behavior</summary>
-        </member>
         <member name="P:UnrealEngine.UWorld.AvoidanceManager">
             <summary>RVO avoidance manager used by game</summary>
         </member>
         <member name="P:UnrealEngine.UWorld.Levels">
             <summary>Array of levels currently in this world. Not serialized to disk to avoid hard references.</summary>
-        </member>
-        <member name="P:UnrealEngine.UWorld.LevelCollections">
-            <summary>Array of level collections currently in this world.</summary>
         </member>
         <member name="P:UnrealEngine.UWorld.CurrentLevel">
             <summary>Pointer to the current level being edited. Level has to be in the Levels array and == PersistentLevel in the game.</summary>
@@ -30065,9 +29370,6 @@
         </member>
         <member name="T:UnrealEngine.FAssetImportInfo">
             <summary>Struct that is used to store an array of asset import data as an asset registry tag</summary>
-        </member>
-        <member name="T:UnrealEngine.FAssetMapping">
-            <summary>This defines one asset mapping</summary>
         </member>
         <member name="T:UnrealEngine.FAtmospherePrecomputeParameters">
             <summary>Structure storing Data for pre-computation</summary>
@@ -30946,9 +30248,6 @@
         <member name="P:UnrealEngine.FClothingAssetData.bClothPropertiesChanged">
             <summary>the flag whether cloth physics properties are changed from UE4 editor or not</summary>
         </member>
-        <member name="P:UnrealEngine.FClothingAssetData.ApexToUnrealBoneMapping">
-            <summary>Apex stores only the bones that cloth needs. We need a mapping from apex bone index to UE bone index.</summary>
-        </member>
         <member name="T:UnrealEngine.FClothPhysicsProperties">
             <summary>
             now exposed a part of properties based on 3DS Max plug-in
@@ -31727,15 +31026,15 @@
             If set, then chunks which are tagged as "support" chunks (via NxDestructibleChunkDesc::isSupportChunk)
             will have environmental support in static destructibles.
             Note: if both bAssetDefinedSupport and bWorldSupport are set, then chunks must be tagged as
-            "support" chunks AND overlap the Scene's static geometry in order to be environmentally supported.
+            "support" chunks AND overlap the NxScene's static geometry in order to be environmentally supported.
             </summary>
         </member>
         <member name="P:UnrealEngine.FDestructibleParametersFlag.bWorldSupport">
             <summary>
-            If set, then chunks which overlap the Scene's static geometry will have environmental support in
+            If set, then chunks which overlap the NxScene's static geometry will have environmental support in
             static destructibles.
             Note: if both bAssetDefinedSupport and bWorldSupport are set, then chunks must be tagged as
-            "support" chunks AND overlap the Scene's static geometry in order to be environmentally supported.
+            "support" chunks AND overlap the NxScene's static geometry in order to be environmentally supported.
             </summary>
         </member>
         <member name="P:UnrealEngine.FDestructibleParametersFlag.bDebrisTimeout">
@@ -31900,15 +31199,6 @@
         <member name="F:UnrealEngine.FEdGraphPinType.PinSubCategoryMemberReference">
             <summary>Sub-category member reference</summary>
         </member>
-        <member name="F:UnrealEngine.FEdGraphPinType.PinValueType">
-            <summary>Data used to determine value types when bIsMap is true</summary>
-        </member>
-        <member name="P:UnrealEngine.FEdGraphPinType.bIsMap">
-            <summary>Whether or not this pin represents a map of keys to values</summary>
-        </member>
-        <member name="P:UnrealEngine.FEdGraphPinType.bIsSet">
-            <summary>Whether or not this pin represents a set of (unique) values</summary>
-        </member>
         <member name="P:UnrealEngine.FEdGraphPinType.bIsArray">
             <summary>Whether or not this pin represents an array of values</summary>
         </member>
@@ -31919,26 +31209,6 @@
             <summary>Whether or not this pin is a immutable const value</summary>
         </member>
         <member name="P:UnrealEngine.FEdGraphPinType.bIsWeakPointer">
-            <summary>Whether or not this is a weak reference</summary>
-        </member>
-        <member name="T:UnrealEngine.FEdGraphTerminalType">
-            <summary>
-            Struct used to define information for terminal types, e.g. types that can be contained
-            by a container. Currently can represent strong/weak references to a type (only UObjects),
-            a structure, or a primitive. Support for "Container of Containers" is done by wrapping
-            a structure, rather than implicitly defining names for containers.
-            </summary>
-        </member>
-        <member name="F:UnrealEngine.FEdGraphTerminalType.TerminalCategory">
-            <summary>Category</summary>
-        </member>
-        <member name="F:UnrealEngine.FEdGraphTerminalType.TerminalSubCategory">
-            <summary>Sub-category</summary>
-        </member>
-        <member name="P:UnrealEngine.FEdGraphTerminalType.bTerminalIsConst">
-            <summary>Whether or not this pin is a immutable const value</summary>
-        </member>
-        <member name="P:UnrealEngine.FEdGraphTerminalType.bTerminalIsWeakPointer">
             <summary>Whether or not this is a weak reference</summary>
         </member>
         <member name="T:UnrealEngine.FEditableTextBoxStyle">
@@ -32283,22 +31553,6 @@
         <member name="F:UnrealEngine.FFontImportOptionsData.DistanceFieldScanRadiusScale">
             <summary>Shrinks or expands the scan radius used to determine the silhouette of the font edges.</summary>
         </member>
-        <member name="T:UnrealEngine.FFontOutlineSettings">
-            <summary>Settings for applying an outline to a font</summary>
-        </member>
-        <member name="F:UnrealEngine.FFontOutlineSettings.OutlineSize">
-            <summary>Size of the outline in slate units (at 1.0 font scale this unit is a pixel)</summary>
-        </member>
-        <member name="F:UnrealEngine.FFontOutlineSettings.OutlineColor">
-            <summary>Optional material to apply to the outline</summary>
-            <summary>The color of the outline for any character in this font</summary>
-        </member>
-        <member name="P:UnrealEngine.FFontOutlineSettings.bSeparateFillAlpha">
-            <summary>
-            If checked, the outline will be completely translucent where the filled area will be.  This allows for a separate fill alpha value
-            The trade off when enabling this is slightly worse quality for completely opaque fills where the inner outline border meets the fill area
-            </summary>
-        </member>
         <member name="T:UnrealEngine.FFontParameterValue">
             <summary>Editable font parameter.</summary>
         </member>
@@ -32383,6 +31637,24 @@
         <member name="F:UnrealEngine.FFunctionExpressionOutput.Output">
             <summary>Actual output struct which stores information about how this output is connected in the material.</summary>
         </member>
+        <member name="T:UnrealEngine.FGameClassShortName">
+            <summary>Configurable shortened aliases for GameMode classes.  For convenience when typing urls, for instance.</summary>
+        </member>
+        <member name="F:UnrealEngine.FGameClassShortName.ShortName">
+            <summary>Abbreviation that can be used as an alias for the class name</summary>
+        </member>
+        <member name="F:UnrealEngine.FGameClassShortName.GameClassName">
+            <summary>The class name to use when the alias is specified in a URL</summary>
+        </member>
+        <member name="T:UnrealEngine.FGameModePrefix">
+            <summary>Helper structure, used to associate GameModes for a map via its filename prefix.</summary>
+        </member>
+        <member name="F:UnrealEngine.FGameModePrefix.Prefix">
+            <summary>map prefix, e.g. "DM"</summary>
+        </member>
+        <member name="F:UnrealEngine.FGameModePrefix.GameMode">
+            <summary>GameMode used if none specified on the URL</summary>
+        </member>
         <member name="T:UnrealEngine.FGeometry">
             <summary>
             Represents the position, size, and absolute position of a Widget in Slate.
@@ -32459,15 +31731,6 @@
         </member>
         <member name="P:UnrealEngine.FGPUSpriteEmitterInfo.bEnableCollision">
             <summary>If true, collisions are enabled for this emitter.</summary>
-        </member>
-        <member name="P:UnrealEngine.FGPUSpriteEmitterInfo.bRemoveHMDRoll">
-            <summary>If true, removes the HMD view roll (e.g. in VR)</summary>
-        </member>
-        <member name="F:UnrealEngine.FGPUSpriteEmitterInfo.MinFacingCameraBlendDistance">
-            <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_Square</summary>
-        </member>
-        <member name="F:UnrealEngine.FGPUSpriteEmitterInfo.MaxFacingCameraBlendDistance">
-            <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_FacingCameraPosition</summary>
         </member>
         <member name="F:UnrealEngine.FGPUSpriteEmitterInfo.DynamicColor">
             <summary>Dynamic color scale from the ColorOverLife module.</summary>
@@ -32607,15 +31870,6 @@
         </member>
         <member name="F:UnrealEngine.FGPUSpriteResourceData.PivotOffset">
             <summary>Pivot offset in UV space for placing the verts of each particle.</summary>
-        </member>
-        <member name="P:UnrealEngine.FGPUSpriteResourceData.bRemoveHMDRoll">
-            <summary>If true, removes the HMD view roll (e.g. in VR)</summary>
-        </member>
-        <member name="F:UnrealEngine.FGPUSpriteResourceData.MinFacingCameraBlendDistance">
-            <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_Square</summary>
-        </member>
-        <member name="F:UnrealEngine.FGPUSpriteResourceData.MaxFacingCameraBlendDistance">
-            <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_FacingCameraPosition</summary>
         </member>
         <member name="T:UnrealEngine.FGuid">
             <summary>A globally unique identifier.</summary>
@@ -32826,12 +32080,6 @@
         </member>
         <member name="T:UnrealEngine.FInputEvent">
             <summary>Base class for all mouse and keyevents.</summary>
-        </member>
-        <member name="F:UnrealEngine.FInstancedStaticMeshInstanceData.LightmapUVBias">
-            <summary>Legacy, this is now stored in FMeshMapBuildData.  Still serialized for backwards compatibility.</summary>
-        </member>
-        <member name="F:UnrealEngine.FInstancedStaticMeshInstanceData.ShadowmapUVBias">
-            <summary>Legacy, this is now stored in FMeshMapBuildData.  Still serialized for backwards compatibility.</summary>
         </member>
         <member name="T:UnrealEngine.FInt32Range">
             <summary>An int32 range</summary>
@@ -33050,12 +32298,6 @@
         <member name="F:UnrealEngine.FLayerActorStats.Total">
             <summary>A Type of Actor currently associated with the Layer</summary>
             <summary>The total number of Actors of Type assigned to the Layer</summary>
-        </member>
-        <member name="T:UnrealEngine.FLevelCollection">
-            <summary>
-            Contains a group of levels of a particular ELevelCollectionType within a UWorld
-            and the context required to properly tick/update those levels. This object is move-only.
-            </summary>
         </member>
         <member name="P:UnrealEngine.FLevelSimplificationDetails.bCreatePackagePerAsset">
             <summary>Whether to create separate packages for each generated asset. All in map package otherwise</summary>
@@ -33773,18 +33015,14 @@
             When enabled prevents the distance field from being discarded due to the mesh being open, but also lowers Distance Field AO quality.
             </summary>
         </member>
-        <member name="F:UnrealEngine.FMeshBuildSettings.DistanceFieldBias">
-            <summary>
-            Adding a constant distance effectively shrinks the distance field representation.
-            This is useful for preventing self shadowing aritfacts when doing some minor ambient animation.
-            Thin walls will be affected more severely than large hollow objects, because thin walls don't have a large negative region.
-            </summary>
-        </member>
         <member name="T:UnrealEngine.FMeshMergingSettings">
             <summary>Mesh merging settings</summary>
         </member>
         <member name="P:UnrealEngine.FMeshMergingSettings.bGenerateLightMapUV">
             <summary>Whether to generate lightmap UVs for a merged mesh</summary>
+        </member>
+        <member name="F:UnrealEngine.FMeshMergingSettings.TargetLightMapUVChannel">
+            <summary>Target UV channel in a merged mesh for a lightmap</summary>
         </member>
         <member name="F:UnrealEngine.FMeshMergingSettings.TargetLightMapResolution">
             <summary>Target lightmap resolution</summary>
@@ -33809,9 +33047,6 @@
         </member>
         <member name="P:UnrealEngine.FMeshMergingSettings.bUseVertexDataForBakingMaterial">
             <summary>Whether or not vertex data such as vertex colours should be used when baking out materials</summary>
-        </member>
-        <member name="P:UnrealEngine.FMeshMergingSettings.bUseTextureBinning">
-            <summary>Whether or not to calculate varying output texture sizes according to their importance in the final atlas texture</summary>
         </member>
         <member name="F:UnrealEngine.FMeshMergingSettings.SpecificLOD">
             <summary>A given LOD level to export from the source meshes</summary>
@@ -33873,9 +33108,6 @@
         <member name="F:UnrealEngine.FMeshReductionSettings.MaxDeviation">
             <summary>The maximum distance in object space by which the reduced mesh may deviate from the original mesh.</summary>
         </member>
-        <member name="F:UnrealEngine.FMeshReductionSettings.PixelError">
-            <summary>The amount of error in pixels allowed for this LOD.</summary>
-        </member>
         <member name="F:UnrealEngine.FMeshReductionSettings.WeldingThreshold">
             <summary>Threshold in object space at which vertices are welded together.</summary>
         </member>
@@ -33902,18 +33134,6 @@
         </member>
         <member name="F:UnrealEngine.FMeshReductionSettings.VertexColorImportance">
             <summary>Higher values minimize change to vertex color data.</summary>
-        </member>
-        <member name="T:UnrealEngine.FMeshUVChannelInfo">
-            <summary>The world size for each texcoord mapping. Used by the texture streaming.</summary>
-        </member>
-        <member name="P:UnrealEngine.FMeshUVChannelInfo.bOverrideDensities">
-            <summary>Whether this values was set manually or is auto generated.</summary>
-        </member>
-        <member name="F:UnrealEngine.FMeshUVChannelInfo.LocalUVDensities">
-            <summary>
-            The UV density in the mesh, before any transform scaling, in world unit per UV.
-            This value represents the length taken to cover a full UV unit.
-            </summary>
         </member>
         <member name="F:UnrealEngine.FMinimalViewInfo.Location">
             <summary>Location</summary>
@@ -33950,9 +33170,6 @@
         </member>
         <member name="F:UnrealEngine.FMinimalViewInfo.PostProcessSettings">
             <summary>Post-process settings to use if PostProcessBlendWeight is non-zero.</summary>
-        </member>
-        <member name="F:UnrealEngine.FMinimalViewInfo.OffCenterProjectionOffset">
-            <summary>Off-axis / off-center projection offset as proportion of screen dimensions</summary>
         </member>
         <member name="T:UnrealEngine.FMotionEvent">
             <summary>
@@ -34150,6 +33367,7 @@
             <summary>if greater than 0 nav system will attempt to project navlink's end point on geometry below</summary>
         </member>
         <member name="F:UnrealEngine.FNavigationLink.SupportedAgents">
+            <summary>Area type of this link (empty = default)</summary>
             <summary>restrict area only to specified agents</summary>
         </member>
         <member name="P:UnrealEngine.FNavigationLink.bSupportsAgent0">
@@ -34195,6 +33413,7 @@
             <summary>if greater than 0 nav system will attempt to project navlink's end point on geometry below</summary>
         </member>
         <member name="F:UnrealEngine.FNavigationSegmentLink.SupportedAgents">
+            <summary>Area type of this link (empty = default)</summary>
             <summary>restrict area only to specified agents</summary>
         </member>
         <member name="P:UnrealEngine.FNavigationSegmentLink.bSupportsAgent0">
@@ -34643,12 +33862,6 @@
         <member name="P:UnrealEngine.FPostProcessSettings.bOverride_WhiteTemp">
             <summary>first all bOverride_... as they get grouped together into bitfields</summary>
         </member>
-        <member name="P:UnrealEngine.FPostProcessSettings.bOverride_ColorSaturation">
-            <summary>Color Correction controls</summary>
-        </member>
-        <member name="F:UnrealEngine.FPostProcessSettings.ColorSaturation">
-            <summary>Color Correction controls</summary>
-        </member>
         <member name="F:UnrealEngine.FPostProcessSettings.SceneColorTint">
             <summary>Scene tint color</summary>
         </member>
@@ -34964,6 +34177,9 @@
             <summary>The minimum projected screen radius for a primitive to be drawn in the velocity pass, percentage of screen width. smaller numbers cause more draw calls, default: 4%</summary>
         </member>
         <!-- Badly formed XML comment ignored for member "F:UnrealEngine.FPostProcessSettings.ScreenPercentage" -->
+        <member name="F:UnrealEngine.FPostProcessSettings.AntiAliasingMethod">
+            <summary>TemporalAA, FXAA, ...</summary>
+        </member>
         <member name="F:UnrealEngine.FPostProcessSettings.ScreenSpaceReflectionIntensity">
             <summary>Enable/Fade/disable the Screen Space Reflection feature, in percent, avoid numbers between 0 and 1 fo consistency</summary>
         </member>
@@ -34990,9 +34206,6 @@
         </member>
         <member name="F:UnrealEngine.FPreviewAttachedObjectPair.AttachedTo">
             <summary>The name of the attach point of the Object (for example a bone or socket name)</summary>
-        </member>
-        <member name="T:UnrealEngine.FPreviewMeshCollectionEntry">
-            <summary>An entry in a preview mesh collection</summary>
         </member>
         <member name="T:UnrealEngine.FPrimitiveComponentPostPhysicsTickFunction">
             <summary>
@@ -35735,15 +34948,6 @@
         <member name="F:UnrealEngine.FSingleAnimationPlayData.SavedPlayRate">
             <summary>Default setting for play rate of SequenceToPlay to play.</summary>
         </member>
-        <member name="F:UnrealEngine.FSkeletalMaterial.MaterialSlotName">
-            <summary>This name should be use by the gameplay to avoid error if the skeletal mesh Materials array topology change</summary>
-        </member>
-        <member name="F:UnrealEngine.FSkeletalMaterial.ImportedMaterialSlotName">
-            <summary>This name should be use when we re-import a skeletal mesh so we can order the Materials array like it should be</summary>
-        </member>
-        <member name="F:UnrealEngine.FSkeletalMaterial.UVChannelData">
-            <summary>Data used for texture streaming relative to each UV channels.</summary>
-        </member>
         <member name="F:UnrealEngine.FSkeletalMeshLODGroupSettings.ScreenSize">
             <summary>The screen sizes to use for the respective LOD level</summary>
         </member>
@@ -35912,12 +35116,9 @@
         <member name="T:UnrealEngine.FSlateFontInfo">
             <summary>A representation of a font in Slate.</summary>
         </member>
-        <member name="F:UnrealEngine.FSlateFontInfo.OutlineSettings">
+        <member name="F:UnrealEngine.FSlateFontInfo.TypefaceFontName">
             <summary>The font object (valid when used from UMG or a Slate widget style asset)</summary>
             <summary>The material to use when rendering this font</summary>
-            <summary>Settings for applying an outline to a font</summary>
-        </member>
-        <member name="F:UnrealEngine.FSlateFontInfo.TypefaceFontName">
             <summary>The name of the font to use from the default typeface (None will use the first entry)</summary>
         </member>
         <member name="F:UnrealEngine.FSlateFontInfo.Size">
@@ -36122,15 +35323,6 @@
         <member name="F:UnrealEngine.FSpriteCategoryInfo.Description">
             <summary>Localized description of the sprite category</summary>
         </member>
-        <member name="F:UnrealEngine.FStaticMaterial.MaterialSlotName">
-            <summary>This name should be use by the gameplay to avoid error if the skeletal mesh Materials array topology change</summary>
-        </member>
-        <member name="F:UnrealEngine.FStaticMaterial.ImportedMaterialSlotName">
-            <summary>This name should be use when we re-import a skeletal mesh so we can order the Materials array like it should be</summary>
-        </member>
-        <member name="F:UnrealEngine.FStaticMaterial.UVChannelData">
-            <summary>Data used for texture streaming relative to each UV channels.</summary>
-        </member>
         <member name="P:UnrealEngine.FStaticMeshComponentLODInfo.PaintedVertices">
             <summary>Vertex data cached at the time this LOD was painted, if any</summary>
         </member>
@@ -36328,9 +35520,6 @@
         <member name="F:UnrealEngine.FTextBlockStyle.HighlightShape">
             <summary>The shape of highlighted text</summary>
         </member>
-        <member name="F:UnrealEngine.FTextBlockStyle.UnderlineBrush">
-            <summary>The brush used to draw an underline under the text (if any)</summary>
-        </member>
         <member name="T:UnrealEngine.FTextureLODGroup">
             <summary>LOD settings for a single texture group.</summary>
         </member>
@@ -36421,31 +35610,22 @@
         <member name="T:UnrealEngine.FTimelineFloatTrack">
             <summary>Struct that contains one entry for each vector interpolation performed by the timeline</summary>
         </member>
-        <member name="F:UnrealEngine.FTimelineFloatTrack.TrackName">
-            <summary>Float curve to be evaluated</summary>
-            <summary>Name of track, usually set in Timeline Editor. Used by SetInterpFloatCurve function.</summary>
-        </member>
         <member name="F:UnrealEngine.FTimelineFloatTrack.FloatPropertyName">
+            <summary>Float curve to be evaluated</summary>
             <summary>Name of property that we should update from this curve</summary>
         </member>
         <member name="T:UnrealEngine.FTimelineLinearColorTrack">
             <summary>Struct that contains one entry for each linear color interpolation performed by the timeline</summary>
         </member>
-        <member name="F:UnrealEngine.FTimelineLinearColorTrack.TrackName">
-            <summary>Float curve to be evaluated</summary>
-            <summary>Name of track, usually set in Timeline Editor. Used by SetInterpLinearColorCurve function.</summary>
-        </member>
         <member name="F:UnrealEngine.FTimelineLinearColorTrack.LinearColorPropertyName">
+            <summary>Float curve to be evaluated</summary>
             <summary>Name of property that we should update from this curve</summary>
         </member>
         <member name="T:UnrealEngine.FTimelineVectorTrack">
             <summary>Struct that contains one entry for each vector interpolation performed by the timeline</summary>
         </member>
-        <member name="F:UnrealEngine.FTimelineVectorTrack.TrackName">
-            <summary>Vector curve to be evaluated</summary>
-            <summary>Name of track, usually set in Timeline Editor. Used by SetInterpVectorCurve function.</summary>
-        </member>
         <member name="F:UnrealEngine.FTimelineVectorTrack.VectorPropertyName">
+            <summary>Vector curve to be evaluated</summary>
             <summary>Name of property that we should update from this curve</summary>
         </member>
         <member name="T:UnrealEngine.FTimerHandle">

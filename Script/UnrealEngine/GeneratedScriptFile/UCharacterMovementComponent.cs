@@ -86,38 +86,6 @@ public  void ServerMove(float TimeStamp,FVector_NetQuantize10 InAccel,FVector_Ne
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void K2_ComputeFloorDist(IntPtr _this,ref FVector CapsuleLocation,float LineDistance,float SweepDistance,float SweepRadius,out FFindFloorResult FloorResult);
-/// <summary>
-/// Compute distance to the floor from bottom sphere of capsule and store the result in FloorResult.
-/// This distance is the swept distance of the capsule to the first point impacted by the lower hemisphere, or distance from the bottom of the capsule in the case of a line trace.
-/// This function does not care if collision is disabled on the capsule (unlike FindFloor).
-/// @param CapsuleLocation                Location where the capsule sweep should originate
-/// @param LineDistance                   If non-zero, max distance to test for a simple line check from the capsule base. Used only if the sweep test fails to find a walkable floor, and only returns a valid result if the impact normal is a walkable normal.
-/// @param SweepDistance                  If non-zero, max distance to use when sweeping a capsule downwards for the test. MUST be greater than or equal to the line distance.
-/// @param SweepRadius                    The radius to use for sweep tests. Should be <= capsule radius.
-/// @param FloorResult                    Result of the floor check
-/// </summary>
-public  void K2_ComputeFloorDist(FVector CapsuleLocation,float LineDistance,float SweepDistance,float SweepRadius,out FFindFloorResult FloorResult)
-{
-	CheckIsValid();
-	K2_ComputeFloorDist(_this.Get(),ref CapsuleLocation,LineDistance,SweepDistance,SweepRadius,out FloorResult);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void K2_FindFloor(IntPtr _this,ref FVector CapsuleLocation,out FFindFloorResult FloorResult);
-/// <summary>
-/// Sweeps a vertical trace to find the floor for the capsule at the given location. Will attempt to perch if ShouldComputePerchResult() returns true for the downward sweep result.
-/// No floor will be found if collision is disabled on the capsule!
-/// @param CapsuleLocation                Location where the capsule sweep should originate
-/// @param FloorResult                    Result of the floor check
-/// </summary>
-public  void K2_FindFloor(FVector CapsuleLocation,out FFindFloorResult FloorResult)
-{
-	CheckIsValid();
-	K2_FindFloor(_this.Get(),ref CapsuleLocation,out FloorResult);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetWalkableFloorZ(IntPtr _this,float InWalkableFloorZ);
 /// <summary>Set the Z component of the normal of the steepest walkable surface for the character. Also computes WalkableFloorAngle.</summary>
 public  void SetWalkableFloorZ(float InWalkableFloorZ)
@@ -353,27 +321,27 @@ public  void SetAvoidanceEnabled(bool bEnable)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetGroupsToIgnoreMask(IntPtr _this,ref FNavAvoidanceMask GroupMask);
-public  void SetGroupsToIgnoreMask(FNavAvoidanceMask GroupMask)
+extern static void SetGroupsToIgnore(IntPtr _this,int GroupFlags);
+public  void SetGroupsToIgnore(int GroupFlags)
 {
 	CheckIsValid();
-	SetGroupsToIgnoreMask(_this.Get(),ref GroupMask);
+	SetGroupsToIgnore(_this.Get(),GroupFlags);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetGroupsToAvoidMask(IntPtr _this,ref FNavAvoidanceMask GroupMask);
-public  void SetGroupsToAvoidMask(FNavAvoidanceMask GroupMask)
+extern static void SetGroupsToAvoid(IntPtr _this,int GroupFlags);
+public  void SetGroupsToAvoid(int GroupFlags)
 {
 	CheckIsValid();
-	SetGroupsToAvoidMask(_this.Get(),ref GroupMask);
+	SetGroupsToAvoid(_this.Get(),GroupFlags);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetAvoidanceGroupMask(IntPtr _this,ref FNavAvoidanceMask GroupMask);
-public  void SetAvoidanceGroupMask(FNavAvoidanceMask GroupMask)
+extern static void SetAvoidanceGroup(IntPtr _this,int GroupFlags);
+public  void SetAvoidanceGroup(int GroupFlags)
 {
 	CheckIsValid();
-	SetAvoidanceGroupMask(_this.Get(),ref GroupMask);
+	SetAvoidanceGroup(_this.Get(),GroupFlags);
 	
 }
 	[MethodImplAttribute(MethodImplOptions.InternalCall)]

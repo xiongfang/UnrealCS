@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=12)]
+	[StructLayout(LayoutKind.Explicit,Size=16)]
 	public partial struct FTriangleSortSettings
 	{
 		[FieldOffset(0)]
 		public ETriangleSortOption TriangleSorting;
 		[FieldOffset(1)]
 		public ETriangleSortAxis CustomLeftRightAxis;
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName CustomLeftRightBoneName;
 		
 	}

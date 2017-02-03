@@ -73,18 +73,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int EnableGamepadNavigationMode__Offset;
-		/// <summary>
-		/// When false, directional keys will change the selection. When true, ComboBox
-		/// must be activated and will only capture arrow input while activated.
-		/// </summary>
-		public bool EnableGamepadNavigationMode
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), EnableGamepadNavigationMode__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), EnableGamepadNavigationMode__Offset, 1,0,1,255);}
-			
-		}
-		
 		static readonly int Font__Offset;
 		/// <summary>
 		/// The default font to use in the combobox, only applies if you're not implementing OnGenerateWidgetEvent
@@ -134,7 +122,6 @@ namespace UnrealEngine
 			ContentPadding__Offset=GetPropertyOffset(NativeClassPtr,"ContentPadding");
 			MaxListHeight__Offset=GetPropertyOffset(NativeClassPtr,"MaxListHeight");
 			HasDownArrow__Offset=GetPropertyOffset(NativeClassPtr,"HasDownArrow");
-			EnableGamepadNavigationMode__Offset=GetPropertyOffset(NativeClassPtr,"EnableGamepadNavigationMode");
 			Font__Offset=GetPropertyOffset(NativeClassPtr,"Font");
 			ForegroundColor__Offset=GetPropertyOffset(NativeClassPtr,"ForegroundColor");
 			OnSelectionChanged__Offset=GetPropertyOffset(NativeClassPtr,"OnSelectionChanged");

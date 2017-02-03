@@ -417,12 +417,12 @@ public  void Montage_Stop(float InBlendOutTime,UAnimMontage Montage)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static float Montage_Play(IntPtr _this,IntPtr MontageToPlay,float InPlayRate,int ReturnValueType,float InTimeToStartMontageAt);
+extern static float Montage_Play(IntPtr _this,IntPtr MontageToPlay,float InPlayRate,int ReturnValueType);
 /// <summary>Plays an animation montage. Returns the length of the animation montage in seconds. Returns 0.f if failed to play.</summary>
-public  float Montage_Play(UAnimMontage MontageToPlay,float InPlayRate=1.000000f,EMontagePlayReturnType ReturnValueType=EMontagePlayReturnType.MontageLength,float InTimeToStartMontageAt=0.000000f)
+public  float Montage_Play(UAnimMontage MontageToPlay,float InPlayRate=1.000000f,EMontagePlayReturnType ReturnValueType=EMontagePlayReturnType.MontageLength)
 {
 	CheckIsValid();
-	float ___ret = Montage_Play(_this.Get(),MontageToPlay,InPlayRate,(int)ReturnValueType,InTimeToStartMontageAt);
+	float ___ret = Montage_Play(_this.Get(),MontageToPlay,InPlayRate,(int)ReturnValueType);
 	return ___ret;
 	
 }
@@ -446,12 +446,12 @@ public  void StopSlotAnimation(float InBlendOutTime=0.250000f,string SlotNodeNam
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static IntPtr PlaySlotAnimationAsDynamicMontage(IntPtr _this,IntPtr Asset,string SlotNodeName,float BlendInTime,float BlendOutTime,float InPlayRate,int LoopCount,float BlendOutTriggerTime,float InTimeToStartMontageAt);
+extern static IntPtr PlaySlotAnimationAsDynamicMontage(IntPtr _this,IntPtr Asset,string SlotNodeName,float BlendInTime,float BlendOutTime,float InPlayRate,int LoopCount,float BlendOutTriggerTime);
 /// <summary>Play normal animation asset on the slot node by creating a dynamic UAnimMontage. You can only play one asset (whether montage or animsequence) at a time per SlotGroup.</summary>
-public  UAnimMontage PlaySlotAnimationAsDynamicMontage(UAnimSequenceBase Asset,string SlotNodeName,float BlendInTime=0.250000f,float BlendOutTime=0.250000f,float InPlayRate=1.000000f,int LoopCount=1,float BlendOutTriggerTime=-1.000000f,float InTimeToStartMontageAt=0.000000f)
+public  UAnimMontage PlaySlotAnimationAsDynamicMontage(UAnimSequenceBase Asset,string SlotNodeName,float BlendInTime=0.250000f,float BlendOutTime=0.250000f,float InPlayRate=1.000000f,int LoopCount=1,float BlendOutTriggerTime=-1.000000f)
 {
 	CheckIsValid();
-	IntPtr ___ret = PlaySlotAnimationAsDynamicMontage(_this.Get(),Asset,SlotNodeName,BlendInTime,BlendOutTime,InPlayRate,LoopCount,BlendOutTriggerTime,InTimeToStartMontageAt);
+	IntPtr ___ret = PlaySlotAnimationAsDynamicMontage(_this.Get(),Asset,SlotNodeName,BlendInTime,BlendOutTime,InPlayRate,LoopCount,BlendOutTriggerTime);
 	if(___ret==IntPtr.Zero) return null; UAnimMontage ___ret2= new UAnimMontage(){ _this = ___ret }; return ___ret2;
 	
 }

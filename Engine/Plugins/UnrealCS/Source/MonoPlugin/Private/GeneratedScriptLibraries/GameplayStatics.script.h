@@ -38,9 +38,9 @@ namespace UnrealEngine
 			*Value=FStringToMonoString(Value_temp);
 			
 		}
-		static int32 ProjectWorldToScreen(UGameplayStatics* _this,APlayerController* Player,FVector* WorldPosition,FVector2D* ScreenPosition,int32 bPlayerViewportRelative)
+		static int32 ProjectWorldToScreen(UGameplayStatics* _this,APlayerController* Player,FVector* WorldPosition,FVector2D* ScreenPosition)
 		{
-			bool ___ret = _this->ProjectWorldToScreen(Player,*WorldPosition,*ScreenPosition,bPlayerViewportRelative>0?true:false);
+			bool ___ret = _this->ProjectWorldToScreen(Player,*WorldPosition,*ScreenPosition);
 			return ___ret?1:0;
 			
 		}
@@ -53,18 +53,6 @@ namespace UnrealEngine
 		static int32 GrassOverlappingSphereCount(UGameplayStatics* _this,UObject* WorldContextObject,UStaticMesh* StaticMesh,FVector* CenterPosition,float Radius)
 		{
 			int32 ___ret = _this->GrassOverlappingSphereCount(WorldContextObject,StaticMesh,*CenterPosition,Radius);
-			return ___ret;
-			
-		}
-		static FVector RebaseZeroOriginOntoLocal(UGameplayStatics* _this,UObject* WorldContextObject,FVector* WorldLocation)
-		{
-			FVector ___ret = _this->RebaseZeroOriginOntoLocal(WorldContextObject,*WorldLocation);
-			return ___ret;
-			
-		}
-		static FVector RebaseLocalOriginOntoZero(UGameplayStatics* _this,UObject* WorldContextObject,FVector* WorldLocation)
-		{
-			FVector ___ret = _this->RebaseLocalOriginOntoZero(WorldContextObject,*WorldLocation);
 			return ___ret;
 			
 		}
@@ -127,18 +115,6 @@ namespace UnrealEngine
 			return ___ret;
 			
 		}
-		static float GetUnpausedTimeSeconds(UGameplayStatics* _this,UObject* WorldContextObject)
-		{
-			float ___ret = _this->GetUnpausedTimeSeconds(WorldContextObject);
-			return ___ret;
-			
-		}
-		static float GetTimeSeconds(UGameplayStatics* _this,UObject* WorldContextObject)
-		{
-			float ___ret = _this->GetTimeSeconds(WorldContextObject);
-			return ___ret;
-			
-		}
 		static float GetWorldDeltaSeconds(UGameplayStatics* _this,UObject* WorldContextObject)
 		{
 			float ___ret = _this->GetWorldDeltaSeconds(WorldContextObject);
@@ -188,7 +164,7 @@ namespace UnrealEngine
 		static int32 GetSurfaceType(UGameplayStatics* _this,FHitResult* Hit)
 		{
 			TEnumAsByte<EPhysicalSurface> ___ret = _this->GetSurfaceType(*Hit);
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static FHitResult MakeHitResult(UGameplayStatics* _this,int32 bBlockingHit,int32 bInitialOverlap,float Time,FVector* Location,FVector* ImpactPoint,FVector* Normal,FVector* ImpactNormal,UPhysicalMaterial* PhysMat,AActor* HitActor,UPrimitiveComponent* HitComponent,MonoString* HitBoneName,int32 HitItem,int32 FaceIndex,FVector* TraceStart,FVector* TraceEnd)
@@ -328,15 +304,15 @@ namespace UnrealEngine
 			_this->PlaySoundAtLocation(WorldContextObject,Sound,*Location,*Rotation,VolumeMultiplier,PitchMultiplier,StartTime,AttenuationSettings,ConcurrencySettings);
 			
 		}
-		static UAudioComponent* CreateSound2D(UGameplayStatics* _this,UObject* WorldContextObject,USoundBase* Sound,float VolumeMultiplier,float PitchMultiplier,float StartTime,USoundConcurrency* ConcurrencySettings,int32 bPersistAcrossLevelTransition)
+		static UAudioComponent* CreateSound2D(UGameplayStatics* _this,UObject* WorldContextObject,USoundBase* Sound,float VolumeMultiplier,float PitchMultiplier,float StartTime,USoundConcurrency* ConcurrencySettings)
 		{
-			UAudioComponent* ___ret = _this->CreateSound2D(WorldContextObject,Sound,VolumeMultiplier,PitchMultiplier,StartTime,ConcurrencySettings,bPersistAcrossLevelTransition>0?true:false);
+			UAudioComponent* ___ret = _this->CreateSound2D(WorldContextObject,Sound,VolumeMultiplier,PitchMultiplier,StartTime,ConcurrencySettings);
 			return ___ret;
 			
 		}
-		static UAudioComponent* SpawnSound2D(UGameplayStatics* _this,UObject* WorldContextObject,USoundBase* Sound,float VolumeMultiplier,float PitchMultiplier,float StartTime,USoundConcurrency* ConcurrencySettings,int32 bPersistAcrossLevelTransition)
+		static UAudioComponent* SpawnSound2D(UGameplayStatics* _this,UObject* WorldContextObject,USoundBase* Sound,float VolumeMultiplier,float PitchMultiplier,float StartTime,USoundConcurrency* ConcurrencySettings)
 		{
-			UAudioComponent* ___ret = _this->SpawnSound2D(WorldContextObject,Sound,VolumeMultiplier,PitchMultiplier,StartTime,ConcurrencySettings,bPersistAcrossLevelTransition>0?true:false);
+			UAudioComponent* ___ret = _this->SpawnSound2D(WorldContextObject,Sound,VolumeMultiplier,PitchMultiplier,StartTime,ConcurrencySettings);
 			return ___ret;
 			
 		}
@@ -430,15 +406,15 @@ namespace UnrealEngine
 			return ___ret;
 			
 		}
-		static AGameStateBase* GetGameState(UGameplayStatics* _this,UObject* WorldContextObject)
+		static AGameState* GetGameState(UGameplayStatics* _this,UObject* WorldContextObject)
 		{
-			AGameStateBase* ___ret = _this->GetGameState(WorldContextObject);
+			AGameState* ___ret = _this->GetGameState(WorldContextObject);
 			return ___ret;
 			
 		}
-		static AGameModeBase* GetGameMode(UGameplayStatics* _this,UObject* WorldContextObject)
+		static AGameMode* GetGameMode(UGameplayStatics* _this,UObject* WorldContextObject)
 		{
-			AGameModeBase* ___ret = _this->GetGameMode(WorldContextObject);
+			AGameMode* ___ret = _this->GetGameMode(WorldContextObject);
 			return ___ret;
 			
 		}
@@ -577,7 +553,7 @@ namespace UnrealEngine
 		}
 		static AActor* BeginDeferredActorSpawnFromClass(UGameplayStatics* _this,UObject* WorldContextObject,TSubclassOf<AActor>  ActorClass,FTransform* SpawnTransform,int32 CollisionHandlingOverride,AActor* Owner)
 		{
-			AActor* ___ret = _this->BeginDeferredActorSpawnFromClass(WorldContextObject,ActorClass,*SpawnTransform,(ESpawnActorCollisionHandlingMethod)CollisionHandlingOverride,Owner);
+			AActor* ___ret = _this->BeginDeferredActorSpawnFromClass(WorldContextObject,ActorClass,*SpawnTransform,(TEnumAsByte<ESpawnActorCollisionHandlingMethod>)CollisionHandlingOverride,Owner);
 			return ___ret;
 			
 		}
@@ -604,8 +580,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::ProjectWorldToScreen",(const void*)ProjectWorldToScreen);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::DeprojectScreenToWorld",(const void*)DeprojectScreenToWorld);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GrassOverlappingSphereCount",(const void*)GrassOverlappingSphereCount);
-			mono_add_internal_call("UnrealEngine.UGameplayStatics::RebaseZeroOriginOntoLocal",(const void*)RebaseZeroOriginOntoLocal);
-			mono_add_internal_call("UnrealEngine.UGameplayStatics::RebaseLocalOriginOntoZero",(const void*)RebaseLocalOriginOntoZero);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::SetWorldOriginLocation",(const void*)SetWorldOriginLocation);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetWorldOriginLocation",(const void*)GetWorldOriginLocation);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::SuggestProjectileVelocity_CustomArc",(const void*)SuggestProjectileVelocity_CustomArc);
@@ -616,8 +590,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetAccurateRealTime",(const void*)GetAccurateRealTime);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetAudioTimeSeconds",(const void*)GetAudioTimeSeconds);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetRealTimeSeconds",(const void*)GetRealTimeSeconds);
-			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetUnpausedTimeSeconds",(const void*)GetUnpausedTimeSeconds);
-			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetTimeSeconds",(const void*)GetTimeSeconds);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetWorldDeltaSeconds",(const void*)GetWorldDeltaSeconds);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::DeleteGameInSlot",(const void*)DeleteGameInSlot);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::LoadGameFromSlot",(const void*)LoadGameFromSlot);

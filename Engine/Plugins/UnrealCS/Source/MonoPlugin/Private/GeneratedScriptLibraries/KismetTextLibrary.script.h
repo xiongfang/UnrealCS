@@ -17,36 +17,15 @@ namespace UnrealEngine
 			return FStringToMonoString(___ret.ToString());
 			
 		}
-		static MonoString* AsTimeZoneTime_DateTime(UKismetTextLibrary* _this,FDateTime* InDateTime,MonoString* InTimeZone)
-		{
-			FString InTimeZone_temp=MonoStringToFString(InTimeZone);
-			FText ___ret = _this->AsTimeZoneTime_DateTime(*InDateTime,InTimeZone_temp);
-			return FStringToMonoString(___ret.ToString());
-			
-		}
 		static MonoString* AsTime_DateTime(UKismetTextLibrary* _this,FDateTime* In)
 		{
 			FText ___ret = _this->AsTime_DateTime(*In);
 			return FStringToMonoString(___ret.ToString());
 			
 		}
-		static MonoString* AsTimeZoneDateTime_DateTime(UKismetTextLibrary* _this,FDateTime* InDateTime,MonoString* InTimeZone)
-		{
-			FString InTimeZone_temp=MonoStringToFString(InTimeZone);
-			FText ___ret = _this->AsTimeZoneDateTime_DateTime(*InDateTime,InTimeZone_temp);
-			return FStringToMonoString(___ret.ToString());
-			
-		}
 		static MonoString* AsDateTime_DateTime(UKismetTextLibrary* _this,FDateTime* In)
 		{
 			FText ___ret = _this->AsDateTime_DateTime(*In);
-			return FStringToMonoString(___ret.ToString());
-			
-		}
-		static MonoString* AsTimeZoneDate_DateTime(UKismetTextLibrary* _this,FDateTime* InDateTime,MonoString* InTimeZone)
-		{
-			FString InTimeZone_temp=MonoStringToFString(InTimeZone);
-			FText ___ret = _this->AsTimeZoneDate_DateTime(*InDateTime,InTimeZone_temp);
 			return FStringToMonoString(___ret.ToString());
 			
 		}
@@ -260,11 +239,8 @@ namespace UnrealEngine
 		{
 			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::Format",(const void*)Format);
 			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsTimespan_Timespan",(const void*)AsTimespan_Timespan);
-			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsTimeZoneTime_DateTime",(const void*)AsTimeZoneTime_DateTime);
 			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsTime_DateTime",(const void*)AsTime_DateTime);
-			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsTimeZoneDateTime_DateTime",(const void*)AsTimeZoneDateTime_DateTime);
 			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsDateTime_DateTime",(const void*)AsDateTime_DateTime);
-			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsTimeZoneDate_DateTime",(const void*)AsTimeZoneDate_DateTime);
 			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsDate_DateTime",(const void*)AsDate_DateTime);
 			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsPercent_Float",(const void*)AsPercent_Float);
 			mono_add_internal_call("UnrealEngine.UKismetTextLibrary::AsCurrency_Float",(const void*)AsCurrency_Float);

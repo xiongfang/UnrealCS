@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>The source data for runtime resources.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=352)]
+	[StructLayout(LayoutKind.Explicit,Size=336)]
 	public partial struct FGPUSpriteResourceData
 	{
 		/// <summary>Quantized color samples.</summary>
@@ -120,19 +120,6 @@ namespace UnrealEngine
 		/// <summary>Pivot offset in UV space for placing the verts of each particle.</summary>
 		[FieldOffset(320)]
 		public FVector2D PivotOffset;
-		/// <summary>If true, removes the HMD view roll (e.g. in VR)</summary>
-		public bool bRemoveHMDRoll
-		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 328, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 328, 1, 0, 1, 1); } }}
-			
-		}
-		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_Square</summary>
-		[FieldOffset(332)]
-		public float MinFacingCameraBlendDistance;
-		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_FacingCameraPosition</summary>
-		[FieldOffset(336)]
-		public float MaxFacingCameraBlendDistance;
 		
 	}
 	

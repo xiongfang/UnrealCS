@@ -6,13 +6,13 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>
-	/// The widget component provides a surface in the 3D environment on which to render widgets normally rendered to the screen.
-	/// Widgets are first rendered to a render target, then that render target is displayed in the world.
-	/// Material Properties set by this component on whatever material overrides the default.
+	/// Beware! This feature is experimental and may be substantially changed or removed in future releases.
+	/// A 3D instance of a Widget Blueprint that can be interacted with in the world.
 	/// SlateUI [Texture]
 	/// BackColor [Vector]
 	/// TintColorAndOpacity [Vector]
 	/// OpacityFromTexture [Scalar]
+	/// ParabolaDistortion [Scalar]
 	/// </summary>
 	public partial class UWidgetComponent
 	{
@@ -171,12 +171,32 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bIsOpaque__Offset;
+		public bool bIsOpaque
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsOpaque__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static readonly int bIsTwoSided__Offset;
 		/// <summary>Is the component visible from behind?</summary>
 		public bool bIsTwoSided
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsTwoSided__Offset, 1, 0, 1, 255);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsTwoSided__Offset, 1,0,1,255);}
+			
+		}
+		
+		static readonly int ParabolaDistortion__Offset;
+		/// <summary>
+		/// When enabled, distorts the UI along a parabola shape giving the UI the appearance
+		/// that it's on a curved surface in front of the users face.  This only works for UI
+		/// rendered to a render target.
+		/// </summary>
+		public float ParabolaDistortion
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+ParabolaDistortion__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ParabolaDistortion__Offset, false);}
 			
 		}
 		
@@ -269,6 +289,13 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bUseLegacyRotation__Offset;
+		public bool bUseLegacyRotation
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseLegacyRotation__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static readonly int bAddedToScreen__Offset;
 		public bool bAddedToScreen
 		{
@@ -321,7 +348,9 @@ namespace UnrealEngine
 			TintColorAndOpacity__Offset=GetPropertyOffset(NativeClassPtr,"TintColorAndOpacity");
 			OpacityFromTexture__Offset=GetPropertyOffset(NativeClassPtr,"OpacityFromTexture");
 			BlendMode__Offset=GetPropertyOffset(NativeClassPtr,"BlendMode");
+			bIsOpaque__Offset=GetPropertyOffset(NativeClassPtr,"bIsOpaque");
 			bIsTwoSided__Offset=GetPropertyOffset(NativeClassPtr,"bIsTwoSided");
+			ParabolaDistortion__Offset=GetPropertyOffset(NativeClassPtr,"ParabolaDistortion");
 			TickWhenOffscreen__Offset=GetPropertyOffset(NativeClassPtr,"TickWhenOffscreen");
 			Widget__Offset=GetPropertyOffset(NativeClassPtr,"Widget");
 			BodySetup__Offset=GetPropertyOffset(NativeClassPtr,"BodySetup");
@@ -333,6 +362,7 @@ namespace UnrealEngine
 			MaskedMaterial_OneSided__Offset=GetPropertyOffset(NativeClassPtr,"MaskedMaterial_OneSided");
 			RenderTarget__Offset=GetPropertyOffset(NativeClassPtr,"RenderTarget");
 			MaterialInstance__Offset=GetPropertyOffset(NativeClassPtr,"MaterialInstance");
+			bUseLegacyRotation__Offset=GetPropertyOffset(NativeClassPtr,"bUseLegacyRotation");
 			bAddedToScreen__Offset=GetPropertyOffset(NativeClassPtr,"bAddedToScreen");
 			bEditTimeUsable__Offset=GetPropertyOffset(NativeClassPtr,"bEditTimeUsable");
 			SharedLayerName__Offset=GetPropertyOffset(NativeClassPtr,"SharedLayerName");

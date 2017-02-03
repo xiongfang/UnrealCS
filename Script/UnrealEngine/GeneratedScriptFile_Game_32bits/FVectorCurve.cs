@@ -5,16 +5,16 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=276)]
+	[StructLayout(LayoutKind.Explicit,Size=280)]
 	public partial struct FVectorCurve
 	{
-		[FieldOffset(24)]
+		[FieldOffset(28)]
 		public FRichCurve FloatCurves;
 		[FieldOffset(0)]
 		public FName LastObservedName;
 		[FieldOffset(8)]
 		public FSmartName Name;
-		[FieldOffset(20)]
+		[FieldOffset(24)]
 		public int CurveTypeFlags;
 		
 	}

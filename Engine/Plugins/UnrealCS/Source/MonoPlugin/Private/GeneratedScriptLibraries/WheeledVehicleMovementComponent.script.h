@@ -9,19 +9,19 @@ namespace UnrealEngine
 			_this->SetAvoidanceEnabled(bEnable>0?true:false);
 			
 		}
-		static void SetGroupsToIgnoreMask(UWheeledVehicleMovementComponent* _this,FNavAvoidanceMask* GroupMask)
+		static void SetGroupsToIgnore(UWheeledVehicleMovementComponent* _this,int32 GroupFlags)
 		{
-			_this->SetGroupsToIgnoreMask(*GroupMask);
+			_this->SetGroupsToIgnore(GroupFlags);
 			
 		}
-		static void SetGroupsToAvoidMask(UWheeledVehicleMovementComponent* _this,FNavAvoidanceMask* GroupMask)
+		static void SetGroupsToAvoid(UWheeledVehicleMovementComponent* _this,int32 GroupFlags)
 		{
-			_this->SetGroupsToAvoidMask(*GroupMask);
+			_this->SetGroupsToAvoid(GroupFlags);
 			
 		}
-		static void SetAvoidanceGroupMask(UWheeledVehicleMovementComponent* _this,FNavAvoidanceMask* GroupMask)
+		static void SetAvoidanceGroup(UWheeledVehicleMovementComponent* _this,int32 GroupFlags)
 		{
-			_this->SetAvoidanceGroupMask(*GroupMask);
+			_this->SetAvoidanceGroup(GroupFlags);
 			
 		}
 		static int32 GetUseAutoGears(UWheeledVehicleMovementComponent* _this)
@@ -90,11 +90,6 @@ namespace UnrealEngine
 			_this->SetSteeringInput(Steering);
 			
 		}
-		static void SetBrakeInput(UWheeledVehicleMovementComponent* _this,float Brake)
-		{
-			_this->SetBrakeInput(Brake);
-			
-		}
 		static void SetThrottleInput(UWheeledVehicleMovementComponent* _this,float Throttle)
 		{
 			_this->SetThrottleInput(Throttle);
@@ -105,9 +100,9 @@ namespace UnrealEngine
 		static void BindFunctions()
 		{
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetAvoidanceEnabled",(const void*)SetAvoidanceEnabled);
-			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetGroupsToIgnoreMask",(const void*)SetGroupsToIgnoreMask);
-			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetGroupsToAvoidMask",(const void*)SetGroupsToAvoidMask);
-			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetAvoidanceGroupMask",(const void*)SetAvoidanceGroupMask);
+			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetGroupsToIgnore",(const void*)SetGroupsToIgnore);
+			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetGroupsToAvoid",(const void*)SetGroupsToAvoid);
+			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetAvoidanceGroup",(const void*)SetAvoidanceGroup);
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::GetUseAutoGears",(const void*)GetUseAutoGears);
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::GetTargetGear",(const void*)GetTargetGear);
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::GetCurrentGear",(const void*)GetCurrentGear);
@@ -120,7 +115,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetGearUp",(const void*)SetGearUp);
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetHandbrakeInput",(const void*)SetHandbrakeInput);
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetSteeringInput",(const void*)SetSteeringInput);
-			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetBrakeInput",(const void*)SetBrakeInput);
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::SetThrottleInput",(const void*)SetThrottleInput);
 			mono_add_internal_call("UnrealEngine.UWheeledVehicleMovementComponent::StaticClass",(const void*)StaticClass);
 			

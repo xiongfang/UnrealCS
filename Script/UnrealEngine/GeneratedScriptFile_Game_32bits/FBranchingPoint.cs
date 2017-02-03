@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=52)]
+	[StructLayout(LayoutKind.Explicit,Size=56)]
 	public partial struct FBranchingPoint
 	{
-		[FieldOffset(36)]
+		[FieldOffset(40)]
 		public FName EventName;
-		[FieldOffset(44)]
-		public float DisplayTime;
 		[FieldOffset(48)]
+		public float DisplayTime;
+		[FieldOffset(52)]
 		public float TriggerTimeOffset;
 		[FieldOffset(8)]
 		public int SlotIndex;

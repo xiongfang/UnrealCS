@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=224)]
+	[StructLayout(LayoutKind.Explicit,Size=232)]
 	public partial struct FSimulatedRootMotionReplicatedMove
 	{
 		[FieldOffset(0)]
 		public float Time;
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FRepRootMotionMontage RootMotion;
 		
 	}

@@ -6,8 +6,8 @@ namespace UnrealEngine
 	{
 		static int32 GetValue(UVisibilityBinding* _this)
 		{
-			ESlateVisibility ___ret = _this->GetValue();
-			return (int)___ret;
+			TEnumAsByte<ESlateVisibility> ___ret = _this->GetValue();
+			return (int)___ret.GetValue();
 			
 		}
 		static UClass* StaticClass(){return UVisibilityBinding::StaticClass();}

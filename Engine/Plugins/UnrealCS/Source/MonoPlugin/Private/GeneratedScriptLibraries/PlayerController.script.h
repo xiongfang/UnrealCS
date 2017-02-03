@@ -283,17 +283,17 @@ namespace UnrealEngine
 		}
 		static void SetHapticsByValue(APlayerController* _this,float Frequency,float Amplitude,int32 Hand)
 		{
-			_this->SetHapticsByValue(Frequency,Amplitude,(EControllerHand)Hand);
+			_this->SetHapticsByValue(Frequency,Amplitude,(TEnumAsByte<EControllerHand>)Hand);
 			
 		}
 		static void StopHapticEffect(APlayerController* _this,int32 Hand)
 		{
-			_this->StopHapticEffect((EControllerHand)Hand);
+			_this->StopHapticEffect((TEnumAsByte<EControllerHand>)Hand);
 			
 		}
 		static void PlayHapticEffect(APlayerController* _this,UHapticFeedbackEffect_Base* HapticEffect,int32 Hand,float Scale,int32 bLoop)
 		{
-			_this->PlayHapticEffect(HapticEffect,(EControllerHand)Hand,Scale,bLoop>0?true:false);
+			_this->PlayHapticEffect(HapticEffect,(TEnumAsByte<EControllerHand>)Hand,Scale,bLoop>0?true:false);
 			
 		}
 		static void PlayDynamicForceFeedback(APlayerController* _this,float Intensity,float Duration,int32 bAffectsLeftLarge,int32 bAffectsLeftSmall,int32 bAffectsRightLarge,int32 bAffectsRightSmall,int32 Action,FLatentActionInfo* LatentInfo)
@@ -530,14 +530,9 @@ namespace UnrealEngine
 			_this->StartFire(FireModeNum);
 			
 		}
-		static void SetMouseLocation(APlayerController* _this,int32 X,int32 Y)
+		static int32 ProjectWorldLocationToScreen(APlayerController* _this,FVector* WorldLocation,FVector2D* ScreenLocation)
 		{
-			_this->SetMouseLocation(X,Y);
-			
-		}
-		static int32 ProjectWorldLocationToScreen(APlayerController* _this,FVector* WorldLocation,FVector2D* ScreenLocation,int32 bPlayerViewportRelative)
-		{
-			bool ___ret = _this->ProjectWorldLocationToScreen(*WorldLocation,*ScreenLocation,bPlayerViewportRelative>0?true:false);
+			bool ___ret = _this->ProjectWorldLocationToScreen(*WorldLocation,*ScreenLocation);
 			return ___ret?1:0;
 			
 		}
@@ -739,7 +734,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.APlayerController::ToggleSpeaking",(const void*)ToggleSpeaking);
 			mono_add_internal_call("UnrealEngine.APlayerController::ClientEnableNetworkVoice",(const void*)ClientEnableNetworkVoice);
 			mono_add_internal_call("UnrealEngine.APlayerController::StartFire",(const void*)StartFire);
-			mono_add_internal_call("UnrealEngine.APlayerController::SetMouseLocation",(const void*)SetMouseLocation);
 			mono_add_internal_call("UnrealEngine.APlayerController::ProjectWorldLocationToScreen",(const void*)ProjectWorldLocationToScreen);
 			mono_add_internal_call("UnrealEngine.APlayerController::DeprojectScreenPositionToWorld",(const void*)DeprojectScreenPositionToWorld);
 			mono_add_internal_call("UnrealEngine.APlayerController::DeprojectMousePositionToWorld",(const void*)DeprojectMousePositionToWorld);

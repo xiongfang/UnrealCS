@@ -45,13 +45,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int PostProcessAnimInstance__Offset;
-		public UAnimInstance PostProcessAnimInstance
-		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + PostProcessAnimInstance__Offset); if (v == IntPtr.Zero)return null; UAnimInstance retValue = new UAnimInstance(); retValue._this = v; return retValue; }
-			
-		}
-		
 		static readonly int AnimationData__Offset;
 		public FSingleAnimationPlayData AnimationData
 		{
@@ -305,17 +298,17 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int CachedAnimCurveUidVersion__Offset;
-		public ushort CachedAnimCurveUidVersion
-		{
-			get{ CheckIsValid();return (ushort)Marshal.PtrToStructure(_this.Get()+CachedAnimCurveUidVersion__Offset, typeof(ushort));}
-			
-		}
-		
 		static readonly int LineCheckBoundsScale__Offset;
 		public FVector LineCheckBoundsScale
 		{
 			get{ CheckIsValid();return (FVector)Marshal.PtrToStructure(_this.Get()+LineCheckBoundsScale__Offset, typeof(FVector));}
+			
+		}
+		
+		static readonly int RagdollAggregateThreshold__Offset;
+		public int RagdollAggregateThreshold
+		{
+			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+RagdollAggregateThreshold__Offset, typeof(int));}
 			
 		}
 		
@@ -384,7 +377,6 @@ namespace UnrealEngine
 			AnimClass__Offset=GetPropertyOffset(NativeClassPtr,"AnimClass");
 			AnimScriptInstance__Offset=GetPropertyOffset(NativeClassPtr,"AnimScriptInstance");
 			SubInstances__Offset=GetPropertyOffset(NativeClassPtr,"SubInstances");
-			PostProcessAnimInstance__Offset=GetPropertyOffset(NativeClassPtr,"PostProcessAnimInstance");
 			AnimationData__Offset=GetPropertyOffset(NativeClassPtr,"AnimationData");
 			CachedBoneSpaceTransforms__Offset=GetPropertyOffset(NativeClassPtr,"CachedBoneSpaceTransforms");
 			CachedComponentSpaceTransforms__Offset=GetPropertyOffset(NativeClassPtr,"CachedComponentSpaceTransforms");
@@ -418,8 +410,8 @@ namespace UnrealEngine
 			bAnimTreeInitialised__Offset=GetPropertyOffset(NativeClassPtr,"bAnimTreeInitialised");
 			bIncludeComponentLocationIntoBounds__Offset=GetPropertyOffset(NativeClassPtr,"bIncludeComponentLocationIntoBounds");
 			bEnableLineCheckWithBounds__Offset=GetPropertyOffset(NativeClassPtr,"bEnableLineCheckWithBounds");
-			CachedAnimCurveUidVersion__Offset=GetPropertyOffset(NativeClassPtr,"CachedAnimCurveUidVersion");
 			LineCheckBoundsScale__Offset=GetPropertyOffset(NativeClassPtr,"LineCheckBoundsScale");
+			RagdollAggregateThreshold__Offset=GetPropertyOffset(NativeClassPtr,"RagdollAggregateThreshold");
 			OnConstraintBroken__Offset=GetPropertyOffset(NativeClassPtr,"OnConstraintBroken");
 			SequenceToPlay__Offset=GetPropertyOffset(NativeClassPtr,"SequenceToPlay");
 			AnimToPlay__Offset=GetPropertyOffset(NativeClassPtr,"AnimToPlay");

@@ -7,7 +7,7 @@ namespace UnrealEngine
 	{
 		DoNotTrace=0,
 		TraceFullPath=1,
-		OnlyTraceWhileAscending=2,
+		OnlyTraceWhileAsceding=2,
 		ESuggestProjVelocityTraceOption_MAX=3,
 		
 	}

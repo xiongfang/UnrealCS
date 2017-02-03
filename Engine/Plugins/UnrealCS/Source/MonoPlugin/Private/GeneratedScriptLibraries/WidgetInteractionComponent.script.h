@@ -9,12 +9,6 @@ namespace UnrealEngine
 			_this->SetCustomHitResult(*HitResult);
 			
 		}
-		static FVector2D Get2DHitLocation(UWidgetInteractionComponent* _this)
-		{
-			FVector2D ___ret = _this->Get2DHitLocation();
-			return ___ret;
-			
-		}
 		static FHitResult GetLastHitResult(UWidgetInteractionComponent* _this)
 		{
 			FHitResult ___ret = _this->GetLastHitResult();
@@ -90,7 +84,6 @@ namespace UnrealEngine
 		static void BindFunctions()
 		{
 			mono_add_internal_call("UnrealEngine.UWidgetInteractionComponent::SetCustomHitResult",(const void*)SetCustomHitResult);
-			mono_add_internal_call("UnrealEngine.UWidgetInteractionComponent::Get2DHitLocation",(const void*)Get2DHitLocation);
 			mono_add_internal_call("UnrealEngine.UWidgetInteractionComponent::GetLastHitResult",(const void*)GetLastHitResult);
 			mono_add_internal_call("UnrealEngine.UWidgetInteractionComponent::IsOverHitTestVisibleWidget",(const void*)IsOverHitTestVisibleWidget);
 			mono_add_internal_call("UnrealEngine.UWidgetInteractionComponent::IsOverFocusableWidget",(const void*)IsOverFocusableWidget);

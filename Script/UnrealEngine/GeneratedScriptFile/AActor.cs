@@ -18,7 +18,7 @@ public  UActorComponent[] GetComponentsByTag(TSubclassOf<UActorComponent>  Compo
 extern static IntPtr[] GetComponentsByClass(IntPtr _this,IntPtr ComponentClass);
 /// <summary>
 /// Gets all the components that inherit from the given class.
-///       Currently returns an array of UActorComponent which must be cast to the correct type.
+///               Currently returns an array of UActorComponent which must be cast to the correct type.
 /// </summary>
 public  UActorComponent[] GetComponentsByClass(TSubclassOf<UActorComponent>  ComponentClass)
 {
@@ -1076,7 +1076,7 @@ public  void EnableInput(APlayerController PlayerController)
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void OnRep_Instigator(IntPtr _this);
-/// <summary>Called on clients when Instigator is replicated.</summary>
+/// <summary>Called on clients when Instigatolr is replicated.</summary>
 public  void OnRep_Instigator()
 {
 	CheckIsValid();

@@ -7,14 +7,6 @@ namespace UnrealEngine
 {
 	public partial class UWheeledVehicleMovementComponent
 	{
-		static readonly int bDeprecatedSpringOffsetMode__Offset;
-		public bool bDeprecatedSpringOffsetMode
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDeprecatedSpringOffsetMode__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDeprecatedSpringOffsetMode__Offset, 1,0,1,1);}
-			
-		}
-		
 		static readonly int WheelSetups__Offset;
 		public TStructArray<FWheelSetup> WheelSetups
 		{
@@ -52,14 +44,6 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+ChassisHeight__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ChassisHeight__Offset, false);}
-			
-		}
-		
-		static readonly int bReverseAsBrake__Offset;
-		public bool bReverseAsBrake
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReverseAsBrake__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReverseAsBrake__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -279,13 +263,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int RawBrakeInput__Offset;
-		public float RawBrakeInput
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+RawBrakeInput__Offset, typeof(float));}
-			
-		}
-		
 		static readonly int bRawHandbrakeInput__Offset;
 		public bool bRawHandbrakeInput
 		{
@@ -401,13 +378,11 @@ namespace UnrealEngine
 		static UWheeledVehicleMovementComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("WheeledVehicleMovementComponent");
-			bDeprecatedSpringOffsetMode__Offset=GetPropertyOffset(NativeClassPtr,"bDeprecatedSpringOffsetMode");
 			WheelSetups__Offset=GetPropertyOffset(NativeClassPtr,"WheelSetups");
 			Mass__Offset=GetPropertyOffset(NativeClassPtr,"Mass");
 			DragCoefficient__Offset=GetPropertyOffset(NativeClassPtr,"DragCoefficient");
 			ChassisWidth__Offset=GetPropertyOffset(NativeClassPtr,"ChassisWidth");
 			ChassisHeight__Offset=GetPropertyOffset(NativeClassPtr,"ChassisHeight");
-			bReverseAsBrake__Offset=GetPropertyOffset(NativeClassPtr,"bReverseAsBrake");
 			DragArea__Offset=GetPropertyOffset(NativeClassPtr,"DragArea");
 			EstimatedMaxEngineSpeed__Offset=GetPropertyOffset(NativeClassPtr,"EstimatedMaxEngineSpeed");
 			MaxEngineRPM__Offset=GetPropertyOffset(NativeClassPtr,"MaxEngineRPM");
@@ -436,7 +411,6 @@ namespace UnrealEngine
 			ReplicatedState__Offset=GetPropertyOffset(NativeClassPtr,"ReplicatedState");
 			RawSteeringInput__Offset=GetPropertyOffset(NativeClassPtr,"RawSteeringInput");
 			RawThrottleInput__Offset=GetPropertyOffset(NativeClassPtr,"RawThrottleInput");
-			RawBrakeInput__Offset=GetPropertyOffset(NativeClassPtr,"RawBrakeInput");
 			bRawHandbrakeInput__Offset=GetPropertyOffset(NativeClassPtr,"bRawHandbrakeInput");
 			bRawGearUpInput__Offset=GetPropertyOffset(NativeClassPtr,"bRawGearUpInput");
 			bRawGearDownInput__Offset=GetPropertyOffset(NativeClassPtr,"bRawGearDownInput");

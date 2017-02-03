@@ -5,20 +5,20 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=1716)]
+	[StructLayout(LayoutKind.Explicit,Size=1760)]
 	public partial struct FEditableTextBoxStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FSlateBrush BackgroundImageNormal;
-		[FieldOffset(120)]
+		[FieldOffset(128)]
 		public FSlateBrush BackgroundImageHovered;
-		[FieldOffset(236)]
+		[FieldOffset(248)]
 		public FSlateBrush BackgroundImageFocused;
-		[FieldOffset(352)]
+		[FieldOffset(368)]
 		public FSlateBrush BackgroundImageReadOnly;
-		[FieldOffset(468)]
+		[FieldOffset(488)]
 		public FMargin Padding;
-		[FieldOffset(484)]
+		[FieldOffset(504)]
 		public FSlateFontInfo Font;
 		[FieldOffset(552)]
 		public FSlateColor ForegroundColor;
@@ -30,7 +30,7 @@ namespace UnrealEngine
 		public FMargin HScrollBarPadding;
 		[FieldOffset(652)]
 		public FMargin VScrollBarPadding;
-		[FieldOffset(668)]
+		[FieldOffset(672)]
 		public FScrollBarStyle ScrollBarStyle;
 		
 	}

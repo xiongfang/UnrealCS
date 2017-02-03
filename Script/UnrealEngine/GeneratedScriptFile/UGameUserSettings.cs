@@ -419,16 +419,6 @@ public  void SetVSyncEnabled(bool bEnable)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetPreferredFullscreenMode(IntPtr _this);
-/// <summary>Returns the user setting for game window fullscreen mode.</summary>
-public  EWindowMode GetPreferredFullscreenMode()
-{
-	CheckIsValid();
-	int ___ret = GetPreferredFullscreenMode(_this.Get());
-	return (EWindowMode)___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetFullscreenMode(IntPtr _this,int InFullscreenMode);
 /// <summary>Sets the user setting for the game window fullscreen mode. See UGameUserSettings::FullscreenMode.</summary>
 public  void SetFullscreenMode(EWindowMode InFullscreenMode)

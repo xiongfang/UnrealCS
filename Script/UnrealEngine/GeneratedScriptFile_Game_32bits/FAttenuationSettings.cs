@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=208)]
+	[StructLayout(LayoutKind.Explicit,Size=204)]
 	public partial struct FAttenuationSettings
 	{
 		public bool bAttenuate
@@ -44,63 +44,63 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 0, 1, 0, 32, 32); } }}
 			
 		}
-		[FieldOffset(4)]
+		[FieldOffset(1)]
 		public ESoundDistanceModel DistanceAlgorithm;
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FRuntimeFloatCurve CustomAttenuationCurve;
-		[FieldOffset(96)]
+		[FieldOffset(92)]
 		public ESoundDistanceCalc DistanceType;
-		[FieldOffset(97)]
+		[FieldOffset(93)]
 		public EAttenuationShape AttenuationShape;
-		[FieldOffset(100)]
+		[FieldOffset(96)]
 		public float dBAttenuationAtMax;
-		[FieldOffset(104)]
+		[FieldOffset(100)]
 		public float OmniRadius;
-		[FieldOffset(108)]
+		[FieldOffset(104)]
 		public float StereoSpread;
-		[FieldOffset(112)]
+		[FieldOffset(108)]
 		public ESoundSpatializationAlgorithm SpatializationAlgorithm;
-		[FieldOffset(116)]
+		[FieldOffset(112)]
 		public float RadiusMin;
-		[FieldOffset(120)]
+		[FieldOffset(116)]
 		public float RadiusMax;
-		[FieldOffset(124)]
+		[FieldOffset(120)]
 		public FVector AttenuationShapeExtents;
-		[FieldOffset(136)]
+		[FieldOffset(132)]
 		public float ConeOffset;
-		[FieldOffset(140)]
+		[FieldOffset(136)]
 		public float FalloffDistance;
-		[FieldOffset(144)]
+		[FieldOffset(140)]
 		public float LPFRadiusMin;
-		[FieldOffset(148)]
+		[FieldOffset(144)]
 		public float LPFRadiusMax;
-		[FieldOffset(152)]
+		[FieldOffset(148)]
 		public float LPFFrequencyAtMin;
-		[FieldOffset(156)]
+		[FieldOffset(152)]
 		public float LPFFrequencyAtMax;
-		[FieldOffset(160)]
+		[FieldOffset(156)]
 		public float FocusAzimuth;
-		[FieldOffset(164)]
+		[FieldOffset(160)]
 		public float NonFocusAzimuth;
-		[FieldOffset(168)]
+		[FieldOffset(164)]
 		public float FocusDistanceScale;
-		[FieldOffset(172)]
+		[FieldOffset(168)]
 		public float NonFocusDistanceScale;
-		[FieldOffset(176)]
+		[FieldOffset(172)]
 		public float FocusPriorityScale;
-		[FieldOffset(180)]
+		[FieldOffset(176)]
 		public float NonFocusPriorityScale;
-		[FieldOffset(184)]
+		[FieldOffset(180)]
 		public float FocusVolumeAttenuation;
-		[FieldOffset(188)]
+		[FieldOffset(184)]
 		public float NonFocusVolumeAttenuation;
-		[FieldOffset(192)]
+		[FieldOffset(188)]
 		public ECollisionChannel OcclusionTraceChannel;
-		[FieldOffset(196)]
+		[FieldOffset(192)]
 		public float OcclusionLowPassFilterFrequency;
-		[FieldOffset(200)]
+		[FieldOffset(196)]
 		public float OcclusionVolumeAttenuation;
-		[FieldOffset(204)]
+		[FieldOffset(200)]
 		public float OcclusionInterpolationTime;
 		
 	}

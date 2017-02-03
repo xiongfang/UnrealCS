@@ -11,8 +11,7 @@ namespace UnrealEngine
 		PSA_Velocity=3,
 		PSA_AwayFromCenter=4,
 		PSA_TypeSpecific=5,
-		PSA_FacingCameraDistanceBlend=6,
-		PSA_MAX=7,
+		PSA_MAX=6,
 		
 	}
 	

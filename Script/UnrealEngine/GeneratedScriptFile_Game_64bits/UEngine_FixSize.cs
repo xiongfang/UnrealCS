@@ -1331,10 +1331,17 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bCookSeparateSharedMPGameContent__Offset;
+		public bool bCookSeparateSharedMPGameContent
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCookSeparateSharedMPGameContent__Offset, 1, 0, 8, 8);}
+			
+		}
+		
 		static readonly int bDisableAILogging__Offset;
 		public bool bDisableAILogging
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableAILogging__Offset, 1, 0, 8, 8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableAILogging__Offset, 1, 0, 16, 16);}
 			
 		}
 		
@@ -1370,13 +1377,6 @@ namespace UnrealEngine
 		public float SelectionHighlightIntensity
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SelectionHighlightIntensity__Offset, typeof(float));}
-			
-		}
-		
-		static readonly int SelectionMeshSectionHighlightIntensity__Offset;
-		public float SelectionMeshSectionHighlightIntensity
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SelectionMeshSectionHighlightIntensity__Offset, typeof(float));}
 			
 		}
 		
@@ -1625,13 +1625,13 @@ namespace UnrealEngine
 			bEnableOnScreenDebugMessages__Offset=GetPropertyOffset(NativeClassPtr,"bEnableOnScreenDebugMessages");
 			bEnableOnScreenDebugMessagesDisplay__Offset=GetPropertyOffset(NativeClassPtr,"bEnableOnScreenDebugMessagesDisplay");
 			bSuppressMapWarnings__Offset=GetPropertyOffset(NativeClassPtr,"bSuppressMapWarnings");
+			bCookSeparateSharedMPGameContent__Offset=GetPropertyOffset(NativeClassPtr,"bCookSeparateSharedMPGameContent");
 			bDisableAILogging__Offset=GetPropertyOffset(NativeClassPtr,"bDisableAILogging");
 			bEnableVisualLogRecordingOnStart__Offset=GetPropertyOffset(NativeClassPtr,"bEnableVisualLogRecordingOnStart");
 			ScreenSaverInhibitorSemaphore__Offset=GetPropertyOffset(NativeClassPtr,"ScreenSaverInhibitorSemaphore");
 			bLockReadOnlyLevels__Offset=GetPropertyOffset(NativeClassPtr,"bLockReadOnlyLevels");
 			ParticleEventManagerClassPath__Offset=GetPropertyOffset(NativeClassPtr,"ParticleEventManagerClassPath");
 			SelectionHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"SelectionHighlightIntensity");
-			SelectionMeshSectionHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"SelectionMeshSectionHighlightIntensity");
 			BSPSelectionHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"BSPSelectionHighlightIntensity");
 			HoverHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"HoverHighlightIntensity");
 			SelectionHighlightIntensityBillboards__Offset=GetPropertyOffset(NativeClassPtr,"SelectionHighlightIntensityBillboards");

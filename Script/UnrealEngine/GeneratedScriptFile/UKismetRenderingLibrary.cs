@@ -16,7 +16,6 @@ public static void EndDrawCanvasToRenderTarget(UObject WorldContextObject,FDrawT
 extern static void BeginDrawCanvasToRenderTarget(IntPtr _this,IntPtr WorldContextObject,IntPtr TextureRenderTarget,out IntPtr Canvas,out FVector2D Size,out FDrawToRenderTargetContext Context);
 /// <summary>
 /// Returns a Canvas object that can be used to draw to the specified render target.
-/// Canvas has functions like DrawMaterial with size parameters that can be used to draw to a specific area of a render target.
 /// Be sure to call EndDrawCanvasToRenderTarget to complete the rendering!
 /// </summary>
 public static void BeginDrawCanvasToRenderTarget(UObject WorldContextObject,UTextureRenderTarget2D TextureRenderTarget,out UCanvas Canvas,out FVector2D Size,out FDrawToRenderTargetContext Context)

@@ -4,12 +4,6 @@ namespace UnrealEngine
 {
 	class _UWidget
 	{
-		static APlayerController* GetOwningPlayer(UWidget* _this)
-		{
-			APlayerController* ___ret = _this->GetOwningPlayer();
-			return ___ret;
-			
-		}
 		static void RemoveFromParent(UWidget* _this)
 		{
 			_this->RemoveFromParent();
@@ -96,13 +90,13 @@ namespace UnrealEngine
 		}
 		static void SetVisibility(UWidget* _this,int32 InVisibility)
 		{
-			_this->SetVisibility((ESlateVisibility)InVisibility);
+			_this->SetVisibility((TEnumAsByte<ESlateVisibility>)InVisibility);
 			
 		}
 		static int32 GetVisibility(UWidget* _this)
 		{
-			ESlateVisibility ___ret = _this->GetVisibility();
-			return (int)___ret;
+			TEnumAsByte<ESlateVisibility> ___ret = _this->GetVisibility();
+			return (int)___ret.GetValue();
 			
 		}
 		static int32 IsVisible(UWidget* _this)
@@ -177,7 +171,6 @@ namespace UnrealEngine
 		public:
 		static void BindFunctions()
 		{
-			mono_add_internal_call("UnrealEngine.UWidget::GetOwningPlayer",(const void*)GetOwningPlayer);
 			mono_add_internal_call("UnrealEngine.UWidget::RemoveFromParent",(const void*)RemoveFromParent);
 			mono_add_internal_call("UnrealEngine.UWidget::GetParent",(const void*)GetParent);
 			mono_add_internal_call("UnrealEngine.UWidget::GetDesiredSize",(const void*)GetDesiredSize);

@@ -6,8 +6,8 @@ namespace UnrealEngine
 	{
 		static int32 GetValue(UCheckedStateBinding* _this)
 		{
-			ECheckBoxState ___ret = _this->GetValue();
-			return (int)___ret;
+			TEnumAsByte<ECheckBoxState> ___ret = _this->GetValue();
+			return (int)___ret.GetValue();
 			
 		}
 		static UClass* StaticClass(){return UCheckedStateBinding::StaticClass();}

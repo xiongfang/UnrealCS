@@ -1118,24 +1118,15 @@ public  void StartFire(byte FireModeNum=0)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetMouseLocation(IntPtr _this,int X,int Y);
-/// <summary>Positions the mouse cursor in screen space, in pixels.</summary>
-public  void SetMouseLocation(int X,int Y)
-{
-	CheckIsValid();
-	SetMouseLocation(_this.Get(),X,Y);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int ProjectWorldLocationToScreen(IntPtr _this,ref FVector WorldLocation,out FVector2D ScreenLocation,int bPlayerViewportRelative);
+extern static int ProjectWorldLocationToScreen(IntPtr _this,ref FVector WorldLocation,out FVector2D ScreenLocation);
 /// <summary>
 /// Convert a World Space 3D position into a 2D Screen Space position.
 /// @return true if the world coordinate was successfully projected to the screen.
 /// </summary>
-public  bool ProjectWorldLocationToScreen(FVector WorldLocation,out FVector2D ScreenLocation,bool bPlayerViewportRelative=false)
+public  bool ProjectWorldLocationToScreen(FVector WorldLocation,out FVector2D ScreenLocation)
 {
 	CheckIsValid();
-	int ___ret = ProjectWorldLocationToScreen(_this.Get(),ref WorldLocation,out ScreenLocation,bPlayerViewportRelative?1:0);
+	int ___ret = ProjectWorldLocationToScreen(_this.Get(),ref WorldLocation,out ScreenLocation);
 	return ___ret!=0;
 	
 }

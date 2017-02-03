@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=84)]
+	[StructLayout(LayoutKind.Explicit,Size=88)]
 	public partial struct FTextureSource
 	{
 		

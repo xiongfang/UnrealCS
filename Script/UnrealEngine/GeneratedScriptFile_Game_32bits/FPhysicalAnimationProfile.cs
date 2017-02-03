@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=44)]
+	[StructLayout(LayoutKind.Explicit,Size=48)]
 	public partial struct FPhysicalAnimationProfile
 	{
 		[FieldOffset(0)]

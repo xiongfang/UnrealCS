@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Tick function that calls AActor::TickActor</summary>
-	[StructLayout(LayoutKind.Explicit,Size=88)]
+	[StructLayout(LayoutKind.Explicit,Size=80)]
 	public partial struct FActorTickFunction
 	{
 		/// <summary>
@@ -52,7 +52,7 @@ namespace UnrealEngine
 			
 		}
 		/// <summary>The frequency in seconds at which this tick function will be executed.  If less than or equal to 0 then it will tick every frame</summary>
-		[FieldOffset(64)]
+		[FieldOffset(60)]
 		public float TickInterval;
 		
 	}

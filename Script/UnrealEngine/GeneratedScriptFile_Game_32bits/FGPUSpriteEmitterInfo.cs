@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=576)]
+	[StructLayout(LayoutKind.Explicit,Size=544)]
 	public partial struct FGPUSpriteEmitterInfo
 	{
 		public TObjectArray<UParticleModule> SpawnModules
@@ -48,29 +48,19 @@ namespace UnrealEngine
 		public EParticleAxisLock LockAxisFlag;
 		public bool bEnableCollision
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 332, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 332, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 330, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 330, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(336)]
+		[FieldOffset(331)]
 		public EParticleCollisionMode CollisionMode;
-		public bool bRemoveHMDRoll
-		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 340, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 340, 1, 0, 1, 1); } }}
-			
-		}
-		[FieldOffset(344)]
-		public float MinFacingCameraBlendDistance;
-		[FieldOffset(348)]
-		public float MaxFacingCameraBlendDistance;
-		[FieldOffset(352)]
+		[FieldOffset(332)]
 		public FRawDistributionVector DynamicColor;
-		[FieldOffset(416)]
+		[FieldOffset(396)]
 		public FRawDistributionFloat DynamicAlpha;
-		[FieldOffset(456)]
+		[FieldOffset(436)]
 		public FRawDistributionVector DynamicColorScale;
-		[FieldOffset(520)]
+		[FieldOffset(500)]
 		public FRawDistributionFloat DynamicAlphaScale;
 		
 	}

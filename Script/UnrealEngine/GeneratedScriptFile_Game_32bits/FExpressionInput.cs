@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=44)]
+	[StructLayout(LayoutKind.Explicit,Size=48)]
 	public partial struct FExpressionInput
 	{
 		[FieldOffset(0)]
@@ -22,7 +22,7 @@ namespace UnrealEngine
 		public int MaskB;
 		[FieldOffset(32)]
 		public int MaskA;
-		[FieldOffset(36)]
+		[FieldOffset(40)]
 		public FName ExpressionName;
 		
 	}

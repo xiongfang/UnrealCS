@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=36)]
+	[StructLayout(LayoutKind.Explicit,Size=40)]
 	public partial struct FPreviewAttachedObjectPair
 	{
-		[FieldOffset(28)]
+		[FieldOffset(32)]
 		public FName AttachedTo;
 		
 	}

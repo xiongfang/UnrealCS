@@ -19,6 +19,7 @@ namespace UnrealEngine
 		public UParticleSystem PS_CameraEffectNonExtremeContent
 		{
 			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + PS_CameraEffectNonExtremeContent__Offset); if (v == IntPtr.Zero)return null; UParticleSystem retValue = new UParticleSystem(); retValue._this = v; return retValue; }
+			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + PS_CameraEffectNonExtremeContent__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + PS_CameraEffectNonExtremeContent__Offset, value._this.Get()); }
 			
 		}
 		

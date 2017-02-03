@@ -5,20 +5,6 @@ namespace UnrealEngine{
 public partial class USlateBlueprintLibrary:UBlueprintFunctionLibrary 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ScreenToWidgetAbsolute(IntPtr _this,IntPtr WorldContextObject,ref FVector2D ScreenPosition,out FVector2D AbsoluteCoordinate);
-public static void ScreenToWidgetAbsolute(UObject WorldContextObject,FVector2D ScreenPosition,out FVector2D AbsoluteCoordinate)
-{
-	ScreenToWidgetAbsolute(IntPtr.Zero,WorldContextObject,ref ScreenPosition,out AbsoluteCoordinate);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ScreenToWidgetLocal(IntPtr _this,IntPtr WorldContextObject,ref FGeometry Geometry,ref FVector2D ScreenPosition,out FVector2D LocalCoordinate);
-public static void ScreenToWidgetLocal(UObject WorldContextObject,FGeometry Geometry,FVector2D ScreenPosition,out FVector2D LocalCoordinate)
-{
-	ScreenToWidgetLocal(IntPtr.Zero,WorldContextObject,ref Geometry,ref ScreenPosition,out LocalCoordinate);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void AbsoluteToViewport(IntPtr _this,IntPtr WorldContextObject,ref FVector2D AbsoluteDesktopCoordinate,out FVector2D PixelPosition,out FVector2D ViewportPosition);
 /// <summary>
 /// Translates absolute coordinate in desktop space of the geometry provided into local viewport coordinates.

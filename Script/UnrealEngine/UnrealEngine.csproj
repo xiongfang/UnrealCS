@@ -78,12 +78,11 @@
     <Compile Include="GeneratedScriptFile\AEmitterCameraLensEffectBase.cs" />
     <Compile Include="GeneratedScriptFile\AExponentialHeightFog.cs" />
     <Compile Include="GeneratedScriptFile\AGameMode.cs" />
-    <Compile Include="GeneratedScriptFile\AGameModeBase.cs" />
     <Compile Include="GeneratedScriptFile\AGameNetworkManager.cs" />
     <Compile Include="GeneratedScriptFile\AGameSession.cs" />
     <Compile Include="GeneratedScriptFile\AGameState.cs" />
-    <Compile Include="GeneratedScriptFile\AGameStateBase.cs" />
     <Compile Include="GeneratedScriptFile\AGeneratedMeshAreaLight.cs" />
+    <Compile Include="GeneratedScriptFile\AHLODMeshCullingVolume.cs" />
     <Compile Include="GeneratedScriptFile\AHUD.cs" />
     <Compile Include="GeneratedScriptFile\AInfo.cs" />
     <Compile Include="GeneratedScriptFile\AKillZVolume.cs" />
@@ -98,7 +97,6 @@
     <Compile Include="GeneratedScriptFile\AMaterialInstanceActor.cs" />
     <Compile Include="GeneratedScriptFile\AMatineeActor.cs" />
     <Compile Include="GeneratedScriptFile\AMatineeActorCameraAnim.cs" />
-    <Compile Include="GeneratedScriptFile\AMeshMergeCullingVolume.cs" />
     <Compile Include="GeneratedScriptFile\ANavigationData.cs" />
     <Compile Include="GeneratedScriptFile\ANavigationGraph.cs" />
     <Compile Include="GeneratedScriptFile\ANavigationGraphNode.cs" />
@@ -168,6 +166,7 @@
     <Compile Include="GeneratedScriptFile\EAnimLinkMethod.cs" />
     <Compile Include="GeneratedScriptFile\EAnimNotifyEventType.cs" />
     <Compile Include="GeneratedScriptFile\EAntiAliasingMethod.cs" />
+    <Compile Include="GeneratedScriptFile\EAntiAliasingMethodUI.cs" />
     <Compile Include="GeneratedScriptFile\EAspectRatioAxisConstraint.cs" />
     <Compile Include="GeneratedScriptFile\EAttachLocation.cs" />
     <Compile Include="GeneratedScriptFile\EAttachmentRule.cs" />
@@ -260,14 +259,12 @@
     <Compile Include="GeneratedScriptFile\ELandscapeCullingPrecision.cs" />
     <Compile Include="GeneratedScriptFile\ELerpInterpolationMode.cs" />
     <Compile Include="GeneratedScriptFile\ELevelVisibility.cs" />
-    <Compile Include="GeneratedScriptFile\ELifetimeCondition.cs" />
     <Compile Include="GeneratedScriptFile\ELightingBuildQuality.cs" />
     <Compile Include="GeneratedScriptFile\ELinearConstraintMotion.cs" />
     <Compile Include="GeneratedScriptFile\ELocationBoneSocketSelectionMethod.cs" />
     <Compile Include="GeneratedScriptFile\ELocationBoneSocketSource.cs" />
     <Compile Include="GeneratedScriptFile\ELocationEmitterSelectionMethod.cs" />
     <Compile Include="GeneratedScriptFile\ELocationSkelVertSurfaceSource.cs" />
-    <Compile Include="GeneratedScriptFile\EMaterialAttributeBlend.cs" />
     <Compile Include="GeneratedScriptFile\EMaterialDecalResponse.cs" />
     <Compile Include="GeneratedScriptFile\EMaterialDomain.cs" />
     <Compile Include="GeneratedScriptFile\EMaterialExposedTextureProperty.cs" />
@@ -386,7 +383,6 @@
     <Compile Include="GeneratedScriptFile\ESplineCoordinateSpace.cs" />
     <Compile Include="GeneratedScriptFile\ESplineMeshAxis.cs" />
     <Compile Include="GeneratedScriptFile\ESplinePointType.cs" />
-    <Compile Include="GeneratedScriptFile\EStereoLayerShape.cs" />
     <Compile Include="GeneratedScriptFile\EStereoLayerType.cs" />
     <Compile Include="GeneratedScriptFile\EStreamingVolumeUsage.cs" />
     <Compile Include="GeneratedScriptFile\EStretch.cs" />
@@ -494,7 +490,6 @@
     <Compile Include="GeneratedScriptFile\UArrowComponent.cs" />
     <Compile Include="GeneratedScriptFile\UAssetClassProperty.cs" />
     <Compile Include="GeneratedScriptFile\UAssetImportData.cs" />
-    <Compile Include="GeneratedScriptFile\UAssetMappingTable.cs" />
     <Compile Include="GeneratedScriptFile\UAssetObjectProperty.cs" />
     <Compile Include="GeneratedScriptFile\UAssetUserData.cs" />
     <Compile Include="GeneratedScriptFile\UAsyncTaskDownloadImage.cs" />
@@ -515,7 +510,6 @@
     <Compile Include="GeneratedScriptFile\UBlueprintFunctionLibrary.cs" />
     <Compile Include="GeneratedScriptFile\UBlueprintGeneratedClass.cs" />
     <Compile Include="GeneratedScriptFile\UBlueprintPlatformLibrary.cs" />
-    <Compile Include="GeneratedScriptFile\UBlueprintSetLibrary.cs" />
     <Compile Include="GeneratedScriptFile\UBodySetup.cs" />
     <Compile Include="GeneratedScriptFile\UBodySetup2D.cs" />
     <Compile Include="GeneratedScriptFile\UBoneMaskFilter.cs" />
@@ -781,7 +775,6 @@
     <Compile Include="GeneratedScriptFile\UListView.cs" />
     <Compile Include="GeneratedScriptFile\ULocalMessage.cs" />
     <Compile Include="GeneratedScriptFile\ULocalPlayer.cs" />
-    <Compile Include="GeneratedScriptFile\UMapBuildDataRegistry.cs" />
     <Compile Include="GeneratedScriptFile\UMapProperty.cs" />
     <Compile Include="GeneratedScriptFile\UMaterial.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialBillboardComponent.cs" />
@@ -792,10 +785,7 @@
     <Compile Include="GeneratedScriptFile\UMaterialExpressionAntialiasedTextureMask.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionAppendVector.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionAtmosphericFogColor.cs" />
-    <Compile Include="GeneratedScriptFile\UMaterialExpressionAtmosphericLightColor.cs" />
-    <Compile Include="GeneratedScriptFile\UMaterialExpressionAtmosphericLightVector.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionBlackBody.cs" />
-    <Compile Include="GeneratedScriptFile\UMaterialExpressionBlendMaterialAttributes.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionBreakMaterialAttributes.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionBumpOffset.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionCameraPositionWS.cs" />
@@ -841,7 +831,6 @@
     <Compile Include="GeneratedScriptFile\UMaterialExpressionFresnel.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionFunctionInput.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionFunctionOutput.cs" />
-    <Compile Include="GeneratedScriptFile\UMaterialExpressionGetMaterialAttributes.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionGIReplace.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionIf.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionLightmapUVs.cs" />
@@ -881,7 +870,6 @@
     <Compile Include="GeneratedScriptFile\UMaterialExpressionPixelNormalWS.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionPower.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionPrecomputedAOMask.cs" />
-    <Compile Include="GeneratedScriptFile\UMaterialExpressionPreSkinnedPosition.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionQualitySwitch.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionReflectionVectorWS.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionRotateAboutAxis.cs" />
@@ -892,7 +880,6 @@
     <Compile Include="GeneratedScriptFile\UMaterialExpressionSceneTexelSize.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionSceneTexture.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionScreenPosition.cs" />
-    <Compile Include="GeneratedScriptFile\UMaterialExpressionSetMaterialAttributes.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionSine.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionSpeedTree.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionSphereMask.cs" />
@@ -919,7 +906,6 @@
     <Compile Include="GeneratedScriptFile\UMaterialExpressionTransform.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionTransformPosition.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionTwoSidedSign.cs" />
-    <Compile Include="GeneratedScriptFile\UMaterialExpressionVectorNoise.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionVectorParameter.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionVertexColor.cs" />
     <Compile Include="GeneratedScriptFile\UMaterialExpressionVertexNormalWS.cs" />
@@ -937,7 +923,6 @@
     <Compile Include="GeneratedScriptFile\UMatineeInterface.cs" />
     <Compile Include="GeneratedScriptFile\UMenuAnchor.cs" />
     <Compile Include="GeneratedScriptFile\UMeshComponent.cs" />
-    <Compile Include="GeneratedScriptFile\UMeshSimplificationSettings.cs" />
     <Compile Include="GeneratedScriptFile\UMeshVertexPainterKismetLibrary.cs" />
     <Compile Include="GeneratedScriptFile\UMetaData.cs" />
     <Compile Include="GeneratedScriptFile\UMicroTransactionBase.cs" />
@@ -1223,7 +1208,6 @@
     <Compile Include="GeneratedScriptFile\UPoseAsset.cs" />
     <Compile Include="GeneratedScriptFile\UPoseWatch.cs" />
     <Compile Include="GeneratedScriptFile\UPostProcessComponent.cs" />
-    <Compile Include="GeneratedScriptFile\UPreviewMeshCollection.cs" />
     <Compile Include="GeneratedScriptFile\UPrimitiveComponent.cs" />
     <Compile Include="GeneratedScriptFile\UProgressBar.cs" />
     <Compile Include="GeneratedScriptFile\UProjectileMovementComponent.cs" />
@@ -1265,7 +1249,6 @@
     <Compile Include="GeneratedScriptFile\UShadowMapTexture2D.cs" />
     <Compile Include="GeneratedScriptFile\UShapeComponent.cs" />
     <Compile Include="GeneratedScriptFile\USimpleConstructionScript.cs" />
-    <Compile Include="GeneratedScriptFile\USimpleWheeledVehicleMovementComponent.cs" />
     <Compile Include="GeneratedScriptFile\USizeBox.cs" />
     <Compile Include="GeneratedScriptFile\USizeBoxSlot.cs" />
     <Compile Include="GeneratedScriptFile\USkeletalBodySetup.cs" />
@@ -1292,12 +1275,6 @@
     <Compile Include="GeneratedScriptFile\USoundClass.cs" />
     <Compile Include="GeneratedScriptFile\USoundConcurrency.cs" />
     <Compile Include="GeneratedScriptFile\USoundCue.cs" />
-    <Compile Include="GeneratedScriptFile\USoundEffectBase.cs" />
-    <Compile Include="GeneratedScriptFile\USoundEffectPreset.cs" />
-    <Compile Include="GeneratedScriptFile\USoundEffectSource.cs" />
-    <Compile Include="GeneratedScriptFile\USoundEffectSourcePreset.cs" />
-    <Compile Include="GeneratedScriptFile\USoundEffectSubmix.cs" />
-    <Compile Include="GeneratedScriptFile\USoundEffectSubmixPreset.cs" />
     <Compile Include="GeneratedScriptFile\USoundGroups.cs" />
     <Compile Include="GeneratedScriptFile\USoundMix.cs" />
     <Compile Include="GeneratedScriptFile\USoundNode.cs" />
@@ -1324,7 +1301,6 @@
     <Compile Include="GeneratedScriptFile\USoundNodeSwitch.cs" />
     <Compile Include="GeneratedScriptFile\USoundNodeWaveParam.cs" />
     <Compile Include="GeneratedScriptFile\USoundNodeWavePlayer.cs" />
-    <Compile Include="GeneratedScriptFile\USoundSubmix.cs" />
     <Compile Include="GeneratedScriptFile\USoundWave.cs" />
     <Compile Include="GeneratedScriptFile\USoundWaveProcedural.cs" />
     <Compile Include="GeneratedScriptFile\USpacer.cs" />
@@ -1340,7 +1316,6 @@
     <Compile Include="GeneratedScriptFile\UStaticMeshComponent.cs" />
     <Compile Include="GeneratedScriptFile\UStaticMeshSocket.cs" />
     <Compile Include="GeneratedScriptFile\UStereoLayerComponent.cs" />
-    <Compile Include="GeneratedScriptFile\UStereoLayerFunctionLibrary.cs" />
     <Compile Include="GeneratedScriptFile\UStreamingSettings.cs" />
     <Compile Include="GeneratedScriptFile\UStrProperty.cs" />
     <Compile Include="GeneratedScriptFile\UStruct.cs" />
@@ -1416,8 +1391,6 @@
     <Compile Include="GeneratedScriptFile\UWidgetSwitcherSlot.cs" />
     <Compile Include="GeneratedScriptFile\UWidgetTree.cs" />
     <Compile Include="GeneratedScriptFile\UWindDirectionalSourceComponent.cs" />
-    <Compile Include="GeneratedScriptFile\UWindowTitleBarArea.cs" />
-    <Compile Include="GeneratedScriptFile\UWindowTitleBarAreaSlot.cs" />
     <Compile Include="GeneratedScriptFile\UWorld.cs" />
     <Compile Include="GeneratedScriptFile\UWorldComposition.cs" />
     <Compile Include="GeneratedScriptFile\UWrapBox.cs" />
@@ -1439,11 +1412,9 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\AEmitterCameraLensEffectBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AEmitter_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AExponentialHeightFog_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\AGameModeBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AGameMode_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AGameNetworkManager_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AGameSession_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\AGameStateBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AGameState_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AHUD_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\AInfo_FixSize.cs" />
@@ -1519,7 +1490,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FAnimTrack.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FAssetEditorOrbitCameraPosition.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FAssetImportInfo.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FAssetMapping.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FAtmospherePrecomputeParameters.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FAttenuationSettings.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FAudioComponentParam.cs" />
@@ -1627,7 +1597,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FDynamicPropertyPath.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FEdGraphPinReference.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FEdGraphPinType.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FEdGraphTerminalType.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FEditableTextBoxStyle.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FEditableTextStyle.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FEditedDocumentInfo.cs" />
@@ -1650,12 +1619,10 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFloatDistribution.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFloatRange.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFloatRangeBound.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FFloatSpringState.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFocusEvent.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFontCharacter.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFontData.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFontImportOptionsData.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FFontOutlineSettings.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFontParameterValue.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FForceFeedbackChannelDetails.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFormatArgumentData.cs" />
@@ -1664,6 +1631,8 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFractureMaterial.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFunctionExpressionInput.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FFunctionExpressionOutput.cs" />
+    <Compile Include="GeneratedScriptFile_Editor_64bits\FGameClassShortName.cs" />
+    <Compile Include="GeneratedScriptFile_Editor_64bits\FGameModePrefix.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FGameNameRedirect.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FGenericStruct.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FGeometry.cs" />
@@ -1721,7 +1690,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FLatentActionInfo.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FLaunchOnTestSettings.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FLayerActorStats.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FLevelCollection.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FLevelSimplificationDetails.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FLevelViewportInfo.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FLightingChannels.cs" />
@@ -1745,7 +1713,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMaterialInstanceBasePropertyOverrides.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMaterialParameterCollectionInfo.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMaterialProxySettings.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FMaterialRemapIndex.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMaterialSimplificationSettings.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMaterialSpriteElement.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMatrix.cs" />
@@ -1753,7 +1720,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMeshMergingSettings.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMeshProxySettings.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMeshReductionSettings.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FMeshUVChannelInfo.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMinimalViewInfo.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMotionEvent.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FMovementProperties.cs" />
@@ -1809,7 +1775,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FPostProcessSettings.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FPreviewAssetAttachContainer.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FPreviewAttachedObjectPair.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FPreviewMeshCollectionEntry.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FPrimitiveComponentPostPhysicsTickFunction.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FProgressBarStyle.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FPropertyPathSegment.cs" />
@@ -1872,7 +1837,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FSpriteCategoryInfo.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FStatColorMapEntry.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FStatColorMapping.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FStaticMaterial.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FStaticMeshComponentLODInfo.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FStaticMeshSourceModel.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FStreamingTextureBuildInfo.cs" />
@@ -1927,7 +1891,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVectorMaterialInput.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVectorParameterNameAndCurves.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVectorParameterValue.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FVectorSpringState.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVector_NetQuantize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVector_NetQuantize10.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVector_NetQuantize100.cs" />
@@ -1938,7 +1901,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVehicleInputRate.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVehicleTransmissionData.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FViewTargetTransitionParams.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\FVirtualBone.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVisibilityTrackKey.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FVOscillator.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\FWalkableSlopeOverride.cs" />
@@ -1977,7 +1939,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\UApplicationLifecycleComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UArrowComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UAssetImportData_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UAssetMappingTable_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UAsyncTaskDownloadImage_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UAtmosphericFogComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UAudioComponent_FixSize.cs" />
@@ -2140,11 +2101,9 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\ULightmassPrimitiveSettingsObject_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UListView_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\ULocalPlayer_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UMapBuildDataRegistry_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialBillboardComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionAdd_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionAntialiasedTextureMask_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionBlendMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionBreakMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionBumpOffset_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionClamp_FixSize.cs" />
@@ -2164,7 +2123,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionFontSample_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionFunctionInput_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionFunctionOutput_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionGetMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionIf_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionLinearInterpolate_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionLogarithm2_FixSize.cs" />
@@ -2183,7 +2141,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionReflectionVectorWS_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionRotateAboutAxis_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionScalarParameter_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionSetMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionSpeedTree_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionStaticBoolParameter_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UMaterialExpressionStaticBool_FixSize.cs" />
@@ -2381,7 +2338,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\UPoseAsset_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UPoseWatch_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UPostProcessComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UPreviewMeshCollection_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UPrimitiveComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UProgressBar_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UProjectileMovementComponent_FixSize.cs" />
@@ -2396,7 +2352,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\URichTextBlock_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\URig_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\URotatingMovementComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\USafeZone_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UScaleBoxSlot_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UScaleBox_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\USceneCaptureComponent2D_FixSize.cs" />
@@ -2449,7 +2404,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\USoundNodeWaveParam_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\USoundNodeWavePlayer_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\USoundNode_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\USoundSubmix_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\USoundWave_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\USpacer_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\USpectatorPawnMovement_FixSize.cs" />
@@ -2497,7 +2451,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\UVectorFieldComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UVectorFieldStatic_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UVectorField_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UVehicleAnimInstance_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UVehicleWheel_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UVertexAttributeStream_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UVerticalBoxSlot_FixSize.cs" />
@@ -2514,8 +2467,6 @@
     <Compile Include="GeneratedScriptFile_Editor_64bits\UWidgetTree_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UWidget_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UWindDirectionalSourceComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UWindowTitleBarAreaSlot_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Editor_64bits\UWindowTitleBarArea_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UWorldComposition_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UWorld_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Editor_64bits\UWrapBoxSlot_FixSize.cs" />
@@ -2535,11 +2486,9 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\AEmitterCameraLensEffectBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\AEmitter_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\AExponentialHeightFog_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\AGameModeBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\AGameMode_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\AGameNetworkManager_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\AGameSession_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\AGameStateBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\AGameState_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\AHUD_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\ALevelBounds_FixSize.cs" />
@@ -2612,7 +2561,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FAnimTrack.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FAssetEditorOrbitCameraPosition.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FAssetImportInfo.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FAssetMapping.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FAtmospherePrecomputeParameters.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FAttenuationSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FAudioComponentParam.cs" />
@@ -2720,7 +2668,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FDynamicPropertyPath.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FEdGraphPinReference.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FEdGraphPinType.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FEdGraphTerminalType.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FEditableTextBoxStyle.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FEditableTextStyle.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FEditedDocumentInfo.cs" />
@@ -2743,12 +2690,10 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FFloatDistribution.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFloatRange.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFloatRangeBound.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FFloatSpringState.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFocusEvent.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFontCharacter.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFontData.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFontImportOptionsData.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FFontOutlineSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFontParameterValue.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FForceFeedbackChannelDetails.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFormatArgumentData.cs" />
@@ -2757,6 +2702,8 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FFractureMaterial.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFunctionExpressionInput.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FFunctionExpressionOutput.cs" />
+    <Compile Include="GeneratedScriptFile_Game_32bits\FGameClassShortName.cs" />
+    <Compile Include="GeneratedScriptFile_Game_32bits\FGameModePrefix.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FGameNameRedirect.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FGenericStruct.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FGeometry.cs" />
@@ -2814,7 +2761,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FLatentActionInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FLaunchOnTestSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FLayerActorStats.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FLevelCollection.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FLevelSimplificationDetails.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FLevelViewportInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FLightingChannels.cs" />
@@ -2838,7 +2784,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FMaterialInstanceBasePropertyOverrides.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMaterialParameterCollectionInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMaterialProxySettings.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FMaterialRemapIndex.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMaterialSimplificationSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMaterialSpriteElement.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMatrix.cs" />
@@ -2846,7 +2791,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FMeshMergingSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMeshProxySettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMeshReductionSettings.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FMeshUVChannelInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMinimalViewInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMotionEvent.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FMovementProperties.cs" />
@@ -2902,7 +2846,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FPostProcessSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FPreviewAssetAttachContainer.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FPreviewAttachedObjectPair.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FPreviewMeshCollectionEntry.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FPrimitiveComponentPostPhysicsTickFunction.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FProgressBarStyle.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FPropertyPathSegment.cs" />
@@ -2965,7 +2908,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FSpriteCategoryInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FStatColorMapEntry.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FStatColorMapping.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FStaticMaterial.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FStaticMeshComponentLODInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FStaticMeshSourceModel.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FStreamingTextureBuildInfo.cs" />
@@ -3020,7 +2962,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FVectorMaterialInput.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVectorParameterNameAndCurves.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVectorParameterValue.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FVectorSpringState.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVector_NetQuantize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVector_NetQuantize10.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVector_NetQuantize100.cs" />
@@ -3031,7 +2972,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\FVehicleInputRate.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVehicleTransmissionData.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FViewTargetTransitionParams.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\FVirtualBone.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVisibilityTrackKey.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FVOscillator.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\FWalkableSlopeOverride.cs" />
@@ -3067,7 +3007,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\UAnimSingleNodeInstance_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UApplicationLifecycleComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UArrowComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UAssetMappingTable_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UAsyncTaskDownloadImage_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UAtmosphericFogComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UAudioComponent_FixSize.cs" />
@@ -3226,11 +3165,9 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\ULightmassPrimitiveSettingsObject_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UListView_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\ULocalPlayer_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UMapBuildDataRegistry_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialBillboardComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionAdd_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionAntialiasedTextureMask_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionBlendMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionBreakMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionBumpOffset_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionClamp_FixSize.cs" />
@@ -3250,7 +3187,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionFontSample_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionFunctionInput_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionFunctionOutput_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionGetMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionIf_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionLinearInterpolate_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionLogarithm2_FixSize.cs" />
@@ -3269,7 +3205,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionReflectionVectorWS_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionRotateAboutAxis_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionScalarParameter_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionSetMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionSpeedTree_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionStaticBoolParameter_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UMaterialExpressionStaticBool_FixSize.cs" />
@@ -3464,7 +3399,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\UPoseAsset_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UPoseWatch_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UPostProcessComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UPreviewMeshCollection_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UPrimitiveComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UProgressBar_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UProjectileMovementComponent_FixSize.cs" />
@@ -3479,7 +3413,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\URichTextBlock_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\URig_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\URotatingMovementComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\USafeZone_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UScaleBoxSlot_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UScaleBox_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\USceneCaptureComponent2D_FixSize.cs" />
@@ -3532,7 +3465,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\USoundNodeWaveParam_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\USoundNodeWavePlayer_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\USoundNode_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\USoundSubmix_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\USoundWave_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\USpacer_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\USpectatorPawnMovement_FixSize.cs" />
@@ -3580,7 +3512,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\UVectorFieldComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UVectorFieldStatic_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UVectorField_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UVehicleAnimInstance_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UVehicleWheel_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UVertexAttributeStream_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UVerticalBoxSlot_FixSize.cs" />
@@ -3597,8 +3528,6 @@
     <Compile Include="GeneratedScriptFile_Game_32bits\UWidgetTree_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UWidget_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UWindDirectionalSourceComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UWindowTitleBarAreaSlot_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_32bits\UWindowTitleBarArea_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UWorldComposition_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UWorld_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_32bits\UWrapBoxSlot_FixSize.cs" />
@@ -3618,11 +3547,9 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\AEmitterCameraLensEffectBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\AEmitter_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\AExponentialHeightFog_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\AGameModeBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\AGameMode_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\AGameNetworkManager_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\AGameSession_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\AGameStateBase_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\AGameState_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\AHUD_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\ALevelBounds_FixSize.cs" />
@@ -3695,7 +3622,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FAnimTrack.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FAssetEditorOrbitCameraPosition.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FAssetImportInfo.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FAssetMapping.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FAtmospherePrecomputeParameters.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FAttenuationSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FAudioComponentParam.cs" />
@@ -3803,7 +3729,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FDynamicPropertyPath.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FEdGraphPinReference.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FEdGraphPinType.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FEdGraphTerminalType.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FEditableTextBoxStyle.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FEditableTextStyle.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FEditedDocumentInfo.cs" />
@@ -3826,12 +3751,10 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FFloatDistribution.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFloatRange.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFloatRangeBound.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FFloatSpringState.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFocusEvent.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFontCharacter.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFontData.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFontImportOptionsData.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FFontOutlineSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFontParameterValue.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FForceFeedbackChannelDetails.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFormatArgumentData.cs" />
@@ -3840,6 +3763,8 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FFractureMaterial.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFunctionExpressionInput.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FFunctionExpressionOutput.cs" />
+    <Compile Include="GeneratedScriptFile_Game_64bits\FGameClassShortName.cs" />
+    <Compile Include="GeneratedScriptFile_Game_64bits\FGameModePrefix.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FGameNameRedirect.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FGenericStruct.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FGeometry.cs" />
@@ -3897,7 +3822,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FLatentActionInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FLaunchOnTestSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FLayerActorStats.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FLevelCollection.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FLevelSimplificationDetails.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FLevelViewportInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FLightingChannels.cs" />
@@ -3921,7 +3845,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FMaterialInstanceBasePropertyOverrides.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMaterialParameterCollectionInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMaterialProxySettings.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FMaterialRemapIndex.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMaterialSimplificationSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMaterialSpriteElement.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMatrix.cs" />
@@ -3929,7 +3852,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FMeshMergingSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMeshProxySettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMeshReductionSettings.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FMeshUVChannelInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMinimalViewInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMotionEvent.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FMovementProperties.cs" />
@@ -3985,7 +3907,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FPostProcessSettings.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FPreviewAssetAttachContainer.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FPreviewAttachedObjectPair.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FPreviewMeshCollectionEntry.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FPrimitiveComponentPostPhysicsTickFunction.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FProgressBarStyle.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FPropertyPathSegment.cs" />
@@ -4048,7 +3969,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FSpriteCategoryInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FStatColorMapEntry.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FStatColorMapping.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FStaticMaterial.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FStaticMeshComponentLODInfo.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FStaticMeshSourceModel.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FStreamingTextureBuildInfo.cs" />
@@ -4103,7 +4023,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FVectorMaterialInput.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVectorParameterNameAndCurves.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVectorParameterValue.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FVectorSpringState.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVector_NetQuantize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVector_NetQuantize10.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVector_NetQuantize100.cs" />
@@ -4114,7 +4033,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\FVehicleInputRate.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVehicleTransmissionData.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FViewTargetTransitionParams.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\FVirtualBone.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVisibilityTrackKey.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FVOscillator.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\FWalkableSlopeOverride.cs" />
@@ -4150,7 +4068,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\UAnimSingleNodeInstance_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UApplicationLifecycleComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UArrowComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UAssetMappingTable_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UAsyncTaskDownloadImage_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UAtmosphericFogComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UAudioComponent_FixSize.cs" />
@@ -4309,11 +4226,9 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\ULightmassPrimitiveSettingsObject_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UListView_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\ULocalPlayer_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UMapBuildDataRegistry_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialBillboardComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionAdd_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionAntialiasedTextureMask_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionBlendMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionBreakMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionBumpOffset_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionClamp_FixSize.cs" />
@@ -4333,7 +4248,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionFontSample_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionFunctionInput_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionFunctionOutput_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionGetMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionIf_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionLinearInterpolate_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionLogarithm2_FixSize.cs" />
@@ -4352,7 +4266,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionReflectionVectorWS_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionRotateAboutAxis_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionScalarParameter_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionSetMaterialAttributes_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionSpeedTree_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionStaticBoolParameter_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UMaterialExpressionStaticBool_FixSize.cs" />
@@ -4547,7 +4460,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\UPoseAsset_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UPoseWatch_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UPostProcessComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UPreviewMeshCollection_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UPrimitiveComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UProgressBar_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UProjectileMovementComponent_FixSize.cs" />
@@ -4562,7 +4474,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\URichTextBlock_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\URig_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\URotatingMovementComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\USafeZone_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UScaleBoxSlot_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UScaleBox_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\USceneCaptureComponent2D_FixSize.cs" />
@@ -4615,7 +4526,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\USoundNodeWaveParam_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\USoundNodeWavePlayer_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\USoundNode_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\USoundSubmix_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\USoundWave_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\USpacer_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\USpectatorPawnMovement_FixSize.cs" />
@@ -4663,7 +4573,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\UVectorFieldComponent_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UVectorFieldStatic_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UVectorField_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UVehicleAnimInstance_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UVehicleWheel_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UVertexAttributeStream_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UVerticalBoxSlot_FixSize.cs" />
@@ -4680,8 +4589,6 @@
     <Compile Include="GeneratedScriptFile_Game_64bits\UWidgetTree_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UWidget_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UWindDirectionalSourceComponent_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UWindowTitleBarAreaSlot_FixSize.cs" />
-    <Compile Include="GeneratedScriptFile_Game_64bits\UWindowTitleBarArea_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UWorldComposition_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UWorld_FixSize.cs" />
     <Compile Include="GeneratedScriptFile_Game_64bits\UWrapBoxSlot_FixSize.cs" />

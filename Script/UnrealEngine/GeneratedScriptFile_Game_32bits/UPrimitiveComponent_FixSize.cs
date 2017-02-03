@@ -115,193 +115,185 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bVisibleInReflectionCaptures__Offset;
-		public bool bVisibleInReflectionCaptures
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bVisibleInReflectionCaptures__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bVisibleInReflectionCaptures__Offset, 1,0,2,2);}
-			
-		}
-		
 		static readonly int bRenderInMainPass__Offset;
 		public bool bRenderInMainPass
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRenderInMainPass__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRenderInMainPass__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRenderInMainPass__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRenderInMainPass__Offset, 1,0,2,2);}
 			
 		}
 		
 		static readonly int bReceivesDecals__Offset;
 		public bool bReceivesDecals
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReceivesDecals__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReceivesDecals__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReceivesDecals__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReceivesDecals__Offset, 1,0,4,4);}
 			
 		}
 		
 		static readonly int bOwnerNoSee__Offset;
 		public bool bOwnerNoSee
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOwnerNoSee__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOwnerNoSee__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOwnerNoSee__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOwnerNoSee__Offset, 1,0,8,8);}
 			
 		}
 		
 		static readonly int bOnlyOwnerSee__Offset;
 		public bool bOnlyOwnerSee
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOnlyOwnerSee__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOnlyOwnerSee__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOnlyOwnerSee__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOnlyOwnerSee__Offset, 1,0,16,16);}
 			
 		}
 		
 		static readonly int bTreatAsBackgroundForOcclusion__Offset;
 		public bool bTreatAsBackgroundForOcclusion
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1,0,32,32);}
 			
 		}
 		
 		static readonly int bUseAsOccluder__Offset;
 		public bool bUseAsOccluder
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseAsOccluder__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseAsOccluder__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseAsOccluder__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseAsOccluder__Offset, 1,0,64,64);}
 			
 		}
 		
 		static readonly int bSelectable__Offset;
 		public bool bSelectable
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelectable__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelectable__Offset, 1, 0, 128, 128);}
 			
 		}
 		
 		static readonly int bForceMipStreaming__Offset;
 		public bool bForceMipStreaming
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMipStreaming__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bForceMipStreaming__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMipStreaming__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bForceMipStreaming__Offset, 1,0,1,1);}
 			
 		}
 		
 		static readonly int bHasPerInstanceHitProxies__Offset;
 		public bool bHasPerInstanceHitProxies
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasPerInstanceHitProxies__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasPerInstanceHitProxies__Offset, 1, 0, 2, 2);}
 			
 		}
 		
 		static readonly int CastShadow__Offset;
 		public bool CastShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), CastShadow__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), CastShadow__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), CastShadow__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), CastShadow__Offset, 1,0,4,4);}
 			
 		}
 		
 		static readonly int bAffectDynamicIndirectLighting__Offset;
 		public bool bAffectDynamicIndirectLighting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDynamicIndirectLighting__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDynamicIndirectLighting__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDynamicIndirectLighting__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDynamicIndirectLighting__Offset, 1,0,8,8);}
 			
 		}
 		
 		static readonly int bAffectDistanceFieldLighting__Offset;
 		public bool bAffectDistanceFieldLighting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDistanceFieldLighting__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDistanceFieldLighting__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDistanceFieldLighting__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDistanceFieldLighting__Offset, 1,0,16,16);}
 			
 		}
 		
 		static readonly int bCastDynamicShadow__Offset;
 		public bool bCastDynamicShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastDynamicShadow__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastDynamicShadow__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastDynamicShadow__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastDynamicShadow__Offset, 1,0,32,32);}
 			
 		}
 		
 		static readonly int bCastStaticShadow__Offset;
 		public bool bCastStaticShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastStaticShadow__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastStaticShadow__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastStaticShadow__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastStaticShadow__Offset, 1,0,64,64);}
 			
 		}
 		
 		static readonly int bCastVolumetricTranslucentShadow__Offset;
 		public bool bCastVolumetricTranslucentShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1,0,128,128);}
 			
 		}
 		
 		static readonly int bSelfShadowOnly__Offset;
 		public bool bSelfShadowOnly
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelfShadowOnly__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSelfShadowOnly__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelfShadowOnly__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSelfShadowOnly__Offset, 1,0,1,1);}
 			
 		}
 		
 		static readonly int bCastFarShadow__Offset;
 		public bool bCastFarShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastFarShadow__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastFarShadow__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastFarShadow__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastFarShadow__Offset, 1,0,2,2);}
 			
 		}
 		
 		static readonly int bCastInsetShadow__Offset;
 		public bool bCastInsetShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastInsetShadow__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastInsetShadow__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastInsetShadow__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastInsetShadow__Offset, 1,0,4,4);}
 			
 		}
 		
 		static readonly int bCastCinematicShadow__Offset;
 		public bool bCastCinematicShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastCinematicShadow__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastCinematicShadow__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastCinematicShadow__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastCinematicShadow__Offset, 1,0,8,8);}
 			
 		}
 		
 		static readonly int bCastHiddenShadow__Offset;
 		public bool bCastHiddenShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastHiddenShadow__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastHiddenShadow__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastHiddenShadow__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastHiddenShadow__Offset, 1,0,16,16);}
 			
 		}
 		
 		static readonly int bCastShadowAsTwoSided__Offset;
 		public bool bCastShadowAsTwoSided
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastShadowAsTwoSided__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastShadowAsTwoSided__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastShadowAsTwoSided__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastShadowAsTwoSided__Offset, 1,0,32,32);}
 			
 		}
 		
 		static readonly int bLightAsIfStatic__Offset;
 		public bool bLightAsIfStatic
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAsIfStatic__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAsIfStatic__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAsIfStatic__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAsIfStatic__Offset, 1,0,64,64);}
 			
 		}
 		
 		static readonly int bLightAttachmentsAsGroup__Offset;
 		public bool bLightAttachmentsAsGroup
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAttachmentsAsGroup__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAttachmentsAsGroup__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAttachmentsAsGroup__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAttachmentsAsGroup__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -334,6 +326,20 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (FLightingChannels)Marshal.PtrToStructure(_this.Get()+LightingChannels__Offset, typeof(FLightingChannels));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LightingChannels__Offset, false);}
+			
+		}
+		
+		static readonly int bHasCachedStaticLighting__Offset;
+		public bool bHasCachedStaticLighting
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasCachedStaticLighting__Offset, 1, 0, 1, 255);}
+			
+		}
+		
+		static readonly int bStaticLightingBuildEnqueued__Offset;
+		public bool bStaticLightingBuildEnqueued
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStaticLightingBuildEnqueued__Offset, 1, 0, 1, 255);}
 			
 		}
 		
@@ -478,14 +484,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int MoveIgnoreComponents__Offset;
-		public TObjectArray<UPrimitiveComponent>  MoveIgnoreComponents
-		{
-					get{ CheckIsValid();return new TObjectArray<UPrimitiveComponent>((FScriptArray)Marshal.PtrToStructure(_this.Get()+MoveIgnoreComponents__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+MoveIgnoreComponents__Offset, false);}
-			
-		}
-		
 		static readonly int OnComponentHit__Offset;
 		public FMulticastScriptDelegate OnComponentHit
 		{
@@ -621,7 +619,6 @@ namespace UnrealEngine
 			bUseViewOwnerDepthPriorityGroup__Offset=GetPropertyOffset(NativeClassPtr,"bUseViewOwnerDepthPriorityGroup");
 			bAllowCullDistanceVolume__Offset=GetPropertyOffset(NativeClassPtr,"bAllowCullDistanceVolume");
 			bHasMotionBlurVelocityMeshes__Offset=GetPropertyOffset(NativeClassPtr,"bHasMotionBlurVelocityMeshes");
-			bVisibleInReflectionCaptures__Offset=GetPropertyOffset(NativeClassPtr,"bVisibleInReflectionCaptures");
 			bRenderInMainPass__Offset=GetPropertyOffset(NativeClassPtr,"bRenderInMainPass");
 			bReceivesDecals__Offset=GetPropertyOffset(NativeClassPtr,"bReceivesDecals");
 			bOwnerNoSee__Offset=GetPropertyOffset(NativeClassPtr,"bOwnerNoSee");
@@ -649,6 +646,8 @@ namespace UnrealEngine
 			bReceiveCombinedCSMAndStaticShadowsFromStationaryLights__Offset=GetPropertyOffset(NativeClassPtr,"bReceiveCombinedCSMAndStaticShadowsFromStationaryLights");
 			bSingleSampleShadowFromStationaryLights__Offset=GetPropertyOffset(NativeClassPtr,"bSingleSampleShadowFromStationaryLights");
 			LightingChannels__Offset=GetPropertyOffset(NativeClassPtr,"LightingChannels");
+			bHasCachedStaticLighting__Offset=GetPropertyOffset(NativeClassPtr,"bHasCachedStaticLighting");
+			bStaticLightingBuildEnqueued__Offset=GetPropertyOffset(NativeClassPtr,"bStaticLightingBuildEnqueued");
 			bIgnoreRadialImpulse__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreRadialImpulse");
 			bIgnoreRadialForce__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreRadialForce");
 			AlwaysLoadOnClient__Offset=GetPropertyOffset(NativeClassPtr,"AlwaysLoadOnClient");
@@ -668,7 +667,6 @@ namespace UnrealEngine
 			CanBeCharacterBase__Offset=GetPropertyOffset(NativeClassPtr,"CanBeCharacterBase");
 			CanCharacterStepUpOn__Offset=GetPropertyOffset(NativeClassPtr,"CanCharacterStepUpOn");
 			MoveIgnoreActors__Offset=GetPropertyOffset(NativeClassPtr,"MoveIgnoreActors");
-			MoveIgnoreComponents__Offset=GetPropertyOffset(NativeClassPtr,"MoveIgnoreComponents");
 			OnComponentHit__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentHit");
 			OnComponentBeginOverlap__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentBeginOverlap");
 			OnComponentEndOverlap__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentEndOverlap");

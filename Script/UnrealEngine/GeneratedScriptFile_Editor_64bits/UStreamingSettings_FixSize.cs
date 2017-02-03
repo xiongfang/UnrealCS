@@ -116,15 +116,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int EventDrivenLoaderEnabled__Offset;
-		/// <summary>Enables the event driven loader in cooked builds.</summary>
-		public bool EventDrivenLoaderEnabled
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), EventDrivenLoaderEnabled__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), EventDrivenLoaderEnabled__Offset, 1,0,1,1);}
-			
-		}
-		
 		static UStreamingSettings()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("StreamingSettings");
@@ -140,7 +131,6 @@ namespace UnrealEngine
 			PriorityAsyncLoadingExtraTime__Offset=GetPropertyOffset(NativeClassPtr,"PriorityAsyncLoadingExtraTime");
 			LevelStreamingActorsUpdateTimeLimit__Offset=GetPropertyOffset(NativeClassPtr,"LevelStreamingActorsUpdateTimeLimit");
 			LevelStreamingComponentsRegistrationGranularity__Offset=GetPropertyOffset(NativeClassPtr,"LevelStreamingComponentsRegistrationGranularity");
-			EventDrivenLoaderEnabled__Offset=GetPropertyOffset(NativeClassPtr,"EventDrivenLoaderEnabled");
 			
 		}
 		

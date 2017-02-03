@@ -9,8 +9,6 @@ namespace UnrealEngine
 	public partial struct FTimelineLinearColorTrack
 	{
 		[FieldOffset(24)]
-		public FName TrackName;
-		[FieldOffset(32)]
 		public FName LinearColorPropertyName;
 		
 	}

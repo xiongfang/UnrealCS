@@ -370,10 +370,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bUseControllerDesiredRotation__Offset;
-		/// <summary>
-		/// If true, smoothly rotate the Character toward the Controller's desired rotation (typically Controller->ControlRotation), using RotationRate as the rate of rotation change. Overridden by OrientRotationToMovement.
-		/// Normally you will want to make sure that other settings are cleared, such as bUseControllerRotationYaw on the Character.
-		/// </summary>
+		/// <summary>If true, smoothly rotate the Character toward the Controller's desired rotation, using RotationRate as the rate of rotation change. Overridden by OrientRotationToMovement.</summary>
 		public bool bUseControllerDesiredRotation
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseControllerDesiredRotation__Offset, 1, 0, 1, 1);}

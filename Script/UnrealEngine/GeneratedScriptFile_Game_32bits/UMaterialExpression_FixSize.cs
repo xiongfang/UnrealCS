@@ -106,6 +106,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int MenuCategories__Offset;
+		public TStructArray<FText> MenuCategories
+		{
+			get{ CheckIsValid();return new TStructArray<FText>((FScriptArray)Marshal.PtrToStructure(_this.Get()+MenuCategories__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+MenuCategories__Offset, false);}
+			
+		}
+		
 		static readonly int Outputs__Offset;
 		public TStructArray<FExpressionOutput> Outputs
 		{
@@ -131,6 +139,7 @@ namespace UnrealEngine
 			bShaderInputData__Offset=GetPropertyOffset(NativeClassPtr,"bShaderInputData");
 			bShowInputs__Offset=GetPropertyOffset(NativeClassPtr,"bShowInputs");
 			bShowOutputs__Offset=GetPropertyOffset(NativeClassPtr,"bShowOutputs");
+			MenuCategories__Offset=GetPropertyOffset(NativeClassPtr,"MenuCategories");
 			Outputs__Offset=GetPropertyOffset(NativeClassPtr,"Outputs");
 			
 		}

@@ -16,7 +16,7 @@ namespace UnrealEngine
 		static int32 GetTrackingOrigin(UHeadMountedDisplayFunctionLibrary* _this)
 		{
 			TEnumAsByte<EHMDTrackingOrigin::Type> ___ret = _this->GetTrackingOrigin();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static void SetTrackingOrigin(UHeadMountedDisplayFunctionLibrary* _this,int32 Origin)
@@ -62,10 +62,10 @@ namespace UnrealEngine
 			return ___ret?1:0;
 			
 		}
-		static void GetTrackingSensorParameters(UHeadMountedDisplayFunctionLibrary* _this,FVector* Origin,FRotator* Rotation,float* LeftFOV,float* RightFOV,float* TopFOV,float* BottomFOV,float* Distance,float* NearPlane,float* FarPlane,int32* IsActive,int32 Index)
+		static void GetTrackingSensorParameters(UHeadMountedDisplayFunctionLibrary* _this,FVector* Origin,FRotator* Rotation,float* HFOV,float* VFOV,float* Distance,float* NearPlane,float* FarPlane,int32* IsActive,int32 Index)
 		{
 			bool IsActive_temp;
-			_this->GetTrackingSensorParameters(*Origin,*Rotation,*LeftFOV,*RightFOV,*TopFOV,*BottomFOV,*Distance,*NearPlane,*FarPlane,IsActive_temp,Index);
+			_this->GetTrackingSensorParameters(*Origin,*Rotation,*HFOV,*VFOV,*Distance,*NearPlane,*FarPlane,IsActive_temp,Index);
 			*IsActive=IsActive_temp!=0;
 			
 		}

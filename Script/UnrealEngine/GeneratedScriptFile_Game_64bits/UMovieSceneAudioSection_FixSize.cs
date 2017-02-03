@@ -39,14 +39,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bSuppressSubtitles__Offset;
-		public bool bSuppressSubtitles
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSuppressSubtitles__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSuppressSubtitles__Offset, 1,0,1,255);}
-			
-		}
-		
 		static UMovieSceneAudioSection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneAudioSection");
@@ -54,7 +46,6 @@ namespace UnrealEngine
 			AudioStartTime__Offset=GetPropertyOffset(NativeClassPtr,"AudioStartTime");
 			AudioDilationFactor__Offset=GetPropertyOffset(NativeClassPtr,"AudioDilationFactor");
 			AudioVolume__Offset=GetPropertyOffset(NativeClassPtr,"AudioVolume");
-			bSuppressSubtitles__Offset=GetPropertyOffset(NativeClassPtr,"bSuppressSubtitles");
 			
 		}
 		

@@ -209,26 +209,6 @@ public  void OnRep_IsCrouched()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FRotator GetBaseRotationOffsetRotator(IntPtr _this);
-/// <summary>Get the saved rotation offset of mesh. This is how much extra rotation is applied from the capsule rotation.</summary>
-public  FRotator GetBaseRotationOffsetRotator()
-{
-	CheckIsValid();
-	FRotator ___ret = GetBaseRotationOffsetRotator(_this.Get());
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FVector GetBaseTranslationOffset(IntPtr _this);
-/// <summary>Get the saved translation offset of mesh. This is how much extra offset is applied from the center of the capsule.</summary>
-public  FVector GetBaseTranslationOffset()
-{
-	CheckIsValid();
-	FVector ___ret = GetBaseTranslationOffset(_this.Get());
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetReplicateMovement(IntPtr _this,int bInReplicateMovement);
 /// <summary>Set whether this actor's movement replicates to network clients.</summary>
 public  void SetReplicateMovement(bool bInReplicateMovement)

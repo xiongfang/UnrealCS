@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=148)]
+	[StructLayout(LayoutKind.Explicit,Size=144)]
 	public partial struct FFontImportOptionsData
 	{
 		[FieldOffset(0)]
@@ -42,69 +42,69 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 16, 1, 0, 16, 16); } }}
 			
 		}
-		[FieldOffset(20)]
+		[FieldOffset(17)]
 		public EFontImportCharacterSet CharacterSet;
-		[FieldOffset(24)]
+		[FieldOffset(20)]
 		public FString Chars;
-		[FieldOffset(36)]
+		[FieldOffset(32)]
 		public FString UnicodeRange;
-		[FieldOffset(48)]
+		[FieldOffset(44)]
 		public FString CharsFilePath;
-		[FieldOffset(60)]
+		[FieldOffset(56)]
 		public FString CharsFileWildcard;
 		public bool bCreatePrintableOnly
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 72, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 72, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 68, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 68, 1, 0, 1, 1); } }}
 			
 		}
 		public bool bIncludeASCIIRange
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 72, 1, 0, 2, 2); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 72, 1, 0, 2, 2); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 68, 1, 0, 2, 2); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 68, 1, 0, 2, 2); } }}
 			
 		}
-		[FieldOffset(76)]
+		[FieldOffset(72)]
 		public FLinearColor ForegroundColor;
 		public bool bEnableDropShadow
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 92, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 92, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 88, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 88, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(96)]
+		[FieldOffset(92)]
 		public int TexturePageWidth;
-		[FieldOffset(100)]
+		[FieldOffset(96)]
 		public int TexturePageMaxHeight;
-		[FieldOffset(104)]
+		[FieldOffset(100)]
 		public int XPadding;
-		[FieldOffset(108)]
+		[FieldOffset(104)]
 		public int YPadding;
-		[FieldOffset(112)]
+		[FieldOffset(108)]
 		public int ExtendBoxTop;
-		[FieldOffset(116)]
+		[FieldOffset(112)]
 		public int ExtendBoxBottom;
-		[FieldOffset(120)]
+		[FieldOffset(116)]
 		public int ExtendBoxRight;
-		[FieldOffset(124)]
+		[FieldOffset(120)]
 		public int ExtendBoxLeft;
 		public bool bEnableLegacyMode
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 128, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 128, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 124, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 124, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(132)]
+		[FieldOffset(128)]
 		public int Kerning;
 		public bool bUseDistanceFieldAlpha
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 136, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 136, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 132, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 132, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(140)]
+		[FieldOffset(136)]
 		public int DistanceFieldScaleFactor;
-		[FieldOffset(144)]
+		[FieldOffset(140)]
 		public float DistanceFieldScanRadiusScale;
 		
 	}

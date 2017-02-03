@@ -5,25 +5,23 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=400)]
+	[StructLayout(LayoutKind.Explicit,Size=272)]
 	public partial struct FTextBlockStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FSlateFontInfo Font;
-		[FieldOffset(72)]
+		[FieldOffset(56)]
 		public FSlateColor ColorAndOpacity;
-		[FieldOffset(100)]
+		[FieldOffset(84)]
 		public FVector2D ShadowOffset;
-		[FieldOffset(108)]
+		[FieldOffset(92)]
 		public FLinearColor ShadowColorAndOpacity;
-		[FieldOffset(124)]
+		[FieldOffset(108)]
 		public FSlateColor SelectedBackgroundColor;
-		[FieldOffset(152)]
+		[FieldOffset(136)]
 		public FLinearColor HighlightColor;
-		[FieldOffset(168)]
+		[FieldOffset(152)]
 		public FSlateBrush HighlightShape;
-		[FieldOffset(284)]
-		public FSlateBrush UnderlineBrush;
 		
 	}
 	

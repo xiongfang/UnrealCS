@@ -105,15 +105,6 @@ public  bool IsPlaying()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetPaused(IntPtr _this,int bPause);
-/// <summary>Pause an audio component playing its sound cue, issue any delegates if needed</summary>
-public  void SetPaused(bool bPause)
-{
-	CheckIsValid();
-	SetPaused(_this.Get(),bPause?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void Stop(IntPtr _this);
 /// <summary>Stop an audio component playing its sound cue, issue any delegates if needed</summary>
 public  void Stop()

@@ -159,53 +159,6 @@ public static void ShowPlatformSpecificLeaderboardScreen(string CategoryName)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ShowInterstitialAd(IntPtr _this);
-/// <summary>
-/// Shows the loaded interstitial ad (loaded with LoadInterstitialAd)
-/// (Android only)
-/// </summary>
-public static void ShowInterstitialAd()
-{
-	ShowInterstitialAd(IntPtr.Zero);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int IsInterstitialAdRequested(IntPtr _this);
-/// <summary>
-/// Returns true if the requested interstitial ad has been successfully requested (false if load request fails)
-/// (Android only)
-/// </summary>
-public static bool IsInterstitialAdRequested()
-{
-	int ___ret = IsInterstitialAdRequested(IntPtr.Zero);
-	return ___ret!=0;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int IsInterstitialAdAvailable(IntPtr _this);
-/// <summary>
-/// Returns true if the requested interstitial ad is loaded and ready
-/// (Android only)
-/// </summary>
-public static bool IsInterstitialAdAvailable()
-{
-	int ___ret = IsInterstitialAdAvailable(IntPtr.Zero);
-	return ___ret!=0;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void LoadInterstitialAd(IntPtr _this,int AdIdIndex);
-/// <summary>
-/// Will load a fullscreen interstitial AdMob ad. Call this before using ShowInterstitialAd
-/// (Android only)
-/// @param AdIdIndex The index of the ID to select for the ad to show
-/// </summary>
-public static void LoadInterstitialAd(int AdIdIndex)
-{
-	LoadInterstitialAd(IntPtr.Zero,AdIdIndex);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void ForceCloseAdBanner(IntPtr _this);
 /// <summary>
 /// Forces closed any displayed ad. Can lead to loss of revenue
@@ -241,7 +194,7 @@ extern static void ShowAdBanner(IntPtr _this,int AdIdIndex,int bShowOnBottomOfSc
 /// <summary>
 /// Will show an ad banner (iAd on iOS, or AdMob on Android) on the top or bottom of screen, on top of the GL view (doesn't resize the view)
 /// (iOS and Android only)
-/// @param AdIdIndex The index of the ID to select for the ad to show
+/// @param AdIdIndex The index of the ID to select for the add to show
 /// @param bShowOnBottomOfScreen If true, the iAd will be shown at the bottom of the screen, top otherwise
 /// </summary>
 public static void ShowAdBanner(int AdIdIndex,bool bShowOnBottomOfScreen)
@@ -298,18 +251,6 @@ public static int GetMinYResolutionForUI()
 {
 	int ___ret = GetMinYResolutionForUI(IntPtr.Zero);
 	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetConvenientWindowedResolutions(IntPtr _this,out FIntPoint[] Resolutions);
-/// <summary>
-/// Gets the list of windowed resolutions which are convenient for the current primary display size.
-/// @return true if successfully queried the device for available resolutions.
-/// </summary>
-public static bool GetConvenientWindowedResolutions(out FIntPoint[] Resolutions)
-{
-	int ___ret = GetConvenientWindowedResolutions(IntPtr.Zero,out Resolutions);
-	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -1624,15 +1565,6 @@ extern static int IsPackagedForDistribution(IntPtr _this);
 public static bool IsPackagedForDistribution()
 {
 	int ___ret = IsPackagedForDistribution(IntPtr.Zero);
-	return ___ret!=0;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int IsStandalone(IntPtr _this,IntPtr WorldContextObject);
-/// <summary>Returns whether this game instance is stand alone (no networking).</summary>
-public static bool IsStandalone(UObject WorldContextObject)
-{
-	int ___ret = IsStandalone(IntPtr.Zero,WorldContextObject);
 	return ___ret!=0;
 	
 }

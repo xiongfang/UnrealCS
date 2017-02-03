@@ -56,16 +56,6 @@ namespace UnrealEngine
 			_this->ServerMove(TimeStamp,*InAccel,*ClientLoc,CompressedMoveFlags,ClientRoll,View,ClientMovementBase,ClientBaseBoneName_temp,ClientMovementMode);
 			
 		}
-		static void K2_ComputeFloorDist(UCharacterMovementComponent* _this,FVector* CapsuleLocation,float LineDistance,float SweepDistance,float SweepRadius,FFindFloorResult* FloorResult)
-		{
-			_this->K2_ComputeFloorDist(*CapsuleLocation,LineDistance,SweepDistance,SweepRadius,*FloorResult);
-			
-		}
-		static void K2_FindFloor(UCharacterMovementComponent* _this,FVector* CapsuleLocation,FFindFloorResult* FloorResult)
-		{
-			_this->K2_FindFloor(*CapsuleLocation,*FloorResult);
-			
-		}
 		static void SetWalkableFloorZ(UCharacterMovementComponent* _this,float InWalkableFloorZ)
 		{
 			_this->SetWalkableFloorZ(InWalkableFloorZ);
@@ -184,19 +174,19 @@ namespace UnrealEngine
 			_this->SetAvoidanceEnabled(bEnable>0?true:false);
 			
 		}
-		static void SetGroupsToIgnoreMask(UCharacterMovementComponent* _this,FNavAvoidanceMask* GroupMask)
+		static void SetGroupsToIgnore(UCharacterMovementComponent* _this,int32 GroupFlags)
 		{
-			_this->SetGroupsToIgnoreMask(*GroupMask);
+			_this->SetGroupsToIgnore(GroupFlags);
 			
 		}
-		static void SetGroupsToAvoidMask(UCharacterMovementComponent* _this,FNavAvoidanceMask* GroupMask)
+		static void SetGroupsToAvoid(UCharacterMovementComponent* _this,int32 GroupFlags)
 		{
-			_this->SetGroupsToAvoidMask(*GroupMask);
+			_this->SetGroupsToAvoid(GroupFlags);
 			
 		}
-		static void SetAvoidanceGroupMask(UCharacterMovementComponent* _this,FNavAvoidanceMask* GroupMask)
+		static void SetAvoidanceGroup(UCharacterMovementComponent* _this,int32 GroupFlags)
 		{
-			_this->SetAvoidanceGroupMask(*GroupMask);
+			_this->SetAvoidanceGroup(GroupFlags);
 			
 		}
 		static UClass* StaticClass(){return UCharacterMovementComponent::StaticClass();}
@@ -212,8 +202,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::ServerMoveDualHybridRootMotion",(const void*)ServerMoveDualHybridRootMotion);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::ServerMoveDual",(const void*)ServerMoveDual);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::ServerMove",(const void*)ServerMove);
-			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::K2_ComputeFloorDist",(const void*)K2_ComputeFloorDist);
-			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::K2_FindFloor",(const void*)K2_FindFloor);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetWalkableFloorZ",(const void*)SetWalkableFloorZ);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::K2_GetWalkableFloorZ",(const void*)K2_GetWalkableFloorZ);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetWalkableFloorAngle",(const void*)SetWalkableFloorAngle);
@@ -235,9 +223,9 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetMovementMode",(const void*)SetMovementMode);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::GetCharacterOwner",(const void*)GetCharacterOwner);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetAvoidanceEnabled",(const void*)SetAvoidanceEnabled);
-			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetGroupsToIgnoreMask",(const void*)SetGroupsToIgnoreMask);
-			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetGroupsToAvoidMask",(const void*)SetGroupsToAvoidMask);
-			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetAvoidanceGroupMask",(const void*)SetAvoidanceGroupMask);
+			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetGroupsToIgnore",(const void*)SetGroupsToIgnore);
+			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetGroupsToAvoid",(const void*)SetGroupsToAvoid);
+			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::SetAvoidanceGroup",(const void*)SetAvoidanceGroup);
 			mono_add_internal_call("UnrealEngine.UCharacterMovementComponent::StaticClass",(const void*)StaticClass);
 			
 		}

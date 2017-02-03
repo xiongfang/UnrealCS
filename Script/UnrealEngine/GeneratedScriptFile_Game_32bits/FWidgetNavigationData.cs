@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=20)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FWidgetNavigationData
 	{
 		[FieldOffset(0)]
 		public EUINavigationRule Rule;
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName WidgetToFocus;
 		
 	}

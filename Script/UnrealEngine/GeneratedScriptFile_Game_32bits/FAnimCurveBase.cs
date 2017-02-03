@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=24)]
+	[StructLayout(LayoutKind.Explicit,Size=32)]
 	public partial struct FAnimCurveBase
 	{
 		[FieldOffset(0)]
 		public FName LastObservedName;
 		[FieldOffset(8)]
 		public FSmartName Name;
-		[FieldOffset(20)]
+		[FieldOffset(24)]
 		public int CurveTypeFlags;
 		
 	}

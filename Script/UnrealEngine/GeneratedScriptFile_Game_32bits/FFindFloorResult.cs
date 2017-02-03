@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=140)]
+	[StructLayout(LayoutKind.Explicit,Size=152)]
 	public partial struct FFindFloorResult
 	{
 		public bool bBlockingHit
@@ -30,7 +30,7 @@ namespace UnrealEngine
 		public float FloorDist;
 		[FieldOffset(8)]
 		public float LineDist;
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public FHitResult HitResult;
 		
 	}

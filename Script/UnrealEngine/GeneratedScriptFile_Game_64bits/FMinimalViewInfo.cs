@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=1296)]
+	[StructLayout(LayoutKind.Explicit,Size=984)]
 	public partial struct FMinimalViewInfo
 	{
 		[FieldOffset(0)]
@@ -38,10 +38,8 @@ namespace UnrealEngine
 		public ECameraProjectionMode ProjectionMode;
 		[FieldOffset(52)]
 		public float PostProcessBlendWeight;
-		[FieldOffset(64)]
+		[FieldOffset(56)]
 		public FPostProcessSettings PostProcessSettings;
-		[FieldOffset(1280)]
-		public FVector2D OffCenterProjectionOffset;
 		
 	}
 	

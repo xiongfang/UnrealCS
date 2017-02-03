@@ -5,46 +5,46 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=1208)]
+	[StructLayout(LayoutKind.Explicit,Size=1256)]
 	public partial struct FCheckBoxStyle
 	{
 		[FieldOffset(4)]
 		public ESlateCheckBoxType CheckBoxType;
 		[FieldOffset(8)]
 		public FSlateBrush UncheckedImage;
-		[FieldOffset(124)]
+		[FieldOffset(128)]
 		public FSlateBrush UncheckedHoveredImage;
-		[FieldOffset(240)]
+		[FieldOffset(248)]
 		public FSlateBrush UncheckedPressedImage;
-		[FieldOffset(356)]
+		[FieldOffset(368)]
 		public FSlateBrush CheckedImage;
-		[FieldOffset(472)]
+		[FieldOffset(488)]
 		public FSlateBrush CheckedHoveredImage;
-		[FieldOffset(588)]
+		[FieldOffset(608)]
 		public FSlateBrush CheckedPressedImage;
-		[FieldOffset(704)]
+		[FieldOffset(728)]
 		public FSlateBrush UndeterminedImage;
-		[FieldOffset(820)]
+		[FieldOffset(848)]
 		public FSlateBrush UndeterminedHoveredImage;
-		[FieldOffset(936)]
+		[FieldOffset(968)]
 		public FSlateBrush UndeterminedPressedImage;
-		[FieldOffset(1052)]
+		[FieldOffset(1088)]
 		public FMargin Padding;
-		[FieldOffset(1068)]
+		[FieldOffset(1104)]
 		public FSlateColor ForegroundColor;
-		[FieldOffset(1096)]
+		[FieldOffset(1132)]
 		public FSlateColor BorderBackgroundColor;
-		[FieldOffset(1124)]
+		[FieldOffset(1160)]
 		public FSlateSound CheckedSlateSound;
-		[FieldOffset(1144)]
-		public FSlateSound UncheckedSlateSound;
-		[FieldOffset(1164)]
-		public FSlateSound HoveredSlateSound;
 		[FieldOffset(1184)]
+		public FSlateSound UncheckedSlateSound;
+		[FieldOffset(1208)]
+		public FSlateSound HoveredSlateSound;
+		[FieldOffset(1232)]
 		public FName CheckedSound;
-		[FieldOffset(1192)]
+		[FieldOffset(1240)]
 		public FName UncheckedSound;
-		[FieldOffset(1200)]
+		[FieldOffset(1248)]
 		public FName HoveredSound;
 		
 	}

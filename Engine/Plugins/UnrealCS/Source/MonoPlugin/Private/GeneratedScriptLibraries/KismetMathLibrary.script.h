@@ -84,28 +84,6 @@ namespace UnrealEngine
 			return ___ret;
 			
 		}
-		static void ResetVectorSpringState(UKismetMathLibrary* _this,FVectorSpringState* SpringState)
-		{
-			_this->ResetVectorSpringState(*SpringState);
-			
-		}
-		static void ResetFloatSpringState(UKismetMathLibrary* _this,FFloatSpringState* SpringState)
-		{
-			_this->ResetFloatSpringState(*SpringState);
-			
-		}
-		static FVector VectorSpringInterp(UKismetMathLibrary* _this,FVector* Current,FVector* Target,FVectorSpringState* SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass)
-		{
-			FVector ___ret = _this->VectorSpringInterp(*Current,*Target,*SpringState,Stiffness,CriticalDampingFactor,DeltaTime,Mass);
-			return ___ret;
-			
-		}
-		static float FloatSpringInterp(UKismetMathLibrary* _this,float Current,float Target,FFloatSpringState* SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass)
-		{
-			float ___ret = _this->FloatSpringInterp(Current,Target,*SpringState,Stiffness,CriticalDampingFactor,DeltaTime,Mass);
-			return ___ret;
-			
-		}
 		static FLinearColor CInterpTo(UKismetMathLibrary* _this,FLinearColor* Current,FLinearColor* Target,float DeltaTime,float InterpSpeed)
 		{
 			FLinearColor ___ret = _this->CInterpTo(*Current,*Target,DeltaTime,InterpSpeed);
@@ -1199,9 +1177,9 @@ namespace UnrealEngine
 			return ___ret?1:0;
 			
 		}
-		static FVector GetDirectionUnitVector(UKismetMathLibrary* _this,FVector* From,FVector* To)
+		static FVector GetDirectionVector(UKismetMathLibrary* _this,FVector* From,FVector* To)
 		{
-			FVector ___ret = _this->GetDirectionUnitVector(*From,*To);
+			FVector ___ret = _this->GetDirectionVector(*From,*To);
 			return ___ret;
 			
 		}
@@ -2192,10 +2170,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::RandomBoolFromStream",(const void*)RandomBoolFromStream);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::RandomIntegerInRangeFromStream",(const void*)RandomIntegerInRangeFromStream);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::RandomIntegerFromStream",(const void*)RandomIntegerFromStream);
-			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::ResetVectorSpringState",(const void*)ResetVectorSpringState);
-			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::ResetFloatSpringState",(const void*)ResetFloatSpringState);
-			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::VectorSpringInterp",(const void*)VectorSpringInterp);
-			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::FloatSpringInterp",(const void*)FloatSpringInterp);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::CInterpTo",(const void*)CInterpTo);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::RInterpTo_Constant",(const void*)RInterpTo_Constant);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::RInterpTo",(const void*)RInterpTo);
@@ -2379,7 +2353,7 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::Multiply_RotatorFloat",(const void*)Multiply_RotatorFloat);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::NotEqual_RotatorRotator",(const void*)NotEqual_RotatorRotator);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::EqualEqual_RotatorRotator",(const void*)EqualEqual_RotatorRotator);
-			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::GetDirectionUnitVector",(const void*)GetDirectionUnitVector);
+			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::GetDirectionVector",(const void*)GetDirectionVector);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::GetVectorArrayAverage",(const void*)GetVectorArrayAverage);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::GetMaxElement",(const void*)GetMaxElement);
 			mono_add_internal_call("UnrealEngine.UKismetMathLibrary::GetMinElement",(const void*)GetMinElement);

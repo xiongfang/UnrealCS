@@ -20,17 +20,6 @@ public static void GetLaunchNotification(out bool NotificationLaunchedApp,out st
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void CancelLocalNotification(IntPtr _this,string ActivationEvent);
-/// <summary>
-/// Cancel a local notification given the ActivationEvent
-/// @param ActivationEvent The string passed into the Schedule call for the notification to be cancelled
-/// </summary>
-public static void CancelLocalNotification(string ActivationEvent)
-{
-	CancelLocalNotification(IntPtr.Zero,ActivationEvent);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void ScheduleLocalNotificationFromNow(IntPtr _this,int inSecondsFromNow,string Title,string Body,string Action,string ActivationEvent);
 /// <summary>
 /// Schedule a local notification to fire inSecondsFromNow from now

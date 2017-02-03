@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Settings applied when building a mesh.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=64)]
+	[StructLayout(LayoutKind.Explicit,Size=56)]
 	public partial struct FMeshBuildSettings
 	{
 		/// <summary>If true, degenerate triangles will be removed.</summary>
@@ -98,13 +98,6 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 44, 1, 0, 1, 255); } }}
 			
 		}
-		/// <summary>
-		/// Adding a constant distance effectively shrinks the distance field representation.
-		/// This is useful for preventing self shadowing aritfacts when doing some minor ambient animation.
-		/// Thin walls will be affected more severely than large hollow objects, because thin walls don't have a large negative region.
-		/// </summary>
-		[FieldOffset(48)]
-		public float DistanceFieldBias;
 		
 	}
 	

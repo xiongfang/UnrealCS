@@ -16,68 +16,64 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 0, 1, 0, 1, 255); } }}
 			
 		}
-		/// <summary>Target lightmap resolution</summary>
+		/// <summary>Target UV channel in a merged mesh for a lightmap</summary>
 		[FieldOffset(4)]
+		public int TargetLightMapUVChannel;
+		/// <summary>Target lightmap resolution</summary>
+		[FieldOffset(8)]
 		public int TargetLightMapResolution;
 		/// <summary>Whether we should import vertex colors into merged mesh</summary>
 		public bool bImportVertexColors
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 8, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 8, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 12, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 12, 1, 0, 1, 255); } }}
 			
 		}
 		/// <summary>Whether merged mesh should have pivot at world origin, or at first merged component otherwise</summary>
 		public bool bPivotPointAtZero
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 9, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 9, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 13, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 13, 1, 0, 1, 255); } }}
 			
 		}
 		/// <summary>Whether to merge physics data (collision primitives)</summary>
 		public bool bMergePhysicsData
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 10, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 10, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 14, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 14, 1, 0, 1, 255); } }}
 			
 		}
 		/// <summary>Whether to merge source materials into one flat material</summary>
 		public bool bMergeMaterials
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 11, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 11, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 15, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 15, 1, 0, 1, 255); } }}
 			
 		}
 		/// <summary>Material simplification</summary>
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public FMaterialProxySettings MaterialSettings;
 		/// <summary>Whether or not vertex data such as vertex colours should be baked into the resulting mesh</summary>
 		public bool bBakeVertexDataToMesh
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 116, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 116, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 120, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 120, 1, 0, 1, 255); } }}
 			
 		}
 		/// <summary>Whether or not vertex data such as vertex colours should be used when baking out materials</summary>
 		public bool bUseVertexDataForBakingMaterial
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 117, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 117, 1, 0, 1, 255); } }}
-			
-		}
-		/// <summary>Whether or not to calculate varying output texture sizes according to their importance in the final atlas texture</summary>
-		public bool bUseTextureBinning
-		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 118, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 118, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 121, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 121, 1, 0, 1, 255); } }}
 			
 		}
 		public bool bCalculateCorrectLODModel
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 119, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 119, 1, 0, 1, 255); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 122, 1, 0, 1, 255); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 122, 1, 0, 1, 255); } }}
 			
 		}
-		[FieldOffset(120)]
+		[FieldOffset(123)]
 		public EMeshLODSelectionType LODSelectionType;
 		[FieldOffset(124)]
 		public int ExportSpecificLOD;

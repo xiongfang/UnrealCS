@@ -81,21 +81,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bOverrideSubtitlePriority__Offset;
-		/// <summary>Whether or not to override the sound's subtitle priority.</summary>
-		public bool bOverrideSubtitlePriority
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOverrideSubtitlePriority__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOverrideSubtitlePriority__Offset, 1,0,1,1);}
-			
-		}
-		
 		static readonly int bIsUISound__Offset;
 		/// <summary>Whether or not this sound plays when the game is paused in the UI</summary>
 		public bool bIsUISound
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsUISound__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsUISound__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsUISound__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsUISound__Offset, 1,0,32,32);}
 			
 		}
 		
@@ -103,25 +94,16 @@ namespace UnrealEngine
 		/// <summary>Whether or not to apply a low-pass filter to the sound that plays in this audio component.</summary>
 		public bool bEnableLowPassFilter
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableLowPassFilter__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableLowPassFilter__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableLowPassFilter__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableLowPassFilter__Offset, 1,0,64,64);}
 			
 		}
 		
 		static readonly int bOverridePriority__Offset;
 		public bool bOverridePriority
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOverridePriority__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOverridePriority__Offset, 1,0,4,4);}
-			
-		}
-		
-		static readonly int bSuppressSubtitles__Offset;
-		/// <summary>If true, subtitles in the sound data will be ignored.</summary>
-		public bool bSuppressSubtitles
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSuppressSubtitles__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSuppressSubtitles__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOverridePriority__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOverridePriority__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -176,15 +158,6 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+Priority__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Priority__Offset, false);}
-			
-		}
-		
-		static readonly int SubtitlePriority__Offset;
-		/// <summary>Used by the subtitle manager to prioritize subtitles wave instances spawned by this component.</summary>
-		public float SubtitlePriority
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SubtitlePriority__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+SubtitlePriority__Offset, false);}
 			
 		}
 		
@@ -256,15 +229,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int OnAudioPlaybackPercent__Offset;
-		/// <summary>called when we finish playing audio, either because it played to completion or because a Stop() call turned it off early</summary>
-		public FMulticastScriptDelegate OnAudioPlaybackPercent
-		{
-			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+OnAudioPlaybackPercent__Offset, typeof(FMulticastScriptDelegate)));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OnAudioPlaybackPercent__Offset, false);}
-			
-		}
-		
 		static UAudioComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("AudioComponent");
@@ -276,18 +240,15 @@ namespace UnrealEngine
 			bShouldRemainActiveIfDropped__Offset=GetPropertyOffset(NativeClassPtr,"bShouldRemainActiveIfDropped");
 			bAllowSpatialization__Offset=GetPropertyOffset(NativeClassPtr,"bAllowSpatialization");
 			bOverrideAttenuation__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideAttenuation");
-			bOverrideSubtitlePriority__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideSubtitlePriority");
 			bIsUISound__Offset=GetPropertyOffset(NativeClassPtr,"bIsUISound");
 			bEnableLowPassFilter__Offset=GetPropertyOffset(NativeClassPtr,"bEnableLowPassFilter");
 			bOverridePriority__Offset=GetPropertyOffset(NativeClassPtr,"bOverridePriority");
-			bSuppressSubtitles__Offset=GetPropertyOffset(NativeClassPtr,"bSuppressSubtitles");
 			PitchModulationMin__Offset=GetPropertyOffset(NativeClassPtr,"PitchModulationMin");
 			PitchModulationMax__Offset=GetPropertyOffset(NativeClassPtr,"PitchModulationMax");
 			VolumeModulationMin__Offset=GetPropertyOffset(NativeClassPtr,"VolumeModulationMin");
 			VolumeModulationMax__Offset=GetPropertyOffset(NativeClassPtr,"VolumeModulationMax");
 			VolumeMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"VolumeMultiplier");
 			Priority__Offset=GetPropertyOffset(NativeClassPtr,"Priority");
-			SubtitlePriority__Offset=GetPropertyOffset(NativeClassPtr,"SubtitlePriority");
 			VolumeWeightedPriorityScale__Offset=GetPropertyOffset(NativeClassPtr,"VolumeWeightedPriorityScale");
 			PitchMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"PitchMultiplier");
 			HighFrequencyGainMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"HighFrequencyGainMultiplier");
@@ -296,7 +257,6 @@ namespace UnrealEngine
 			AttenuationOverrides__Offset=GetPropertyOffset(NativeClassPtr,"AttenuationOverrides");
 			ConcurrencySettings__Offset=GetPropertyOffset(NativeClassPtr,"ConcurrencySettings");
 			OnAudioFinished__Offset=GetPropertyOffset(NativeClassPtr,"OnAudioFinished");
-			OnAudioPlaybackPercent__Offset=GetPropertyOffset(NativeClassPtr,"OnAudioPlaybackPercent");
 			
 		}
 		

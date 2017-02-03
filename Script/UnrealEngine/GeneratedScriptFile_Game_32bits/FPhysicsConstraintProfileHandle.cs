@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=268)]
+	[StructLayout(LayoutKind.Explicit,Size=272)]
 	public partial struct FPhysicsConstraintProfileHandle
 	{
 		[FieldOffset(0)]
 		public FConstraintProfileProperties ProfileProperties;
-		[FieldOffset(260)]
+		[FieldOffset(264)]
 		public FName ProfileName;
 		
 	}

@@ -11,7 +11,7 @@ namespace UnrealEngine
 		}
 		static void SetGeometryGatheringMode(UNavigationSystem* _this,int32 NewMode)
 		{
-			_this->SetGeometryGatheringMode((ENavDataGatheringModeConfig)NewMode);
+			_this->SetGeometryGatheringMode((TEnumAsByte<ENavDataGatheringModeConfig>)NewMode);
 			
 		}
 		static void UnregisterNavigationInvoker(UNavigationSystem* _this,AActor* Invoker)
@@ -77,13 +77,13 @@ namespace UnrealEngine
 		static int32 GetPathLength(UNavigationSystem* _this,UObject* WorldContext,FVector* PathStart,FVector* PathEnd,float* PathLength,ANavigationData* NavData,TSubclassOf<UNavigationQueryFilter>  FilterClass)
 		{
 			TEnumAsByte<ENavigationQueryResult::Type> ___ret = _this->GetPathLength(WorldContext,*PathStart,*PathEnd,*PathLength,NavData,FilterClass);
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static int32 GetPathCost(UNavigationSystem* _this,UObject* WorldContext,FVector* PathStart,FVector* PathEnd,float* PathCost,ANavigationData* NavData,TSubclassOf<UNavigationQueryFilter>  FilterClass)
 		{
 			TEnumAsByte<ENavigationQueryResult::Type> ___ret = _this->GetPathCost(WorldContext,*PathStart,*PathEnd,*PathCost,NavData,FilterClass);
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static FVector GetRandomPointInNavigableRadius(UNavigationSystem* _this,UObject* WorldContext,FVector* Origin,float Radius,ANavigationData* NavData,TSubclassOf<UNavigationQueryFilter>  FilterClass)

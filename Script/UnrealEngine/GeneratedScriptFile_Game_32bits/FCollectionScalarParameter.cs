@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=28)]
+	[StructLayout(LayoutKind.Explicit,Size=32)]
 	public partial struct FCollectionScalarParameter
 	{
 		[FieldOffset(24)]

@@ -31,14 +31,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int TraceChannel__Offset;
-		public ECollisionChannel TraceChannel
-		{
-			get{ CheckIsValid();return (ECollisionChannel)Marshal.PtrToStructure(_this.Get()+TraceChannel__Offset, typeof(ECollisionChannel));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TraceChannel__Offset, false);}
-			
-		}
-		
 		static readonly int InteractionDistance__Offset;
 		public float InteractionDistance
 		{
@@ -141,7 +133,6 @@ namespace UnrealEngine
 			OnHoveredWidgetChanged__Offset=GetPropertyOffset(NativeClassPtr,"OnHoveredWidgetChanged");
 			VirtualUserIndex__Offset=GetPropertyOffset(NativeClassPtr,"VirtualUserIndex");
 			PointerIndex__Offset=GetPropertyOffset(NativeClassPtr,"PointerIndex");
-			TraceChannel__Offset=GetPropertyOffset(NativeClassPtr,"TraceChannel");
 			InteractionDistance__Offset=GetPropertyOffset(NativeClassPtr,"InteractionDistance");
 			InteractionSource__Offset=GetPropertyOffset(NativeClassPtr,"InteractionSource");
 			bEnableHitTesting__Offset=GetPropertyOffset(NativeClassPtr,"bEnableHitTesting");

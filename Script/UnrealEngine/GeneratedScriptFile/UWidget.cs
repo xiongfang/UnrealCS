@@ -5,19 +5,6 @@ namespace UnrealEngine{
 public partial class UWidget:UVisual 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static IntPtr GetOwningPlayer(IntPtr _this);
-/// <summary>
-/// Gets the player controller associated with this UI.
-/// @return The player controller that owns the UI.
-/// </summary>
-public  APlayerController GetOwningPlayer()
-{
-	CheckIsValid();
-	IntPtr ___ret = GetOwningPlayer(_this.Get());
-	if(___ret==IntPtr.Zero) return null; APlayerController ___ret2= new APlayerController(){ _this = ___ret }; return ___ret2;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void RemoveFromParent(IntPtr _this);
 /// <summary>
 /// Removes the widget from its parent widget.  If this widget was added to the player's screen or the viewport

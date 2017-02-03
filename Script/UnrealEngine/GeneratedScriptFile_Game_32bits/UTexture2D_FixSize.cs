@@ -84,18 +84,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bIgnoreStreamingMipBias__Offset;
-		public bool bIgnoreStreamingMipBias
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoreStreamingMipBias__Offset, 1, 0, 16, 16);}
-			
-		}
-		
 		static readonly int bGlobalForceMipLevelsToBeResident__Offset;
 		public bool bGlobalForceMipLevelsToBeResident
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -129,7 +122,6 @@ namespace UnrealEngine
 			bIsStreamable__Offset=GetPropertyOffset(NativeClassPtr,"bIsStreamable");
 			bHasCancelationPending__Offset=GetPropertyOffset(NativeClassPtr,"bHasCancelationPending");
 			bForceMiplevelsToBeResident__Offset=GetPropertyOffset(NativeClassPtr,"bForceMiplevelsToBeResident");
-			bIgnoreStreamingMipBias__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreStreamingMipBias");
 			bGlobalForceMipLevelsToBeResident__Offset=GetPropertyOffset(NativeClassPtr,"bGlobalForceMipLevelsToBeResident");
 			AddressX__Offset=GetPropertyOffset(NativeClassPtr,"AddressX");
 			AddressY__Offset=GetPropertyOffset(NativeClassPtr,"AddressY");

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=36)]
+	[StructLayout(LayoutKind.Explicit,Size=40)]
 	public partial struct FParticleEvent_GenerateInfo
 	{
 		[FieldOffset(0)]

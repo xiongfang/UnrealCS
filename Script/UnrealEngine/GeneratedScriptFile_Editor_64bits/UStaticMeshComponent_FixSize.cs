@@ -93,23 +93,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int StaticMeshImportVersion__Offset;
-		/// <summary>
-		/// * The import version of the static mesh when it was assign this is update when:
-		/// * - The user assign a new staticmesh to the component
-		/// * - The component is serialize (IsSaving)
-		/// * - Default value is BeforeImportStaticMeshVersionWasAdded
-		/// *
-		/// * If when the component get load (PostLoad) the version of the attach staticmesh is newer
-		/// * then this value, we will remap the material override because the order of the materials list
-		/// * in the staticmesh can be changed. Hopefully there is a remap table save in the staticmesh.
-		/// </summary>
-		public int StaticMeshImportVersion
-		{
-			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+StaticMeshImportVersion__Offset, typeof(int));}
-			
-		}
-		
 		static readonly int bOverrideNavigationExport__Offset;
 		/// <summary>If true, bForceNavigationObstacle flag will take priority over navigation data stored in StaticMesh</summary>
 		public bool bOverrideNavigationExport
@@ -234,13 +217,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bStreamingTextureDataValid__Offset;
-		public bool bStreamingTextureDataValid
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStreamingTextureDataValid__Offset, 1, 0, 1, 255);}
-			
-		}
-		
 		static readonly int LightmassSettings__Offset;
 		/// <summary>The Lightmass settings for this object.</summary>
 		public FLightmassPrimitiveSettings LightmassSettings
@@ -262,7 +238,6 @@ namespace UnrealEngine
 			WireframeColorOverride__Offset=GetPropertyOffset(NativeClassPtr,"WireframeColorOverride");
 			SelectedEditorSection__Offset=GetPropertyOffset(NativeClassPtr,"SelectedEditorSection");
 			SectionIndexPreview__Offset=GetPropertyOffset(NativeClassPtr,"SectionIndexPreview");
-			StaticMeshImportVersion__Offset=GetPropertyOffset(NativeClassPtr,"StaticMeshImportVersion");
 			bOverrideNavigationExport__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideNavigationExport");
 			bForceNavigationObstacle__Offset=GetPropertyOffset(NativeClassPtr,"bForceNavigationObstacle");
 			bDisallowMeshPaintPerInstance__Offset=GetPropertyOffset(NativeClassPtr,"bDisallowMeshPaintPerInstance");
@@ -277,7 +252,6 @@ namespace UnrealEngine
 			StreamingTextureData__Offset=GetPropertyOffset(NativeClassPtr,"StreamingTextureData");
 			bUseDefaultCollision__Offset=GetPropertyOffset(NativeClassPtr,"bUseDefaultCollision");
 			StaticMeshDerivedDataKey__Offset=GetPropertyOffset(NativeClassPtr,"StaticMeshDerivedDataKey");
-			bStreamingTextureDataValid__Offset=GetPropertyOffset(NativeClassPtr,"bStreamingTextureDataValid");
 			LightmassSettings__Offset=GetPropertyOffset(NativeClassPtr,"LightmassSettings");
 			
 		}

@@ -131,11 +131,26 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bIsOpaque__Offset;
+		public bool bIsOpaque
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsOpaque__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static readonly int bIsTwoSided__Offset;
 		public bool bIsTwoSided
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsTwoSided__Offset, 1, 0, 1, 255);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsTwoSided__Offset, 1,0,1,255);}
+			
+		}
+		
+		static readonly int ParabolaDistortion__Offset;
+		public float ParabolaDistortion
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+ParabolaDistortion__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ParabolaDistortion__Offset, false);}
 			
 		}
 		
@@ -217,6 +232,13 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bUseLegacyRotation__Offset;
+		public bool bUseLegacyRotation
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseLegacyRotation__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static readonly int bAddedToScreen__Offset;
 		public bool bAddedToScreen
 		{
@@ -266,7 +288,9 @@ namespace UnrealEngine
 			TintColorAndOpacity__Offset=GetPropertyOffset(NativeClassPtr,"TintColorAndOpacity");
 			OpacityFromTexture__Offset=GetPropertyOffset(NativeClassPtr,"OpacityFromTexture");
 			BlendMode__Offset=GetPropertyOffset(NativeClassPtr,"BlendMode");
+			bIsOpaque__Offset=GetPropertyOffset(NativeClassPtr,"bIsOpaque");
 			bIsTwoSided__Offset=GetPropertyOffset(NativeClassPtr,"bIsTwoSided");
+			ParabolaDistortion__Offset=GetPropertyOffset(NativeClassPtr,"ParabolaDistortion");
 			TickWhenOffscreen__Offset=GetPropertyOffset(NativeClassPtr,"TickWhenOffscreen");
 			Widget__Offset=GetPropertyOffset(NativeClassPtr,"Widget");
 			BodySetup__Offset=GetPropertyOffset(NativeClassPtr,"BodySetup");
@@ -278,6 +302,7 @@ namespace UnrealEngine
 			MaskedMaterial_OneSided__Offset=GetPropertyOffset(NativeClassPtr,"MaskedMaterial_OneSided");
 			RenderTarget__Offset=GetPropertyOffset(NativeClassPtr,"RenderTarget");
 			MaterialInstance__Offset=GetPropertyOffset(NativeClassPtr,"MaterialInstance");
+			bUseLegacyRotation__Offset=GetPropertyOffset(NativeClassPtr,"bUseLegacyRotation");
 			bAddedToScreen__Offset=GetPropertyOffset(NativeClassPtr,"bAddedToScreen");
 			bEditTimeUsable__Offset=GetPropertyOffset(NativeClassPtr,"bEditTimeUsable");
 			SharedLayerName__Offset=GetPropertyOffset(NativeClassPtr,"SharedLayerName");

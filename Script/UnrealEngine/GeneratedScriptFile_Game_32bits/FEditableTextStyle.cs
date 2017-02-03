@@ -8,15 +8,15 @@ namespace UnrealEngine
 	[StructLayout(LayoutKind.Explicit,Size=448)]
 	public partial struct FEditableTextStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FSlateFontInfo Font;
-		[FieldOffset(72)]
+		[FieldOffset(56)]
 		public FSlateColor ColorAndOpacity;
-		[FieldOffset(100)]
+		[FieldOffset(88)]
 		public FSlateBrush BackgroundImageSelected;
-		[FieldOffset(216)]
+		[FieldOffset(208)]
 		public FSlateBrush BackgroundImageComposing;
-		[FieldOffset(332)]
+		[FieldOffset(328)]
 		public FSlateBrush CaretImage;
 		
 	}

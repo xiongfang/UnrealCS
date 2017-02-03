@@ -21,14 +21,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int GraphNode__Offset;
-		/// <summary>Expression's Graph representation</summary>
-		public UEdGraphNode GraphNode
-		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + GraphNode__Offset); if (v == IntPtr.Zero)return null; UEdGraphNode retValue = new UEdGraphNode(); retValue._this = v; return retValue; }
-			
-		}
-		
 		static readonly int MaterialExpressionGuid__Offset;
 		/// <summary>GUID to uniquely identify this node, to help the tutorials out</summary>
 		public FGuid MaterialExpressionGuid
@@ -179,7 +171,6 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("MaterialExpression");
 			MaterialExpressionEditorX__Offset=GetPropertyOffset(NativeClassPtr,"MaterialExpressionEditorX");
 			MaterialExpressionEditorY__Offset=GetPropertyOffset(NativeClassPtr,"MaterialExpressionEditorY");
-			GraphNode__Offset=GetPropertyOffset(NativeClassPtr,"GraphNode");
 			MaterialExpressionGuid__Offset=GetPropertyOffset(NativeClassPtr,"MaterialExpressionGuid");
 			Material__Offset=GetPropertyOffset(NativeClassPtr,"Material");
 			Function__Offset=GetPropertyOffset(NativeClassPtr,"Function");

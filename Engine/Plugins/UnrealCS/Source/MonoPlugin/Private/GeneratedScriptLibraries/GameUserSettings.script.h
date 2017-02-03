@@ -23,7 +23,7 @@ namespace UnrealEngine
 		static int32 GetDefaultWindowMode(UGameUserSettings* _this)
 		{
 			TEnumAsByte<EWindowMode::Type> ___ret = _this->GetDefaultWindowMode();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static FIntPoint GetDefaultWindowPosition(UGameUserSettings* _this)
@@ -244,12 +244,6 @@ namespace UnrealEngine
 			_this->SetVSyncEnabled(bEnable>0?true:false);
 			
 		}
-		static int32 GetPreferredFullscreenMode(UGameUserSettings* _this)
-		{
-			TEnumAsByte<EWindowMode::Type> ___ret = _this->GetPreferredFullscreenMode();
-			return (int)___ret;
-			
-		}
 		static void SetFullscreenMode(UGameUserSettings* _this,int32 InFullscreenMode)
 		{
 			_this->SetFullscreenMode((TEnumAsByte<EWindowMode::Type>)InFullscreenMode);
@@ -258,13 +252,13 @@ namespace UnrealEngine
 		static int32 GetLastConfirmedFullscreenMode(UGameUserSettings* _this)
 		{
 			TEnumAsByte<EWindowMode::Type> ___ret = _this->GetLastConfirmedFullscreenMode();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static int32 GetFullscreenMode(UGameUserSettings* _this)
 		{
 			TEnumAsByte<EWindowMode::Type> ___ret = _this->GetFullscreenMode();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static void SetScreenResolution(UGameUserSettings* _this,FIntPoint* Resolution)
@@ -353,7 +347,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UGameUserSettings::IsScreenResolutionDirty",(const void*)IsScreenResolutionDirty);
 			mono_add_internal_call("UnrealEngine.UGameUserSettings::IsVSyncEnabled",(const void*)IsVSyncEnabled);
 			mono_add_internal_call("UnrealEngine.UGameUserSettings::SetVSyncEnabled",(const void*)SetVSyncEnabled);
-			mono_add_internal_call("UnrealEngine.UGameUserSettings::GetPreferredFullscreenMode",(const void*)GetPreferredFullscreenMode);
 			mono_add_internal_call("UnrealEngine.UGameUserSettings::SetFullscreenMode",(const void*)SetFullscreenMode);
 			mono_add_internal_call("UnrealEngine.UGameUserSettings::GetLastConfirmedFullscreenMode",(const void*)GetLastConfirmedFullscreenMode);
 			mono_add_internal_call("UnrealEngine.UGameUserSettings::GetFullscreenMode",(const void*)GetFullscreenMode);

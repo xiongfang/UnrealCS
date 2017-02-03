@@ -260,9 +260,9 @@ namespace UnrealEngine
 			_this->Montage_Stop(InBlendOutTime,Montage);
 			
 		}
-		static float Montage_Play(UAnimInstance* _this,UAnimMontage* MontageToPlay,float InPlayRate,int32 ReturnValueType,float InTimeToStartMontageAt)
+		static float Montage_Play(UAnimInstance* _this,UAnimMontage* MontageToPlay,float InPlayRate,int32 ReturnValueType)
 		{
-			float ___ret = _this->Montage_Play(MontageToPlay,InPlayRate,(EMontagePlayReturnType)ReturnValueType,InTimeToStartMontageAt);
+			float ___ret = _this->Montage_Play(MontageToPlay,InPlayRate,(TEnumAsByte<EMontagePlayReturnType>)ReturnValueType);
 			return ___ret;
 			
 		}
@@ -279,10 +279,10 @@ namespace UnrealEngine
 			_this->StopSlotAnimation(InBlendOutTime,SlotNodeName_temp);
 			
 		}
-		static UAnimMontage* PlaySlotAnimationAsDynamicMontage(UAnimInstance* _this,UAnimSequenceBase* Asset,MonoString* SlotNodeName,float BlendInTime,float BlendOutTime,float InPlayRate,int32 LoopCount,float BlendOutTriggerTime,float InTimeToStartMontageAt)
+		static UAnimMontage* PlaySlotAnimationAsDynamicMontage(UAnimInstance* _this,UAnimSequenceBase* Asset,MonoString* SlotNodeName,float BlendInTime,float BlendOutTime,float InPlayRate,int32 LoopCount,float BlendOutTriggerTime)
 		{
 			FName SlotNodeName_temp=MonoStringToFName(SlotNodeName);
-			UAnimMontage* ___ret = _this->PlaySlotAnimationAsDynamicMontage(Asset,SlotNodeName_temp,BlendInTime,BlendOutTime,InPlayRate,LoopCount,BlendOutTriggerTime,InTimeToStartMontageAt);
+			UAnimMontage* ___ret = _this->PlaySlotAnimationAsDynamicMontage(Asset,SlotNodeName_temp,BlendInTime,BlendOutTime,InPlayRate,LoopCount,BlendOutTriggerTime);
 			return ___ret;
 			
 		}

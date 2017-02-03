@@ -63,14 +63,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int EnableGamepadNavigationMode__Offset;
-		public bool EnableGamepadNavigationMode
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), EnableGamepadNavigationMode__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), EnableGamepadNavigationMode__Offset, 1,0,1,255);}
-			
-		}
-		
 		static readonly int Font__Offset;
 		public FSlateFontInfo Font
 		{
@@ -113,7 +105,6 @@ namespace UnrealEngine
 			ContentPadding__Offset=GetPropertyOffset(NativeClassPtr,"ContentPadding");
 			MaxListHeight__Offset=GetPropertyOffset(NativeClassPtr,"MaxListHeight");
 			HasDownArrow__Offset=GetPropertyOffset(NativeClassPtr,"HasDownArrow");
-			EnableGamepadNavigationMode__Offset=GetPropertyOffset(NativeClassPtr,"EnableGamepadNavigationMode");
 			Font__Offset=GetPropertyOffset(NativeClassPtr,"Font");
 			ForegroundColor__Offset=GetPropertyOffset(NativeClassPtr,"ForegroundColor");
 			OnSelectionChanged__Offset=GetPropertyOffset(NativeClassPtr,"OnSelectionChanged");

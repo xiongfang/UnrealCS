@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=52)]
+	[StructLayout(LayoutKind.Explicit,Size=56)]
 	public partial struct FTextureLODGroup
 	{
 		[FieldOffset(0)]
@@ -20,9 +20,9 @@ namespace UnrealEngine
 		public int MinLODSize;
 		[FieldOffset(32)]
 		public int MaxLODSize;
-		[FieldOffset(36)]
+		[FieldOffset(40)]
 		public FName MinMagFilter;
-		[FieldOffset(44)]
+		[FieldOffset(48)]
 		public FName MipFilter;
 		
 	}

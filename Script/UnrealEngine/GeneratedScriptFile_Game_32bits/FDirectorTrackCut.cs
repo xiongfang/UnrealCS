@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=20)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FDirectorTrackCut
 	{
 		[FieldOffset(0)]

@@ -13,12 +13,6 @@ namespace UnrealEngine
 			*ActivationEvent=FStringToMonoString(ActivationEvent_temp);
 			
 		}
-		static void CancelLocalNotification(UBlueprintPlatformLibrary* _this,MonoString* ActivationEvent)
-		{
-			FString ActivationEvent_temp=MonoStringToFString(ActivationEvent);
-			_this->CancelLocalNotification(ActivationEvent_temp);
-			
-		}
 		static void ScheduleLocalNotificationFromNow(UBlueprintPlatformLibrary* _this,int32 inSecondsFromNow,MonoString* Title,MonoString* Body,MonoString* Action,MonoString* ActivationEvent)
 		{
 			FText Title_temp=FText::FromString(MonoStringToFString(Title));
@@ -47,7 +41,6 @@ namespace UnrealEngine
 		static void BindFunctions()
 		{
 			mono_add_internal_call("UnrealEngine.UBlueprintPlatformLibrary::GetLaunchNotification",(const void*)GetLaunchNotification);
-			mono_add_internal_call("UnrealEngine.UBlueprintPlatformLibrary::CancelLocalNotification",(const void*)CancelLocalNotification);
 			mono_add_internal_call("UnrealEngine.UBlueprintPlatformLibrary::ScheduleLocalNotificationFromNow",(const void*)ScheduleLocalNotificationFromNow);
 			mono_add_internal_call("UnrealEngine.UBlueprintPlatformLibrary::ScheduleLocalNotificationAtTime",(const void*)ScheduleLocalNotificationAtTime);
 			mono_add_internal_call("UnrealEngine.UBlueprintPlatformLibrary::ClearAllLocalNotifications",(const void*)ClearAllLocalNotifications);

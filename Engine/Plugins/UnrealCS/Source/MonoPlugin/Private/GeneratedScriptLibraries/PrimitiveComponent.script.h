@@ -30,12 +30,6 @@ namespace UnrealEngine
 			_this->SetCollisionResponseToChannel((TEnumAsByte<ECollisionChannel>)Channel,(TEnumAsByte<ECollisionResponse>)NewResponse);
 			
 		}
-		static int32 IsAnyRigidBodyAwake(UPrimitiveComponent* _this)
-		{
-			bool ___ret = _this->IsAnyRigidBodyAwake();
-			return ___ret?1:0;
-			
-		}
 		static FVector ScaleByMomentOfInertia(UPrimitiveComponent* _this,FVector* InputVector,MonoString* BoneName)
 		{
 			FName BoneName_temp=MonoStringToFName(BoneName);
@@ -121,13 +115,13 @@ namespace UnrealEngine
 		static int32 GetCollisionObjectType(UPrimitiveComponent* _this)
 		{
 			TEnumAsByte<ECollisionChannel> ___ret = _this->GetCollisionObjectType();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static int32 GetCollisionResponseToChannel(UPrimitiveComponent* _this,int32 Channel)
 		{
 			TEnumAsByte<ECollisionResponse> ___ret = _this->GetCollisionResponseToChannel((TEnumAsByte<ECollisionChannel>)Channel);
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static int32 K2_IsPhysicsCollisionEnabled(UPrimitiveComponent* _this)
@@ -151,7 +145,7 @@ namespace UnrealEngine
 		static int32 GetCollisionEnabled(UPrimitiveComponent* _this)
 		{
 			TEnumAsByte<ECollisionEnabled::Type> ___ret = _this->GetCollisionEnabled();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static float GetClosestPointOnCollision(UPrimitiveComponent* _this,FVector* Point,FVector* OutPointOnBody,MonoString* BoneName)
@@ -379,12 +373,6 @@ namespace UnrealEngine
 			return ___ret;
 			
 		}
-		static void SetMaterialByName(UPrimitiveComponent* _this,MonoString* MaterialSlotName,UMaterialInterface* Material)
-		{
-			FName MaterialSlotName_temp=MonoStringToFName(MaterialSlotName);
-			_this->SetMaterialByName(MaterialSlotName_temp,Material);
-			
-		}
 		static void SetMaterial(UPrimitiveComponent* _this,int32 ElementIndex,UMaterialInterface* Material)
 		{
 			_this->SetMaterial(ElementIndex,Material);
@@ -433,22 +421,6 @@ namespace UnrealEngine
 			return ___ret?1:0;
 			
 		}
-		static void ClearMoveIgnoreComponents(UPrimitiveComponent* _this)
-		{
-			_this->ClearMoveIgnoreComponents();
-			
-		}
-		static MonoArray* CopyArrayOfMoveIgnoreComponents(UPrimitiveComponent* _this)
-		{
-			TArray<UPrimitiveComponent*> ___ret = _this->CopyArrayOfMoveIgnoreComponents();
-			return TArrayToMonoArray(___ret,"System.IntPtr,mscorlib");
-			
-		}
-		static void IgnoreComponentWhenMoving(UPrimitiveComponent* _this,UPrimitiveComponent* Component,int32 bShouldIgnore)
-		{
-			_this->IgnoreComponentWhenMoving(Component,bShouldIgnore>0?true:false);
-			
-		}
 		static void ClearMoveIgnoreActors(UPrimitiveComponent* _this)
 		{
 			_this->ClearMoveIgnoreActors();
@@ -474,7 +446,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::SetPhysMaterialOverride",(const void*)SetPhysMaterialOverride);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::SetCollisionResponseToAllChannels",(const void*)SetCollisionResponseToAllChannels);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::SetCollisionResponseToChannel",(const void*)SetCollisionResponseToChannel);
-			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::IsAnyRigidBodyAwake",(const void*)IsAnyRigidBodyAwake);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::ScaleByMomentOfInertia",(const void*)ScaleByMomentOfInertia);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::GetInertiaTensor",(const void*)GetInertiaTensor);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::GetMass",(const void*)GetMass);
@@ -534,7 +505,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::SetWalkableSlopeOverride",(const void*)SetWalkableSlopeOverride);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::GetWalkableSlopeOverride",(const void*)GetWalkableSlopeOverride);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::CreateDynamicMaterialInstance",(const void*)CreateDynamicMaterialInstance);
-			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::SetMaterialByName",(const void*)SetMaterialByName);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::SetMaterial",(const void*)SetMaterial);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::GetMaterial",(const void*)GetMaterial);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::SetBoundsScale",(const void*)SetBoundsScale);
@@ -543,9 +513,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::GetOverlappingActors",(const void*)GetOverlappingActors);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::IsOverlappingActor",(const void*)IsOverlappingActor);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::IsOverlappingComponent",(const void*)IsOverlappingComponent);
-			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::ClearMoveIgnoreComponents",(const void*)ClearMoveIgnoreComponents);
-			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::CopyArrayOfMoveIgnoreComponents",(const void*)CopyArrayOfMoveIgnoreComponents);
-			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::IgnoreComponentWhenMoving",(const void*)IgnoreComponentWhenMoving);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::ClearMoveIgnoreActors",(const void*)ClearMoveIgnoreActors);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::CopyArrayOfMoveIgnoreActors",(const void*)CopyArrayOfMoveIgnoreActors);
 			mono_add_internal_call("UnrealEngine.UPrimitiveComponent::IgnoreActorWhenMoving",(const void*)IgnoreActorWhenMoving);

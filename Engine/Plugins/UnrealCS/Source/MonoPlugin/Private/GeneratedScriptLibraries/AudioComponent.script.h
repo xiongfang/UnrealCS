@@ -65,11 +65,6 @@ namespace UnrealEngine
 			return ___ret?1:0;
 			
 		}
-		static void SetPaused(UAudioComponent* _this,int32 bPause)
-		{
-			_this->SetPaused(bPause>0?true:false);
-			
-		}
 		static void Stop(UAudioComponent* _this)
 		{
 			_this->Stop();
@@ -110,7 +105,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UAudioComponent::SetFloatParameter",(const void*)SetFloatParameter);
 			mono_add_internal_call("UnrealEngine.UAudioComponent::AdjustVolume",(const void*)AdjustVolume);
 			mono_add_internal_call("UnrealEngine.UAudioComponent::IsPlaying",(const void*)IsPlaying);
-			mono_add_internal_call("UnrealEngine.UAudioComponent::SetPaused",(const void*)SetPaused);
 			mono_add_internal_call("UnrealEngine.UAudioComponent::Stop",(const void*)Stop);
 			mono_add_internal_call("UnrealEngine.UAudioComponent::Play",(const void*)Play);
 			mono_add_internal_call("UnrealEngine.UAudioComponent::FadeOut",(const void*)FadeOut);

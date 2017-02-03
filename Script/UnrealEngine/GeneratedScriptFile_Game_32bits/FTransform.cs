@@ -12,7 +12,7 @@ namespace UnrealEngine
 		public FQuat Rotation;
 		[FieldOffset(16)]
 		public FVector Translation;
-		[FieldOffset(32)]
+		[FieldOffset(28)]
 		public FVector Scale3D;
 		
 	}

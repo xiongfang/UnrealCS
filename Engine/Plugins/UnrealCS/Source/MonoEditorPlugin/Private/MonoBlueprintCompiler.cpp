@@ -32,117 +32,46 @@ void FMonoBlueprintCompiler::CleanAndSanitizeClass(UBlueprintGeneratedClass* Cla
 	ContextProperty = NULL;
 }
 
-bool GetFieldBlueprintArgs(UClass* Class, FString& PinCategory, bool& IsArray)
-{
-	IsArray = false;
-	PinCategory.Empty();
-	if (Class->IsChildOf(UStrProperty::StaticClass()))
-	{
-		PinCategory = UEdGraphSchema_K2::PC_String;
-	}
-	else if (Class->IsChildOf(UFloatProperty::StaticClass()))
-	{
-		PinCategory = UEdGraphSchema_K2::PC_Float;
-	}
-	else if (Class->IsChildOf(UIntProperty::StaticClass()))
-	{
-		PinCategory = UEdGraphSchema_K2::PC_Int;
-	}
-	else if (Class->IsChildOf(UBoolProperty::StaticClass()))
-	{
-		PinCategory = UEdGraphSchema_K2::PC_Boolean;
-	}
-	//类放在对象属性之前判定，因为 UClassProperty << UObjectProperty
-	else if (Class->IsChildOf(UClassProperty::StaticClass()))
-	{
-		PinCategory = UEdGraphSchema_K2::PC_Class;
-	}
-	else if (Class->IsChildOf(UObjectProperty::StaticClass()))
-	{
-		PinCategory = UEdGraphSchema_K2::PC_Object;
-	}
-	else if (Class->IsChildOf(UArrayProperty::StaticClass()))
-	{
-		IsArray = true;
-		PinCategory = UEdGraphSchema_K2::PC_Object;
-	}
-	else if (Class->IsChildOf(UStructProperty::StaticClass()))
-	{
-		PinCategory = UEdGraphSchema_K2::PC_Struct;
-	}
-	else
-	{
-		UE_LOG(LogMonoEditor, Warning, TEXT("Unsupported type, ignored"), *Class->GetName());
-		return false;
-	}
-	return true;
-}
 
-bool GetFieldBlueprintArgs(FScriptField& Field, FString& PinCategory, bool& IsArray, UObject*& InnerType)
+void GetFieldBlueprintArgs(FScriptField& Field, FString& PinCategory, bool& IsArray, UObject*& InnerType)
 {
 	IsArray = false;
 	PinCategory.Empty();
 	InnerType = Field.InnerType;
-
-	if (!GetFieldBlueprintArgs(Field.Class, PinCategory, IsArray))
-		return false;
-	if (IsArray)
+	if (Field.Class->IsChildOf(UStrProperty::StaticClass()))
 	{
-		bool InnerIsArray = false;
-		FString InnerPinCategory;
-
-		if (!GetFieldBlueprintArgs((UClass*)Field.InnerType, InnerPinCategory, InnerIsArray))
-		{
-			return false;
-		}
-
-		if (InnerIsArray) //这种情况是不支持的
-		{
-			UE_LOG(LogMonoEditor, Warning, TEXT("Unsupported type, ignored"), *Field.Name.ToString());
-			return false;
-		}
-		else
-		{
-			PinCategory = InnerPinCategory;
-		}
+		PinCategory = UEdGraphSchema_K2::PC_String;
 	}
-
-	return true;
-	//if (Field.Class->IsChildOf(UStrProperty::StaticClass()))
-	//{
-	//	PinCategory = UEdGraphSchema_K2::PC_String;
-	//}
-	//else if (Field.Class->IsChildOf(UFloatProperty::StaticClass()))
-	//{
-	//	PinCategory = UEdGraphSchema_K2::PC_Float;
-	//}
-	//else if (Field.Class->IsChildOf(UIntProperty::StaticClass()))
-	//{
-	//	PinCategory = UEdGraphSchema_K2::PC_Int;
-	//}
-	//else if (Field.Class->IsChildOf(UBoolProperty::StaticClass()))
-	//{
-	//	PinCategory = UEdGraphSchema_K2::PC_Boolean;
-	//}
-	////类放在对象属性之前判定，因为 UClassProperty << UObjectProperty
-	//else if (Field.Class->IsChildOf(UClassProperty::StaticClass()))
-	//{
-	//	PinCategory = UEdGraphSchema_K2::PC_Class;
-	//}
-	//else if (Field.Class->IsChildOf(UObjectProperty::StaticClass()))
-	//{
-	//	PinCategory = UEdGraphSchema_K2::PC_Object;
-	//}
-	//else if (Field.Class->IsChildOf(UArrayProperty::StaticClass()))
-	//{
-	//	IsArray = true;
-	//	
-	//	PinCategory = UEdGraphSchema_K2::PC_Object;
-	//}
-	//else if (Field.Class->IsChildOf(UStructProperty::StaticClass()))
-	//{
-	//	PinCategory = UEdGraphSchema_K2::PC_Struct;
-	//}
+	else if (Field.Class->IsChildOf(UFloatProperty::StaticClass()))
+	{
+		PinCategory = UEdGraphSchema_K2::PC_Float;
+	}
+	else if (Field.Class->IsChildOf(UIntProperty::StaticClass()))
+	{
+		PinCategory = UEdGraphSchema_K2::PC_Int;
+	}
+	else if (Field.Class->IsChildOf(UBoolProperty::StaticClass()))
+	{
+		PinCategory = UEdGraphSchema_K2::PC_Boolean;
+	}
+	//类放在对象属性之前判定，因为 UClassProperty << UObjectProperty
+	else if (Field.Class->IsChildOf(UClassProperty::StaticClass()))
+	{
+		PinCategory = UEdGraphSchema_K2::PC_Class;
+	}
+	else if (Field.Class->IsChildOf(UObjectProperty::StaticClass()))
+	{
+		PinCategory = UEdGraphSchema_K2::PC_Object;
+	}
+	else if (Field.Class->IsChildOf(UArrayProperty::StaticClass()))
+	{
+		IsArray = true;
+		PinCategory = UEdGraphSchema_K2::PC_Object;
+	}
+	else if (Field.Class->IsChildOf(UStructProperty::StaticClass()))
+	{
+		PinCategory = UEdGraphSchema_K2::PC_Struct;
+	}
 }
 
 void FMonoBlueprintCompiler::CreateClassVariablesFromBlueprint()

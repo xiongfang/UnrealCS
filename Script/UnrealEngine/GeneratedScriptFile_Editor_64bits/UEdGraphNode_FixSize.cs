@@ -121,7 +121,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int NodeGuid__Offset;
-		/// <summary>GUID to uniquely identify this node, to facilitate diffing versions of this graph</summary>
+		/// <summary>GUID to uniquely identify this node, to facilitate diff'ing versions of this graph</summary>
 		public FGuid NodeGuid
 		{
 			get{ CheckIsValid();return (FGuid)Marshal.PtrToStructure(_this.Get()+NodeGuid__Offset, typeof(FGuid));}

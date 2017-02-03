@@ -23,14 +23,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DefaultSoundSubmixName__Offset;
-		public FStringAssetReference DefaultSoundSubmixName
-		{
-			get{ CheckIsValid();return (FStringAssetReference)Marshal.PtrToStructure(_this.Get()+DefaultSoundSubmixName__Offset, typeof(FStringAssetReference));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultSoundSubmixName__Offset, false);}
-			
-		}
-		
 		static readonly int DefaultBaseSoundMix__Offset;
 		public FStringAssetReference DefaultBaseSoundMix
 		{
@@ -92,7 +84,6 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("AudioSettings");
 			DefaultSoundClassName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultSoundClassName");
 			DefaultSoundConcurrencyName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultSoundConcurrencyName");
-			DefaultSoundSubmixName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultSoundSubmixName");
 			DefaultBaseSoundMix__Offset=GetPropertyOffset(NativeClassPtr,"DefaultBaseSoundMix");
 			VoiPSoundClass__Offset=GetPropertyOffset(NativeClassPtr,"VoiPSoundClass");
 			LowPassFilterResonance__Offset=GetPropertyOffset(NativeClassPtr,"LowPassFilterResonance");

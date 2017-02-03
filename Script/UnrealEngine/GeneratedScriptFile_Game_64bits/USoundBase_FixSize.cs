@@ -15,14 +15,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int SoundSubmixObject__Offset;
-		public USoundSubmix SoundSubmixObject
-		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + SoundSubmixObject__Offset); if (v == IntPtr.Zero)return null; USoundSubmix retValue = new USoundSubmix(); retValue._this = v; return retValue; }
-			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + SoundSubmixObject__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + SoundSubmixObject__Offset, value._this.Get()); }
-			
-		}
-		
 		static readonly int bDebug__Offset;
 		public bool bDebug
 		{
@@ -101,19 +93,10 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int SourceEffectChain__Offset;
-		public TObjectArray<USoundEffectSourcePreset>  SourceEffectChain
-		{
-					get{ CheckIsValid();return new TObjectArray<USoundEffectSourcePreset>((FScriptArray)Marshal.PtrToStructure(_this.Get()+SourceEffectChain__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+SourceEffectChain__Offset, false);}
-			
-		}
-		
 		static USoundBase()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("SoundBase");
 			SoundClassObject__Offset=GetPropertyOffset(NativeClassPtr,"SoundClassObject");
-			SoundSubmixObject__Offset=GetPropertyOffset(NativeClassPtr,"SoundSubmixObject");
 			bDebug__Offset=GetPropertyOffset(NativeClassPtr,"bDebug");
 			bOverrideConcurrency__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideConcurrency");
 			bIgnoreFocus__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreFocus");
@@ -124,7 +107,6 @@ namespace UnrealEngine
 			Duration__Offset=GetPropertyOffset(NativeClassPtr,"Duration");
 			AttenuationSettings__Offset=GetPropertyOffset(NativeClassPtr,"AttenuationSettings");
 			Priority__Offset=GetPropertyOffset(NativeClassPtr,"Priority");
-			SourceEffectChain__Offset=GetPropertyOffset(NativeClassPtr,"SourceEffectChain");
 			
 		}
 		

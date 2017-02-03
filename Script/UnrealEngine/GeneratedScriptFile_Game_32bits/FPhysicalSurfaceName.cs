@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=12)]
+	[StructLayout(LayoutKind.Explicit,Size=16)]
 	public partial struct FPhysicalSurfaceName
 	{
 		[FieldOffset(0)]
 		public EPhysicalSurface Type;
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName Name;
 		
 	}

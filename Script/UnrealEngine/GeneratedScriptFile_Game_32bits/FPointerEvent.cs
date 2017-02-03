@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=92)]
+	[StructLayout(LayoutKind.Explicit,Size=96)]
 	public partial struct FPointerEvent
 	{
 		

@@ -86,28 +86,6 @@ namespace UnrealEngine
 			_this->ShowPlatformSpecificLeaderboardScreen(CategoryName_temp);
 			
 		}
-		static void ShowInterstitialAd(UKismetSystemLibrary* _this)
-		{
-			_this->ShowInterstitialAd();
-			
-		}
-		static int32 IsInterstitialAdRequested(UKismetSystemLibrary* _this)
-		{
-			bool ___ret = _this->IsInterstitialAdRequested();
-			return ___ret?1:0;
-			
-		}
-		static int32 IsInterstitialAdAvailable(UKismetSystemLibrary* _this)
-		{
-			bool ___ret = _this->IsInterstitialAdAvailable();
-			return ___ret?1:0;
-			
-		}
-		static void LoadInterstitialAd(UKismetSystemLibrary* _this,int32 AdIdIndex)
-		{
-			_this->LoadInterstitialAd(AdIdIndex);
-			
-		}
 		static void ForceCloseAdBanner(UKismetSystemLibrary* _this)
 		{
 			_this->ForceCloseAdBanner();
@@ -157,14 +135,6 @@ namespace UnrealEngine
 		{
 			int32 ___ret = _this->GetMinYResolutionForUI();
 			return ___ret;
-			
-		}
-		static int32 GetConvenientWindowedResolutions(UKismetSystemLibrary* _this,MonoArray** Resolutions)
-		{
-			TArray<FIntPoint> Resolutions_temp;
-			bool ___ret = _this->GetConvenientWindowedResolutions(Resolutions_temp);
-			return ___ret?1:0;
-			*Resolutions=TArrayToMonoArray(Resolutions_temp,"UnrealEngine.FIntPoint,UnrealEngine");
 			
 		}
 		static int32 GetSupportedFullscreenResolutions(UKismetSystemLibrary* _this,MonoArray** Resolutions)
@@ -794,12 +764,6 @@ namespace UnrealEngine
 			return ___ret?1:0;
 			
 		}
-		static int32 IsStandalone(UKismetSystemLibrary* _this,UObject* WorldContextObject)
-		{
-			bool ___ret = _this->IsStandalone(WorldContextObject);
-			return ___ret?1:0;
-			
-		}
 		static int32 IsDedicatedServer(UKismetSystemLibrary* _this,UObject* WorldContextObject)
 		{
 			bool ___ret = _this->IsDedicatedServer(WorldContextObject);
@@ -903,10 +867,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::IsLoggedIn",(const void*)IsLoggedIn);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::ShowPlatformSpecificAchievementsScreen",(const void*)ShowPlatformSpecificAchievementsScreen);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::ShowPlatformSpecificLeaderboardScreen",(const void*)ShowPlatformSpecificLeaderboardScreen);
-			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::ShowInterstitialAd",(const void*)ShowInterstitialAd);
-			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::IsInterstitialAdRequested",(const void*)IsInterstitialAdRequested);
-			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::IsInterstitialAdAvailable",(const void*)IsInterstitialAdAvailable);
-			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::LoadInterstitialAd",(const void*)LoadInterstitialAd);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::ForceCloseAdBanner",(const void*)ForceCloseAdBanner);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::HideAdBanner",(const void*)HideAdBanner);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetAdIDCount",(const void*)GetAdIDCount);
@@ -916,7 +876,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::LaunchURL",(const void*)LaunchURL);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetMinYResolutionFor3DView",(const void*)GetMinYResolutionFor3DView);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetMinYResolutionForUI",(const void*)GetMinYResolutionForUI);
-			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetConvenientWindowedResolutions",(const void*)GetConvenientWindowedResolutions);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetSupportedFullscreenResolutions",(const void*)GetSupportedFullscreenResolutions);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetRenderingMaterialQualityLevel",(const void*)GetRenderingMaterialQualityLevel);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetRenderingDetailMode",(const void*)GetRenderingDetailMode);
@@ -1018,7 +977,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::MakeLiteralInt",(const void*)MakeLiteralInt);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetUniqueDeviceId",(const void*)GetUniqueDeviceId);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::IsPackagedForDistribution",(const void*)IsPackagedForDistribution);
-			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::IsStandalone",(const void*)IsStandalone);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::IsDedicatedServer",(const void*)IsDedicatedServer);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::IsServer",(const void*)IsServer);
 			mono_add_internal_call("UnrealEngine.UKismetSystemLibrary::GetGameTimeInSeconds",(const void*)GetGameTimeInSeconds);

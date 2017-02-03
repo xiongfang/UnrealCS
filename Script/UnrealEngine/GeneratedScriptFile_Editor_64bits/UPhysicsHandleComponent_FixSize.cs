@@ -16,30 +16,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bSoftAngularConstraint__Offset;
-		public bool bSoftAngularConstraint
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSoftAngularConstraint__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSoftAngularConstraint__Offset, 1,0,2,2);}
-			
-		}
-		
-		static readonly int bSoftLinearConstraint__Offset;
-		public bool bSoftLinearConstraint
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSoftLinearConstraint__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSoftLinearConstraint__Offset, 1,0,4,4);}
-			
-		}
-		
-		static readonly int bInterpolateTarget__Offset;
-		public bool bInterpolateTarget
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bInterpolateTarget__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bInterpolateTarget__Offset, 1,0,8,8);}
-			
-		}
-		
 		static readonly int LinearDamping__Offset;
 		/// <summary>Linear damping of the handle spring.</summary>
 		public float LinearDamping
@@ -89,9 +65,6 @@ namespace UnrealEngine
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("PhysicsHandleComponent");
 			GrabbedComponent__Offset=GetPropertyOffset(NativeClassPtr,"GrabbedComponent");
-			bSoftAngularConstraint__Offset=GetPropertyOffset(NativeClassPtr,"bSoftAngularConstraint");
-			bSoftLinearConstraint__Offset=GetPropertyOffset(NativeClassPtr,"bSoftLinearConstraint");
-			bInterpolateTarget__Offset=GetPropertyOffset(NativeClassPtr,"bInterpolateTarget");
 			LinearDamping__Offset=GetPropertyOffset(NativeClassPtr,"LinearDamping");
 			LinearStiffness__Offset=GetPropertyOffset(NativeClassPtr,"LinearStiffness");
 			AngularDamping__Offset=GetPropertyOffset(NativeClassPtr,"AngularDamping");

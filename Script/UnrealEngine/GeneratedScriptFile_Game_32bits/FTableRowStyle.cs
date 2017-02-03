@@ -5,36 +5,36 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=1452)]
+	[StructLayout(LayoutKind.Explicit,Size=1504)]
 	public partial struct FTableRowStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FSlateBrush SelectorFocusedBrush;
-		[FieldOffset(120)]
+		[FieldOffset(128)]
 		public FSlateBrush ActiveHoveredBrush;
-		[FieldOffset(236)]
+		[FieldOffset(248)]
 		public FSlateBrush ActiveBrush;
-		[FieldOffset(352)]
+		[FieldOffset(368)]
 		public FSlateBrush InactiveHoveredBrush;
-		[FieldOffset(468)]
+		[FieldOffset(488)]
 		public FSlateBrush InactiveBrush;
-		[FieldOffset(584)]
+		[FieldOffset(608)]
 		public FSlateBrush EvenRowBackgroundHoveredBrush;
-		[FieldOffset(700)]
+		[FieldOffset(728)]
 		public FSlateBrush EvenRowBackgroundBrush;
-		[FieldOffset(816)]
+		[FieldOffset(848)]
 		public FSlateBrush OddRowBackgroundHoveredBrush;
-		[FieldOffset(932)]
+		[FieldOffset(968)]
 		public FSlateBrush OddRowBackgroundBrush;
-		[FieldOffset(1048)]
+		[FieldOffset(1088)]
 		public FSlateColor TextColor;
-		[FieldOffset(1076)]
+		[FieldOffset(1116)]
 		public FSlateColor SelectedTextColor;
-		[FieldOffset(1104)]
+		[FieldOffset(1144)]
 		public FSlateBrush DropIndicator_Above;
-		[FieldOffset(1220)]
+		[FieldOffset(1264)]
 		public FSlateBrush DropIndicator_Onto;
-		[FieldOffset(1336)]
+		[FieldOffset(1384)]
 		public FSlateBrush DropIndicator_Below;
 		
 	}

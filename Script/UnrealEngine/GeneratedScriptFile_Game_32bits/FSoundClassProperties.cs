@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=36)]
+	[StructLayout(LayoutKind.Explicit,Size=32)]
 	public partial struct FSoundClassProperties
 	{
 		[FieldOffset(0)]
@@ -64,7 +64,7 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 28, 1, 0, 64, 64); } }}
 			
 		}
-		[FieldOffset(32)]
+		[FieldOffset(29)]
 		public EAudioOutputTarget OutputTarget;
 		
 	}

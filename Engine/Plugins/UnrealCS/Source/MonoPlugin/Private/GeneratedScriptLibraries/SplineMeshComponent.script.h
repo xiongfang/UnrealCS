@@ -45,7 +45,7 @@ namespace UnrealEngine
 		static int32 GetForwardAxis(USplineMeshComponent* _this)
 		{
 			TEnumAsByte<ESplineMeshAxis::Type> ___ret = _this->GetForwardAxis();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static void SetEndOffset(USplineMeshComponent* _this,FVector2D* EndOffset,int32 bUpdateMesh)

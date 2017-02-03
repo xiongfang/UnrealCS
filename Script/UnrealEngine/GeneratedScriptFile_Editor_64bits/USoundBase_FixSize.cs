@@ -16,15 +16,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int SoundSubmixObject__Offset;
-		/// <summary>Sound submix this sound belongs to</summary>
-		public USoundSubmix SoundSubmixObject
-		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + SoundSubmixObject__Offset); if (v == IntPtr.Zero)return null; USoundSubmix retValue = new USoundSubmix(); retValue._this = v; return retValue; }
-			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + SoundSubmixObject__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + SoundSubmixObject__Offset, value._this.Get()); }
-			
-		}
-		
 		static readonly int bDebug__Offset;
 		/// <summary>When "stat sounds -debug" has been specified, draw this sound's attenuation shape when the sound is audible. For debugging purpose only.</summary>
 		public bool bDebug
@@ -35,7 +26,6 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bOverrideConcurrency__Offset;
-		/// <summary>Whether or not to override the sound concurrency object with local concurrency settings.</summary>
 		public bool bOverrideConcurrency
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOverrideConcurrency__Offset, 1, 0, 2, 2);}
@@ -44,7 +34,6 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bIgnoreFocus__Offset;
-		/// <summary>Whether or not to ignore focus on this sound.</summary>
 		public bool bIgnoreFocus
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoreFocus__Offset, 1, 0, 4, 4);}
@@ -112,20 +101,10 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int SourceEffectChain__Offset;
-		/// <summary>The source effect chain to use for this sound.</summary>
-		public TObjectArray<USoundEffectSourcePreset>  SourceEffectChain
-		{
-					get{ CheckIsValid();return new TObjectArray<USoundEffectSourcePreset>((FScriptArray)Marshal.PtrToStructure(_this.Get()+SourceEffectChain__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+SourceEffectChain__Offset, false);}
-			
-		}
-		
 		static USoundBase()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("SoundBase");
 			SoundClassObject__Offset=GetPropertyOffset(NativeClassPtr,"SoundClassObject");
-			SoundSubmixObject__Offset=GetPropertyOffset(NativeClassPtr,"SoundSubmixObject");
 			bDebug__Offset=GetPropertyOffset(NativeClassPtr,"bDebug");
 			bOverrideConcurrency__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideConcurrency");
 			bIgnoreFocus__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreFocus");
@@ -136,7 +115,6 @@ namespace UnrealEngine
 			Duration__Offset=GetPropertyOffset(NativeClassPtr,"Duration");
 			AttenuationSettings__Offset=GetPropertyOffset(NativeClassPtr,"AttenuationSettings");
 			Priority__Offset=GetPropertyOffset(NativeClassPtr,"Priority");
-			SourceEffectChain__Offset=GetPropertyOffset(NativeClassPtr,"SourceEffectChain");
 			
 		}
 		

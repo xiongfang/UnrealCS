@@ -58,6 +58,7 @@ namespace UnrealEngine
 		public float DistanceFromPlaneFadeStart
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeStart__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeStart__Offset, false);}
 			
 		}
 		
@@ -65,22 +66,7 @@ namespace UnrealEngine
 		public float DistanceFromPlaneFadeEnd
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeEnd__Offset, typeof(float));}
-			
-		}
-		
-		static readonly int DistanceFromPlaneFadeoutStart__Offset;
-		public float DistanceFromPlaneFadeoutStart
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeoutStart__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeoutStart__Offset, false);}
-			
-		}
-		
-		static readonly int DistanceFromPlaneFadeoutEnd__Offset;
-		public float DistanceFromPlaneFadeoutEnd
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeoutEnd__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeoutEnd__Offset, false);}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeEnd__Offset, false);}
 			
 		}
 		
@@ -119,8 +105,6 @@ namespace UnrealEngine
 			ExtraFOV__Offset=GetPropertyOffset(NativeClassPtr,"ExtraFOV");
 			DistanceFromPlaneFadeStart__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeStart");
 			DistanceFromPlaneFadeEnd__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeEnd");
-			DistanceFromPlaneFadeoutStart__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeoutStart");
-			DistanceFromPlaneFadeoutEnd__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeoutEnd");
 			AngleFromPlaneFadeStart__Offset=GetPropertyOffset(NativeClassPtr,"AngleFromPlaneFadeStart");
 			AngleFromPlaneFadeEnd__Offset=GetPropertyOffset(NativeClassPtr,"AngleFromPlaneFadeEnd");
 			bRenderSceneTwoSided__Offset=GetPropertyOffset(NativeClassPtr,"bRenderSceneTwoSided");

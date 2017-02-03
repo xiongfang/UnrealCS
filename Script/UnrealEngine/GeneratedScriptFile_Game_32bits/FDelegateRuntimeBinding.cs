@@ -5,18 +5,18 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=44)]
+	[StructLayout(LayoutKind.Explicit,Size=48)]
 	public partial struct FDelegateRuntimeBinding
 	{
 		[FieldOffset(0)]
 		public FString ObjectName;
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public FName PropertyName;
-		[FieldOffset(20)]
+		[FieldOffset(24)]
 		public FName FunctionName;
-		[FieldOffset(28)]
+		[FieldOffset(32)]
 		public FDynamicPropertyPath SourcePath;
-		[FieldOffset(40)]
+		[FieldOffset(44)]
 		public EBindingKind Kind;
 		
 	}

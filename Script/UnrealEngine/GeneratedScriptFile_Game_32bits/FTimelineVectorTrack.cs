@@ -5,12 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=48)]
+	[StructLayout(LayoutKind.Explicit,Size=112)]
 	public partial struct FTimelineVectorTrack
 	{
-		[FieldOffset(20)]
-		public FName TrackName;
-		[FieldOffset(28)]
+		[FieldOffset(24)]
 		public FName VectorPropertyName;
 		
 	}

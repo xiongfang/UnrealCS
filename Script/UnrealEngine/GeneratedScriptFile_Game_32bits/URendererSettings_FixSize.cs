@@ -39,27 +39,19 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bMobileDisableVertexFog__Offset;
-		public bool bMobileDisableVertexFog
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bMobileDisableVertexFog__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bMobileDisableVertexFog__Offset, 1,0,4,4);}
-			
-		}
-		
 		static readonly int bDiscardUnusedQualityLevels__Offset;
 		public bool bDiscardUnusedQualityLevels
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDiscardUnusedQualityLevels__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDiscardUnusedQualityLevels__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDiscardUnusedQualityLevels__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDiscardUnusedQualityLevels__Offset, 1,0,4,4);}
 			
 		}
 		
 		static readonly int bOcclusionCulling__Offset;
 		public bool bOcclusionCulling
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOcclusionCulling__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOcclusionCulling__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOcclusionCulling__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOcclusionCulling__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -127,59 +119,43 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int ReflectionEnvironmentLightmapMixBasedOnRoughness__Offset;
-		public bool ReflectionEnvironmentLightmapMixBasedOnRoughness
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), ReflectionEnvironmentLightmapMixBasedOnRoughness__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), ReflectionEnvironmentLightmapMixBasedOnRoughness__Offset, 1,0,1,1);}
-			
-		}
-		
 		static readonly int bForwardShading__Offset;
 		public bool bForwardShading
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForwardShading__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bForwardShading__Offset, 1,0,2,2);}
-			
-		}
-		
-		static readonly int bVertexFoggingForOpaque__Offset;
-		public bool bVertexFoggingForOpaque
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bVertexFoggingForOpaque__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bVertexFoggingForOpaque__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForwardShading__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bForwardShading__Offset, 1,0,1,1);}
 			
 		}
 		
 		static readonly int bAllowStaticLighting__Offset;
 		public bool bAllowStaticLighting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowStaticLighting__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAllowStaticLighting__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowStaticLighting__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAllowStaticLighting__Offset, 1,0,2,2);}
 			
 		}
 		
 		static readonly int bUseNormalMapsForStaticLighting__Offset;
 		public bool bUseNormalMapsForStaticLighting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseNormalMapsForStaticLighting__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseNormalMapsForStaticLighting__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseNormalMapsForStaticLighting__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseNormalMapsForStaticLighting__Offset, 1,0,4,4);}
 			
 		}
 		
 		static readonly int bGenerateMeshDistanceFields__Offset;
 		public bool bGenerateMeshDistanceFields
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGenerateMeshDistanceFields__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGenerateMeshDistanceFields__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGenerateMeshDistanceFields__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGenerateMeshDistanceFields__Offset, 1,0,8,8);}
 			
 		}
 		
 		static readonly int bGenerateLandscapeGIData__Offset;
 		public bool bGenerateLandscapeGIData
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGenerateLandscapeGIData__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGenerateLandscapeGIData__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGenerateLandscapeGIData__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGenerateLandscapeGIData__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -280,9 +256,9 @@ namespace UnrealEngine
 		}
 		
 		static readonly int DefaultFeatureAntiAliasing__Offset;
-		public EAntiAliasingMethod DefaultFeatureAntiAliasing
+		public EAntiAliasingMethodUI DefaultFeatureAntiAliasing
 		{
-			get{ CheckIsValid();return (EAntiAliasingMethod)Marshal.PtrToStructure(_this.Get()+DefaultFeatureAntiAliasing__Offset, typeof(EAntiAliasingMethod));}
+			get{ CheckIsValid();return (EAntiAliasingMethodUI)Marshal.PtrToStructure(_this.Get()+DefaultFeatureAntiAliasing__Offset, typeof(EAntiAliasingMethodUI));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultFeatureAntiAliasing__Offset, false);}
 			
 		}
@@ -343,19 +319,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bDefaultParticleCutouts__Offset;
-		public bool bDefaultParticleCutouts
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDefaultParticleCutouts__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDefaultParticleCutouts__Offset, 1,0,4,4);}
-			
-		}
-		
 		static readonly int bGlobalClipPlane__Offset;
 		public bool bGlobalClipPlane
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalClipPlane__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalClipPlane__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalClipPlane__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalClipPlane__Offset, 1,0,4,4);}
 			
 		}
 		
@@ -388,14 +356,6 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bMultiView__Offset, 1, 0, 4, 4);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bMultiView__Offset, 1,0,4,4);}
-			
-		}
-		
-		static readonly int bMobileMultiView__Offset;
-		public bool bMobileMultiView
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bMobileMultiView__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bMobileMultiView__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -439,11 +399,17 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bSupportSkinCacheShaders__Offset;
-		public bool bSupportSkinCacheShaders
+		static readonly int UIScaleRule__Offset;
+		public EUIScalingRule UIScaleRule
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSupportSkinCacheShaders__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSupportSkinCacheShaders__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return (EUIScalingRule)Marshal.PtrToStructure(_this.Get()+UIScaleRule__Offset, typeof(EUIScalingRule));}
+			
+		}
+		
+		static readonly int UIScaleCurve__Offset;
+		public FRuntimeFloatCurve UIScaleCurve
+		{
+			get{ CheckIsValid();return (FRuntimeFloatCurve)Marshal.PtrToStructure(_this.Get()+UIScaleCurve__Offset, typeof(FRuntimeFloatCurve));}
 			
 		}
 		
@@ -454,7 +420,6 @@ namespace UnrealEngine
 			MobileNumDynamicPointLights__Offset=GetPropertyOffset(NativeClassPtr,"MobileNumDynamicPointLights");
 			bMobileDynamicPointLightsUseStaticBranch__Offset=GetPropertyOffset(NativeClassPtr,"bMobileDynamicPointLightsUseStaticBranch");
 			bMobileEnableStaticAndCSMShadowReceivers__Offset=GetPropertyOffset(NativeClassPtr,"bMobileEnableStaticAndCSMShadowReceivers");
-			bMobileDisableVertexFog__Offset=GetPropertyOffset(NativeClassPtr,"bMobileDisableVertexFog");
 			bDiscardUnusedQualityLevels__Offset=GetPropertyOffset(NativeClassPtr,"bDiscardUnusedQualityLevels");
 			bOcclusionCulling__Offset=GetPropertyOffset(NativeClassPtr,"bOcclusionCulling");
 			MinScreenRadiusForLights__Offset=GetPropertyOffset(NativeClassPtr,"MinScreenRadiusForLights");
@@ -465,9 +430,7 @@ namespace UnrealEngine
 			bUseDXT5NormalMaps__Offset=GetPropertyOffset(NativeClassPtr,"bUseDXT5NormalMaps");
 			bClearCoatEnableSecondNormal__Offset=GetPropertyOffset(NativeClassPtr,"bClearCoatEnableSecondNormal");
 			ReflectionCaptureResolution__Offset=GetPropertyOffset(NativeClassPtr,"ReflectionCaptureResolution");
-			ReflectionEnvironmentLightmapMixBasedOnRoughness__Offset=GetPropertyOffset(NativeClassPtr,"ReflectionEnvironmentLightmapMixBasedOnRoughness");
 			bForwardShading__Offset=GetPropertyOffset(NativeClassPtr,"bForwardShading");
-			bVertexFoggingForOpaque__Offset=GetPropertyOffset(NativeClassPtr,"bVertexFoggingForOpaque");
 			bAllowStaticLighting__Offset=GetPropertyOffset(NativeClassPtr,"bAllowStaticLighting");
 			bUseNormalMapsForStaticLighting__Offset=GetPropertyOffset(NativeClassPtr,"bUseNormalMapsForStaticLighting");
 			bGenerateMeshDistanceFields__Offset=GetPropertyOffset(NativeClassPtr,"bGenerateMeshDistanceFields");
@@ -492,19 +455,18 @@ namespace UnrealEngine
 			ClearSceneMethod__Offset=GetPropertyOffset(NativeClassPtr,"ClearSceneMethod");
 			bBasePassOutputsVelocity__Offset=GetPropertyOffset(NativeClassPtr,"bBasePassOutputsVelocity");
 			bSelectiveBasePassOutputs__Offset=GetPropertyOffset(NativeClassPtr,"bSelectiveBasePassOutputs");
-			bDefaultParticleCutouts__Offset=GetPropertyOffset(NativeClassPtr,"bDefaultParticleCutouts");
 			bGlobalClipPlane__Offset=GetPropertyOffset(NativeClassPtr,"bGlobalClipPlane");
 			GBufferFormat__Offset=GetPropertyOffset(NativeClassPtr,"GBufferFormat");
 			bUseGPUMorphTargets__Offset=GetPropertyOffset(NativeClassPtr,"bUseGPUMorphTargets");
 			bInstancedStereo__Offset=GetPropertyOffset(NativeClassPtr,"bInstancedStereo");
 			bMultiView__Offset=GetPropertyOffset(NativeClassPtr,"bMultiView");
-			bMobileMultiView__Offset=GetPropertyOffset(NativeClassPtr,"bMobileMultiView");
 			WireframeCullThreshold__Offset=GetPropertyOffset(NativeClassPtr,"WireframeCullThreshold");
 			bSupportStationarySkylight__Offset=GetPropertyOffset(NativeClassPtr,"bSupportStationarySkylight");
 			bSupportLowQualityLightmaps__Offset=GetPropertyOffset(NativeClassPtr,"bSupportLowQualityLightmaps");
 			bSupportPointLightWholeSceneShadows__Offset=GetPropertyOffset(NativeClassPtr,"bSupportPointLightWholeSceneShadows");
 			bSupportAtmosphericFog__Offset=GetPropertyOffset(NativeClassPtr,"bSupportAtmosphericFog");
-			bSupportSkinCacheShaders__Offset=GetPropertyOffset(NativeClassPtr,"bSupportSkinCacheShaders");
+			UIScaleRule__Offset=GetPropertyOffset(NativeClassPtr,"UIScaleRule");
+			UIScaleCurve__Offset=GetPropertyOffset(NativeClassPtr,"UIScaleCurve");
 			
 		}
 		

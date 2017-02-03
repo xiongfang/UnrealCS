@@ -170,7 +170,7 @@ namespace UnrealEngine
 		static void SetAutoAttachmentParameters(UParticleSystemComponent* _this,USceneComponent* Parent,MonoString* SocketName,int32 LocationRule,int32 RotationRule,int32 ScaleRule)
 		{
 			FName SocketName_temp=MonoStringToFName(SocketName);
-			_this->SetAutoAttachmentParameters(Parent,SocketName_temp,(EAttachmentRule)LocationRule,(EAttachmentRule)RotationRule,(EAttachmentRule)ScaleRule);
+			_this->SetAutoAttachmentParameters(Parent,SocketName_temp,(TEnumAsByte<EAttachmentRule>)LocationRule,(TEnumAsByte<EAttachmentRule>)RotationRule,(TEnumAsByte<EAttachmentRule>)ScaleRule);
 			
 		}
 		static UClass* StaticClass(){return UParticleSystemComponent::StaticClass();}

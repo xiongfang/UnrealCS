@@ -164,21 +164,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bVisibleInReflectionCaptures__Offset;
-		/// <summary>If true, this component will be visible in reflection captures.</summary>
-		public bool bVisibleInReflectionCaptures
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bVisibleInReflectionCaptures__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bVisibleInReflectionCaptures__Offset, 1,0,2,2);}
-			
-		}
-		
 		static readonly int bRenderInMainPass__Offset;
 		/// <summary>If true, this component will be rendered in the main pass (z prepass, basepass, transparency)</summary>
 		public bool bRenderInMainPass
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRenderInMainPass__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRenderInMainPass__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRenderInMainPass__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRenderInMainPass__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -186,8 +177,8 @@ namespace UnrealEngine
 		/// <summary>Whether the primitive receives decals.</summary>
 		public bool bReceivesDecals
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReceivesDecals__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReceivesDecals__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReceivesDecals__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReceivesDecals__Offset, 1,0,4,4);}
 			
 		}
 		
@@ -195,8 +186,8 @@ namespace UnrealEngine
 		/// <summary>If this is True, this component won't be visible when the view actor is the component's owner, directly or indirectly.</summary>
 		public bool bOwnerNoSee
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOwnerNoSee__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOwnerNoSee__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOwnerNoSee__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOwnerNoSee__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -204,8 +195,8 @@ namespace UnrealEngine
 		/// <summary>If this is True, this component will only be visible when the view actor is the component's owner, directly or indirectly.</summary>
 		public bool bOnlyOwnerSee
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOnlyOwnerSee__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOnlyOwnerSee__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOnlyOwnerSee__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOnlyOwnerSee__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -213,8 +204,8 @@ namespace UnrealEngine
 		/// <summary>Treat this primitive as part of the background for occlusion purposes. This can be used as an optimization to reduce the cost of rendering skyboxes, large ground planes that are part of the vista, etc.</summary>
 		public bool bTreatAsBackgroundForOcclusion
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bTreatAsBackgroundForOcclusion__Offset, 1,0,32,32);}
 			
 		}
 		
@@ -226,8 +217,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bUseAsOccluder
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseAsOccluder__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseAsOccluder__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseAsOccluder__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseAsOccluder__Offset, 1,0,64,64);}
 			
 		}
 		
@@ -235,7 +226,7 @@ namespace UnrealEngine
 		/// <summary>If this is True, this component can be selected in the editor.</summary>
 		public bool bSelectable
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelectable__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelectable__Offset, 1, 0, 128, 128);}
 			
 		}
 		
@@ -243,8 +234,8 @@ namespace UnrealEngine
 		/// <summary>If true, forces mips for textures used by this component to be resident when this component's level is loaded.</summary>
 		public bool bForceMipStreaming
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMipStreaming__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bForceMipStreaming__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMipStreaming__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bForceMipStreaming__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -252,7 +243,7 @@ namespace UnrealEngine
 		/// <summary>If true a hit-proxy will be generated for each instance of instanced static meshes</summary>
 		public bool bHasPerInstanceHitProxies
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasPerInstanceHitProxies__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasPerInstanceHitProxies__Offset, 1, 0, 2, 2);}
 			
 		}
 		
@@ -263,8 +254,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool CastShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), CastShadow__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), CastShadow__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), CastShadow__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), CastShadow__Offset, 1,0,4,4);}
 			
 		}
 		
@@ -272,8 +263,8 @@ namespace UnrealEngine
 		/// <summary>Controls whether the primitive should inject light into the Light Propagation Volume.  This flag is only used if CastShadow is true. *</summary>
 		public bool bAffectDynamicIndirectLighting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDynamicIndirectLighting__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDynamicIndirectLighting__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDynamicIndirectLighting__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDynamicIndirectLighting__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -281,8 +272,8 @@ namespace UnrealEngine
 		/// <summary>Controls whether the primitive should affect dynamic distance field lighting methods.  This flag is only used if CastShadow is true. *</summary>
 		public bool bAffectDistanceFieldLighting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDistanceFieldLighting__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDistanceFieldLighting__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAffectDistanceFieldLighting__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAffectDistanceFieldLighting__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -290,8 +281,8 @@ namespace UnrealEngine
 		/// <summary>Controls whether the primitive should cast shadows in the case of non precomputed shadowing.  This flag is only used if CastShadow is true. *</summary>
 		public bool bCastDynamicShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastDynamicShadow__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastDynamicShadow__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastDynamicShadow__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastDynamicShadow__Offset, 1,0,32,32);}
 			
 		}
 		
@@ -299,8 +290,8 @@ namespace UnrealEngine
 		/// <summary>Whether the object should cast a static shadow from shadow casting lights.  This flag is only used if CastShadow is true.</summary>
 		public bool bCastStaticShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastStaticShadow__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastStaticShadow__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastStaticShadow__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastStaticShadow__Offset, 1,0,64,64);}
 			
 		}
 		
@@ -312,8 +303,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bCastVolumetricTranslucentShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastVolumetricTranslucentShadow__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -324,8 +315,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bSelfShadowOnly
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelfShadowOnly__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSelfShadowOnly__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSelfShadowOnly__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSelfShadowOnly__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -333,8 +324,8 @@ namespace UnrealEngine
 		/// <summary>When enabled, the component will be rendering into the far shadow cascades (only for directional lights).</summary>
 		public bool bCastFarShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastFarShadow__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastFarShadow__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastFarShadow__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastFarShadow__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -345,8 +336,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bCastInsetShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastInsetShadow__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastInsetShadow__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastInsetShadow__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastInsetShadow__Offset, 1,0,4,4);}
 			
 		}
 		
@@ -357,8 +348,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bCastCinematicShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastCinematicShadow__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastCinematicShadow__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastCinematicShadow__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastCinematicShadow__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -370,8 +361,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bCastHiddenShadow
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastHiddenShadow__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastHiddenShadow__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastHiddenShadow__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastHiddenShadow__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -379,8 +370,8 @@ namespace UnrealEngine
 		/// <summary>Whether this primitive should cast dynamic shadows as if it were a two sided material.</summary>
 		public bool bCastShadowAsTwoSided
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastShadowAsTwoSided__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastShadowAsTwoSided__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastShadowAsTwoSided__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastShadowAsTwoSided__Offset, 1,0,32,32);}
 			
 		}
 		
@@ -392,8 +383,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bLightAsIfStatic
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAsIfStatic__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAsIfStatic__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAsIfStatic__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAsIfStatic__Offset, 1,0,64,64);}
 			
 		}
 		
@@ -405,8 +396,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bLightAttachmentsAsGroup
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAttachmentsAsGroup__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAttachmentsAsGroup__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLightAttachmentsAsGroup__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLightAttachmentsAsGroup__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -454,6 +445,21 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (FLightingChannels)Marshal.PtrToStructure(_this.Get()+LightingChannels__Offset, typeof(FLightingChannels));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LightingChannels__Offset, false);}
+			
+		}
+		
+		static readonly int bHasCachedStaticLighting__Offset;
+		public bool bHasCachedStaticLighting
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasCachedStaticLighting__Offset, 1, 0, 1, 255);}
+			
+		}
+		
+		static readonly int bStaticLightingBuildEnqueued__Offset;
+		/// <summary>If true, asynchronous static build lighting will be enqueued to be applied to this</summary>
+		public bool bStaticLightingBuildEnqueued
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStaticLightingBuildEnqueued__Offset, 1, 0, 1, 255);}
 			
 		}
 		
@@ -644,21 +650,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int MoveIgnoreComponents__Offset;
-		/// <summary>
-		/// Set of components to ignore during component sweeps in MoveComponent().
-		/// These components will be ignored when this component moves or updates overlaps.
-		/// The other components may also need to be told to do the same when they move.
-		/// Does not affect movement of this component when simulating physics.
-		/// @see IgnoreComponentWhenMoving()
-		/// </summary>
-		public TObjectArray<UPrimitiveComponent>  MoveIgnoreComponents
-		{
-					get{ CheckIsValid();return new TObjectArray<UPrimitiveComponent>((FScriptArray)Marshal.PtrToStructure(_this.Get()+MoveIgnoreComponents__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+MoveIgnoreComponents__Offset, false);}
-			
-		}
-		
 		static readonly int OnComponentHit__Offset;
 		/// <summary>
 		/// Event called when a component hits (or is hit by) something solid. This could happen due to things like Character movement, using Set Location with 'sweep' enabled, or physics simulation.
@@ -666,7 +657,6 @@ namespace UnrealEngine
 		/// @note For collisions during physics simulation to generate hit events, 'Simulation Generates Hit Events' must be enabled for this component.
 		/// @note When receiving a hit from another object's movement, the directions of 'Hit.Normal' and 'Hit.ImpactNormal'
 		/// will be adjusted to indicate force from the other object against this object.
-		/// @note NormalImpulse will be filled in for physics-simulating bodies, but will be zero for swept-component blocking collisions.
 		/// </summary>
 		public FMulticastScriptDelegate OnComponentHit
 		{
@@ -825,7 +815,6 @@ namespace UnrealEngine
 			bUseViewOwnerDepthPriorityGroup__Offset=GetPropertyOffset(NativeClassPtr,"bUseViewOwnerDepthPriorityGroup");
 			bAllowCullDistanceVolume__Offset=GetPropertyOffset(NativeClassPtr,"bAllowCullDistanceVolume");
 			bHasMotionBlurVelocityMeshes__Offset=GetPropertyOffset(NativeClassPtr,"bHasMotionBlurVelocityMeshes");
-			bVisibleInReflectionCaptures__Offset=GetPropertyOffset(NativeClassPtr,"bVisibleInReflectionCaptures");
 			bRenderInMainPass__Offset=GetPropertyOffset(NativeClassPtr,"bRenderInMainPass");
 			bReceivesDecals__Offset=GetPropertyOffset(NativeClassPtr,"bReceivesDecals");
 			bOwnerNoSee__Offset=GetPropertyOffset(NativeClassPtr,"bOwnerNoSee");
@@ -853,6 +842,8 @@ namespace UnrealEngine
 			bReceiveCombinedCSMAndStaticShadowsFromStationaryLights__Offset=GetPropertyOffset(NativeClassPtr,"bReceiveCombinedCSMAndStaticShadowsFromStationaryLights");
 			bSingleSampleShadowFromStationaryLights__Offset=GetPropertyOffset(NativeClassPtr,"bSingleSampleShadowFromStationaryLights");
 			LightingChannels__Offset=GetPropertyOffset(NativeClassPtr,"LightingChannels");
+			bHasCachedStaticLighting__Offset=GetPropertyOffset(NativeClassPtr,"bHasCachedStaticLighting");
+			bStaticLightingBuildEnqueued__Offset=GetPropertyOffset(NativeClassPtr,"bStaticLightingBuildEnqueued");
 			bIgnoreRadialImpulse__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreRadialImpulse");
 			bIgnoreRadialForce__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreRadialForce");
 			AlwaysLoadOnClient__Offset=GetPropertyOffset(NativeClassPtr,"AlwaysLoadOnClient");
@@ -872,7 +863,6 @@ namespace UnrealEngine
 			CanBeCharacterBase__Offset=GetPropertyOffset(NativeClassPtr,"CanBeCharacterBase");
 			CanCharacterStepUpOn__Offset=GetPropertyOffset(NativeClassPtr,"CanCharacterStepUpOn");
 			MoveIgnoreActors__Offset=GetPropertyOffset(NativeClassPtr,"MoveIgnoreActors");
-			MoveIgnoreComponents__Offset=GetPropertyOffset(NativeClassPtr,"MoveIgnoreComponents");
 			OnComponentHit__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentHit");
 			OnComponentBeginOverlap__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentBeginOverlap");
 			OnComponentEndOverlap__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentEndOverlap");

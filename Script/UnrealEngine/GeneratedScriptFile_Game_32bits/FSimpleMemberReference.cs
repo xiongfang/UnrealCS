@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=28)]
+	[StructLayout(LayoutKind.Explicit,Size=32)]
 	public partial struct FSimpleMemberReference
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName MemberName;
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public FGuid MemberGuid;
 		
 	}

@@ -88,7 +88,7 @@ namespace UnrealEngine
 		}
 		static void K2_DetachFromComponent(USceneComponent* _this,int32 LocationRule,int32 RotationRule,int32 ScaleRule,int32 bCallModify)
 		{
-			_this->K2_DetachFromComponent((EDetachmentRule)LocationRule,(EDetachmentRule)RotationRule,(EDetachmentRule)ScaleRule,bCallModify>0?true:false);
+			_this->K2_DetachFromComponent((TEnumAsByte<EDetachmentRule>)LocationRule,(TEnumAsByte<EDetachmentRule>)RotationRule,(TEnumAsByte<EDetachmentRule>)ScaleRule,bCallModify>0?true:false);
 			
 		}
 		static void DetachFromParent(USceneComponent* _this,int32 bMaintainWorldPosition,int32 bCallModify)
@@ -99,7 +99,7 @@ namespace UnrealEngine
 		static int32 K2_AttachToComponent(USceneComponent* _this,USceneComponent* Parent,MonoString* SocketName,int32 LocationRule,int32 RotationRule,int32 ScaleRule,int32 bWeldSimulatedBodies)
 		{
 			FName SocketName_temp=MonoStringToFName(SocketName);
-			bool ___ret = _this->K2_AttachToComponent(Parent,SocketName_temp,(EAttachmentRule)LocationRule,(EAttachmentRule)RotationRule,(EAttachmentRule)ScaleRule,bWeldSimulatedBodies>0?true:false);
+			bool ___ret = _this->K2_AttachToComponent(Parent,SocketName_temp,(TEnumAsByte<EAttachmentRule>)LocationRule,(TEnumAsByte<EAttachmentRule>)RotationRule,(TEnumAsByte<EAttachmentRule>)ScaleRule,bWeldSimulatedBodies>0?true:false);
 			return ___ret?1:0;
 			
 		}

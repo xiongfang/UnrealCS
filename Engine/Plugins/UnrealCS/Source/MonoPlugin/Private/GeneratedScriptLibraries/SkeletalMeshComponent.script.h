@@ -22,12 +22,6 @@ namespace UnrealEngine
 			_this->BreakConstraint(*Impulse,*HitLocation,InBoneName_temp);
 			
 		}
-		static MonoString* FindConstraintBoneName(USkeletalMeshComponent* _this,int32 ConstraintIndex)
-		{
-			FName ___ret = _this->FindConstraintBoneName(ConstraintIndex);
-			return FNameToMonoString(___ret);
-			
-		}
 		static void SetConstraintProfileForAll(USkeletalMeshComponent* _this,MonoString* ProfileName,int32 bDefaultIfNotFound)
 		{
 			FName ProfileName_temp=MonoStringToFName(ProfileName);
@@ -109,19 +103,6 @@ namespace UnrealEngine
 		{
 			FName BoneName_temp=MonoStringToFName(BoneName);
 			_this->AddForceToAllBodiesBelow(*Force,BoneName_temp,bAccelChange>0?true:false,bIncludeSelf>0?true:false);
-			
-		}
-		static FVector GetSkeletalCenterOfMass(USkeletalMeshComponent* _this)
-		{
-			FVector ___ret = _this->GetSkeletalCenterOfMass();
-			return ___ret;
-			
-		}
-		static float GetBoneMass(USkeletalMeshComponent* _this,MonoString* BoneName,int32 bScaleMass)
-		{
-			FName BoneName_temp=MonoStringToFName(BoneName);
-			float ___ret = _this->GetBoneMass(BoneName_temp,bScaleMass>0?true:false);
-			return ___ret;
 			
 		}
 		static int32 K2_GetClosestPointOnPhysicsAsset(USkeletalMeshComponent* _this,FVector* WorldPosition,FVector* ClosestWorldPosition,FVector* Normal,MonoString** BoneName,float* Distance)
@@ -217,11 +198,6 @@ namespace UnrealEngine
 			_this->SetMorphTarget(MorphTargetName_temp,Value,bRemoveZeroWeight>0?true:false);
 			
 		}
-		static void OverrideAnimationData(USkeletalMeshComponent* _this,UAnimationAsset* InAnimToPlay,int32 bIsLooping,int32 bIsPlaying,float Position,float PlayRate)
-		{
-			_this->OverrideAnimationData(InAnimToPlay,bIsLooping>0?true:false,bIsPlaying>0?true:false,Position,PlayRate);
-			
-		}
 		static float GetPlayRate(USkeletalMeshComponent* _this)
 		{
 			float ___ret = _this->GetPlayRate();
@@ -273,18 +249,12 @@ namespace UnrealEngine
 		static int32 GetAnimationMode(USkeletalMeshComponent* _this)
 		{
 			TEnumAsByte<EAnimationMode::Type> ___ret = _this->GetAnimationMode();
-			return (int)___ret;
+			return (int)___ret.GetValue();
 			
 		}
 		static void SetAnimationMode(USkeletalMeshComponent* _this,int32 InAnimationMode)
 		{
 			_this->SetAnimationMode((TEnumAsByte<EAnimationMode::Type>)InAnimationMode);
-			
-		}
-		static UAnimInstance* GetPostProcessInstance(USkeletalMeshComponent* _this)
-		{
-			UAnimInstance* ___ret = _this->GetPostProcessInstance();
-			return ___ret;
 			
 		}
 		static UAnimInstance* GetAnimInstance(USkeletalMeshComponent* _this)
@@ -305,7 +275,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetCurrentJointAngles",(const void*)GetCurrentJointAngles);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetAngularLimits",(const void*)SetAngularLimits);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::BreakConstraint",(const void*)BreakConstraint);
-			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::FindConstraintBoneName",(const void*)FindConstraintBoneName);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetConstraintProfileForAll",(const void*)SetConstraintProfileForAll);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetConstraintProfile",(const void*)SetConstraintProfile);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetAllMotorsAngularDriveParams",(const void*)SetAllMotorsAngularDriveParams);
@@ -321,8 +290,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetAllBodiesSimulatePhysics",(const void*)SetAllBodiesSimulatePhysics);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::AddImpulseToAllBodiesBelow",(const void*)AddImpulseToAllBodiesBelow);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::AddForceToAllBodiesBelow",(const void*)AddForceToAllBodiesBelow);
-			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetSkeletalCenterOfMass",(const void*)GetSkeletalCenterOfMass);
-			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetBoneMass",(const void*)GetBoneMass);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::K2_GetClosestPointOnPhysicsAsset",(const void*)K2_GetClosestPointOnPhysicsAsset);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetEnableGravityOnAllBodiesBelow",(const void*)SetEnableGravityOnAllBodiesBelow);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::IsBodyGravityEnabled",(const void*)IsBodyGravityEnabled);
@@ -339,7 +306,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetMorphTarget",(const void*)GetMorphTarget);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::ClearMorphTargets",(const void*)ClearMorphTargets);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetMorphTarget",(const void*)SetMorphTarget);
-			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::OverrideAnimationData",(const void*)OverrideAnimationData);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetPlayRate",(const void*)GetPlayRate);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetPlayRate",(const void*)SetPlayRate);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetPosition",(const void*)GetPosition);
@@ -351,7 +317,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::PlayAnimation",(const void*)PlayAnimation);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetAnimationMode",(const void*)GetAnimationMode);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetAnimationMode",(const void*)SetAnimationMode);
-			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetPostProcessInstance",(const void*)GetPostProcessInstance);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::GetAnimInstance",(const void*)GetAnimInstance);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::SetAnimInstanceClass",(const void*)SetAnimInstanceClass);
 			mono_add_internal_call("UnrealEngine.USkeletalMeshComponent::StaticClass",(const void*)StaticClass);

@@ -245,12 +245,12 @@ namespace UnrealEngine
 		}
 		static void SetInputMode_GameAndUIEx(UWidgetBlueprintLibrary* _this,APlayerController* Target,UWidget* InWidgetToFocus,int32 InMouseLockMode,int32 bHideCursorDuringCapture)
 		{
-			_this->SetInputMode_GameAndUIEx(Target,InWidgetToFocus,(EMouseLockMode)InMouseLockMode,bHideCursorDuringCapture>0?true:false);
+			_this->SetInputMode_GameAndUIEx(Target,InWidgetToFocus,(TEnumAsByte<EMouseLockMode>)InMouseLockMode,bHideCursorDuringCapture>0?true:false);
 			
 		}
 		static void SetInputMode_UIOnlyEx(UWidgetBlueprintLibrary* _this,APlayerController* Target,UWidget* InWidgetToFocus,int32 InMouseLockMode)
 		{
-			_this->SetInputMode_UIOnlyEx(Target,InWidgetToFocus,(EMouseLockMode)InMouseLockMode);
+			_this->SetInputMode_UIOnlyEx(Target,InWidgetToFocus,(TEnumAsByte<EMouseLockMode>)InMouseLockMode);
 			
 		}
 		static UDragDropOperation* CreateDragDropOperation(UWidgetBlueprintLibrary* _this,TSubclassOf<UDragDropOperation>  OperationClass)

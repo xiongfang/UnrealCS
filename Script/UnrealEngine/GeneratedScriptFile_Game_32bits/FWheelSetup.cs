@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=24)]
+	[StructLayout(LayoutKind.Explicit,Size=32)]
 	public partial struct FWheelSetup
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FName BoneName;
-		[FieldOffset(12)]
+		[FieldOffset(16)]
 		public FVector AdditionalOffset;
 		
 	}

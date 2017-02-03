@@ -125,15 +125,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DefaultScreenshotResolution__Offset;
-		/// <summary>The default resolution to take all automation screenshots at.</summary>
-		public FIntPoint DefaultScreenshotResolution
-		{
-			get{ CheckIsValid();return (FIntPoint)Marshal.PtrToStructure(_this.Get()+DefaultScreenshotResolution__Offset, typeof(FIntPoint));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultScreenshotResolution__Offset, false);}
-			
-		}
-		
 		static UAutomationTestSettings()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("AutomationTestSettings");
@@ -150,7 +141,6 @@ namespace UnrealEngine
 			ExternalTools__Offset=GetPropertyOffset(NativeClassPtr,"ExternalTools");
 			ImportExportTestDefinitions__Offset=GetPropertyOffset(NativeClassPtr,"ImportExportTestDefinitions");
 			LaunchOnSettings__Offset=GetPropertyOffset(NativeClassPtr,"LaunchOnSettings");
-			DefaultScreenshotResolution__Offset=GetPropertyOffset(NativeClassPtr,"DefaultScreenshotResolution");
 			
 		}
 		

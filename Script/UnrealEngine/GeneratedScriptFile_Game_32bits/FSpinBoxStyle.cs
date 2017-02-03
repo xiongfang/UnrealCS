@@ -5,22 +5,22 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=628)]
+	[StructLayout(LayoutKind.Explicit,Size=656)]
 	public partial struct FSpinBoxStyle
 	{
-		[FieldOffset(4)]
+		[FieldOffset(8)]
 		public FSlateBrush BackgroundBrush;
-		[FieldOffset(120)]
+		[FieldOffset(128)]
 		public FSlateBrush HoveredBackgroundBrush;
-		[FieldOffset(236)]
+		[FieldOffset(248)]
 		public FSlateBrush ActiveFillBrush;
-		[FieldOffset(352)]
+		[FieldOffset(368)]
 		public FSlateBrush InactiveFillBrush;
-		[FieldOffset(468)]
+		[FieldOffset(488)]
 		public FSlateBrush ArrowsImage;
-		[FieldOffset(584)]
+		[FieldOffset(608)]
 		public FSlateColor ForegroundColor;
-		[FieldOffset(612)]
+		[FieldOffset(636)]
 		public FMargin TextPadding;
 		
 	}

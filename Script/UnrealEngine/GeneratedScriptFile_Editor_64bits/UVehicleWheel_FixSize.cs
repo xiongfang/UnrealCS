@@ -143,7 +143,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int SuspensionForceOffset__Offset;
-		/// <summary>Vertical offset from where suspension forces are applied (along Z-axis)</summary>
+		/// <summary>Vertical offset from vehicle center of mass where suspension forces are applied</summary>
 		public float SuspensionForceOffset
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SuspensionForceOffset__Offset, typeof(float));}
@@ -244,7 +244,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int DebugNormalizedTireLoad__Offset;
-		/// <summary>How much force the tire experiences at rest divided by how much force it is experiencing now</summary>
+		/// <summary>How much force the tire experiences at rest devided by how much force it is experiencing now</summary>
 		public float DebugNormalizedTireLoad
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DebugNormalizedTireLoad__Offset, typeof(float));}

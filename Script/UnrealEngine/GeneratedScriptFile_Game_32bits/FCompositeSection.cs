@@ -5,19 +5,19 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=68)]
+	[StructLayout(LayoutKind.Explicit,Size=80)]
 	public partial struct FCompositeSection
 	{
-		[FieldOffset(36)]
+		[FieldOffset(40)]
 		public FName SectionName;
-		[FieldOffset(44)]
-		public float StartTime;
 		[FieldOffset(48)]
+		public float StartTime;
+		[FieldOffset(56)]
 		public FName NextSectionName;
 		public TObjectArray<UAnimMetaData> MetaData
 		{
-						get{ unsafe { fixed (void* p = &this) { return new TObjectArray<UAnimMetaData>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+56, typeof(FScriptArray)));}}}
-						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray,new IntPtr(p)+56, false);}}}
+						get{ unsafe { fixed (void* p = &this) { return new TObjectArray<UAnimMetaData>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+64, typeof(FScriptArray)));}}}
+						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray,new IntPtr(p)+64, false);}}}
 			
 		}
 		[FieldOffset(8)]

@@ -45,7 +45,10 @@ namespace UnrealEngine
 		}
 		
 		static readonly int ShadowMapChannel__Offset;
-		/// <summary>Legacy shadowmap channel from the lighting build, now stored in FLightComponentMapBuildData.</summary>
+		/// <summary>
+		/// Shadow map channel which is used to match up with the appropriate static shadowing during a deferred shading pass.
+		/// This is generated during a lighting build.
+		/// </summary>
 		public int ShadowMapChannel
 		{
 			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+ShadowMapChannel__Offset, typeof(int));}

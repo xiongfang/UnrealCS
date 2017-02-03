@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>The data needed by the runtime to simulate sprites.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=704)]
+	[StructLayout(LayoutKind.Explicit,Size=688)]
 	public partial struct FGPUSpriteEmitterInfo
 	{
 		/// <summary>The required module. Needed for now, but should be divorced from the runtime.</summary>
@@ -75,30 +75,17 @@ namespace UnrealEngine
 		}
 		[FieldOffset(400)]
 		public EParticleCollisionMode CollisionMode;
-		/// <summary>If true, removes the HMD view roll (e.g. in VR)</summary>
-		public bool bRemoveHMDRoll
-		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 404, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 404, 1, 0, 1, 1); } }}
-			
-		}
-		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_Square</summary>
-		[FieldOffset(408)]
-		public float MinFacingCameraBlendDistance;
-		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_FacingCameraPosition</summary>
-		[FieldOffset(412)]
-		public float MaxFacingCameraBlendDistance;
 		/// <summary>Dynamic color scale from the ColorOverLife module.</summary>
-		[FieldOffset(416)]
+		[FieldOffset(408)]
 		public FRawDistributionVector DynamicColor;
 		/// <summary>Dynamic alpha scale from the ColorOverLife module.</summary>
-		[FieldOffset(496)]
+		[FieldOffset(488)]
 		public FRawDistributionFloat DynamicAlpha;
 		/// <summary>Dynamic color scale from the ColorScaleOverLife module.</summary>
-		[FieldOffset(552)]
+		[FieldOffset(544)]
 		public FRawDistributionVector DynamicColorScale;
 		/// <summary>Dynamic alpha scale from the ColorScaleOverLife module.</summary>
-		[FieldOffset(632)]
+		[FieldOffset(624)]
 		public FRawDistributionFloat DynamicAlphaScale;
 		
 	}

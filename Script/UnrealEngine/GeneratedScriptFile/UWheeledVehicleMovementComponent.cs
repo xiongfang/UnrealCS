@@ -2,7 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine{
-public partial class UWheeledVehicleMovementComponent:UMovementComponent 
+public partial class UWheeledVehicleMovementComponent:UPawnMovementComponent 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetAvoidanceEnabled(IntPtr _this,int bEnable);
@@ -14,27 +14,27 @@ public  void SetAvoidanceEnabled(bool bEnable)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetGroupsToIgnoreMask(IntPtr _this,ref FNavAvoidanceMask GroupMask);
-public  void SetGroupsToIgnoreMask(FNavAvoidanceMask GroupMask)
+extern static void SetGroupsToIgnore(IntPtr _this,int GroupFlags);
+public  void SetGroupsToIgnore(int GroupFlags)
 {
 	CheckIsValid();
-	SetGroupsToIgnoreMask(_this.Get(),ref GroupMask);
+	SetGroupsToIgnore(_this.Get(),GroupFlags);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetGroupsToAvoidMask(IntPtr _this,ref FNavAvoidanceMask GroupMask);
-public  void SetGroupsToAvoidMask(FNavAvoidanceMask GroupMask)
+extern static void SetGroupsToAvoid(IntPtr _this,int GroupFlags);
+public  void SetGroupsToAvoid(int GroupFlags)
 {
 	CheckIsValid();
-	SetGroupsToAvoidMask(_this.Get(),ref GroupMask);
+	SetGroupsToAvoid(_this.Get(),GroupFlags);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetAvoidanceGroupMask(IntPtr _this,ref FNavAvoidanceMask GroupMask);
-public  void SetAvoidanceGroupMask(FNavAvoidanceMask GroupMask)
+extern static void SetAvoidanceGroup(IntPtr _this,int GroupFlags);
+public  void SetAvoidanceGroup(int GroupFlags)
 {
 	CheckIsValid();
-	SetAvoidanceGroupMask(_this.Get(),ref GroupMask);
+	SetAvoidanceGroup(_this.Get(),GroupFlags);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -149,15 +149,6 @@ public  void SetSteeringInput(float Steering)
 {
 	CheckIsValid();
 	SetSteeringInput(_this.Get(),Steering);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetBrakeInput(IntPtr _this,float Brake);
-/// <summary>Set the user input for the vehicle Brake</summary>
-public  void SetBrakeInput(float Brake)
-{
-	CheckIsValid();
-	SetBrakeInput(_this.Get(),Brake);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
