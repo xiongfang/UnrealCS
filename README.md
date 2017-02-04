@@ -1,9 +1,11 @@
-WHAT IS THIS
+# UnrealCS
+
+# WHAT IS THIS
 
 This is the C # script plug-in built for Unreal Engine 4, you can use the C# language and a little blueprint, to develop the game, without any C++ 
 code. It's perfect collaboration with the blueprint. It now supports Windows, Mac, Andriod platform, iOS platform is also being planned.
 
-HOW TO USE
+# HOW TO USE
 
 1. Installation.
 
@@ -43,11 +45,11 @@ Scripts/Gameassemblies
 Then you can pack your game.
 
 
-LICENCE
+# LICENCE
 
-The plug-in is copyright (c) ÐÜ·½ (xg_55). All rights reserved. Support email: xg_55@126.com.
+- Licensed under the MIT license
 
-Git repository:
+- see [LICENSE](https://github.com/xiongfang/UL/blob/master/LICENSE) for details
 
 
 Mono Class Libraries and The Mono.Cecil are distributed under the MIT License,
