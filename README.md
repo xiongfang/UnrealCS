@@ -25,11 +25,11 @@ ios is on the way.
 
 Just download the unrealcs plugin from  the unreal marketplace
 
-## for the git source code version ue4
+## for the git source code ue4
 
 Just copy the Engine/Plugins/UnrealCS directory to your plugins directory,then regenerate your unreal engine project file
 
-## build for launcher version ue4 yourself
+## build the plugin for launcher version ue4 yourself
 
 use compile command like this:
 
