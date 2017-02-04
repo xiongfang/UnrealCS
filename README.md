@@ -5,51 +5,41 @@
 This is the C # script plug-in built for Unreal Engine 4, you can use the C# language and a little blueprint, to develop the game, without any C++ 
 code. It's perfect collaboration with the blueprint. It now supports Windows, Mac, Andriod platform, iOS platform is also being planned.
 
-# HOW TO USE
+# Supported Platforms
 
-1. Installation.
+- Windows 64 bit
+- Windows 32 bit
+- Mac
+- Andriod
 
+ios is on the way.
 
-Just download from the Marketplace. And then use Launcher to create your project.
+# Tutorials & documentation
 
+- [Wiki](https://github.com/xiongfang/UnrealCS/wiki)
+- [Forum](http://www.unrealcs.com)
 
-2. Usage
+# Building
 
+## for the  launcher version ue4 
 
-For Windows users:
+Just download the unrealcs plugin from  the unreal marketplace
 
+## for the git source code version ue4
 
-Double click the project file to open the unreal editor. Click on file - > Open Project menu item. Then the C # script project will open, you can find a default class named TestClass, compile it, and then go to editor, you can find some plug-in generated the blueprint named TestClass. This class inherits from UActorComponent. Add this component to an Actor. Run game.
+Just copy the Engine/Plugins/UnrealCS directory to your plugins directory,then regenerate your unreal engine project file
 
+## build for launcher version ue4 yourself
 
-For Mac users:
+use compile command like this:
 
-
-Open the Project menu by clicking. Will create a template project in your project directory, using Microsoft Visual Studio Core to compile.It is 
-Recommended developmented in the Windows , and then packaged in MAC.
-
-
-3. Pack
-age
-
-for pack game, you need some other settings.
-Open the editor settings panel, go to the "package" page. Add the following directory to the "additional non-asset directory to package" field.
-
-
-Scripts/Engineassemblies 
-Scripts/framework
-
-Scripts/Gameassemblies 
-
-
-Then you can pack your game.
-
+"D:\Program Files\Epic Games\4.13\Engine\Build\BatchFiles\RunUAT.bat" BuildPlugin -Plugin=E:\UnrealCS\UnrealCS.uplugin -Package=E:\Package -Rocket
 
 # LICENCE
 
 - Licensed under the MIT license
 
-- see [LICENSE](https://github.com/xiongfang/UL/blob/master/LICENSE) for details
+- see [LICENSE](https://github.com/xiongfang/UnrealCS/blob/master/LICENSE) for details
 
 
 Mono Class Libraries and The Mono.Cecil are distributed under the MIT License,
