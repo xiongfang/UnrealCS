@@ -1,17 +1,17 @@
 {
 	"FileVersion" : 3,
-	
+	"MarketplaceURL" : "com.epicgames.launcher://ue/marketplace/content/b34ba80007834687ae57a556a57b05f4",
 	"FriendlyName" : "UnrealCS - C# Script Plugin",
 	"Version" : 1,
 	"VersionName" : "1.0",
 	"CreatedBy" : "xg_55",
 	"CreatedByURL" : "https://github.com/xiongfang/UnrealCS",
-	"EngineVersion" : "4.13.0",
+	"EngineVersion" : "4.14.3",
 	"Description" : "C# script plugin built for Unreal Engine 4.",
 	"Category" : "Script",
 	"SupportURL" : "xg_55@126.com",
 	"EnabledByDefault" : true,
-	"CanBeUsedWithUnrealHeaderTool" : true,
+	"CanBeUsedWithUnrealHeaderTool" : false,
   	"Modules" :
 	[
 		{
@@ -20,12 +20,6 @@
 			"LoadingPhase" : "PreDefault",
 			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
 		},
-    		{
-    			"Name" : "MonoScriptGeneratorPlugin",
-    			"Type" : "Program",
-    			"LoadingPhase" : "PostConfigInit",
-			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
-    		},
 		{
 			"Name" : "MonoPlugin",
 			"Type" : "Runtime",
