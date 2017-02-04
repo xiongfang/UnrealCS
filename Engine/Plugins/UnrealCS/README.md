@@ -24,6 +24,7 @@ ios is on the way.
 ## for the  launcher version ue4 
 
 Just download the unrealcs plugin from  the unreal marketplace
+The forum will also release pre compiled versions of the plugin.[forum link..](http://www.unrealcs.com/read.php?tid=1)
 
 ## for the git source code ue4
 
