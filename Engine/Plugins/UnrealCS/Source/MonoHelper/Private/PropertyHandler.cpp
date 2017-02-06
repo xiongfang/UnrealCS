@@ -1143,7 +1143,15 @@ FString EnumTypePropertyHandler::BuildCppFuncPostSet(UProperty* P)
 //×ª»»
 FString EnumTypePropertyHandler::BuildCppFuncReturn(UProperty* P)
 {
-	return "return (int)___ret.GetValue();";
+	UByteProperty* ByteProp = Cast<UByteProperty>(P);
+	if (ByteProp->Enum->GetCppForm() == UEnum::ECppForm::EnumClass)
+	{
+		return "return (int32)___ret;";
+	}
+	else
+	{
+		return "return (int32)___ret.GetValue();";
+	}
 }
 
 FString EnumTypePropertyHandler::GetCSharpTypeName(UProperty* P)
