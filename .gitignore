@@ -2,3 +2,4 @@ Binaries/
 Intermediate/
 .vscode/
 /Engine/Plugins/UnrealCS/Source/MonoPlugin/Private/GeneratedScriptLibraries/
+/Engine/Plugins/UnrealCS/Source/MonoPlugin/Private/ImplementStruct.h
