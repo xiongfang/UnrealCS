@@ -19322,6 +19322,13 @@
         <member name="P:UnrealEngine.UNetworkSettings.bVerifyPeer">
             <summary>If true, libcurl authenticates the peer's certificate. Disable to allow self-signed certificates.</summary>
         </member>
+        <member name="M:UnrealEngine.UObject.TypeClass(System.Type)">
+            <summary>
+            返回类型的UClass类
+            </summary>
+            <param name="type">必须继承于UObject</param>
+            <returns></returns>
+        </member>
         <member name="M:UnrealEngine.UObject.TypeClass``1">
             <summary>
             返回泛型T的UClass
