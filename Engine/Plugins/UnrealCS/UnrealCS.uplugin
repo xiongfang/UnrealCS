@@ -11,31 +11,25 @@
 	"Category" : "Script",
 	"SupportURL" : "xg_55@126.com",
 	"EnabledByDefault" : true,
-	"CanBeUsedWithUnrealHeaderTool" : true,
+	"CanBeUsedWithUnrealHeaderTool" : false,
   	"Modules" :
 	[
 		{
 			"Name" : "MonoHelper",
 			"Type" : "Runtime",
 			"LoadingPhase" : "PreDefault",
-			"BlacklistPlatforms": [ "Linux" ]
+			"WhitelistPlatforms": [ "Win64","Win32","Android" ]
 		},
-    		{
-    			"Name" : "MonoScriptGeneratorPlugin",
-    			"Type" : "Program",
-    			"LoadingPhase" : "PostConfigInit",
-			"BlacklistPlatforms": [ "Linux" ]
-    		},
 		{
 			"Name" : "MonoPlugin",
 			"Type" : "Runtime",
 			"LoadingPhase" : "PreDefault",
-			"BlacklistPlatforms": [ "Linux" ]
+			"WhitelistPlatforms": [ "Win64","Win32","Android" ]
 		},
 		{
 			"Name" : "MonoEditorPlugin",
 			"Type" : "Editor",
-			"BlacklistPlatforms": [ "Linux" ]
+			"WhitelistPlatforms": [ "Win64","Win32","Android" ]
 		}
 	]
 }
