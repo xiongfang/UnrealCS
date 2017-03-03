@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=72)]
+	[StructLayout(LayoutKind.Explicit,Size=64)]
 	public partial struct FFunctionExpressionInput
 	{
 		[FieldOffset(4)]
 		public FGuid ExpressionInputId;
-		[FieldOffset(24)]
+		[FieldOffset(20)]
 		public FExpressionInput Input;
 		
 	}

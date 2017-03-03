@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=16)]
+	[StructLayout(LayoutKind.Explicit,Size=20)]
 	public partial struct FBoneReference
 	{
 		/// <summary>Name of bone to control. This is the main bone chain to modify from. *</summary>

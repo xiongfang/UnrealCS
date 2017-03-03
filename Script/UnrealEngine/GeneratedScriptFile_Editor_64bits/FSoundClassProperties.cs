@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Structure containing configurable properties of a sound class.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=36)]
+	[StructLayout(LayoutKind.Explicit,Size=44)]
 	public partial struct FSoundClassProperties
 	{
 		/// <summary>Volume multiplier.</summary>
@@ -65,22 +65,25 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 28, 1, 0, 16, 16); } }}
 			
 		}
+		/// <summary>Amount of audio to send to master reverb effect for 2D sounds played with this sound class.</summary>
+		[FieldOffset(32)]
+		public float Default2DReverbSendAmount;
 		/// <summary>Whether or not this sound class forces sounds to the center channel</summary>
 		public bool bCenterChannelOnly
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 28, 1, 0, 32, 32); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 28, 1, 0, 32, 32); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 36, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 36, 1, 0, 1, 1); } }}
 			
 		}
 		/// <summary>Whether the Interior/Exterior volume and LPF modifiers should be applied</summary>
 		public bool bApplyAmbientVolumes
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 28, 1, 0, 64, 64); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 28, 1, 0, 64, 64); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 36, 1, 0, 2, 2); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 36, 1, 0, 2, 2); } }}
 			
 		}
 		/// <summary>Which output target the sound should be played through</summary>
-		[FieldOffset(32)]
+		[FieldOffset(40)]
 		public EAudioOutputTarget OutputTarget;
 		
 	}

@@ -11,7 +11,7 @@ namespace UnrealEngine
 		/// <summary>Interpolation Time for input, when it gets input, it will use this time to interpolate to target, used for smoother interpolation.</summary>
 		[FieldOffset(0)]
 		public float InterpolationTime;
-		/// <summary>Interpolation Type for input, when it gets input, it will use this filter to decide how to get to target.</summary>
+		/// <summary>Type of interpolation used for filtering the input value to decide how to get to target.</summary>
 		[FieldOffset(4)]
 		public EFilterInterpolationType InterpolationType;
 		

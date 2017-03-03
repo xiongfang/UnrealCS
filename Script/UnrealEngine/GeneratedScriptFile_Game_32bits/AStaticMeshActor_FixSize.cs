@@ -23,20 +23,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int NavigationGeometryGatheringMode__Offset;
-		public ENavDataGatheringMode NavigationGeometryGatheringMode
-		{
-			get{ CheckIsValid();return (ENavDataGatheringMode)Marshal.PtrToStructure(_this.Get()+NavigationGeometryGatheringMode__Offset, typeof(ENavDataGatheringMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NavigationGeometryGatheringMode__Offset, false);}
-			
-		}
-		
 		static AStaticMeshActor()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("StaticMeshActor");
 			StaticMeshComponent__Offset=GetPropertyOffset(NativeClassPtr,"StaticMeshComponent");
 			bStaticMeshReplicateMovement__Offset=GetPropertyOffset(NativeClassPtr,"bStaticMeshReplicateMovement");
-			NavigationGeometryGatheringMode__Offset=GetPropertyOffset(NativeClassPtr,"NavigationGeometryGatheringMode");
 			
 		}
 		

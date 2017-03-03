@@ -135,6 +135,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bStripAnimationDataOnDedicatedServer__Offset;
+		public bool bStripAnimationDataOnDedicatedServer
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStripAnimationDataOnDedicatedServer__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bStripAnimationDataOnDedicatedServer__Offset, 1,0,1,255);}
+			
+		}
+		
 		static UAnimationSettings()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("AnimationSettings");
@@ -154,6 +162,7 @@ namespace UnrealEngine
 			bTryLinearKeyRemovalCompression__Offset=GetPropertyOffset(NativeClassPtr,"bTryLinearKeyRemovalCompression");
 			bTryIntervalKeyRemoval__Offset=GetPropertyOffset(NativeClassPtr,"bTryIntervalKeyRemoval");
 			bEnablePerformanceLog__Offset=GetPropertyOffset(NativeClassPtr,"bEnablePerformanceLog");
+			bStripAnimationDataOnDedicatedServer__Offset=GetPropertyOffset(NativeClassPtr,"bStripAnimationDataOnDedicatedServer");
 			
 		}
 		

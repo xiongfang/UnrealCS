@@ -15,25 +15,10 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DisplayNames__Offset;
-		/// <summary>
-		/// Names stored in "DisplayName" meta data. They are duplicated here,
-		/// so functions like UKismetNodeHelperLibrary::GetEnumeratorUserFriendlyName can use them
-		/// outside the editor. (When meta data are not loaded).
-		/// To sync DisplayNames with meta-data use FEnumEditorUtils::EnsureAllDisplayNamesExist.
-		/// </summary>
-		public TStructArray<FText> DisplayNames
-		{
-			get{ CheckIsValid();return new TStructArray<FText>((FScriptArray)Marshal.PtrToStructure(_this.Get()+DisplayNames__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+DisplayNames__Offset, false);}
-			
-		}
-		
 		static UUserDefinedEnum()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("UserDefinedEnum");
 			UniqueNameIndex__Offset=GetPropertyOffset(NativeClassPtr,"UniqueNameIndex");
-			DisplayNames__Offset=GetPropertyOffset(NativeClassPtr,"DisplayNames");
 			
 		}
 		

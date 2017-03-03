@@ -45,10 +45,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int ShadowMapChannel__Offset;
-		/// <summary>
-		/// Shadow map channel which is used to match up with the appropriate static shadowing during a deferred shading pass.
-		/// This is generated during a lighting build.
-		/// </summary>
+		/// <summary>Legacy shadowmap channel from the lighting build, now stored in FLightComponentMapBuildData.</summary>
 		public int ShadowMapChannel
 		{
 			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+ShadowMapChannel__Offset, typeof(int));}
@@ -61,6 +58,18 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+MinRoughness__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MinRoughness__Offset, false);}
+			
+		}
+		
+		static readonly int ShadowResolutionScale__Offset;
+		/// <summary>
+		/// Scales the resolution of shadowmaps used to shadow this light.  By default shadowmap resolution is chosen based on screen size of the caster.
+		/// Note: shadowmap resolution is still clamped by 'r.Shadow.MaxResolution'
+		/// </summary>
+		public float ShadowResolutionScale
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+ShadowResolutionScale__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ShadowResolutionScale__Offset, false);}
 			
 		}
 		
@@ -293,6 +302,7 @@ namespace UnrealEngine
 			bUseTemperature__Offset=GetPropertyOffset(NativeClassPtr,"bUseTemperature");
 			ShadowMapChannel__Offset=GetPropertyOffset(NativeClassPtr,"ShadowMapChannel");
 			MinRoughness__Offset=GetPropertyOffset(NativeClassPtr,"MinRoughness");
+			ShadowResolutionScale__Offset=GetPropertyOffset(NativeClassPtr,"ShadowResolutionScale");
 			ShadowBias__Offset=GetPropertyOffset(NativeClassPtr,"ShadowBias");
 			ShadowSharpen__Offset=GetPropertyOffset(NativeClassPtr,"ShadowSharpen");
 			ContactShadowLength__Offset=GetPropertyOffset(NativeClassPtr,"ContactShadowLength");

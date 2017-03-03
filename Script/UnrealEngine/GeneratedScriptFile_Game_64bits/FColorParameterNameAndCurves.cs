@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=496)]
+	[StructLayout(LayoutKind.Explicit,Size=464)]
 	public partial struct FColorParameterNameAndCurves
 	{
 		[FieldOffset(0)]
@@ -14,11 +14,11 @@ namespace UnrealEngine
 		public int Index;
 		[FieldOffset(16)]
 		public FRichCurve RedCurve;
-		[FieldOffset(136)]
+		[FieldOffset(128)]
 		public FRichCurve GreenCurve;
-		[FieldOffset(256)]
+		[FieldOffset(240)]
 		public FRichCurve BlueCurve;
-		[FieldOffset(376)]
+		[FieldOffset(352)]
 		public FRichCurve AlphaCurve;
 		
 	}

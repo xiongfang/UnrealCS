@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=12)]
+	[StructLayout(LayoutKind.Explicit,Size=16)]
 	public partial struct FSoundConcurrencySettings
 	{
 		[FieldOffset(0)]
@@ -16,9 +16,9 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 4, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(5)]
-		public EMaxConcurrentResolutionRule ResolutionRule;
 		[FieldOffset(8)]
+		public EMaxConcurrentResolutionRule ResolutionRule;
+		[FieldOffset(12)]
 		public float VolumeScale;
 		
 	}

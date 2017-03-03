@@ -110,29 +110,6 @@ public  void SetPlaneConstraintNormal(FVector PlaneNormal)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetPlaneConstraintAxisSetting(IntPtr _this);
-/// <summary>Get the plane constraint axis setting.</summary>
-public  EPlaneConstraintAxisSetting GetPlaneConstraintAxisSetting()
-{
-	CheckIsValid();
-	int ___ret = GetPlaneConstraintAxisSetting(_this.Get());
-	return (EPlaneConstraintAxisSetting)___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetPlaneConstraintAxisSetting(IntPtr _this,int NewAxisSetting);
-/// <summary>
-/// Set the plane constraint axis setting.
-/// Changing this setting will modify the current value of PlaneConstraintNormal.
-/// @param  NewAxisSetting New plane constraint axis setting.
-/// </summary>
-public  void SetPlaneConstraintAxisSetting(EPlaneConstraintAxisSetting NewAxisSetting)
-{
-	CheckIsValid();
-	SetPlaneConstraintAxisSetting(_this.Get(),(int)NewAxisSetting);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static int K2_MoveUpdatedComponent(IntPtr _this,ref FVector Delta,ref FRotator NewRotation,out FHitResult OutHit,int bSweep,int bTeleport);
 /// <summary>
 /// Moves our UpdatedComponent by the given Delta, and sets rotation to NewRotation.

@@ -5,26 +5,26 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=1088)]
+	[StructLayout(LayoutKind.Explicit,Size=1048)]
 	public partial struct FScrollBarStyle
 	{
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FSlateBrush HorizontalBackgroundImage;
-		[FieldOffset(128)]
+		[FieldOffset(120)]
 		public FSlateBrush VerticalBackgroundImage;
-		[FieldOffset(248)]
+		[FieldOffset(236)]
 		public FSlateBrush VerticalTopSlotImage;
-		[FieldOffset(368)]
+		[FieldOffset(352)]
 		public FSlateBrush HorizontalTopSlotImage;
-		[FieldOffset(488)]
+		[FieldOffset(468)]
 		public FSlateBrush VerticalBottomSlotImage;
-		[FieldOffset(608)]
+		[FieldOffset(584)]
 		public FSlateBrush HorizontalBottomSlotImage;
-		[FieldOffset(728)]
+		[FieldOffset(700)]
 		public FSlateBrush NormalThumbImage;
-		[FieldOffset(848)]
+		[FieldOffset(816)]
 		public FSlateBrush HoveredThumbImage;
-		[FieldOffset(968)]
+		[FieldOffset(932)]
 		public FSlateBrush DraggedThumbImage;
 		
 	}

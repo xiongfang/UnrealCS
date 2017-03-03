@@ -11,7 +11,6 @@ namespace UnrealEngine
 		public USubUVAnimation Animation
 		{
 			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + Animation__Offset); if (v == IntPtr.Zero)return null; USubUVAnimation retValue = new USubUVAnimation(); retValue._this = v; return retValue; }
-			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + Animation__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + Animation__Offset, value._this.Get()); }
 			
 		}
 		

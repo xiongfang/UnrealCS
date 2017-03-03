@@ -93,6 +93,23 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int StaticMeshImportVersion__Offset;
+		/// <summary>
+		/// * The import version of the static mesh when it was assign this is update when:
+		/// * - The user assign a new staticmesh to the component
+		/// * - The component is serialize (IsSaving)
+		/// * - Default value is BeforeImportStaticMeshVersionWasAdded
+		/// *
+		/// * If when the component get load (PostLoad) the version of the attach staticmesh is newer
+		/// * then this value, we will remap the material override because the order of the materials list
+		/// * in the staticmesh can be changed. Hopefully there is a remap table save in the staticmesh.
+		/// </summary>
+		public int StaticMeshImportVersion
+		{
+			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+StaticMeshImportVersion__Offset, typeof(int));}
+			
+		}
+		
 		static readonly int bOverrideNavigationExport__Offset;
 		/// <summary>If true, bForceNavigationObstacle flag will take priority over navigation data stored in StaticMesh</summary>
 		public bool bOverrideNavigationExport
@@ -141,11 +158,33 @@ namespace UnrealEngine
 		}
 		
 		static readonly int OverriddenLightMapRes__Offset;
-		/// <summary>Light map resolution to use on this component, used if bOverrideLightMapRes is true</summary>
+		/// <summary>Light map resolution to use on this component, used if bOverrideLightMapRes is true and there is a valid StaticMesh.</summary>
 		public int OverriddenLightMapRes
 		{
 			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+OverriddenLightMapRes__Offset, typeof(int));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OverriddenLightMapRes__Offset, false);}
+			
+		}
+		
+		static readonly int bCastDistanceFieldIndirectShadow__Offset;
+		/// <summary>
+		/// Whether to use the mesh distance field representation (when present) for shadowing indirect lighting (from lightmaps or skylight) on Movable components.
+		/// This works like capsule shadows on skeletal meshes, except using the mesh distance field so no physics asset is required.
+		/// The StaticMesh must have 'Generate Mesh Distance Field' enabled, or the project must have 'Generate Mesh Distance Fields' enabled for this feature to work.
+		/// </summary>
+		public bool bCastDistanceFieldIndirectShadow
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastDistanceFieldIndirectShadow__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastDistanceFieldIndirectShadow__Offset, 1,0,1,1);}
+			
+		}
+		
+		static readonly int DistanceFieldIndirectShadowMinVisibility__Offset;
+		/// <summary>Controls how dark the dynamic indirect shadow can be.</summary>
+		public float DistanceFieldIndirectShadowMinVisibility
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFieldIndirectShadowMinVisibility__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFieldIndirectShadowMinVisibility__Offset, false);}
 			
 		}
 		
@@ -217,6 +256,23 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int MaterialStreamingRelativeBoxes__Offset;
+		/// <summary>Material Bounds used for texture streaming.</summary>
+		public TStructArray<uint> MaterialStreamingRelativeBoxes
+		{
+			get{ CheckIsValid();return new TStructArray<uint>((FScriptArray)Marshal.PtrToStructure(_this.Get()+MaterialStreamingRelativeBoxes__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+MaterialStreamingRelativeBoxes__Offset, false);}
+			
+		}
+		
+		static readonly int bCustomOverrideVertexColorPerLOD__Offset;
+		/// <summary>The component has some custom painting on LODs or not.</summary>
+		public bool bCustomOverrideVertexColorPerLOD
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCustomOverrideVertexColorPerLOD__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static readonly int LightmassSettings__Offset;
 		/// <summary>The Lightmass settings for this object.</summary>
 		public FLightmassPrimitiveSettings LightmassSettings
@@ -238,12 +294,15 @@ namespace UnrealEngine
 			WireframeColorOverride__Offset=GetPropertyOffset(NativeClassPtr,"WireframeColorOverride");
 			SelectedEditorSection__Offset=GetPropertyOffset(NativeClassPtr,"SelectedEditorSection");
 			SectionIndexPreview__Offset=GetPropertyOffset(NativeClassPtr,"SectionIndexPreview");
+			StaticMeshImportVersion__Offset=GetPropertyOffset(NativeClassPtr,"StaticMeshImportVersion");
 			bOverrideNavigationExport__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideNavigationExport");
 			bForceNavigationObstacle__Offset=GetPropertyOffset(NativeClassPtr,"bForceNavigationObstacle");
 			bDisallowMeshPaintPerInstance__Offset=GetPropertyOffset(NativeClassPtr,"bDisallowMeshPaintPerInstance");
 			bIgnoreInstanceForTextureStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreInstanceForTextureStreaming");
 			bOverrideLightMapRes__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideLightMapRes");
 			OverriddenLightMapRes__Offset=GetPropertyOffset(NativeClassPtr,"OverriddenLightMapRes");
+			bCastDistanceFieldIndirectShadow__Offset=GetPropertyOffset(NativeClassPtr,"bCastDistanceFieldIndirectShadow");
+			DistanceFieldIndirectShadowMinVisibility__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFieldIndirectShadowMinVisibility");
 			StreamingDistanceMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"StreamingDistanceMultiplier");
 			SubDivisionStepSize__Offset=GetPropertyOffset(NativeClassPtr,"SubDivisionStepSize");
 			bUseSubDivisions__Offset=GetPropertyOffset(NativeClassPtr,"bUseSubDivisions");
@@ -252,6 +311,8 @@ namespace UnrealEngine
 			StreamingTextureData__Offset=GetPropertyOffset(NativeClassPtr,"StreamingTextureData");
 			bUseDefaultCollision__Offset=GetPropertyOffset(NativeClassPtr,"bUseDefaultCollision");
 			StaticMeshDerivedDataKey__Offset=GetPropertyOffset(NativeClassPtr,"StaticMeshDerivedDataKey");
+			MaterialStreamingRelativeBoxes__Offset=GetPropertyOffset(NativeClassPtr,"MaterialStreamingRelativeBoxes");
+			bCustomOverrideVertexColorPerLOD__Offset=GetPropertyOffset(NativeClassPtr,"bCustomOverrideVertexColorPerLOD");
 			LightmassSettings__Offset=GetPropertyOffset(NativeClassPtr,"LightmassSettings");
 			
 		}

@@ -9,14 +9,14 @@ namespace UnrealEngine
 	/// Cached camera POV info, stored as optimization so we only
 	/// need to do a full camera update once per tick.
 	/// </summary>
-	[StructLayout(LayoutKind.Explicit,Size=992)]
+	[StructLayout(LayoutKind.Explicit,Size=1312)]
 	public partial struct FCameraCacheEntry
 	{
 		/// <summary>World time this entry was created.</summary>
 		[FieldOffset(0)]
 		public float TimeStamp;
 		/// <summary>Camera POV to cache.</summary>
-		[FieldOffset(8)]
+		[FieldOffset(16)]
 		public FMinimalViewInfo POV;
 		
 	}

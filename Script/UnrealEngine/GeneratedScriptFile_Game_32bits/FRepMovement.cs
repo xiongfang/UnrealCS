@@ -28,12 +28,6 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 48, 1, 0, 2, 2); } }}
 			
 		}
-		[FieldOffset(49)]
-		public EVectorQuantization LocationQuantizationLevel;
-		[FieldOffset(50)]
-		public EVectorQuantization VelocityQuantizationLevel;
-		[FieldOffset(51)]
-		public ERotatorQuantization RotationQuantizationLevel;
 		
 	}
 	

@@ -10,6 +10,8 @@ namespace UnrealEngine
 	{
 		[FieldOffset(8)]
 		public FVector SampleValue;
+		[FieldOffset(20)]
+		public float RateScale;
 		
 	}
 	

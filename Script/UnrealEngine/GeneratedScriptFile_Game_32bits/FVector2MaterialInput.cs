@@ -5,18 +5,18 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=64)]
+	[StructLayout(LayoutKind.Explicit,Size=56)]
 	public partial struct FVector2MaterialInput
 	{
 		public bool UseConstant
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 48, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 48, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 44, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 44, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(52)]
+		[FieldOffset(48)]
 		public float ConstantX;
-		[FieldOffset(56)]
+		[FieldOffset(52)]
 		public float ConstantY;
 		[FieldOffset(0)]
 		public int OutputIndex;
@@ -32,7 +32,7 @@ namespace UnrealEngine
 		public int MaskB;
 		[FieldOffset(32)]
 		public int MaskA;
-		[FieldOffset(40)]
+		[FieldOffset(36)]
 		public FName ExpressionName;
 		
 	}

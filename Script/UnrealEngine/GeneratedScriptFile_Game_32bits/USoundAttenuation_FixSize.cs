@@ -8,9 +8,9 @@ namespace UnrealEngine
 	public partial class USoundAttenuation
 	{
 		static readonly int Attenuation__Offset;
-		public FAttenuationSettings Attenuation
+		public FSoundAttenuationSettings Attenuation
 		{
-			get{ CheckIsValid();return (FAttenuationSettings)Marshal.PtrToStructure(_this.Get()+Attenuation__Offset, typeof(FAttenuationSettings));}
+			get{ CheckIsValid();return (FSoundAttenuationSettings)Marshal.PtrToStructure(_this.Get()+Attenuation__Offset, typeof(FSoundAttenuationSettings));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Attenuation__Offset, false);}
 			
 		}

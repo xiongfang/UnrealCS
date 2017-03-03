@@ -111,7 +111,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int TireFrictionScale__Offset;
-		/// <summary>Overall tire friction scalar for every type of tire. This value is multiplied against our parents' values.</summary>
+		/// <summary>DEPRECATED - Overall tire friction scalar for every type of tire. This value is multiplied against our parents' values.</summary>
 		public float TireFrictionScale
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+TireFrictionScale__Offset, typeof(float));}
@@ -120,7 +120,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int TireFrictionScales__Offset;
-		/// <summary>Tire friction scales for specific types of tires. These values are multiplied against our parents' values.</summary>
+		/// <summary>DEPRECATED - Tire friction scales for specific types of tires. These values are multiplied against our parents' values.</summary>
 		public TStructArray<FTireFrictionScalePair> TireFrictionScales
 		{
 			get{ CheckIsValid();return new TStructArray<FTireFrictionScalePair>((FScriptArray)Marshal.PtrToStructure(_this.Get()+TireFrictionScales__Offset, typeof(FScriptArray)));}

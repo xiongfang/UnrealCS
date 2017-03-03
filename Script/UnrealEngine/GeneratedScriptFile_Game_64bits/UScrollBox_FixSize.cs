@@ -45,22 +45,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int ScrollBarVisibility__Offset;
-		public ESlateVisibility ScrollBarVisibility
-		{
-			get{ CheckIsValid();return (ESlateVisibility)Marshal.PtrToStructure(_this.Get()+ScrollBarVisibility__Offset, typeof(ESlateVisibility));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ScrollBarVisibility__Offset, false);}
-			
-		}
-		
-		static readonly int ConsumeMouseWheel__Offset;
-		public EConsumeMouseWheel ConsumeMouseWheel
-		{
-			get{ CheckIsValid();return (EConsumeMouseWheel)Marshal.PtrToStructure(_this.Get()+ConsumeMouseWheel__Offset, typeof(EConsumeMouseWheel));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ConsumeMouseWheel__Offset, false);}
-			
-		}
-		
 		static readonly int ScrollbarThickness__Offset;
 		public FVector2D ScrollbarThickness
 		{
@@ -85,8 +69,6 @@ namespace UnrealEngine
 			Style__Offset=GetPropertyOffset(NativeClassPtr,"Style");
 			BarStyle__Offset=GetPropertyOffset(NativeClassPtr,"BarStyle");
 			Orientation__Offset=GetPropertyOffset(NativeClassPtr,"Orientation");
-			ScrollBarVisibility__Offset=GetPropertyOffset(NativeClassPtr,"ScrollBarVisibility");
-			ConsumeMouseWheel__Offset=GetPropertyOffset(NativeClassPtr,"ConsumeMouseWheel");
 			ScrollbarThickness__Offset=GetPropertyOffset(NativeClassPtr,"ScrollbarThickness");
 			AlwaysShowScrollbar__Offset=GetPropertyOffset(NativeClassPtr,"AlwaysShowScrollbar");
 			

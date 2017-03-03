@@ -99,13 +99,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int EnabledState__Offset;
-		public ENodeEnabledState EnabledState
-		{
-			get{ CheckIsValid();return (ENodeEnabledState)Marshal.PtrToStructure(_this.Get()+EnabledState__Offset, typeof(ENodeEnabledState));}
-			
-		}
-		
 		static readonly int bUserSetEnabledState__Offset;
 		public bool bUserSetEnabledState
 		{
@@ -136,7 +129,6 @@ namespace UnrealEngine
 			ErrorMsg__Offset=GetPropertyOffset(NativeClassPtr,"ErrorMsg");
 			NodeGuid__Offset=GetPropertyOffset(NativeClassPtr,"NodeGuid");
 			AdvancedPinDisplay__Offset=GetPropertyOffset(NativeClassPtr,"AdvancedPinDisplay");
-			EnabledState__Offset=GetPropertyOffset(NativeClassPtr,"EnabledState");
 			bUserSetEnabledState__Offset=GetPropertyOffset(NativeClassPtr,"bUserSetEnabledState");
 			bIsNodeEnabled__Offset=GetPropertyOffset(NativeClassPtr,"bIsNodeEnabled");
 			

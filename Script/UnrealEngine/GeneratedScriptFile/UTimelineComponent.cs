@@ -5,6 +5,52 @@ namespace UnrealEngine{
 public partial class UTimelineComponent:UActorComponent 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetLinearColorCurve(IntPtr _this,IntPtr NewLinearColorCurve,string LinearColorTrackName);
+/// <summary>Update a certain linear color track's curve</summary>
+public  void SetLinearColorCurve(UCurveLinearColor NewLinearColorCurve,string LinearColorTrackName)
+{
+	CheckIsValid();
+	SetLinearColorCurve(_this.Get(),NewLinearColorCurve,LinearColorTrackName);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetVectorCurve(IntPtr _this,IntPtr NewVectorCurve,string VectorTrackName);
+/// <summary>Update a certain vector track's curve</summary>
+public  void SetVectorCurve(UCurveVector NewVectorCurve,string VectorTrackName)
+{
+	CheckIsValid();
+	SetVectorCurve(_this.Get(),NewVectorCurve,VectorTrackName);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetFloatCurve(IntPtr _this,IntPtr NewFloatCurve,string FloatTrackName);
+/// <summary>Update a certain float track's curve</summary>
+public  void SetFloatCurve(UCurveFloat NewFloatCurve,string FloatTrackName)
+{
+	CheckIsValid();
+	SetFloatCurve(_this.Get(),NewFloatCurve,FloatTrackName);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int GetIgnoreTimeDilation(IntPtr _this);
+/// <summary>Get whether to ignore time dilation.</summary>
+public  bool GetIgnoreTimeDilation()
+{
+	CheckIsValid();
+	int ___ret = GetIgnoreTimeDilation(_this.Get());
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetIgnoreTimeDilation(IntPtr _this,int bNewIgnoreTimeDilation);
+/// <summary>Set whether to ignore time dilation.</summary>
+public  void SetIgnoreTimeDilation(bool bNewIgnoreTimeDilation)
+{
+	CheckIsValid();
+	SetIgnoreTimeDilation(_this.Get(),bNewIgnoreTimeDilation?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetTimelineLengthMode(IntPtr _this,int NewLengthMode);
 /// <summary>Sets the length mode of the timeline</summary>
 public  void SetTimelineLengthMode(ETimelineLengthMode NewLengthMode)
@@ -72,7 +118,7 @@ public  bool IsLooping()
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetLooping(IntPtr _this,int bNewLooping);
-/// <summary>true means we whould loop, false means we should not.</summary>
+/// <summary>true means we would loop, false means we should not.</summary>
 public  void SetLooping(bool bNewLooping)
 {
 	CheckIsValid();

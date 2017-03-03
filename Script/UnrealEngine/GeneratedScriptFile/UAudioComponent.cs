@@ -5,8 +5,8 @@ namespace UnrealEngine{
 public partial class UAudioComponent:USceneComponent 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int BP_GetAttenuationSettingsToApply(IntPtr _this,out FAttenuationSettings OutAttenuationSettings);
-public  bool BP_GetAttenuationSettingsToApply(out FAttenuationSettings OutAttenuationSettings)
+extern static int BP_GetAttenuationSettingsToApply(IntPtr _this,out FSoundAttenuationSettings OutAttenuationSettings);
+public  bool BP_GetAttenuationSettingsToApply(out FSoundAttenuationSettings OutAttenuationSettings)
 {
 	CheckIsValid();
 	int ___ret = BP_GetAttenuationSettingsToApply(_this.Get(),out OutAttenuationSettings);
@@ -14,9 +14,9 @@ public  bool BP_GetAttenuationSettingsToApply(out FAttenuationSettings OutAttenu
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void AdjustAttenuation(IntPtr _this,ref FAttenuationSettings InAttenuationSettings);
+extern static void AdjustAttenuation(IntPtr _this,ref FSoundAttenuationSettings InAttenuationSettings);
 /// <summary>Modify the attenuation settings of the audio component</summary>
-public  void AdjustAttenuation(FAttenuationSettings InAttenuationSettings)
+public  void AdjustAttenuation(FSoundAttenuationSettings InAttenuationSettings)
 {
 	CheckIsValid();
 	AdjustAttenuation(_this.Get(),ref InAttenuationSettings);
@@ -102,6 +102,15 @@ public  bool IsPlaying()
 	CheckIsValid();
 	int ___ret = IsPlaying(_this.Get());
 	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetPaused(IntPtr _this,int bPause);
+/// <summary>Pause an audio component playing its sound cue, issue any delegates if needed</summary>
+public  void SetPaused(bool bPause)
+{
+	CheckIsValid();
+	SetPaused(_this.Get(),bPause?1:0);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

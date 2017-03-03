@@ -145,7 +145,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int CheatClass__Offset;
-		/// <summary>class of my CheatManager.</summary>
+		/// <summary>Class of my CheatManager.  The Cheat Manager is not created in shipping builds</summary>
 		public TSubclassOf<UCheatManager>  CheatClass
 		{
 			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + CheatClass__Offset); return v; }
@@ -195,7 +195,7 @@ namespace UnrealEngine
 		/// this is set on the OLD PlayerController when performing a swap over a network connection
 		/// so we know what connection we're waiting on acknowledgment from to finish destroying this PC
 		/// (or when the connection is closed)
-		/// @see GameMode::SwapPlayerControllers()
+		/// @see GameModeBase::SwapPlayerControllers()
 		/// </summary>
 		public UNetConnection PendingSwapConnection
 		{
@@ -388,7 +388,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int LastCompletedSeamlessTravelCount__Offset;
-		/// <summary>The value of SeamlessTravelCount, upon the last call to GameMode::HandleSeamlessTravelPlayer; used to detect seamless travel</summary>
+		/// <summary>The value of SeamlessTravelCount, upon the last call to GameModeBase::HandleSeamlessTravelPlayer; used to detect seamless travel</summary>
 		public ushort LastCompletedSeamlessTravelCount
 		{
 			get{ CheckIsValid();return (ushort)Marshal.PtrToStructure(_this.Get()+LastCompletedSeamlessTravelCount__Offset, typeof(ushort));}

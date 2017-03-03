@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=336)]
+	[StructLayout(LayoutKind.Explicit,Size=352)]
 	public partial struct FGPUSpriteResourceData
 	{
 		public TStructArray<FColor> QuantizedColorSamples
@@ -79,17 +79,31 @@ namespace UnrealEngine
 		[FieldOffset(300)]
 		public float CollisionTimeBias;
 		[FieldOffset(304)]
-		public float OneMinusFriction;
+		public float CollisionRandomSpread;
 		[FieldOffset(308)]
-		public float RotationRateScale;
+		public float CollisionRandomDistribution;
 		[FieldOffset(312)]
-		public float CameraMotionBlurAmount;
+		public float OneMinusFriction;
 		[FieldOffset(316)]
-		public EParticleScreenAlignment ScreenAlignment;
-		[FieldOffset(317)]
-		public EParticleAxisLock LockAxisFlag;
+		public float RotationRateScale;
 		[FieldOffset(320)]
+		public float CameraMotionBlurAmount;
+		[FieldOffset(324)]
+		public EParticleScreenAlignment ScreenAlignment;
+		[FieldOffset(325)]
+		public EParticleAxisLock LockAxisFlag;
+		[FieldOffset(328)]
 		public FVector2D PivotOffset;
+		public bool bRemoveHMDRoll
+		{
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 336, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 336, 1, 0, 1, 1); } }}
+			
+		}
+		[FieldOffset(340)]
+		public float MinFacingCameraBlendDistance;
+		[FieldOffset(344)]
+		public float MaxFacingCameraBlendDistance;
 		
 	}
 	

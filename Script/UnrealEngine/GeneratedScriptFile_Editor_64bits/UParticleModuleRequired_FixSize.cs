@@ -42,12 +42,31 @@ namespace UnrealEngine
 		/// PSA_Rectangle           - Non-uniform scale (via SizeX and SizeY) facing the camera
 		/// PSA_Velocity            - Orient the particle towards both the camera and the direction
 		///                                           the particle is moving. Non-uniform scaling is allowed.
-		/// PSA_TypeSpecific        - Use the alignment method indicated int he type data module.
+		/// PSA_TypeSpecific        - Use the alignment method indicated in the type data module.
+		/// PSA_FacingCameraDistanceBlend - Blends between PSA_FacingCameraPosition and PSA_Square over specified distance.
 		/// </summary>
 		public EParticleScreenAlignment ScreenAlignment
 		{
 			get{ CheckIsValid();return (EParticleScreenAlignment)Marshal.PtrToStructure(_this.Get()+ScreenAlignment__Offset, typeof(EParticleScreenAlignment));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ScreenAlignment__Offset, false);}
+			
+		}
+		
+		static readonly int MinFacingCameraBlendDistance__Offset;
+		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_Square</summary>
+		public float MinFacingCameraBlendDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+MinFacingCameraBlendDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MinFacingCameraBlendDistance__Offset, false);}
+			
+		}
+		
+		static readonly int MaxFacingCameraBlendDistance__Offset;
+		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_FacingCameraPosition</summary>
+		public float MaxFacingCameraBlendDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+MaxFacingCameraBlendDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MaxFacingCameraBlendDistance__Offset, false);}
 			
 		}
 		
@@ -109,6 +128,15 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseLegacyEmitterTime__Offset, 1, 0, 1, 1);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseLegacyEmitterTime__Offset, 1,0,1,1);}
+			
+		}
+		
+		static readonly int bRemoveHMDRoll__Offset;
+		/// <summary>If true, removes the HMD view roll (e.g. in VR)</summary>
+		public bool bRemoveHMDRoll
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRemoveHMDRoll__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRemoveHMDRoll__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -347,6 +375,48 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int CutoutTexture__Offset;
+		/// <summary>Texture to generate bounding geometry from.</summary>
+		public UTexture2D CutoutTexture
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + CutoutTexture__Offset); if (v == IntPtr.Zero)return null; UTexture2D retValue = new UTexture2D(); retValue._this = v; return retValue; }
+			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + CutoutTexture__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + CutoutTexture__Offset, value._this.Get()); }
+			
+		}
+		
+		static readonly int BoundingMode__Offset;
+		/// <summary>
+		/// More bounding vertices results in reduced overdraw, but adds more triangle overhead.
+		/// The eight vertex mode is best used when the SubUV texture has a lot of space to cut out that is not captured by the four vertex version,
+		/// and when the particles using the texture will be few and large.
+		/// </summary>
+		public ESubUVBoundingVertexCount BoundingMode
+		{
+			get{ CheckIsValid();return (ESubUVBoundingVertexCount)Marshal.PtrToStructure(_this.Get()+BoundingMode__Offset, typeof(ESubUVBoundingVertexCount));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+BoundingMode__Offset, false);}
+			
+		}
+		
+		static readonly int OpacitySourceMode__Offset;
+		public EOpacitySourceMode OpacitySourceMode
+		{
+			get{ CheckIsValid();return (EOpacitySourceMode)Marshal.PtrToStructure(_this.Get()+OpacitySourceMode__Offset, typeof(EOpacitySourceMode));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OpacitySourceMode__Offset, false);}
+			
+		}
+		
+		static readonly int AlphaThreshold__Offset;
+		/// <summary>
+		/// Alpha channel values larger than the threshold are considered occupied and will be contained in the bounding geometry.
+		/// Raising this threshold slightly can reduce overdraw in particles using this animation asset.
+		/// </summary>
+		public float AlphaThreshold
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+AlphaThreshold__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AlphaThreshold__Offset, false);}
+			
+		}
+		
 		static readonly int EmitterNormalsMode__Offset;
 		/// <summary>Normal generation mode for this emitter LOD.</summary>
 		public EEmitterNormalsMode EmitterNormalsMode
@@ -390,15 +460,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int UVFlippingMode__Offset;
-		/// <summary>Controls UV Flipping for this emitter.</summary>
-		public EParticleUVFlipMode UVFlippingMode
-		{
-			get{ CheckIsValid();return (EParticleUVFlipMode)Marshal.PtrToStructure(_this.Get()+UVFlippingMode__Offset, typeof(EParticleUVFlipMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+UVFlippingMode__Offset, false);}
-			
-		}
-		
 		static readonly int NamedMaterialOverrides__Offset;
 		/// <summary>
 		/// Named material overrides for this emitter.
@@ -418,11 +479,14 @@ namespace UnrealEngine
 			EmitterOrigin__Offset=GetPropertyOffset(NativeClassPtr,"EmitterOrigin");
 			EmitterRotation__Offset=GetPropertyOffset(NativeClassPtr,"EmitterRotation");
 			ScreenAlignment__Offset=GetPropertyOffset(NativeClassPtr,"ScreenAlignment");
+			MinFacingCameraBlendDistance__Offset=GetPropertyOffset(NativeClassPtr,"MinFacingCameraBlendDistance");
+			MaxFacingCameraBlendDistance__Offset=GetPropertyOffset(NativeClassPtr,"MaxFacingCameraBlendDistance");
 			bUseLocalSpace__Offset=GetPropertyOffset(NativeClassPtr,"bUseLocalSpace");
 			bKillOnDeactivate__Offset=GetPropertyOffset(NativeClassPtr,"bKillOnDeactivate");
 			bKillOnCompleted__Offset=GetPropertyOffset(NativeClassPtr,"bKillOnCompleted");
 			SortMode__Offset=GetPropertyOffset(NativeClassPtr,"SortMode");
 			bUseLegacyEmitterTime__Offset=GetPropertyOffset(NativeClassPtr,"bUseLegacyEmitterTime");
+			bRemoveHMDRoll__Offset=GetPropertyOffset(NativeClassPtr,"bRemoveHMDRoll");
 			EmitterDuration__Offset=GetPropertyOffset(NativeClassPtr,"EmitterDuration");
 			EmitterDurationLow__Offset=GetPropertyOffset(NativeClassPtr,"EmitterDurationLow");
 			bEmitterDurationUseRange__Offset=GetPropertyOffset(NativeClassPtr,"bEmitterDurationUseRange");
@@ -446,11 +510,14 @@ namespace UnrealEngine
 			MacroUVRadius__Offset=GetPropertyOffset(NativeClassPtr,"MacroUVRadius");
 			bUseMaxDrawCount__Offset=GetPropertyOffset(NativeClassPtr,"bUseMaxDrawCount");
 			MaxDrawCount__Offset=GetPropertyOffset(NativeClassPtr,"MaxDrawCount");
+			CutoutTexture__Offset=GetPropertyOffset(NativeClassPtr,"CutoutTexture");
+			BoundingMode__Offset=GetPropertyOffset(NativeClassPtr,"BoundingMode");
+			OpacitySourceMode__Offset=GetPropertyOffset(NativeClassPtr,"OpacitySourceMode");
+			AlphaThreshold__Offset=GetPropertyOffset(NativeClassPtr,"AlphaThreshold");
 			EmitterNormalsMode__Offset=GetPropertyOffset(NativeClassPtr,"EmitterNormalsMode");
 			NormalsSphereCenter__Offset=GetPropertyOffset(NativeClassPtr,"NormalsSphereCenter");
 			NormalsCylinderDirection__Offset=GetPropertyOffset(NativeClassPtr,"NormalsCylinderDirection");
 			bOrbitModuleAffectsVelocityAlignment__Offset=GetPropertyOffset(NativeClassPtr,"bOrbitModuleAffectsVelocityAlignment");
-			UVFlippingMode__Offset=GetPropertyOffset(NativeClassPtr,"UVFlippingMode");
 			NamedMaterialOverrides__Offset=GetPropertyOffset(NativeClassPtr,"NamedMaterialOverrides");
 			
 		}

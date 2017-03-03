@@ -23,11 +23,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int AutoLODPixelError__Offset;
-		/// <summary>The pixel error allowed when computing auto LOD distances.</summary>
-		public float AutoLODPixelError
+		static readonly int SectionInfoMap__Offset;
+		/// <summary>Map of LOD+Section index to per-section info.</summary>
+		public FMeshSectionInfoMap SectionInfoMap
 		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+AutoLODPixelError__Offset, typeof(float));}
+			get{ CheckIsValid();return (FMeshSectionInfoMap)Marshal.PtrToStructure(_this.Get()+SectionInfoMap__Offset, typeof(FMeshSectionInfoMap));}
 			
 		}
 		
@@ -40,10 +40,26 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bAutoComputeLODScreenSize__Offset;
-		/// <summary>If true, the distances at which LODs swap are computed automatically.</summary>
+		/// <summary>If true, the screen sizees at which LODs swap are computed automatically.</summary>
 		public bool bAutoComputeLODScreenSize
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAutoComputeLODScreenSize__Offset, 1, 0, 1, 1);}
+			
+		}
+		
+		static readonly int ImportVersion__Offset;
+		/// <summary>The last import version</summary>
+		public int ImportVersion
+		{
+			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+ImportVersion__Offset, typeof(int));}
+			
+		}
+		
+		static readonly int MaterialRemapIndexPerImportVersion__Offset;
+		public TStructArray<FMaterialRemapIndex> MaterialRemapIndexPerImportVersion
+		{
+			get{ CheckIsValid();return new TStructArray<FMaterialRemapIndex>((FScriptArray)Marshal.PtrToStructure(_this.Get()+MaterialRemapIndexPerImportVersion__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+MaterialRemapIndexPerImportVersion__Offset, false);}
 			
 		}
 		
@@ -64,6 +80,21 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int StaticMaterials__Offset;
+		public TStructArray<FStaticMaterial> StaticMaterials
+		{
+			get{ CheckIsValid();return new TStructArray<FStaticMaterial>((FScriptArray)Marshal.PtrToStructure(_this.Get()+StaticMaterials__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+StaticMaterials__Offset, false);}
+			
+		}
+		
+		static readonly int LightmapUVDensity__Offset;
+		public float LightmapUVDensity
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+LightmapUVDensity__Offset, typeof(float));}
+			
+		}
+		
 		static readonly int LightMapResolution__Offset;
 		/// <summary>The light map resolution</summary>
 		public int LightMapResolution
@@ -79,6 +110,18 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+LightMapCoordinateIndex__Offset, typeof(int));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LightMapCoordinateIndex__Offset, false);}
+			
+		}
+		
+		static readonly int bGenerateMeshDistanceField__Offset;
+		/// <summary>
+		/// Whether to generate a distance field for this mesh, which can be used by DistanceField Indirect Shadows.
+		/// This is ignored if the project's 'Generate Mesh Distance Fields' setting is enabled.
+		/// </summary>
+		public bool bGenerateMeshDistanceField
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGenerateMeshDistanceField__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGenerateMeshDistanceField__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -104,15 +147,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bUseMaximumStreamingTexelRatio__Offset;
-		/// <summary>If true, use a less-conservative method of mip LOD texture factor computation.  Requires mesh to be resaved to take effect as algorithm is applied on save</summary>
-		public bool bUseMaximumStreamingTexelRatio
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMaximumStreamingTexelRatio__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseMaximumStreamingTexelRatio__Offset, 1,0,1,1);}
-			
-		}
-		
 		static readonly int bStripComplexCollisionForConsole__Offset;
 		/// <summary>
 		/// If true, strips unwanted complex collision data aka kDOP tree when cooking for consoles.
@@ -120,7 +154,7 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bStripComplexCollisionForConsole
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStripComplexCollisionForConsole__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStripComplexCollisionForConsole__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -131,21 +165,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bHasNavigationData
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasNavigationData__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bHasNavigationData__Offset, 1,0,4,4);}
-			
-		}
-		
-		static readonly int StreamingDistanceMultiplier__Offset;
-		/// <summary>
-		/// Allows artists to adjust the distance where textures using UV 0 are streamed in/out.
-		/// 1.0 is the default, whereas a higher value increases the streamed-in resolution.
-		/// Value can be < 0 (from legcay content, or code changes)
-		/// </summary>
-		public float StreamingDistanceMultiplier
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+StreamingDistanceMultiplier__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+StreamingDistanceMultiplier__Offset, false);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasNavigationData__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bHasNavigationData__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -292,19 +313,22 @@ namespace UnrealEngine
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("StaticMesh");
 			SourceModels__Offset=GetPropertyOffset(NativeClassPtr,"SourceModels");
-			AutoLODPixelError__Offset=GetPropertyOffset(NativeClassPtr,"AutoLODPixelError");
+			SectionInfoMap__Offset=GetPropertyOffset(NativeClassPtr,"SectionInfoMap");
 			LODGroup__Offset=GetPropertyOffset(NativeClassPtr,"LODGroup");
 			bAutoComputeLODScreenSize__Offset=GetPropertyOffset(NativeClassPtr,"bAutoComputeLODScreenSize");
+			ImportVersion__Offset=GetPropertyOffset(NativeClassPtr,"ImportVersion");
+			MaterialRemapIndexPerImportVersion__Offset=GetPropertyOffset(NativeClassPtr,"MaterialRemapIndexPerImportVersion");
 			MinLOD__Offset=GetPropertyOffset(NativeClassPtr,"MinLOD");
 			Materials__Offset=GetPropertyOffset(NativeClassPtr,"Materials");
+			StaticMaterials__Offset=GetPropertyOffset(NativeClassPtr,"StaticMaterials");
+			LightmapUVDensity__Offset=GetPropertyOffset(NativeClassPtr,"LightmapUVDensity");
 			LightMapResolution__Offset=GetPropertyOffset(NativeClassPtr,"LightMapResolution");
 			LightMapCoordinateIndex__Offset=GetPropertyOffset(NativeClassPtr,"LightMapCoordinateIndex");
+			bGenerateMeshDistanceField__Offset=GetPropertyOffset(NativeClassPtr,"bGenerateMeshDistanceField");
 			BodySetup__Offset=GetPropertyOffset(NativeClassPtr,"BodySetup");
 			LODForCollision__Offset=GetPropertyOffset(NativeClassPtr,"LODForCollision");
-			bUseMaximumStreamingTexelRatio__Offset=GetPropertyOffset(NativeClassPtr,"bUseMaximumStreamingTexelRatio");
 			bStripComplexCollisionForConsole__Offset=GetPropertyOffset(NativeClassPtr,"bStripComplexCollisionForConsole");
 			bHasNavigationData__Offset=GetPropertyOffset(NativeClassPtr,"bHasNavigationData");
-			StreamingDistanceMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"StreamingDistanceMultiplier");
 			LpvBiasMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"LpvBiasMultiplier");
 			bAllowCPUAccess__Offset=GetPropertyOffset(NativeClassPtr,"bAllowCPUAccess");
 			AssetImportData__Offset=GetPropertyOffset(NativeClassPtr,"AssetImportData");

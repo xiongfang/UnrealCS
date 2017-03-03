@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Structure representing an animated scalar parameter and it's associated animation curve.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=136)]
+	[StructLayout(LayoutKind.Explicit,Size=128)]
 	public partial struct FScalarParameterNameAndCurve
 	{
 		/// <summary>The name of the scalar parameter which is being animated.</summary>

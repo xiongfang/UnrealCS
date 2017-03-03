@@ -65,20 +65,34 @@ namespace UnrealEngine
 		}
 		
 		static readonly int DistanceFromPlaneFadeStart__Offset;
-		/// <summary>Receiving pixels at this distance from the reflection plane will begin to fade out the planar reflection.</summary>
 		public float DistanceFromPlaneFadeStart
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeStart__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeStart__Offset, false);}
 			
 		}
 		
 		static readonly int DistanceFromPlaneFadeEnd__Offset;
-		/// <summary>Receiving pixels at this distance from the reflection plane will have completely faded out the planar reflection.</summary>
 		public float DistanceFromPlaneFadeEnd
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeEnd__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeEnd__Offset, false);}
+			
+		}
+		
+		static readonly int DistanceFromPlaneFadeoutStart__Offset;
+		/// <summary>Receiving pixels at this distance from the reflection plane will begin to fade out the planar reflection.</summary>
+		public float DistanceFromPlaneFadeoutStart
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeoutStart__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeoutStart__Offset, false);}
+			
+		}
+		
+		static readonly int DistanceFromPlaneFadeoutEnd__Offset;
+		/// <summary>Receiving pixels at this distance from the reflection plane will have completely faded out the planar reflection.</summary>
+		public float DistanceFromPlaneFadeoutEnd
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFromPlaneFadeoutEnd__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFromPlaneFadeoutEnd__Offset, false);}
 			
 		}
 		
@@ -124,6 +138,8 @@ namespace UnrealEngine
 			ExtraFOV__Offset=GetPropertyOffset(NativeClassPtr,"ExtraFOV");
 			DistanceFromPlaneFadeStart__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeStart");
 			DistanceFromPlaneFadeEnd__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeEnd");
+			DistanceFromPlaneFadeoutStart__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeoutStart");
+			DistanceFromPlaneFadeoutEnd__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFromPlaneFadeoutEnd");
 			AngleFromPlaneFadeStart__Offset=GetPropertyOffset(NativeClassPtr,"AngleFromPlaneFadeStart");
 			AngleFromPlaneFadeEnd__Offset=GetPropertyOffset(NativeClassPtr,"AngleFromPlaneFadeEnd");
 			bRenderSceneTwoSided__Offset=GetPropertyOffset(NativeClassPtr,"bRenderSceneTwoSided");

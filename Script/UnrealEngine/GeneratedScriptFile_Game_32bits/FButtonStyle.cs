@@ -5,28 +5,28 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=584)]
+	[StructLayout(LayoutKind.Explicit,Size=556)]
 	public partial struct FButtonStyle
 	{
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FSlateBrush Normal;
-		[FieldOffset(128)]
+		[FieldOffset(120)]
 		public FSlateBrush Hovered;
-		[FieldOffset(248)]
+		[FieldOffset(236)]
 		public FSlateBrush Pressed;
-		[FieldOffset(368)]
+		[FieldOffset(352)]
 		public FSlateBrush Disabled;
-		[FieldOffset(488)]
+		[FieldOffset(468)]
 		public FMargin NormalPadding;
-		[FieldOffset(504)]
+		[FieldOffset(484)]
 		public FMargin PressedPadding;
-		[FieldOffset(520)]
+		[FieldOffset(500)]
 		public FSlateSound PressedSlateSound;
-		[FieldOffset(544)]
+		[FieldOffset(520)]
 		public FSlateSound HoveredSlateSound;
-		[FieldOffset(568)]
+		[FieldOffset(540)]
 		public FName PressedSound;
-		[FieldOffset(576)]
+		[FieldOffset(548)]
 		public FName HoveredSound;
 		
 	}

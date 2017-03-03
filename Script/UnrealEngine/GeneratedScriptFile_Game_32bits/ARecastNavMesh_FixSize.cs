@@ -378,17 +378,24 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bStoreEmptyTileLayers__Offset;
+		public bool bStoreEmptyTileLayers
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStoreEmptyTileLayers__Offset, 1, 0, 32, 32);}
+			
+		}
+		
 		static readonly int bUseVirtualFilters__Offset;
 		public bool bUseVirtualFilters
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVirtualFilters__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVirtualFilters__Offset, 1, 0, 64, 64);}
 			
 		}
 		
 		static readonly int bUseVoxelCache__Offset;
 		public bool bUseVoxelCache
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVoxelCache__Offset, 1, 0, 64, 64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseVoxelCache__Offset, 1, 0, 128, 128);}
 			
 		}
 		
@@ -465,6 +472,7 @@ namespace UnrealEngine
 			bMarkLowHeightAreas__Offset=GetPropertyOffset(NativeClassPtr,"bMarkLowHeightAreas");
 			bDoFullyAsyncNavDataGathering__Offset=GetPropertyOffset(NativeClassPtr,"bDoFullyAsyncNavDataGathering");
 			bUseBetterOffsetsFromCorners__Offset=GetPropertyOffset(NativeClassPtr,"bUseBetterOffsetsFromCorners");
+			bStoreEmptyTileLayers__Offset=GetPropertyOffset(NativeClassPtr,"bStoreEmptyTileLayers");
 			bUseVirtualFilters__Offset=GetPropertyOffset(NativeClassPtr,"bUseVirtualFilters");
 			bUseVoxelCache__Offset=GetPropertyOffset(NativeClassPtr,"bUseVoxelCache");
 			TileSetUpdateInterval__Offset=GetPropertyOffset(NativeClassPtr,"TileSetUpdateInterval");

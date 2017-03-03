@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=1272)]
+	[StructLayout(LayoutKind.Explicit,Size=1200)]
 	public partial struct FTransformCurve
 	{
 		/// <summary>Curve data for each transform.</summary>
@@ -16,9 +16,9 @@ namespace UnrealEngine
 		/// If you hit gimbal lock, you should add extra key to fix it. This will cause gimbal lock.
 		/// @TODO: Eventually we'll need FRotationCurve that would contain rotation curve - that will interpolate as slerp or as quaternion
 		/// </summary>
-		[FieldOffset(456)]
+		[FieldOffset(432)]
 		public FVectorCurve RotationCurve;
-		[FieldOffset(864)]
+		[FieldOffset(816)]
 		public FVectorCurve ScaleCurve;
 		/// <summary>
 		/// Last observed name of the curve. We store this so we can recover from situations that

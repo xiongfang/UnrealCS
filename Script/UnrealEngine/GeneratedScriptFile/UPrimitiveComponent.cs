@@ -70,6 +70,16 @@ public  void SetCollisionResponseToChannel(ECollisionChannel Channel,ECollisionR
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsAnyRigidBodyAwake(IntPtr _this);
+/// <summary>Returns if any body in this component is currently awake and simulating.</summary>
+public  bool IsAnyRigidBodyAwake()
+{
+	CheckIsValid();
+	int ___ret = IsAnyRigidBodyAwake(_this.Get());
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static FVector ScaleByMomentOfInertia(IntPtr _this,ref FVector InputVector,string BoneName);
 /// <summary>Scales the given vector by the world space moment of inertia. Useful for computing the torque needed to rotate an object.</summary>
 public  FVector ScaleByMomentOfInertia(FVector InputVector,string BoneName="None")
@@ -295,6 +305,15 @@ public  int GetNumMaterials()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetRenderInMono(IntPtr _this,int bValue);
+/// <summary>Sets bRenderInMono property and marks the render state dirty.</summary>
+public  void SetRenderInMono(bool bValue)
+{
+	CheckIsValid();
+	SetRenderInMono(_this.Get(),bValue?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetRenderInMainPass(IntPtr _this,int bValue);
 /// <summary>Sets bRenderInMainPass property and marks the render state dirty.</summary>
 public  void SetRenderInMainPass(bool bValue)
@@ -322,12 +341,12 @@ public  void SetRenderCustomDepth(bool bValue)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int K2_LineTraceComponent(IntPtr _this,ref FVector TraceStart,ref FVector TraceEnd,int bTraceComplex,int bShowTrace,out FVector HitLocation,out FVector HitNormal,out string BoneName);
+extern static int K2_LineTraceComponent(IntPtr _this,ref FVector TraceStart,ref FVector TraceEnd,int bTraceComplex,int bShowTrace,out FVector HitLocation,out FVector HitNormal,out string BoneName,out FHitResult OutHit);
 /// <summary>Perform a line trace against a single component</summary>
-public  bool K2_LineTraceComponent(FVector TraceStart,FVector TraceEnd,bool bTraceComplex,bool bShowTrace,out FVector HitLocation,out FVector HitNormal,out string BoneName)
+public  bool K2_LineTraceComponent(FVector TraceStart,FVector TraceEnd,bool bTraceComplex,bool bShowTrace,out FVector HitLocation,out FVector HitNormal,out string BoneName,out FHitResult OutHit)
 {
 	CheckIsValid();
-	int ___ret = K2_LineTraceComponent(_this.Get(),ref TraceStart,ref TraceEnd,bTraceComplex?1:0,bShowTrace?1:0,out HitLocation,out HitNormal,out BoneName);
+	int ___ret = K2_LineTraceComponent(_this.Get(),ref TraceStart,ref TraceEnd,bTraceComplex?1:0,bShowTrace?1:0,out HitLocation,out HitNormal,out BoneName,out OutHit);
 	return ___ret!=0;
 	
 }
@@ -748,6 +767,19 @@ public  UMaterialInstanceDynamic CreateDynamicMaterialInstance(int ElementIndex,
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetMaterialByName(IntPtr _this,string MaterialSlotName,IntPtr Material);
+/// <summary>
+/// Changes the material applied to an element of the mesh.
+/// @param MaterialSlotName - The slot name to access the material of.
+/// @return the material used by the indexed element of this mesh.
+/// </summary>
+public  void SetMaterialByName(string MaterialSlotName,UMaterialInterface Material)
+{
+	CheckIsValid();
+	SetMaterialByName(_this.Get(),MaterialSlotName,Material);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetMaterial(IntPtr _this,int ElementIndex,IntPtr Material);
 /// <summary>
 /// Changes the material applied to an element of the mesh.
@@ -845,6 +877,38 @@ public  bool IsOverlappingComponent(UPrimitiveComponent OtherComp)
 	CheckIsValid();
 	int ___ret = IsOverlappingComponent(_this.Get(),OtherComp);
 	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void ClearMoveIgnoreComponents(IntPtr _this);
+/// <summary>Clear the list of components we ignore when moving.</summary>
+public  void ClearMoveIgnoreComponents()
+{
+	CheckIsValid();
+	ClearMoveIgnoreComponents(_this.Get());
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static IntPtr[] CopyArrayOfMoveIgnoreComponents(IntPtr _this);
+/// <summary>Returns the list of actors we currently ignore when moving.</summary>
+public  UPrimitiveComponent[] CopyArrayOfMoveIgnoreComponents()
+{
+	CheckIsValid();
+	IntPtr[] ___ret = CopyArrayOfMoveIgnoreComponents(_this.Get());
+	return MarshalUtil.IntPtrArrayToObjectArray<UPrimitiveComponent>(___ret);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void IgnoreComponentWhenMoving(IntPtr _this,IntPtr Component,int bShouldIgnore);
+/// <summary>
+/// Tells this component whether to ignore collision with another component when this component is moved.
+/// The other components may also need to be told to do the same when they move.
+/// Does not affect movement of this component when simulating physics.
+/// </summary>
+public  void IgnoreComponentWhenMoving(UPrimitiveComponent Component,bool bShouldIgnore)
+{
+	CheckIsValid();
+	IgnoreComponentWhenMoving(_this.Get(),Component,bShouldIgnore?1:0);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

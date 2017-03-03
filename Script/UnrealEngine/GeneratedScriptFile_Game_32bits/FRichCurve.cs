@@ -12,14 +12,14 @@ namespace UnrealEngine
 		public ERichCurveExtrapolation PreInfinityExtrap;
 		[FieldOffset(65)]
 		public ERichCurveExtrapolation PostInfinityExtrap;
+		[FieldOffset(68)]
+		public float DefaultValue;
 		public TStructArray<FRichCurveKey> Keys
 		{
-						get{ unsafe { fixed (void* p = &this) { return new TStructArray<FRichCurveKey>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+68, typeof(FScriptArray)));}}}
-						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+68, false);}}}
+						get{ unsafe { fixed (void* p = &this) { return new TStructArray<FRichCurveKey>((FScriptArray)Marshal.PtrToStructure(new IntPtr(p)+72, typeof(FScriptArray)));}}}
+						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+72, false);}}}
 			
 		}
-		[FieldOffset(80)]
-		public float DefaultValue;
 		[FieldOffset(4)]
 		public FKeyHandleMap KeyHandlesToIndices;
 		

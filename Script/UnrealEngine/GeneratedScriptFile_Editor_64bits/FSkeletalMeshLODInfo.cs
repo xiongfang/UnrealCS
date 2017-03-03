@@ -6,10 +6,14 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Struct containing information for a particular LOD level, such as materials and info for when to use it.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=144)]
+	[StructLayout(LayoutKind.Explicit,Size=160)]
 	public partial struct FSkeletalMeshLODInfo
 	{
-		/// <summary>Indicates when to use this LOD. A smaller number means use this LOD when further away.</summary>
+		/// <summary>
+		/// ScreenSize to display this LOD.
+		/// The screen size is based around the projected diameter of the bounding
+		/// sphere of the model. i.e. 0.5 means half the screen's maximum dimension.
+		/// </summary>
 		[FieldOffset(0)]
 		public float ScreenSize;
 		/// <summary>Used to avoid 'flickering' when on LOD boundary. Only taken into account when moving from complex->simple.</summary>
@@ -52,6 +56,9 @@ namespace UnrealEngine
 						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+128, false);}}}
 			
 		}
+		/// <summary>The filename of the file tha was used to import this LOD if it was not auto generated.</summary>
+		[FieldOffset(144)]
+		public FString SourceImportFilename;
 		
 	}
 	

@@ -547,48 +547,6 @@ public  void SetControllerLightColor(FColor Color)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetHapticsByValue(IntPtr _this,float Frequency,float Amplitude,int Hand);
-/// <summary>
-/// Sets the value of the haptics for the specified hand directly, using frequency and amplitude.  NOTE:  If a curve is already
-/// playing for this hand, it will be cancelled in favour of the specified values.
-/// @param        Frequency                               The normalized frequency [0.0, 1.0] to play through the haptics system
-/// @param        Amplitude                               The normalized amplitude [0.0, 1.0] to set the haptic feedback to
-/// @param        Hand                                    Which hand to play the effect on
-/// </summary>
-public  void SetHapticsByValue(float Frequency,float Amplitude,EControllerHand Hand)
-{
-	CheckIsValid();
-	SetHapticsByValue(_this.Get(),Frequency,Amplitude,(int)Hand);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void StopHapticEffect(IntPtr _this,int Hand);
-/// <summary>
-/// Stops a playing haptic feedback curve
-/// @param        HapticEffect                    The haptic effect to stop
-/// @param        Hand                                    Which hand to stop the effect for
-/// </summary>
-public  void StopHapticEffect(EControllerHand Hand)
-{
-	CheckIsValid();
-	StopHapticEffect(_this.Get(),(int)Hand);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void PlayHapticEffect(IntPtr _this,IntPtr HapticEffect,int Hand,float Scale,int bLoop);
-/// <summary>
-/// Play a haptic feedback curve on the player's controller
-/// @param        HapticEffect                    The haptic effect to play
-/// @param        Hand                                    Which hand to play the effect on
-/// @param        Scale                                   Scale between 0.0 and 1.0 on the intensity of playback
-/// </summary>
-public  void PlayHapticEffect(UHapticFeedbackEffect_Base HapticEffect,EControllerHand Hand,float Scale=1.000000f,bool bLoop=false)
-{
-	CheckIsValid();
-	PlayHapticEffect(_this.Get(),HapticEffect,(int)Hand,Scale,bLoop?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void PlayDynamicForceFeedback(IntPtr _this,float Intensity,float Duration,int bAffectsLeftLarge,int bAffectsLeftSmall,int bAffectsRightLarge,int bAffectsRightSmall,int Action,ref FLatentActionInfo LatentInfo);
 /// <summary>
 /// Latent action that controls the playing of force feedback
@@ -1118,15 +1076,24 @@ public  void StartFire(byte FireModeNum=0)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int ProjectWorldLocationToScreen(IntPtr _this,ref FVector WorldLocation,out FVector2D ScreenLocation);
+extern static void SetMouseLocation(IntPtr _this,int X,int Y);
+/// <summary>Positions the mouse cursor in screen space, in pixels.</summary>
+public  void SetMouseLocation(int X,int Y)
+{
+	CheckIsValid();
+	SetMouseLocation(_this.Get(),X,Y);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int ProjectWorldLocationToScreen(IntPtr _this,ref FVector WorldLocation,out FVector2D ScreenLocation,int bPlayerViewportRelative);
 /// <summary>
 /// Convert a World Space 3D position into a 2D Screen Space position.
 /// @return true if the world coordinate was successfully projected to the screen.
 /// </summary>
-public  bool ProjectWorldLocationToScreen(FVector WorldLocation,out FVector2D ScreenLocation)
+public  bool ProjectWorldLocationToScreen(FVector WorldLocation,out FVector2D ScreenLocation,bool bPlayerViewportRelative=false)
 {
 	CheckIsValid();
-	int ___ret = ProjectWorldLocationToScreen(_this.Get(),ref WorldLocation,out ScreenLocation);
+	int ___ret = ProjectWorldLocationToScreen(_this.Get(),ref WorldLocation,out ScreenLocation,bPlayerViewportRelative?1:0);
 	return ___ret!=0;
 	
 }

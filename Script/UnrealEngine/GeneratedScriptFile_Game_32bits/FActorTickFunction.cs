@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=56)]
+	[StructLayout(LayoutKind.Explicit,Size=60)]
 	public partial struct FActorTickFunction
 	{
 		[FieldOffset(4)]
@@ -36,7 +36,7 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 8, 1, 0, 8, 8); } }}
 			
 		}
-		[FieldOffset(44)]
+		[FieldOffset(48)]
 		public float TickInterval;
 		
 	}

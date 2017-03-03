@@ -5,31 +5,12 @@ namespace UnrealEngine{
 public partial class UCheckBox:UContentWidget 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetCheckedState(IntPtr _this,int InCheckedState);
-/// <summary>Sets the checked state.</summary>
-public  void SetCheckedState(ECheckBoxState InCheckedState)
-{
-	CheckIsValid();
-	SetCheckedState(_this.Get(),(int)InCheckedState);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetIsChecked(IntPtr _this,int InIsChecked);
 /// <summary>Sets the checked state.</summary>
 public  void SetIsChecked(bool InIsChecked)
 {
 	CheckIsValid();
 	SetIsChecked(_this.Get(),InIsChecked?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetCheckedState(IntPtr _this);
-/// <summary>@return the full current checked state.</summary>
-public  ECheckBoxState GetCheckedState()
-{
-	CheckIsValid();
-	int ___ret = GetCheckedState(_this.Get());
-	return (ECheckBoxState)___ret;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

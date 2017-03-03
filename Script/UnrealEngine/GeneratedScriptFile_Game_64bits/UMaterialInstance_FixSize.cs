@@ -38,13 +38,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int ParentLightingGuid__Offset;
-		public FGuid ParentLightingGuid
-		{
-			get{ CheckIsValid();return (FGuid)Marshal.PtrToStructure(_this.Get()+ParentLightingGuid__Offset, typeof(FGuid));}
-			
-		}
-		
 		static readonly int FontParameterValues__Offset;
 		public TStructArray<FFontParameterValue> FontParameterValues
 		{
@@ -99,7 +92,6 @@ namespace UnrealEngine
 			Parent__Offset=GetPropertyOffset(NativeClassPtr,"Parent");
 			bHasStaticPermutationResource__Offset=GetPropertyOffset(NativeClassPtr,"bHasStaticPermutationResource");
 			bOverrideSubsurfaceProfile__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideSubsurfaceProfile");
-			ParentLightingGuid__Offset=GetPropertyOffset(NativeClassPtr,"ParentLightingGuid");
 			FontParameterValues__Offset=GetPropertyOffset(NativeClassPtr,"FontParameterValues");
 			ScalarParameterValues__Offset=GetPropertyOffset(NativeClassPtr,"ScalarParameterValues");
 			TextureParameterValues__Offset=GetPropertyOffset(NativeClassPtr,"TextureParameterValues");

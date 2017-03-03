@@ -31,14 +31,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int Pivot__Offset;
-		public EDragPivot Pivot
-		{
-			get{ CheckIsValid();return (EDragPivot)Marshal.PtrToStructure(_this.Get()+Pivot__Offset, typeof(EDragPivot));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Pivot__Offset, false);}
-			
-		}
-		
 		static readonly int Offset__Offset;
 		public FVector2D Offset
 		{
@@ -77,7 +69,6 @@ namespace UnrealEngine
 			Tag__Offset=GetPropertyOffset(NativeClassPtr,"Tag");
 			Payload__Offset=GetPropertyOffset(NativeClassPtr,"Payload");
 			DefaultDragVisual__Offset=GetPropertyOffset(NativeClassPtr,"DefaultDragVisual");
-			Pivot__Offset=GetPropertyOffset(NativeClassPtr,"Pivot");
 			Offset__Offset=GetPropertyOffset(NativeClassPtr,"Offset");
 			OnDrop__Offset=GetPropertyOffset(NativeClassPtr,"OnDrop");
 			OnDragCancelled__Offset=GetPropertyOffset(NativeClassPtr,"OnDragCancelled");

@@ -80,14 +80,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int RequiredSignificance__Offset;
-		/// <summary>The significance this component requires of it's emitters for them to be enabled.</summary>
-		public EParticleSignificanceLevel RequiredSignificance
-		{
-			get{ CheckIsValid();return (EParticleSignificanceLevel)Marshal.PtrToStructure(_this.Get()+RequiredSignificance__Offset, typeof(EParticleSignificanceLevel));}
-			
-		}
-		
 		static readonly int InstanceParameters__Offset;
 		/// <summary>
 		/// Array holding name instance parameters for this ParticleSystemComponent.
@@ -285,42 +277,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int AutoAttachLocationRule__Offset;
-		/// <summary>
-		/// Options for how we handle our location when we attach to the AutoAttachParent, if bAutoManageAttachment is true.
-		/// @see bAutoManageAttachment, EAttachmentRule
-		/// </summary>
-		public EAttachmentRule AutoAttachLocationRule
-		{
-			get{ CheckIsValid();return (EAttachmentRule)Marshal.PtrToStructure(_this.Get()+AutoAttachLocationRule__Offset, typeof(EAttachmentRule));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AutoAttachLocationRule__Offset, false);}
-			
-		}
-		
-		static readonly int AutoAttachRotationRule__Offset;
-		/// <summary>
-		/// Options for how we handle our rotation when we attach to the AutoAttachParent, if bAutoManageAttachment is true.
-		/// @see bAutoManageAttachment, EAttachmentRule
-		/// </summary>
-		public EAttachmentRule AutoAttachRotationRule
-		{
-			get{ CheckIsValid();return (EAttachmentRule)Marshal.PtrToStructure(_this.Get()+AutoAttachRotationRule__Offset, typeof(EAttachmentRule));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AutoAttachRotationRule__Offset, false);}
-			
-		}
-		
-		static readonly int AutoAttachScaleRule__Offset;
-		/// <summary>
-		/// Options for how we handle our scale when we attach to the AutoAttachParent, if bAutoManageAttachment is true.
-		/// @see bAutoManageAttachment, EAttachmentRule
-		/// </summary>
-		public EAttachmentRule AutoAttachScaleRule
-		{
-			get{ CheckIsValid();return (EAttachmentRule)Marshal.PtrToStructure(_this.Get()+AutoAttachScaleRule__Offset, typeof(EAttachmentRule));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AutoAttachScaleRule__Offset, false);}
-			
-		}
-		
 		static UParticleSystemComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("ParticleSystemComponent");
@@ -331,7 +287,6 @@ namespace UnrealEngine
 			bUpdateOnDedicatedServer__Offset=GetPropertyOffset(NativeClassPtr,"bUpdateOnDedicatedServer");
 			bAllowRecycling__Offset=GetPropertyOffset(NativeClassPtr,"bAllowRecycling");
 			bAutoManageAttachment__Offset=GetPropertyOffset(NativeClassPtr,"bAutoManageAttachment");
-			RequiredSignificance__Offset=GetPropertyOffset(NativeClassPtr,"RequiredSignificance");
 			InstanceParameters__Offset=GetPropertyOffset(NativeClassPtr,"InstanceParameters");
 			OnParticleSpawn__Offset=GetPropertyOffset(NativeClassPtr,"OnParticleSpawn");
 			OnParticleBurst__Offset=GetPropertyOffset(NativeClassPtr,"OnParticleBurst");
@@ -354,9 +309,6 @@ namespace UnrealEngine
 			OnSystemFinished__Offset=GetPropertyOffset(NativeClassPtr,"OnSystemFinished");
 			AutoAttachSocketName__Offset=GetPropertyOffset(NativeClassPtr,"AutoAttachSocketName");
 			AutoAttachLocationType__Offset=GetPropertyOffset(NativeClassPtr,"AutoAttachLocationType");
-			AutoAttachLocationRule__Offset=GetPropertyOffset(NativeClassPtr,"AutoAttachLocationRule");
-			AutoAttachRotationRule__Offset=GetPropertyOffset(NativeClassPtr,"AutoAttachRotationRule");
-			AutoAttachScaleRule__Offset=GetPropertyOffset(NativeClassPtr,"AutoAttachScaleRule");
 			
 		}
 		

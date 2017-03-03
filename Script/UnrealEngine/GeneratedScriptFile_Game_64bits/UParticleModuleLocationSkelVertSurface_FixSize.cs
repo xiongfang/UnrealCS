@@ -47,6 +47,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int InheritVelocityScale__Offset;
+		public float InheritVelocityScale
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+InheritVelocityScale__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InheritVelocityScale__Offset, false);}
+			
+		}
+		
 		static readonly int SkelMeshActorParamName__Offset;
 		public FName SkelMeshActorParamName
 		{
@@ -110,6 +118,22 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bInheritUV__Offset;
+		public bool bInheritUV
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bInheritUV__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bInheritUV__Offset, 1,0,2,2);}
+			
+		}
+		
+		static readonly int InheritUVChannel__Offset;
+		public uint InheritUVChannel
+		{
+			get{ CheckIsValid();return (uint)Marshal.PtrToStructure(_this.Get()+InheritUVChannel__Offset, typeof(uint));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InheritUVChannel__Offset, false);}
+			
+		}
+		
 		static UParticleModuleLocationSkelVertSurface()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("ParticleModuleLocationSkelVertSurface");
@@ -118,6 +142,7 @@ namespace UnrealEngine
 			bUpdatePositionEachFrame__Offset=GetPropertyOffset(NativeClassPtr,"bUpdatePositionEachFrame");
 			bOrientMeshEmitters__Offset=GetPropertyOffset(NativeClassPtr,"bOrientMeshEmitters");
 			bInheritBoneVelocity__Offset=GetPropertyOffset(NativeClassPtr,"bInheritBoneVelocity");
+			InheritVelocityScale__Offset=GetPropertyOffset(NativeClassPtr,"InheritVelocityScale");
 			SkelMeshActorParamName__Offset=GetPropertyOffset(NativeClassPtr,"SkelMeshActorParamName");
 			ValidAssociatedBones__Offset=GetPropertyOffset(NativeClassPtr,"ValidAssociatedBones");
 			bEnforceNormalCheck__Offset=GetPropertyOffset(NativeClassPtr,"bEnforceNormalCheck");
@@ -126,6 +151,8 @@ namespace UnrealEngine
 			NormalCheckTolerance__Offset=GetPropertyOffset(NativeClassPtr,"NormalCheckTolerance");
 			ValidMaterialIndices__Offset=GetPropertyOffset(NativeClassPtr,"ValidMaterialIndices");
 			bInheritVertexColor__Offset=GetPropertyOffset(NativeClassPtr,"bInheritVertexColor");
+			bInheritUV__Offset=GetPropertyOffset(NativeClassPtr,"bInheritUV");
+			InheritUVChannel__Offset=GetPropertyOffset(NativeClassPtr,"InheritUVChannel");
 			
 		}
 		

@@ -67,19 +67,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int PlaneConstraintAxisSetting__Offset;
-		/// <summary>
-		/// Setting that controls behavior when movement is restricted to a 2D plane defined by a specific axis/normal,
-		/// so that movement along the locked axis is not be possible.
-		/// @see SetPlaneConstraintAxisSetting
-		/// </summary>
-		public EPlaneConstraintAxisSetting PlaneConstraintAxisSetting
-		{
-			get{ CheckIsValid();return (EPlaneConstraintAxisSetting)Marshal.PtrToStructure(_this.Get()+PlaneConstraintAxisSetting__Offset, typeof(EPlaneConstraintAxisSetting));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+PlaneConstraintAxisSetting__Offset, false);}
-			
-		}
-		
 		static readonly int PlaneConstraintNormal__Offset;
 		/// <summary>
 		/// The normal or axis of the plane that constrains movement, if bConstrainToPlane is enabled.
@@ -158,7 +145,6 @@ namespace UnrealEngine
 			Velocity__Offset=GetPropertyOffset(NativeClassPtr,"Velocity");
 			bConstrainToPlane__Offset=GetPropertyOffset(NativeClassPtr,"bConstrainToPlane");
 			bSnapToPlaneAtStart__Offset=GetPropertyOffset(NativeClassPtr,"bSnapToPlaneAtStart");
-			PlaneConstraintAxisSetting__Offset=GetPropertyOffset(NativeClassPtr,"PlaneConstraintAxisSetting");
 			PlaneConstraintNormal__Offset=GetPropertyOffset(NativeClassPtr,"PlaneConstraintNormal");
 			PlaneConstraintOrigin__Offset=GetPropertyOffset(NativeClassPtr,"PlaneConstraintOrigin");
 			bUpdateOnlyIfRendered__Offset=GetPropertyOffset(NativeClassPtr,"bUpdateOnlyIfRendered");

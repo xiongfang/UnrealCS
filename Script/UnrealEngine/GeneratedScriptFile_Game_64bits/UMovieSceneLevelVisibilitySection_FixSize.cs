@@ -7,14 +7,6 @@ namespace UnrealEngine
 {
 	public partial class UMovieSceneLevelVisibilitySection
 	{
-		static readonly int Visibility__Offset;
-		public ELevelVisibility Visibility
-		{
-			get{ CheckIsValid();return (ELevelVisibility)Marshal.PtrToStructure(_this.Get()+Visibility__Offset, typeof(ELevelVisibility));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Visibility__Offset, false);}
-			
-		}
-		
 		static readonly int LevelNames__Offset;
 		public TStructArray<FName> LevelNames
 		{
@@ -26,7 +18,6 @@ namespace UnrealEngine
 		static UMovieSceneLevelVisibilitySection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneLevelVisibilitySection");
-			Visibility__Offset=GetPropertyOffset(NativeClassPtr,"Visibility");
 			LevelNames__Offset=GetPropertyOffset(NativeClassPtr,"LevelNames");
 			
 		}

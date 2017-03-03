@@ -7,11 +7,18 @@ namespace UnrealEngine
 {
 	public partial class UMovieSceneSubSection
 	{
+		static readonly int Parameters__Offset;
+		public FMovieSceneSectionParameters Parameters
+		{
+			get{ CheckIsValid();return (FMovieSceneSectionParameters)Marshal.PtrToStructure(_this.Get()+Parameters__Offset, typeof(FMovieSceneSectionParameters));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Parameters__Offset, false);}
+			
+		}
+		
 		static readonly int StartOffset__Offset;
 		public float StartOffset
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+StartOffset__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+StartOffset__Offset, false);}
 			
 		}
 		
@@ -19,7 +26,6 @@ namespace UnrealEngine
 		public float TimeScale
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+TimeScale__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TimeScale__Offset, false);}
 			
 		}
 		
@@ -27,7 +33,6 @@ namespace UnrealEngine
 		public float PrerollTime
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+PrerollTime__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+PrerollTime__Offset, false);}
 			
 		}
 		
@@ -58,6 +63,7 @@ namespace UnrealEngine
 		static UMovieSceneSubSection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneSubSection");
+			Parameters__Offset=GetPropertyOffset(NativeClassPtr,"Parameters");
 			StartOffset__Offset=GetPropertyOffset(NativeClassPtr,"StartOffset");
 			TimeScale__Offset=GetPropertyOffset(NativeClassPtr,"TimeScale");
 			PrerollTime__Offset=GetPropertyOffset(NativeClassPtr,"PrerollTime");

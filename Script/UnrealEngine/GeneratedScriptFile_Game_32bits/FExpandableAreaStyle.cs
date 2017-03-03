@@ -5,13 +5,15 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=248)]
+	[StructLayout(LayoutKind.Explicit,Size=240)]
 	public partial struct FExpandableAreaStyle
 	{
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FSlateBrush CollapsedImage;
-		[FieldOffset(128)]
+		[FieldOffset(120)]
 		public FSlateBrush ExpandedImage;
+		[FieldOffset(236)]
+		public float RolloutAnimationSeconds;
 		
 	}
 	

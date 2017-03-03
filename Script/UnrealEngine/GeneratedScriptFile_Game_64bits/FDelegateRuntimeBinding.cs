@@ -16,8 +16,6 @@ namespace UnrealEngine
 		public FName FunctionName;
 		[FieldOffset(32)]
 		public FDynamicPropertyPath SourcePath;
-		[FieldOffset(48)]
-		public EBindingKind Kind;
 		
 	}
 	

@@ -8,7 +8,7 @@ namespace UnrealEngine
 	public partial class UMaterialExpressionFunctionInput
 	{
 		static readonly int Preview__Offset;
-		/// <summary>Used for previewing when editing the function, also temporarily used to connect to the outside material when compiling that material.</summary>
+		/// <summary>Used for previewing when editing the function, or when bUsePreviewValueAsDefault is enabled.</summary>
 		public FExpressionInput Preview
 		{
 			get{ CheckIsValid();return (FExpressionInput)Marshal.PtrToStructure(_this.Get()+Preview__Offset, typeof(FExpressionInput));}

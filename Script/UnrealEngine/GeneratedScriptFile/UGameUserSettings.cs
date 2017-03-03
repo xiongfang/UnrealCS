@@ -5,6 +5,25 @@ namespace UnrealEngine{
 public partial class UGameUserSettings:UObject 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void EnableHDRDisplayOutput(IntPtr _this,int bEnable,int DisplayNits);
+/// <summary>Enables or disables HDR display output. Can be called again to change the desired nit level</summary>
+public  void EnableHDRDisplayOutput(bool bEnable,int DisplayNits=1000)
+{
+	CheckIsValid();
+	EnableHDRDisplayOutput(_this.Get(),bEnable?1:0,DisplayNits);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int SupportsHDRDisplayOutput(IntPtr _this);
+/// <summary>Whether the curently running system supports HDR display output</summary>
+public  bool SupportsHDRDisplayOutput()
+{
+	CheckIsValid();
+	int ___ret = SupportsHDRDisplayOutput(_this.Get());
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void ApplyHardwareBenchmarkResults(IntPtr _this);
 /// <summary>Applies the settings stored in ScalabilityQuality and saves settings</summary>
 public  void ApplyHardwareBenchmarkResults()
@@ -416,6 +435,16 @@ public  void SetVSyncEnabled(bool bEnable)
 {
 	CheckIsValid();
 	SetVSyncEnabled(_this.Get(),bEnable?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int GetPreferredFullscreenMode(IntPtr _this);
+/// <summary>Returns the user setting for game window fullscreen mode.</summary>
+public  EWindowMode GetPreferredFullscreenMode()
+{
+	CheckIsValid();
+	int ___ret = GetPreferredFullscreenMode(_this.Get());
+	return (EWindowMode)___ret;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

@@ -54,6 +54,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int ShadowResolutionScale__Offset;
+		public float ShadowResolutionScale
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+ShadowResolutionScale__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ShadowResolutionScale__Offset, false);}
+			
+		}
+		
 		static readonly int ShadowBias__Offset;
 		public float ShadowBias
 		{
@@ -230,6 +238,7 @@ namespace UnrealEngine
 			bUseTemperature__Offset=GetPropertyOffset(NativeClassPtr,"bUseTemperature");
 			ShadowMapChannel__Offset=GetPropertyOffset(NativeClassPtr,"ShadowMapChannel");
 			MinRoughness__Offset=GetPropertyOffset(NativeClassPtr,"MinRoughness");
+			ShadowResolutionScale__Offset=GetPropertyOffset(NativeClassPtr,"ShadowResolutionScale");
 			ShadowBias__Offset=GetPropertyOffset(NativeClassPtr,"ShadowBias");
 			ShadowSharpen__Offset=GetPropertyOffset(NativeClassPtr,"ShadowSharpen");
 			ContactShadowLength__Offset=GetPropertyOffset(NativeClassPtr,"ContactShadowLength");

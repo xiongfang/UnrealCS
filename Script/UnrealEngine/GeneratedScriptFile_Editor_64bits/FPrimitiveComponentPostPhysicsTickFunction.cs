@@ -9,7 +9,7 @@ namespace UnrealEngine
 	/// Tick function that calls UPrimitiveComponent::PostPhysicsTick
 	/// //DEPRECATED: This struct has been deprecated. Please use your own tick functions if you need something other than the primary tick function
 	/// </summary>
-	[StructLayout(LayoutKind.Explicit,Size=80)]
+	[StructLayout(LayoutKind.Explicit,Size=88)]
 	public partial struct FPrimitiveComponentPostPhysicsTickFunction
 	{
 		/// <summary>
@@ -55,7 +55,7 @@ namespace UnrealEngine
 			
 		}
 		/// <summary>The frequency in seconds at which this tick function will be executed.  If less than or equal to 0 then it will tick every frame</summary>
-		[FieldOffset(60)]
+		[FieldOffset(64)]
 		public float TickInterval;
 		
 	}

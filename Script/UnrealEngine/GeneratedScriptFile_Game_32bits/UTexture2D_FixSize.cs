@@ -70,25 +70,39 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bHasStreamingUpdatePending__Offset;
+		public bool bHasStreamingUpdatePending
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasStreamingUpdatePending__Offset, 1, 0, 4, 4);}
+			
+		}
+		
 		static readonly int bHasCancelationPending__Offset;
 		public bool bHasCancelationPending
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasCancelationPending__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasCancelationPending__Offset, 1, 0, 8, 8);}
 			
 		}
 		
 		static readonly int bForceMiplevelsToBeResident__Offset;
 		public bool bForceMiplevelsToBeResident
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMiplevelsToBeResident__Offset, 1, 0, 8, 8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMiplevelsToBeResident__Offset, 1, 0, 16, 16);}
+			
+		}
+		
+		static readonly int bIgnoreStreamingMipBias__Offset;
+		public bool bIgnoreStreamingMipBias
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoreStreamingMipBias__Offset, 1, 0, 32, 32);}
 			
 		}
 		
 		static readonly int bGlobalForceMipLevelsToBeResident__Offset;
 		public bool bGlobalForceMipLevelsToBeResident
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1,0,64,64);}
 			
 		}
 		
@@ -120,8 +134,10 @@ namespace UnrealEngine
 			ForceMipLevelsToBeResidentTimestamp__Offset=GetPropertyOffset(NativeClassPtr,"ForceMipLevelsToBeResidentTimestamp");
 			bTemporarilyDisableStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bTemporarilyDisableStreaming");
 			bIsStreamable__Offset=GetPropertyOffset(NativeClassPtr,"bIsStreamable");
+			bHasStreamingUpdatePending__Offset=GetPropertyOffset(NativeClassPtr,"bHasStreamingUpdatePending");
 			bHasCancelationPending__Offset=GetPropertyOffset(NativeClassPtr,"bHasCancelationPending");
 			bForceMiplevelsToBeResident__Offset=GetPropertyOffset(NativeClassPtr,"bForceMiplevelsToBeResident");
+			bIgnoreStreamingMipBias__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreStreamingMipBias");
 			bGlobalForceMipLevelsToBeResident__Offset=GetPropertyOffset(NativeClassPtr,"bGlobalForceMipLevelsToBeResident");
 			AddressX__Offset=GetPropertyOffset(NativeClassPtr,"AddressX");
 			AddressY__Offset=GetPropertyOffset(NativeClassPtr,"AddressY");

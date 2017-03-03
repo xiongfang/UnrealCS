@@ -3,9 +3,9 @@
 
 #pragma once
 //#if WITH_MONO
-
-#include "MonoPluginPrivatePCH.h"
 #include "MonoIntegration.h"
+#include "MonoPluginPrivatePCH.h"
+
 #include "MonoScriptClass.h"
 #include "MonoDomain.h"
 #include "MonoScriptBind_Component.h"

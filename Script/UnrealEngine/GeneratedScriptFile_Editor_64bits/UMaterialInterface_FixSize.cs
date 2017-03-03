@@ -25,6 +25,23 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bTextureStreamingDataSorted__Offset;
+		/// <summary>Because of redirector, the texture names need to be resorted at each load in case they changed.</summary>
+		public bool bTextureStreamingDataSorted
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bTextureStreamingDataSorted__Offset, 1, 0, 1, 255);}
+			
+		}
+		
+		static readonly int TextureStreamingData__Offset;
+		/// <summary>Data used by the texture streaming to know how each texture is sampled by the material. Sorted by names for quick access.</summary>
+		public TStructArray<FMaterialTextureInfo> TextureStreamingData
+		{
+			get{ CheckIsValid();return new TStructArray<FMaterialTextureInfo>((FScriptArray)Marshal.PtrToStructure(_this.Get()+TextureStreamingData__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+TextureStreamingData__Offset, false);}
+			
+		}
+		
 		static readonly int PreviewMesh__Offset;
 		/// <summary>The mesh used by the material editor to preview the material.</summary>
 		public FStringAssetReference PreviewMesh
@@ -56,6 +73,8 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("MaterialInterface");
 			SubsurfaceProfile__Offset=GetPropertyOffset(NativeClassPtr,"SubsurfaceProfile");
 			LightmassSettings__Offset=GetPropertyOffset(NativeClassPtr,"LightmassSettings");
+			bTextureStreamingDataSorted__Offset=GetPropertyOffset(NativeClassPtr,"bTextureStreamingDataSorted");
+			TextureStreamingData__Offset=GetPropertyOffset(NativeClassPtr,"TextureStreamingData");
 			PreviewMesh__Offset=GetPropertyOffset(NativeClassPtr,"PreviewMesh");
 			ThumbnailInfo__Offset=GetPropertyOffset(NativeClassPtr,"ThumbnailInfo");
 			LightingGuid__Offset=GetPropertyOffset(NativeClassPtr,"LightingGuid");

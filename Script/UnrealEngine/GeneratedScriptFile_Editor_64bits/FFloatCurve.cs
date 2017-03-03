@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=168)]
+	[StructLayout(LayoutKind.Explicit,Size=160)]
 	public partial struct FFloatCurve
 	{
 		/// <summary>Curve data for float.</summary>

@@ -62,6 +62,17 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int PostProcessAnimInstance__Offset;
+		/// <summary>
+		/// An instance created from the PostPhysicsBlueprint property of the skeletal mesh we're using,
+		/// Runs after physics has been blended
+		/// </summary>
+		public UAnimInstance PostProcessAnimInstance
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + PostProcessAnimInstance__Offset); if (v == IntPtr.Zero)return null; UAnimInstance retValue = new UAnimInstance(); retValue._this = v; return retValue; }
+			
+		}
+		
 		static readonly int AnimationData__Offset;
 		public FSingleAnimationPlayData AnimationData
 		{
@@ -313,14 +324,22 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bAutonomousTickPose__Offset;
+		static readonly int bOnlyAllowAutonomousTickPose__Offset;
 		/// <summary>
 		/// If true TickPose() will not be called from the Component's TickComponent function.
 		/// It will instead be called from Autonomous networking updates. See ACharacter.
 		/// </summary>
-		public bool bAutonomousTickPose
+		public bool bOnlyAllowAutonomousTickPose
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAutonomousTickPose__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOnlyAllowAutonomousTickPose__Offset, 1, 0, 1, 1);}
+			
+		}
+		
+		static readonly int bIsAutonomousTickPose__Offset;
+		/// <summary>True if calling TickPose() from Autonomous networking updates. See ACharacter.</summary>
+		public bool bIsAutonomousTickPose
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsAutonomousTickPose__Offset, 1, 0, 2, 2);}
 			
 		}
 		
@@ -328,7 +347,7 @@ namespace UnrealEngine
 		/// <summary>If true, force the mesh into the reference pose - is an optimization.</summary>
 		public bool bForceRefpose
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceRefpose__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceRefpose__Offset, 1, 0, 4, 4);}
 			
 		}
 		
@@ -336,7 +355,7 @@ namespace UnrealEngine
 		/// <summary>If bForceRefPose was set last tick.</summary>
 		public bool bOldForceRefPose
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOldForceRefPose__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOldForceRefPose__Offset, 1, 0, 8, 8);}
 			
 		}
 		
@@ -344,7 +363,7 @@ namespace UnrealEngine
 		/// <summary>Bool that enables debug drawing of the skeleton before it is passed to the physics. Useful for debugging animation-driven physics.</summary>
 		public bool bShowPrePhysBones
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShowPrePhysBones__Offset, 1, 0, 8, 8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShowPrePhysBones__Offset, 1, 0, 16, 16);}
 			
 		}
 		
@@ -352,7 +371,7 @@ namespace UnrealEngine
 		/// <summary>If false, indicates that on the next call to UpdateSkelPose the RequiredBones array should be recalculated.</summary>
 		public bool bRequiredBonesUpToDate
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRequiredBonesUpToDate__Offset, 1, 0, 16, 16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRequiredBonesUpToDate__Offset, 1, 0, 32, 32);}
 			
 		}
 		
@@ -360,7 +379,7 @@ namespace UnrealEngine
 		/// <summary>If true, AnimTree has been initialised.</summary>
 		public bool bAnimTreeInitialised
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAnimTreeInitialised__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAnimTreeInitialised__Offset, 1, 0, 64, 64);}
 			
 		}
 		
@@ -371,8 +390,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bIncludeComponentLocationIntoBounds
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIncludeComponentLocationIntoBounds__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIncludeComponentLocationIntoBounds__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIncludeComponentLocationIntoBounds__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIncludeComponentLocationIntoBounds__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -380,7 +399,24 @@ namespace UnrealEngine
 		/// <summary>If true, line checks will test against the bounding box of this skeletal mesh component and return a hit if there is a collision.</summary>
 		public bool bEnableLineCheckWithBounds
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableLineCheckWithBounds__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableLineCheckWithBounds__Offset, 1, 0, 1, 1);}
+			
+		}
+		
+		static readonly int bUpdateAnimationInEditor__Offset;
+		/// <summary>If true, this will Tick until disabled</summary>
+		public bool bUpdateAnimationInEditor
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUpdateAnimationInEditor__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUpdateAnimationInEditor__Offset, 1,0,2,2);}
+			
+		}
+		
+		static readonly int CachedAnimCurveUidVersion__Offset;
+		/// <summary>Cache AnimCurveUidVersion from Skeleton and this will be used to identify if it needs to be updated</summary>
+		public ushort CachedAnimCurveUidVersion
+		{
+			get{ CheckIsValid();return (ushort)Marshal.PtrToStructure(_this.Get()+CachedAnimCurveUidVersion__Offset, typeof(ushort));}
 			
 		}
 		
@@ -389,14 +425,6 @@ namespace UnrealEngine
 		public FVector LineCheckBoundsScale
 		{
 			get{ CheckIsValid();return (FVector)Marshal.PtrToStructure(_this.Get()+LineCheckBoundsScale__Offset, typeof(FVector));}
-			
-		}
-		
-		static readonly int RagdollAggregateThreshold__Offset;
-		/// <summary>Threshold for physics asset bodies above which we use an aggregate for broadphase collisions</summary>
-		public int RagdollAggregateThreshold
-		{
-			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+RagdollAggregateThreshold__Offset, typeof(int));}
 			
 		}
 		
@@ -478,6 +506,7 @@ namespace UnrealEngine
 			AnimClass__Offset=GetPropertyOffset(NativeClassPtr,"AnimClass");
 			AnimScriptInstance__Offset=GetPropertyOffset(NativeClassPtr,"AnimScriptInstance");
 			SubInstances__Offset=GetPropertyOffset(NativeClassPtr,"SubInstances");
+			PostProcessAnimInstance__Offset=GetPropertyOffset(NativeClassPtr,"PostProcessAnimInstance");
 			AnimationData__Offset=GetPropertyOffset(NativeClassPtr,"AnimationData");
 			CachedBoneSpaceTransforms__Offset=GetPropertyOffset(NativeClassPtr,"CachedBoneSpaceTransforms");
 			CachedComponentSpaceTransforms__Offset=GetPropertyOffset(NativeClassPtr,"CachedComponentSpaceTransforms");
@@ -503,7 +532,8 @@ namespace UnrealEngine
 			bUseRefPoseOnInitAnim__Offset=GetPropertyOffset(NativeClassPtr,"bUseRefPoseOnInitAnim");
 			bEnablePerPolyCollision__Offset=GetPropertyOffset(NativeClassPtr,"bEnablePerPolyCollision");
 			BodySetup__Offset=GetPropertyOffset(NativeClassPtr,"BodySetup");
-			bAutonomousTickPose__Offset=GetPropertyOffset(NativeClassPtr,"bAutonomousTickPose");
+			bOnlyAllowAutonomousTickPose__Offset=GetPropertyOffset(NativeClassPtr,"bOnlyAllowAutonomousTickPose");
+			bIsAutonomousTickPose__Offset=GetPropertyOffset(NativeClassPtr,"bIsAutonomousTickPose");
 			bForceRefpose__Offset=GetPropertyOffset(NativeClassPtr,"bForceRefpose");
 			bOldForceRefPose__Offset=GetPropertyOffset(NativeClassPtr,"bOldForceRefPose");
 			bShowPrePhysBones__Offset=GetPropertyOffset(NativeClassPtr,"bShowPrePhysBones");
@@ -511,8 +541,9 @@ namespace UnrealEngine
 			bAnimTreeInitialised__Offset=GetPropertyOffset(NativeClassPtr,"bAnimTreeInitialised");
 			bIncludeComponentLocationIntoBounds__Offset=GetPropertyOffset(NativeClassPtr,"bIncludeComponentLocationIntoBounds");
 			bEnableLineCheckWithBounds__Offset=GetPropertyOffset(NativeClassPtr,"bEnableLineCheckWithBounds");
+			bUpdateAnimationInEditor__Offset=GetPropertyOffset(NativeClassPtr,"bUpdateAnimationInEditor");
+			CachedAnimCurveUidVersion__Offset=GetPropertyOffset(NativeClassPtr,"CachedAnimCurveUidVersion");
 			LineCheckBoundsScale__Offset=GetPropertyOffset(NativeClassPtr,"LineCheckBoundsScale");
-			RagdollAggregateThreshold__Offset=GetPropertyOffset(NativeClassPtr,"RagdollAggregateThreshold");
 			OnConstraintBroken__Offset=GetPropertyOffset(NativeClassPtr,"OnConstraintBroken");
 			SequenceToPlay__Offset=GetPropertyOffset(NativeClassPtr,"SequenceToPlay");
 			AnimToPlay__Offset=GetPropertyOffset(NativeClassPtr,"AnimToPlay");

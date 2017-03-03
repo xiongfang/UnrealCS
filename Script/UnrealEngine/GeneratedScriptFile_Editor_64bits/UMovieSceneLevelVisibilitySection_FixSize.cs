@@ -8,15 +8,6 @@ namespace UnrealEngine
 	/// <summary>A section for use with the movie scene level visibility track, which controls streamed level visibility.</summary>
 	public partial class UMovieSceneLevelVisibilitySection
 	{
-		static readonly int Visibility__Offset;
-		/// <summary>Whether or not the levels in this section should be visible or hidden.</summary>
-		public ELevelVisibility Visibility
-		{
-			get{ CheckIsValid();return (ELevelVisibility)Marshal.PtrToStructure(_this.Get()+Visibility__Offset, typeof(ELevelVisibility));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Visibility__Offset, false);}
-			
-		}
-		
 		static readonly int LevelNames__Offset;
 		/// <summary>The short names of the levels who's visibility is controlled by this section.</summary>
 		public TStructArray<FName> LevelNames
@@ -29,7 +20,6 @@ namespace UnrealEngine
 		static UMovieSceneLevelVisibilitySection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneLevelVisibilitySection");
-			Visibility__Offset=GetPropertyOffset(NativeClassPtr,"Visibility");
 			LevelNames__Offset=GetPropertyOffset(NativeClassPtr,"LevelNames");
 			
 		}

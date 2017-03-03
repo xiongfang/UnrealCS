@@ -5,6 +5,14 @@ namespace UnrealEngine{
 public partial class UExpandableArea:UWidget 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetIsExpanded_Animated(IntPtr _this,int IsExpanded);
+public  void SetIsExpanded_Animated(bool IsExpanded)
+{
+	CheckIsValid();
+	SetIsExpanded_Animated(_this.Get(),IsExpanded?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetIsExpanded(IntPtr _this,int IsExpanded);
 public  void SetIsExpanded(bool IsExpanded)
 {

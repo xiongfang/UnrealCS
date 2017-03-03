@@ -20,10 +20,6 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 0, 1, 0, 2, 2); } }}
 			
 		}
-		[FieldOffset(4)]
-		public ETextShapingMethod TextShapingMethod;
-		[FieldOffset(5)]
-		public ETextFlowDirection TextFlowDirection;
 		
 	}
 	

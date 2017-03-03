@@ -98,6 +98,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bHasNativizedParent__Offset;
+		/// <summary>Flag used to indicate if this class has a nativized parent in a cooked build.</summary>
+		public bool bHasNativizedParent
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasNativizedParent__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static UBlueprintGeneratedClass()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("BlueprintGeneratedClass");
@@ -112,6 +120,7 @@ namespace UnrealEngine
 			FastCallPairs__Offset=GetPropertyOffset(NativeClassPtr,"FastCallPairs");
 			bHasInstrumentation__Offset=GetPropertyOffset(NativeClassPtr,"bHasInstrumentation");
 			OverridenArchetypeForCDO__Offset=GetPropertyOffset(NativeClassPtr,"OverridenArchetypeForCDO");
+			bHasNativizedParent__Offset=GetPropertyOffset(NativeClassPtr,"bHasNativizedParent");
 			
 		}
 		

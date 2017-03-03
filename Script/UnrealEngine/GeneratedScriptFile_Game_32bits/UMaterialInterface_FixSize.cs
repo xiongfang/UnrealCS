@@ -23,11 +23,20 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int TextureStreamingData__Offset;
+		public TStructArray<FMaterialTextureInfo> TextureStreamingData
+		{
+			get{ CheckIsValid();return new TStructArray<FMaterialTextureInfo>((FScriptArray)Marshal.PtrToStructure(_this.Get()+TextureStreamingData__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+TextureStreamingData__Offset, false);}
+			
+		}
+		
 		static UMaterialInterface()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MaterialInterface");
 			SubsurfaceProfile__Offset=GetPropertyOffset(NativeClassPtr,"SubsurfaceProfile");
 			LightmassSettings__Offset=GetPropertyOffset(NativeClassPtr,"LightmassSettings");
+			TextureStreamingData__Offset=GetPropertyOffset(NativeClassPtr,"TextureStreamingData");
 			
 		}
 		

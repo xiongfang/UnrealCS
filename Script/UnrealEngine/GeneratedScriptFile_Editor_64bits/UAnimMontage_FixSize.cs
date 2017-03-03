@@ -5,6 +5,15 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
+	/// <summary>
+	/// * Any property you're adding to AnimMontage and parent class has to be considered for Child Asset
+	/// *
+	/// * Child Asset is considered to be only asset mapping feature using everything else in the class
+	/// * For example, you can just use all parent's setting  for the montage, but only remap assets
+	/// * This isn't magic bullet unfortunately and it is consistent effort of keeping the data synced with parent
+	/// * If you add new property, please make sure those property has to be copied for children.
+	/// * If it does, please add the copy in the function RefreshParentAssetData
+	/// </summary>
 	public partial class UAnimMontage
 	{
 		static readonly int BlendIn__Offset;

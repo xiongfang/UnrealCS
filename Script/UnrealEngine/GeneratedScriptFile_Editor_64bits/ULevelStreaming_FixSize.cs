@@ -74,7 +74,18 @@ namespace UnrealEngine
 		public bool bShouldBeVisible
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShouldBeVisible__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bShouldBeVisible__Offset, 1,0,64,64);}
+			
+		}
+		
+		static readonly int bIsStatic__Offset;
+		/// <summary>
+		/// Whether this level only contains static actors that aren't affected by gameplay or replication.
+		/// If true, the engine can make certain optimizations and will add this level to the StaticLevels collection.
+		/// </summary>
+		public bool bIsStatic
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsStatic__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsStatic__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -82,7 +93,7 @@ namespace UnrealEngine
 		/// <summary>Whether we want to force a blocking load</summary>
 		public bool bShouldBlockOnLoad
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShouldBlockOnLoad__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShouldBlockOnLoad__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -221,6 +232,7 @@ namespace UnrealEngine
 			bLocked__Offset=GetPropertyOffset(NativeClassPtr,"bLocked");
 			bShouldBeLoaded__Offset=GetPropertyOffset(NativeClassPtr,"bShouldBeLoaded");
 			bShouldBeVisible__Offset=GetPropertyOffset(NativeClassPtr,"bShouldBeVisible");
+			bIsStatic__Offset=GetPropertyOffset(NativeClassPtr,"bIsStatic");
 			bShouldBlockOnLoad__Offset=GetPropertyOffset(NativeClassPtr,"bShouldBlockOnLoad");
 			LevelLODIndex__Offset=GetPropertyOffset(NativeClassPtr,"LevelLODIndex");
 			bDisableDistanceStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bDisableDistanceStreaming");

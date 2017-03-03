@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>A single entry for a blend scale within a profile, mapping a bone to a blendscale</summary>
-	[StructLayout(LayoutKind.Explicit,Size=20)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FBlendProfileBoneEntry
 	{
 		[FieldOffset(0)]
 		public FBoneReference BoneReference;
-		[FieldOffset(16)]
+		[FieldOffset(20)]
 		public float BlendScale;
 		
 	}

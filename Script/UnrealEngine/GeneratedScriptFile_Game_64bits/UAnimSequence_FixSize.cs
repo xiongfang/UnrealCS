@@ -69,14 +69,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int Interpolation__Offset;
-		public EAnimInterpolationType Interpolation
-		{
-			get{ CheckIsValid();return (EAnimInterpolationType)Marshal.PtrToStructure(_this.Get()+Interpolation__Offset, typeof(EAnimInterpolationType));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Interpolation__Offset, false);}
-			
-		}
-		
 		static readonly int bEnableRootMotion__Offset;
 		public bool bEnableRootMotion
 		{
@@ -127,7 +119,6 @@ namespace UnrealEngine
 			RefFrameIndex__Offset=GetPropertyOffset(NativeClassPtr,"RefFrameIndex");
 			EncodingPkgVersion__Offset=GetPropertyOffset(NativeClassPtr,"EncodingPkgVersion");
 			RetargetSource__Offset=GetPropertyOffset(NativeClassPtr,"RetargetSource");
-			Interpolation__Offset=GetPropertyOffset(NativeClassPtr,"Interpolation");
 			bEnableRootMotion__Offset=GetPropertyOffset(NativeClassPtr,"bEnableRootMotion");
 			RootMotionRootLock__Offset=GetPropertyOffset(NativeClassPtr,"RootMotionRootLock");
 			bForceRootLock__Offset=GetPropertyOffset(NativeClassPtr,"bForceRootLock");

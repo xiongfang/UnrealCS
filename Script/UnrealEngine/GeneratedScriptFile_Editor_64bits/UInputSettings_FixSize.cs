@@ -28,12 +28,20 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bF11TogglesFullscreen__Offset;
+		public bool bF11TogglesFullscreen
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bF11TogglesFullscreen__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bF11TogglesFullscreen__Offset, 1,0,2,2);}
+			
+		}
+		
 		static readonly int bUseMouseForTouch__Offset;
 		/// <summary>Allow mouse to be used for touch</summary>
 		public bool bUseMouseForTouch
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMouseForTouch__Offset, 1, 0, 2, 2);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseMouseForTouch__Offset, 1,0,2,2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMouseForTouch__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseMouseForTouch__Offset, 1,0,4,4);}
 			
 		}
 		
@@ -41,8 +49,8 @@ namespace UnrealEngine
 		/// <summary>Mouse smoothing control</summary>
 		public bool bEnableMouseSmoothing
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableMouseSmoothing__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableMouseSmoothing__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableMouseSmoothing__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableMouseSmoothing__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -50,8 +58,8 @@ namespace UnrealEngine
 		/// <summary>Scale the mouse based on the player camera manager's field of view</summary>
 		public bool bEnableFOVScaling
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableFOVScaling__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableFOVScaling__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableFOVScaling__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableFOVScaling__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -82,29 +90,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DefaultViewportMouseCaptureMode__Offset;
-		/// <summary>The default mouse capture mode for the game viewport</summary>
-		public EMouseCaptureMode DefaultViewportMouseCaptureMode
-		{
-			get{ CheckIsValid();return (EMouseCaptureMode)Marshal.PtrToStructure(_this.Get()+DefaultViewportMouseCaptureMode__Offset, typeof(EMouseCaptureMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultViewportMouseCaptureMode__Offset, false);}
-			
-		}
-		
 		static readonly int bDefaultViewportMouseLock__Offset;
 		/// <summary>The default mouse lock state when the viewport acquires capture</summary>
 		public bool bDefaultViewportMouseLock
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDefaultViewportMouseLock__Offset, 1, 0, 1, 255);}
-			
-		}
-		
-		static readonly int DefaultViewportMouseLockMode__Offset;
-		/// <summary>The default mouse lock state behavior when the viewport acquires capture</summary>
-		public EMouseLockMode DefaultViewportMouseLockMode
-		{
-			get{ CheckIsValid();return (EMouseLockMode)Marshal.PtrToStructure(_this.Get()+DefaultViewportMouseLockMode__Offset, typeof(EMouseLockMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultViewportMouseLockMode__Offset, false);}
 			
 		}
 		
@@ -175,15 +165,14 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("InputSettings");
 			AxisConfig__Offset=GetPropertyOffset(NativeClassPtr,"AxisConfig");
 			bAltEnterTogglesFullscreen__Offset=GetPropertyOffset(NativeClassPtr,"bAltEnterTogglesFullscreen");
+			bF11TogglesFullscreen__Offset=GetPropertyOffset(NativeClassPtr,"bF11TogglesFullscreen");
 			bUseMouseForTouch__Offset=GetPropertyOffset(NativeClassPtr,"bUseMouseForTouch");
 			bEnableMouseSmoothing__Offset=GetPropertyOffset(NativeClassPtr,"bEnableMouseSmoothing");
 			bEnableFOVScaling__Offset=GetPropertyOffset(NativeClassPtr,"bEnableFOVScaling");
 			FOVScale__Offset=GetPropertyOffset(NativeClassPtr,"FOVScale");
 			DoubleClickTime__Offset=GetPropertyOffset(NativeClassPtr,"DoubleClickTime");
 			bCaptureMouseOnLaunch__Offset=GetPropertyOffset(NativeClassPtr,"bCaptureMouseOnLaunch");
-			DefaultViewportMouseCaptureMode__Offset=GetPropertyOffset(NativeClassPtr,"DefaultViewportMouseCaptureMode");
 			bDefaultViewportMouseLock__Offset=GetPropertyOffset(NativeClassPtr,"bDefaultViewportMouseLock");
-			DefaultViewportMouseLockMode__Offset=GetPropertyOffset(NativeClassPtr,"DefaultViewportMouseLockMode");
 			ActionMappings__Offset=GetPropertyOffset(NativeClassPtr,"ActionMappings");
 			AxisMappings__Offset=GetPropertyOffset(NativeClassPtr,"AxisMappings");
 			bAlwaysShowTouchInterface__Offset=GetPropertyOffset(NativeClassPtr,"bAlwaysShowTouchInterface");

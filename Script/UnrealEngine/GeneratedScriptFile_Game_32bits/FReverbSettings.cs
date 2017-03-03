@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=16)]
+	[StructLayout(LayoutKind.Explicit,Size=20)]
 	public partial struct FReverbSettings
 	{
 		public bool bApplyReverb
@@ -14,11 +14,11 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 0, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(1)]
+		[FieldOffset(4)]
 		public ReverbPreset ReverbType;
-		[FieldOffset(8)]
-		public float Volume;
 		[FieldOffset(12)]
+		public float Volume;
+		[FieldOffset(16)]
 		public float FadeTime;
 		
 	}

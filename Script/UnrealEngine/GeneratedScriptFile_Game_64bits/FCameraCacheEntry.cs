@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=992)]
+	[StructLayout(LayoutKind.Explicit,Size=1312)]
 	public partial struct FCameraCacheEntry
 	{
 		[FieldOffset(0)]
-		public float TimeStamp;
-		[FieldOffset(8)]
+		public float Timestamp;
+		[FieldOffset(16)]
 		public FMinimalViewInfo POV;
 		
 	}

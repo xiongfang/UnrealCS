@@ -142,6 +142,9 @@ namespace UnrealBuildTool.Rules
 
         public MonoPlugin(TargetInfo Target)
         {
+
+            PrivatePCHHeaderFile = "Private/MonoPluginPrivatePCH.h";
+
             PublicIncludePaths.AddRange(
                 new string[] {					
 					//"Programs/UnrealHeaderTool/Public",

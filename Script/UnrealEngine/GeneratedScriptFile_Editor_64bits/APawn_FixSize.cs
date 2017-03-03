@@ -75,19 +75,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int AutoPossessAI__Offset;
-		/// <summary>
-		/// Determines when the Pawn creates and is possessed by an AI Controller (on level start, when spawned, etc).
-		/// Only possible if AIControllerClass is set, and ignored if AutoPossessPlayer is enabled.
-		/// @see AutoPossessPlayer
-		/// </summary>
-		public EAutoPossessAI AutoPossessAI
-		{
-			get{ CheckIsValid();return (EAutoPossessAI)Marshal.PtrToStructure(_this.Get()+AutoPossessAI__Offset, typeof(EAutoPossessAI));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AutoPossessAI__Offset, false);}
-			
-		}
-		
 		static readonly int AIControllerClass__Offset;
 		/// <summary>Default class to use when pawn is controlled by AI.</summary>
 		public TSubclassOf<AController>  AIControllerClass
@@ -160,7 +147,6 @@ namespace UnrealEngine
 			bCanAffectNavigationGeneration__Offset=GetPropertyOffset(NativeClassPtr,"bCanAffectNavigationGeneration");
 			BaseEyeHeight__Offset=GetPropertyOffset(NativeClassPtr,"BaseEyeHeight");
 			AutoPossessPlayer__Offset=GetPropertyOffset(NativeClassPtr,"AutoPossessPlayer");
-			AutoPossessAI__Offset=GetPropertyOffset(NativeClassPtr,"AutoPossessAI");
 			AIControllerClass__Offset=GetPropertyOffset(NativeClassPtr,"AIControllerClass");
 			PlayerState__Offset=GetPropertyOffset(NativeClassPtr,"PlayerState");
 			RemoteViewPitch__Offset=GetPropertyOffset(NativeClassPtr,"RemoteViewPitch");

@@ -267,21 +267,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DefaultTireType__Offset;
-		public UTireType DefaultTireType
-		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + DefaultTireType__Offset); if (v == IntPtr.Zero)return null; UTireType retValue = new UTireType(); retValue._this = v; return retValue; }
-			
-		}
-		
-		static readonly int DefaultTireTypeName__Offset;
-		public FStringAssetReference DefaultTireTypeName
-		{
-			get{ CheckIsValid();return (FStringAssetReference)Marshal.PtrToStructure(_this.Get()+DefaultTireTypeName__Offset, typeof(FStringAssetReference));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultTireTypeName__Offset, false);}
-			
-		}
-		
 		static readonly int PlayOnConsoleSaveDir__Offset;
 		public FString PlayOnConsoleSaveDir
 		{
@@ -988,26 +973,34 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bAllowMultiThreadedAnimationUpdate__Offset;
+		public bool bAllowMultiThreadedAnimationUpdate
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowMultiThreadedAnimationUpdate__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAllowMultiThreadedAnimationUpdate__Offset, 1,0,4,4);}
+			
+		}
+		
 		static readonly int bEnableEditorPSysRealtimeLOD__Offset;
 		public bool bEnableEditorPSysRealtimeLOD
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableEditorPSysRealtimeLOD__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableEditorPSysRealtimeLOD__Offset, 1, 0, 8, 8);}
 			
 		}
 		
 		static readonly int bSmoothFrameRate__Offset;
 		public bool bSmoothFrameRate
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSmoothFrameRate__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSmoothFrameRate__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSmoothFrameRate__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSmoothFrameRate__Offset, 1,0,32,32);}
 			
 		}
 		
 		static readonly int bUseFixedFrameRate__Offset;
 		public bool bUseFixedFrameRate
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseFixedFrameRate__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseFixedFrameRate__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseFixedFrameRate__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseFixedFrameRate__Offset, 1,0,64,64);}
 			
 		}
 		
@@ -1331,17 +1324,10 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bCookSeparateSharedMPGameContent__Offset;
-		public bool bCookSeparateSharedMPGameContent
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCookSeparateSharedMPGameContent__Offset, 1, 0, 8, 8);}
-			
-		}
-		
 		static readonly int bDisableAILogging__Offset;
 		public bool bDisableAILogging
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableAILogging__Offset, 1, 0, 16, 16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableAILogging__Offset, 1, 0, 8, 8);}
 			
 		}
 		
@@ -1377,6 +1363,13 @@ namespace UnrealEngine
 		public float SelectionHighlightIntensity
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SelectionHighlightIntensity__Offset, typeof(float));}
+			
+		}
+		
+		static readonly int SelectionMeshSectionHighlightIntensity__Offset;
+		public float SelectionMeshSectionHighlightIntensity
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SelectionMeshSectionHighlightIntensity__Offset, typeof(float));}
 			
 		}
 		
@@ -1477,8 +1470,6 @@ namespace UnrealEngine
 			DefaultBlueprintBaseClassName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultBlueprintBaseClassName");
 			GameSingletonClassName__Offset=GetPropertyOffset(NativeClassPtr,"GameSingletonClassName");
 			GameSingleton__Offset=GetPropertyOffset(NativeClassPtr,"GameSingleton");
-			DefaultTireType__Offset=GetPropertyOffset(NativeClassPtr,"DefaultTireType");
-			DefaultTireTypeName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultTireTypeName");
 			PlayOnConsoleSaveDir__Offset=GetPropertyOffset(NativeClassPtr,"PlayOnConsoleSaveDir");
 			DefaultTexture__Offset=GetPropertyOffset(NativeClassPtr,"DefaultTexture");
 			DefaultTextureName__Offset=GetPropertyOffset(NativeClassPtr,"DefaultTextureName");
@@ -1577,6 +1568,7 @@ namespace UnrealEngine
 			MaximumLoopIterationCount__Offset=GetPropertyOffset(NativeClassPtr,"MaximumLoopIterationCount");
 			bCanBlueprintsTickByDefault__Offset=GetPropertyOffset(NativeClassPtr,"bCanBlueprintsTickByDefault");
 			bOptimizeAnimBlueprintMemberVariableAccess__Offset=GetPropertyOffset(NativeClassPtr,"bOptimizeAnimBlueprintMemberVariableAccess");
+			bAllowMultiThreadedAnimationUpdate__Offset=GetPropertyOffset(NativeClassPtr,"bAllowMultiThreadedAnimationUpdate");
 			bEnableEditorPSysRealtimeLOD__Offset=GetPropertyOffset(NativeClassPtr,"bEnableEditorPSysRealtimeLOD");
 			bSmoothFrameRate__Offset=GetPropertyOffset(NativeClassPtr,"bSmoothFrameRate");
 			bUseFixedFrameRate__Offset=GetPropertyOffset(NativeClassPtr,"bUseFixedFrameRate");
@@ -1625,13 +1617,13 @@ namespace UnrealEngine
 			bEnableOnScreenDebugMessages__Offset=GetPropertyOffset(NativeClassPtr,"bEnableOnScreenDebugMessages");
 			bEnableOnScreenDebugMessagesDisplay__Offset=GetPropertyOffset(NativeClassPtr,"bEnableOnScreenDebugMessagesDisplay");
 			bSuppressMapWarnings__Offset=GetPropertyOffset(NativeClassPtr,"bSuppressMapWarnings");
-			bCookSeparateSharedMPGameContent__Offset=GetPropertyOffset(NativeClassPtr,"bCookSeparateSharedMPGameContent");
 			bDisableAILogging__Offset=GetPropertyOffset(NativeClassPtr,"bDisableAILogging");
 			bEnableVisualLogRecordingOnStart__Offset=GetPropertyOffset(NativeClassPtr,"bEnableVisualLogRecordingOnStart");
 			ScreenSaverInhibitorSemaphore__Offset=GetPropertyOffset(NativeClassPtr,"ScreenSaverInhibitorSemaphore");
 			bLockReadOnlyLevels__Offset=GetPropertyOffset(NativeClassPtr,"bLockReadOnlyLevels");
 			ParticleEventManagerClassPath__Offset=GetPropertyOffset(NativeClassPtr,"ParticleEventManagerClassPath");
 			SelectionHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"SelectionHighlightIntensity");
+			SelectionMeshSectionHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"SelectionMeshSectionHighlightIntensity");
 			BSPSelectionHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"BSPSelectionHighlightIntensity");
 			HoverHighlightIntensity__Offset=GetPropertyOffset(NativeClassPtr,"HoverHighlightIntensity");
 			SelectionHighlightIntensityBillboards__Offset=GetPropertyOffset(NativeClassPtr,"SelectionHighlightIntensityBillboards");

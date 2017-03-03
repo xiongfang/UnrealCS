@@ -6,25 +6,16 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>
-	/// Beware! This feature is experimental and may be substantially changed or removed in future releases.
-	/// A 3D instance of a Widget Blueprint that can be interacted with in the world.
+	/// The widget component provides a surface in the 3D environment on which to render widgets normally rendered to the screen.
+	/// Widgets are first rendered to a render target, then that render target is displayed in the world.
+	/// Material Properties set by this component on whatever material overrides the default.
 	/// SlateUI [Texture]
 	/// BackColor [Vector]
 	/// TintColorAndOpacity [Vector]
 	/// OpacityFromTexture [Scalar]
-	/// ParabolaDistortion [Scalar]
 	/// </summary>
 	public partial class UWidgetComponent
 	{
-		static readonly int Space__Offset;
-		/// <summary>The coordinate space in which to render the widget</summary>
-		public EWidgetSpace Space
-		{
-			get{ CheckIsValid();return (EWidgetSpace)Marshal.PtrToStructure(_this.Get()+Space__Offset, typeof(EWidgetSpace));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Space__Offset, false);}
-			
-		}
-		
 		static readonly int WidgetClass__Offset;
 		/// <summary>The class of User Widget to create and display an instance of</summary>
 		public TSubclassOf<UUserWidget>  WidgetClass
@@ -73,23 +64,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int LastWidgetRenderTime__Offset;
-		/// <summary>What was the last time we rendered the widget?</summary>
-		public float LastWidgetRenderTime
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+LastWidgetRenderTime__Offset, typeof(float));}
-			
-		}
-		
-		static readonly int bWindowFocusable__Offset;
-		/// <summary>Is the virtual window created to host the widget focusable?</summary>
-		public bool bWindowFocusable
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWindowFocusable__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWindowFocusable__Offset, 1,0,1,255);}
-			
-		}
-		
 		static readonly int CurrentDrawSize__Offset;
 		/// <summary>
 		/// The actual draw size, this changes based on DrawSize - or the desired size of the widget if
@@ -121,6 +95,32 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (FVector2D)Marshal.PtrToStructure(_this.Get()+Pivot__Offset, typeof(FVector2D));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Pivot__Offset, false);}
+			
+		}
+		
+		static readonly int bReceiveHardwareInput__Offset;
+		/// <summary>
+		/// Register with the viewport for hardware input from the true mouse and keyboard.  These widgets
+		/// will more or less react like regular 2D widgets in the viewport, e.g. they can and will steal focus
+		/// from the viewport.
+		/// WARNING: If you are making a VR game, definitely do not change this to true.  This option should ONLY be used
+		/// if you're making what would otherwise be a normal menu for a game, just in 3D.  If you also need the game to
+		/// remain responsive and for the player to be able to interact with UI and move around the world (such as a keypad on a door),
+		/// use the WidgetInteractionComponent instead.
+		/// </summary>
+		public bool bReceiveHardwareInput
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReceiveHardwareInput__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReceiveHardwareInput__Offset, 1,0,1,255);}
+			
+		}
+		
+		static readonly int bWindowFocusable__Offset;
+		/// <summary>Is the virtual window created to host the widget focusable?</summary>
+		public bool bWindowFocusable
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWindowFocusable__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWindowFocusable__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -162,41 +162,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int BlendMode__Offset;
-		/// <summary>The blend mode for the widget.</summary>
-		public EWidgetBlendMode BlendMode
-		{
-			get{ CheckIsValid();return (EWidgetBlendMode)Marshal.PtrToStructure(_this.Get()+BlendMode__Offset, typeof(EWidgetBlendMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+BlendMode__Offset, false);}
-			
-		}
-		
-		static readonly int bIsOpaque__Offset;
-		public bool bIsOpaque
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsOpaque__Offset, 1, 0, 1, 255);}
-			
-		}
-		
 		static readonly int bIsTwoSided__Offset;
 		/// <summary>Is the component visible from behind?</summary>
 		public bool bIsTwoSided
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsTwoSided__Offset, 1, 0, 1, 255);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsTwoSided__Offset, 1,0,1,255);}
-			
-		}
-		
-		static readonly int ParabolaDistortion__Offset;
-		/// <summary>
-		/// When enabled, distorts the UI along a parabola shape giving the UI the appearance
-		/// that it's on a curved surface in front of the users face.  This only works for UI
-		/// rendered to a render target.
-		/// </summary>
-		public float ParabolaDistortion
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+ParabolaDistortion__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ParabolaDistortion__Offset, false);}
 			
 		}
 		
@@ -289,13 +260,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bUseLegacyRotation__Offset;
-		public bool bUseLegacyRotation
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseLegacyRotation__Offset, 1, 0, 1, 255);}
-			
-		}
-		
 		static readonly int bAddedToScreen__Offset;
 		public bool bAddedToScreen
 		{
@@ -329,28 +293,33 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int CylinderArcAngle__Offset;
+		/// <summary>Curvature of a cylindrical widget in degrees.</summary>
+		public float CylinderArcAngle
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+CylinderArcAngle__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+CylinderArcAngle__Offset, false);}
+			
+		}
+		
 		static UWidgetComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("WidgetComponent");
-			Space__Offset=GetPropertyOffset(NativeClassPtr,"Space");
 			WidgetClass__Offset=GetPropertyOffset(NativeClassPtr,"WidgetClass");
 			DrawSize__Offset=GetPropertyOffset(NativeClassPtr,"DrawSize");
 			bManuallyRedraw__Offset=GetPropertyOffset(NativeClassPtr,"bManuallyRedraw");
 			bRedrawRequested__Offset=GetPropertyOffset(NativeClassPtr,"bRedrawRequested");
 			RedrawTime__Offset=GetPropertyOffset(NativeClassPtr,"RedrawTime");
-			LastWidgetRenderTime__Offset=GetPropertyOffset(NativeClassPtr,"LastWidgetRenderTime");
-			bWindowFocusable__Offset=GetPropertyOffset(NativeClassPtr,"bWindowFocusable");
 			CurrentDrawSize__Offset=GetPropertyOffset(NativeClassPtr,"CurrentDrawSize");
 			bDrawAtDesiredSize__Offset=GetPropertyOffset(NativeClassPtr,"bDrawAtDesiredSize");
 			Pivot__Offset=GetPropertyOffset(NativeClassPtr,"Pivot");
+			bReceiveHardwareInput__Offset=GetPropertyOffset(NativeClassPtr,"bReceiveHardwareInput");
+			bWindowFocusable__Offset=GetPropertyOffset(NativeClassPtr,"bWindowFocusable");
 			OwnerPlayer__Offset=GetPropertyOffset(NativeClassPtr,"OwnerPlayer");
 			BackgroundColor__Offset=GetPropertyOffset(NativeClassPtr,"BackgroundColor");
 			TintColorAndOpacity__Offset=GetPropertyOffset(NativeClassPtr,"TintColorAndOpacity");
 			OpacityFromTexture__Offset=GetPropertyOffset(NativeClassPtr,"OpacityFromTexture");
-			BlendMode__Offset=GetPropertyOffset(NativeClassPtr,"BlendMode");
-			bIsOpaque__Offset=GetPropertyOffset(NativeClassPtr,"bIsOpaque");
 			bIsTwoSided__Offset=GetPropertyOffset(NativeClassPtr,"bIsTwoSided");
-			ParabolaDistortion__Offset=GetPropertyOffset(NativeClassPtr,"ParabolaDistortion");
 			TickWhenOffscreen__Offset=GetPropertyOffset(NativeClassPtr,"TickWhenOffscreen");
 			Widget__Offset=GetPropertyOffset(NativeClassPtr,"Widget");
 			BodySetup__Offset=GetPropertyOffset(NativeClassPtr,"BodySetup");
@@ -362,11 +331,11 @@ namespace UnrealEngine
 			MaskedMaterial_OneSided__Offset=GetPropertyOffset(NativeClassPtr,"MaskedMaterial_OneSided");
 			RenderTarget__Offset=GetPropertyOffset(NativeClassPtr,"RenderTarget");
 			MaterialInstance__Offset=GetPropertyOffset(NativeClassPtr,"MaterialInstance");
-			bUseLegacyRotation__Offset=GetPropertyOffset(NativeClassPtr,"bUseLegacyRotation");
 			bAddedToScreen__Offset=GetPropertyOffset(NativeClassPtr,"bAddedToScreen");
 			bEditTimeUsable__Offset=GetPropertyOffset(NativeClassPtr,"bEditTimeUsable");
 			SharedLayerName__Offset=GetPropertyOffset(NativeClassPtr,"SharedLayerName");
 			LayerZOrder__Offset=GetPropertyOffset(NativeClassPtr,"LayerZOrder");
+			CylinderArcAngle__Offset=GetPropertyOffset(NativeClassPtr,"CylinderArcAngle");
 			
 		}
 		

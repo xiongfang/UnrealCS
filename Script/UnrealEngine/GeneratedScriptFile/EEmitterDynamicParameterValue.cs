@@ -11,15 +11,17 @@ namespace UnrealEngine
 	{
 		/// <summary>UserSet - use the user set values in the distribution (the default)</summary>
 		EDPV_UserSet=0,
+		/// <summary>AutoSet - ignore values set in the distribution, another module will handle this data</summary>
+		EDPV_AutoSet=1,
 		/// <summary>VelocityX - pass the particle velocity along the X-axis thru</summary>
-		EDPV_VelocityX=1,
+		EDPV_VelocityX=2,
 		/// <summary>VelocityY - pass the particle velocity along the Y-axis thru</summary>
-		EDPV_VelocityY=2,
+		EDPV_VelocityY=3,
 		/// <summary>VelocityZ - pass the particle velocity along the Z-axis thru</summary>
-		EDPV_VelocityZ=3,
+		EDPV_VelocityZ=4,
 		/// <summary>VelocityMag - pass the particle velocity magnitude thru</summary>
-		EDPV_VelocityMag=4,
-		EDPV_MAX=5,
+		EDPV_VelocityMag=5,
+		EDPV_MAX=6,
 		
 	}
 	

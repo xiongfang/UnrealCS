@@ -5,6 +5,15 @@ namespace UnrealEngine{
 public partial class UKismetSystemLibrary:UBlueprintFunctionLibrary 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static string GetCommandLine(IntPtr _this);
+/// <summary>Returns the command line that the process was launched with.</summary>
+public static string GetCommandLine()
+{
+	string ___ret = GetCommandLine(IntPtr.Zero);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetUserActivity(IntPtr _this,ref FUserActivity UserActivity);
 /// <summary>Tells the engine what the user is doing for debug, analytics, etc.</summary>
 public static void SetUserActivity(FUserActivity UserActivity)
@@ -159,6 +168,53 @@ public static void ShowPlatformSpecificLeaderboardScreen(string CategoryName)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void ShowInterstitialAd(IntPtr _this);
+/// <summary>
+/// Shows the loaded interstitial ad (loaded with LoadInterstitialAd)
+/// (Android only)
+/// </summary>
+public static void ShowInterstitialAd()
+{
+	ShowInterstitialAd(IntPtr.Zero);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsInterstitialAdRequested(IntPtr _this);
+/// <summary>
+/// Returns true if the requested interstitial ad has been successfully requested (false if load request fails)
+/// (Android only)
+/// </summary>
+public static bool IsInterstitialAdRequested()
+{
+	int ___ret = IsInterstitialAdRequested(IntPtr.Zero);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsInterstitialAdAvailable(IntPtr _this);
+/// <summary>
+/// Returns true if the requested interstitial ad is loaded and ready
+/// (Android only)
+/// </summary>
+public static bool IsInterstitialAdAvailable()
+{
+	int ___ret = IsInterstitialAdAvailable(IntPtr.Zero);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void LoadInterstitialAd(IntPtr _this,int AdIdIndex);
+/// <summary>
+/// Will load a fullscreen interstitial AdMob ad. Call this before using ShowInterstitialAd
+/// (Android only)
+/// @param AdIdIndex The index of the ID to select for the ad to show
+/// </summary>
+public static void LoadInterstitialAd(int AdIdIndex)
+{
+	LoadInterstitialAd(IntPtr.Zero,AdIdIndex);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void ForceCloseAdBanner(IntPtr _this);
 /// <summary>
 /// Forces closed any displayed ad. Can lead to loss of revenue
@@ -194,7 +250,7 @@ extern static void ShowAdBanner(IntPtr _this,int AdIdIndex,int bShowOnBottomOfSc
 /// <summary>
 /// Will show an ad banner (iAd on iOS, or AdMob on Android) on the top or bottom of screen, on top of the GL view (doesn't resize the view)
 /// (iOS and Android only)
-/// @param AdIdIndex The index of the ID to select for the add to show
+/// @param AdIdIndex The index of the ID to select for the ad to show
 /// @param bShowOnBottomOfScreen If true, the iAd will be shown at the bottom of the screen, top otherwise
 /// </summary>
 public static void ShowAdBanner(int AdIdIndex,bool bShowOnBottomOfScreen)
@@ -251,6 +307,18 @@ public static int GetMinYResolutionForUI()
 {
 	int ___ret = GetMinYResolutionForUI(IntPtr.Zero);
 	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int GetConvenientWindowedResolutions(IntPtr _this,out FIntPoint[] Resolutions);
+/// <summary>
+/// Gets the list of windowed resolutions which are convenient for the current primary display size.
+/// @return true if successfully queried the device for available resolutions.
+/// </summary>
+public static bool GetConvenientWindowedResolutions(out FIntPoint[] Resolutions)
+{
+	int ___ret = GetConvenientWindowedResolutions(IntPtr.Zero,out Resolutions);
+	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -486,7 +554,7 @@ public static void GetActorListFromComponentList(UPrimitiveComponent[] Component
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int CapsuleTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf);
+extern static int CapsuleTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a capsule along the given line and returns all hits encountered.
 /// This only finds objects that are of a type specified by ObjectTypes.
@@ -500,14 +568,14 @@ extern static int CapsuleTraceMultiForObjects(IntPtr _this,IntPtr WorldContextOb
 /// @param OutHits               A list of hits, sorted along the trace from start to finish.  The blocking hit will be the last hit, if there was one.
 /// @return                              True if there was a hit, false otherwise.
 /// </summary>
-public static bool CapsuleTraceMultiForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf)
+public static bool CapsuleTraceMultiForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = CapsuleTraceMultiForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0);
+	int ___ret = CapsuleTraceMultiForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int CapsuleTraceSingleForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf);
+extern static int CapsuleTraceSingleForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a capsule along the given line and returns the first hit encountered.
 /// This only finds objects that are of a type specified by ObjectTypes.
@@ -521,14 +589,14 @@ extern static int CapsuleTraceSingleForObjects(IntPtr _this,IntPtr WorldContextO
 /// @param OutHit                Properties of the trace hit.
 /// @return                              True if there was a hit, false otherwise.
 /// </summary>
-public static bool CapsuleTraceSingleForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf)
+public static bool CapsuleTraceSingleForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = CapsuleTraceSingleForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0);
+	int ___ret = CapsuleTraceSingleForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int BoxTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf);
+extern static int BoxTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a box along the given line and returns all hits encountered.
 /// This only finds objects that are of a type specified by ObjectTypes.
@@ -541,14 +609,14 @@ extern static int BoxTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObject
 /// @param OutHits                A list of hits, sorted along the trace from start to finish.  The blocking hit will be the last hit, if there was one.
 /// @return                               True if there was a hit, false otherwise.
 /// </summary>
-public static bool BoxTraceMultiForObjects(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf)
+public static bool BoxTraceMultiForObjects(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = BoxTraceMultiForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0);
+	int ___ret = BoxTraceMultiForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int BoxTraceSingleForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf);
+extern static int BoxTraceSingleForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a box along the given line and returns the first hit encountered.
 /// This only finds objects that are of a type specified by ObjectTypes.
@@ -561,14 +629,14 @@ extern static int BoxTraceSingleForObjects(IntPtr _this,IntPtr WorldContextObjec
 /// @param OutHit                 Properties of the trace hit.
 /// @return                               True if there was a hit, false otherwise.
 /// </summary>
-public static bool BoxTraceSingleForObjects(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf)
+public static bool BoxTraceSingleForObjects(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = BoxTraceSingleForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0);
+	int ___ret = BoxTraceSingleForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int SphereTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf);
+extern static int SphereTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a sphere along the given line and returns all hits encountered.
 /// This only finds objects that are of a type specified by ObjectTypes.
@@ -581,14 +649,14 @@ extern static int SphereTraceMultiForObjects(IntPtr _this,IntPtr WorldContextObj
 /// @param OutHits               A list of hits, sorted along the trace from start to finish.  The blocking hit will be the last hit, if there was one.
 /// @return                              True if there was a hit, false otherwise.
 /// </summary>
-public static bool SphereTraceMultiForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf)
+public static bool SphereTraceMultiForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = SphereTraceMultiForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0);
+	int ___ret = SphereTraceMultiForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int SphereTraceSingleForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf);
+extern static int SphereTraceSingleForObjects(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a sphere along the given line and returns the first hit encountered.
 /// This only finds objects that are of a type specified by ObjectTypes.
@@ -600,9 +668,9 @@ extern static int SphereTraceSingleForObjects(IntPtr _this,IntPtr WorldContextOb
 /// @param OutHit                Properties of the trace hit.
 /// @return                              True if there was a hit, false otherwise.
 /// </summary>
-public static bool SphereTraceSingleForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf)
+public static bool SphereTraceSingleForObjects(UObject WorldContextObject,FVector Start,FVector End,float Radius,EObjectTypeQuery[] ObjectTypes,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = SphereTraceSingleForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0);
+	int ___ret = SphereTraceSingleForObjects(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,ObjectTypes,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
@@ -645,7 +713,7 @@ public static bool LineTraceSingleForObjects(UObject WorldContextObject,FVector 
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int CapsuleTraceMulti_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf);
+extern static int CapsuleTraceMulti(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a capsule along the given line and returns all hits encountered up to and including the first blocking hit.
 /// This trace finds the objects that RESPOND to the given TraceChannel
@@ -659,14 +727,14 @@ extern static int CapsuleTraceMulti_NEW(IntPtr _this,IntPtr WorldContextObject,r
 /// @param OutHits               A list of hits, sorted along the trace from start to finish.  The blocking hit will be the last hit, if there was one.
 /// @return                              True if there was a blocking hit, false otherwise.
 /// </summary>
-public static bool CapsuleTraceMulti_NEW(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf)
+public static bool CapsuleTraceMulti(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = CapsuleTraceMulti_NEW(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0);
+	int ___ret = CapsuleTraceMulti(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int CapsuleTraceSingle_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf);
+extern static int CapsuleTraceSingle(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,float HalfHeight,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a capsule along the given line and returns the first blocking hit encountered.
 /// This trace finds the objects that RESPOND to the given TraceChannel
@@ -680,14 +748,14 @@ extern static int CapsuleTraceSingle_NEW(IntPtr _this,IntPtr WorldContextObject,
 /// @param OutHit                Properties of the trace hit.
 /// @return                              True if there was a hit, false otherwise.
 /// </summary>
-public static bool CapsuleTraceSingle_NEW(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf)
+public static bool CapsuleTraceSingle(UObject WorldContextObject,FVector Start,FVector End,float Radius,float HalfHeight,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = CapsuleTraceSingle_NEW(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0);
+	int ___ret = CapsuleTraceSingle(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,HalfHeight,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int BoxTraceMulti(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf);
+extern static int BoxTraceMulti(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a box along the given line and returns all hits encountered.
 /// This trace finds the objects that RESPONDS to the given TraceChannel
@@ -700,14 +768,14 @@ extern static int BoxTraceMulti(IntPtr _this,IntPtr WorldContextObject,ref FVect
 /// @param OutHits                A list of hits, sorted along the trace from start to finish. The blocking hit will be the last hit, if there was one.
 /// @return                               True if there was a blocking hit, false otherwise.
 /// </summary>
-public static bool BoxTraceMulti(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf)
+public static bool BoxTraceMulti(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = BoxTraceMulti(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0);
+	int ___ret = BoxTraceMulti(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int BoxTraceSingle(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf);
+extern static int BoxTraceSingle(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,ref FVector HalfSize,ref FRotator Orientation,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a box along the given line and returns the first blocking hit encountered.
 /// This trace finds the objects that RESPONDS to the given TraceChannel
@@ -720,14 +788,14 @@ extern static int BoxTraceSingle(IntPtr _this,IntPtr WorldContextObject,ref FVec
 /// @param OutHit                 Properties of the trace hit.
 /// @return                               True if there was a hit, false otherwise.
 /// </summary>
-public static bool BoxTraceSingle(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf)
+public static bool BoxTraceSingle(UObject WorldContextObject,FVector Start,FVector End,FVector HalfSize,FRotator Orientation,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = BoxTraceSingle(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0);
+	int ___ret = BoxTraceSingle(IntPtr.Zero,WorldContextObject,ref Start,ref End,ref HalfSize,ref Orientation,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int SphereTraceMulti_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf);
+extern static int SphereTraceMulti(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a sphere along the given line and returns all hits encountered up to and including the first blocking hit.
 /// This trace finds the objects that RESPOND to the given TraceChannel
@@ -740,14 +808,14 @@ extern static int SphereTraceMulti_NEW(IntPtr _this,IntPtr WorldContextObject,re
 /// @param OutHits               A list of hits, sorted along the trace from start to finish.  The blocking hit will be the last hit, if there was one.
 /// @return                              True if there was a blocking hit, false otherwise.
 /// </summary>
-public static bool SphereTraceMulti_NEW(UObject WorldContextObject,FVector Start,FVector End,float Radius,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf)
+public static bool SphereTraceMulti(UObject WorldContextObject,FVector Start,FVector End,float Radius,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = SphereTraceMulti_NEW(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0);
+	int ___ret = SphereTraceMulti(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int SphereTraceSingle_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf);
+extern static int SphereTraceSingle(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,float Radius,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Sweeps a sphere along the given line and returns the first blocking hit encountered.
 /// This trace finds the objects that RESPONDS to the given TraceChannel
@@ -759,14 +827,14 @@ extern static int SphereTraceSingle_NEW(IntPtr _this,IntPtr WorldContextObject,r
 /// @param OutHit                Properties of the trace hit.
 /// @return                              True if there was a hit, false otherwise.
 /// </summary>
-public static bool SphereTraceSingle_NEW(UObject WorldContextObject,FVector Start,FVector End,float Radius,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf)
+public static bool SphereTraceSingle(UObject WorldContextObject,FVector Start,FVector End,float Radius,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = SphereTraceSingle_NEW(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0);
+	int ___ret = SphereTraceSingle(IntPtr.Zero,WorldContextObject,ref Start,ref End,Radius,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int LineTraceMulti_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
+extern static int LineTraceMulti(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult[] OutHits,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Does a collision trace along the given line and returns all hits encountered up to and including the first blocking hit.
 /// This trace finds the objects that RESPOND to the given TraceChannel
@@ -778,14 +846,14 @@ extern static int LineTraceMulti_NEW(IntPtr _this,IntPtr WorldContextObject,ref 
 /// @param OutHit                Properties of the trace hit.
 /// @return                              True if there was a blocking hit, false otherwise.
 /// </summary>
-public static bool LineTraceMulti_NEW(UObject WorldContextObject,FVector Start,FVector End,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
+public static bool LineTraceMulti(UObject WorldContextObject,FVector Start,FVector End,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult[] OutHits,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = LineTraceMulti_NEW(IntPtr.Zero,WorldContextObject,ref Start,ref End,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
+	int ___ret = LineTraceMulti(IntPtr.Zero,WorldContextObject,ref Start,ref End,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHits,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int LineTraceSingle_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
+extern static int LineTraceSingle(IntPtr _this,IntPtr WorldContextObject,ref FVector Start,ref FVector End,int TraceChannel,int bTraceComplex,IntPtr[] ActorsToIgnore,int DrawDebugType,out FHitResult OutHit,int bIgnoreSelf,ref FLinearColor TraceColor,ref FLinearColor TraceHitColor,float DrawTime);
 /// <summary>
 /// Does a collision trace along the given line and returns the first blocking hit encountered.
 /// This trace finds the objects that RESPONDS to the given TraceChannel
@@ -797,14 +865,14 @@ extern static int LineTraceSingle_NEW(IntPtr _this,IntPtr WorldContextObject,ref
 /// @param OutHit                Properties of the trace hit.
 /// @return                              True if there was a hit, false otherwise.
 /// </summary>
-public static bool LineTraceSingle_NEW(UObject WorldContextObject,FVector Start,FVector End,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
+public static bool LineTraceSingle(UObject WorldContextObject,FVector Start,FVector End,ETraceTypeQuery TraceChannel,bool bTraceComplex,AActor[] ActorsToIgnore,EDrawDebugTrace DrawDebugType,out FHitResult OutHit,bool bIgnoreSelf,FLinearColor TraceColor=default(FLinearColor),FLinearColor TraceHitColor=default(FLinearColor),float DrawTime=5.000000f)
 {
-	int ___ret = LineTraceSingle_NEW(IntPtr.Zero,WorldContextObject,ref Start,ref End,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
+	int ___ret = LineTraceSingle(IntPtr.Zero,WorldContextObject,ref Start,ref End,(int)TraceChannel,bTraceComplex?1:0,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),(int)DrawDebugType,out OutHit,bIgnoreSelf?1:0,ref TraceColor,ref TraceHitColor,DrawTime);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int ComponentOverlapComponents_NEW(IntPtr _this,IntPtr Component,ref FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
+extern static int ComponentOverlapComponents(IntPtr _this,IntPtr Component,ref FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
 /// <summary>
 /// Returns an array of components that overlap the given component.
 /// @param Component                             Component to test with.
@@ -815,16 +883,16 @@ extern static int ComponentOverlapComponents_NEW(IntPtr _this,IntPtr Component,r
 /// @param OutActors                             Returned array of actors. Unsorted.
 /// @return                                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool ComponentOverlapComponents_NEW(UPrimitiveComponent Component,FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
+public static bool ComponentOverlapComponents(UPrimitiveComponent Component,FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
 {
 	IntPtr[] OutComponents_temp;
-	int ___ret = ComponentOverlapComponents_NEW(IntPtr.Zero,Component,ref ComponentTransform,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
+	int ___ret = ComponentOverlapComponents(IntPtr.Zero,Component,ref ComponentTransform,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
 	OutComponents = MarshalUtil.IntPtrArrayToObjectArray<UPrimitiveComponent>(OutComponents_temp);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int ComponentOverlapActors_NEW(IntPtr _this,IntPtr Component,ref FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
+extern static int ComponentOverlapActors(IntPtr _this,IntPtr Component,ref FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
 /// <summary>
 /// Returns an array of actors that overlap the given component.
 /// @param Component                             Component to test with.
@@ -835,16 +903,16 @@ extern static int ComponentOverlapActors_NEW(IntPtr _this,IntPtr Component,ref F
 /// @param OutActors                             Returned array of actors. Unsorted.
 /// @return                                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool ComponentOverlapActors_NEW(UPrimitiveComponent Component,FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
+public static bool ComponentOverlapActors(UPrimitiveComponent Component,FTransform ComponentTransform,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
 {
 	IntPtr[] OutActors_temp;
-	int ___ret = ComponentOverlapActors_NEW(IntPtr.Zero,Component,ref ComponentTransform,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
+	int ___ret = ComponentOverlapActors(IntPtr.Zero,Component,ref ComponentTransform,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
 	OutActors = MarshalUtil.IntPtrArrayToObjectArray<AActor>(OutActors_temp);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int CapsuleOverlapComponents_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
+extern static int CapsuleOverlapComponents(IntPtr _this,IntPtr WorldContextObject,ref FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
 /// <summary>
 /// Returns an array of components that overlap the given capsule.
 /// @param WorldContext  World context
@@ -857,16 +925,16 @@ extern static int CapsuleOverlapComponents_NEW(IntPtr _this,IntPtr WorldContextO
 /// @param OutActors             Returned array of actors. Unsorted.
 /// @return                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool CapsuleOverlapComponents_NEW(UObject WorldContextObject,FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
+public static bool CapsuleOverlapComponents(UObject WorldContextObject,FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
 {
 	IntPtr[] OutComponents_temp;
-	int ___ret = CapsuleOverlapComponents_NEW(IntPtr.Zero,WorldContextObject,ref CapsulePos,Radius,HalfHeight,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
+	int ___ret = CapsuleOverlapComponents(IntPtr.Zero,WorldContextObject,ref CapsulePos,Radius,HalfHeight,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
 	OutComponents = MarshalUtil.IntPtrArrayToObjectArray<UPrimitiveComponent>(OutComponents_temp);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int CapsuleOverlapActors_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
+extern static int CapsuleOverlapActors(IntPtr _this,IntPtr WorldContextObject,ref FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
 /// <summary>
 /// Returns an array of actors that overlap the given capsule.
 /// @param WorldContext  World context
@@ -879,16 +947,16 @@ extern static int CapsuleOverlapActors_NEW(IntPtr _this,IntPtr WorldContextObjec
 /// @param OutActors             Returned array of actors. Unsorted.
 /// @return                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool CapsuleOverlapActors_NEW(UObject WorldContextObject,FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
+public static bool CapsuleOverlapActors(UObject WorldContextObject,FVector CapsulePos,float Radius,float HalfHeight,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
 {
 	IntPtr[] OutActors_temp;
-	int ___ret = CapsuleOverlapActors_NEW(IntPtr.Zero,WorldContextObject,ref CapsulePos,Radius,HalfHeight,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
+	int ___ret = CapsuleOverlapActors(IntPtr.Zero,WorldContextObject,ref CapsulePos,Radius,HalfHeight,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
 	OutActors = MarshalUtil.IntPtrArrayToObjectArray<AActor>(OutActors_temp);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int BoxOverlapComponents_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector BoxPos,ref FVector Extent,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
+extern static int BoxOverlapComponents(IntPtr _this,IntPtr WorldContextObject,ref FVector BoxPos,ref FVector Extent,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
 /// <summary>
 /// Returns an array of components that overlap the given axis-aligned box.
 /// @param WorldContext  World context
@@ -900,16 +968,16 @@ extern static int BoxOverlapComponents_NEW(IntPtr _this,IntPtr WorldContextObjec
 /// @param OutActors             Returned array of actors. Unsorted.
 /// @return                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool BoxOverlapComponents_NEW(UObject WorldContextObject,FVector BoxPos,FVector Extent,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
+public static bool BoxOverlapComponents(UObject WorldContextObject,FVector BoxPos,FVector Extent,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
 {
 	IntPtr[] OutComponents_temp;
-	int ___ret = BoxOverlapComponents_NEW(IntPtr.Zero,WorldContextObject,ref BoxPos,ref Extent,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
+	int ___ret = BoxOverlapComponents(IntPtr.Zero,WorldContextObject,ref BoxPos,ref Extent,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
 	OutComponents = MarshalUtil.IntPtrArrayToObjectArray<UPrimitiveComponent>(OutComponents_temp);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int BoxOverlapActors_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector BoxPos,ref FVector BoxExtent,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
+extern static int BoxOverlapActors(IntPtr _this,IntPtr WorldContextObject,ref FVector BoxPos,ref FVector BoxExtent,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
 /// <summary>
 /// Returns an array of actors that overlap the given axis-aligned box.
 /// @param WorldContext  World context
@@ -921,16 +989,16 @@ extern static int BoxOverlapActors_NEW(IntPtr _this,IntPtr WorldContextObject,re
 /// @param OutActors             Returned array of actors. Unsorted.
 /// @return                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool BoxOverlapActors_NEW(UObject WorldContextObject,FVector BoxPos,FVector BoxExtent,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
+public static bool BoxOverlapActors(UObject WorldContextObject,FVector BoxPos,FVector BoxExtent,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
 {
 	IntPtr[] OutActors_temp;
-	int ___ret = BoxOverlapActors_NEW(IntPtr.Zero,WorldContextObject,ref BoxPos,ref BoxExtent,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
+	int ___ret = BoxOverlapActors(IntPtr.Zero,WorldContextObject,ref BoxPos,ref BoxExtent,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
 	OutActors = MarshalUtil.IntPtrArrayToObjectArray<AActor>(OutActors_temp);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int SphereOverlapComponents_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
+extern static int SphereOverlapComponents(IntPtr _this,IntPtr WorldContextObject,ref FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,IntPtr ComponentClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutComponents);
 /// <summary>
 /// Returns an array of components that overlap the given sphere.
 /// @param WorldContext  World context
@@ -942,16 +1010,16 @@ extern static int SphereOverlapComponents_NEW(IntPtr _this,IntPtr WorldContextOb
 /// @param OutActors             Returned array of actors. Unsorted.
 /// @return                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool SphereOverlapComponents_NEW(UObject WorldContextObject,FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
+public static bool SphereOverlapComponents(UObject WorldContextObject,FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,UClass ComponentClassFilter,AActor[] ActorsToIgnore,out UPrimitiveComponent[] OutComponents)
 {
 	IntPtr[] OutComponents_temp;
-	int ___ret = SphereOverlapComponents_NEW(IntPtr.Zero,WorldContextObject,ref SpherePos,SphereRadius,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
+	int ___ret = SphereOverlapComponents(IntPtr.Zero,WorldContextObject,ref SpherePos,SphereRadius,ObjectTypes,ComponentClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutComponents_temp);
 	OutComponents = MarshalUtil.IntPtrArrayToObjectArray<UPrimitiveComponent>(OutComponents_temp);
 	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int SphereOverlapActors_NEW(IntPtr _this,IntPtr WorldContextObject,ref FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
+extern static int SphereOverlapActors(IntPtr _this,IntPtr WorldContextObject,ref FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,IntPtr ActorClassFilter,IntPtr[] ActorsToIgnore,out IntPtr[] OutActors);
 /// <summary>
 /// Returns an array of actors that overlap the given sphere.
 /// @param WorldContext  World context
@@ -963,10 +1031,10 @@ extern static int SphereOverlapActors_NEW(IntPtr _this,IntPtr WorldContextObject
 /// @param OutActors             Returned array of actors. Unsorted.
 /// @return                              true if there was an overlap that passed the filters, false otherwise.
 /// </summary>
-public static bool SphereOverlapActors_NEW(UObject WorldContextObject,FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
+public static bool SphereOverlapActors(UObject WorldContextObject,FVector SpherePos,float SphereRadius,EObjectTypeQuery[] ObjectTypes,UClass ActorClassFilter,AActor[] ActorsToIgnore,out AActor[] OutActors)
 {
 	IntPtr[] OutActors_temp;
-	int ___ret = SphereOverlapActors_NEW(IntPtr.Zero,WorldContextObject,ref SpherePos,SphereRadius,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
+	int ___ret = SphereOverlapActors(IntPtr.Zero,WorldContextObject,ref SpherePos,SphereRadius,ObjectTypes,ActorClassFilter,MarshalUtil.ObjectArrayToIntPtrArray(ActorsToIgnore),out OutActors_temp);
 	OutActors = MarshalUtil.IntPtrArrayToObjectArray<AActor>(OutActors_temp);
 	return ___ret!=0;
 	
@@ -1551,11 +1619,11 @@ public static int MakeLiteralInt(int Value)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static string GetUniqueDeviceId(IntPtr _this);
+extern static string GetDeviceId(IntPtr _this);
 /// <summary>Returns the platform specific unique device id</summary>
-public static string GetUniqueDeviceId()
+public static string GetDeviceId()
 {
-	string ___ret = GetUniqueDeviceId(IntPtr.Zero);
+	string ___ret = GetDeviceId(IntPtr.Zero);
 	return ___ret;
 	
 }
@@ -1565,6 +1633,15 @@ extern static int IsPackagedForDistribution(IntPtr _this);
 public static bool IsPackagedForDistribution()
 {
 	int ___ret = IsPackagedForDistribution(IntPtr.Zero);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsStandalone(IntPtr _this,IntPtr WorldContextObject);
+/// <summary>Returns whether this game instance is stand alone (no networking).</summary>
+public static bool IsStandalone(UObject WorldContextObject)
+{
+	int ___ret = IsStandalone(IntPtr.Zero,WorldContextObject);
 	return ___ret!=0;
 	
 }

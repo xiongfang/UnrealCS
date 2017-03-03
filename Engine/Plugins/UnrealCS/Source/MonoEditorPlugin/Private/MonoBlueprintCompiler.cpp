@@ -1,11 +1,11 @@
 // Copyright xg_55,All Rights Reserved.Support E-mail: xg_55@126.com
 // For details, see LICENSE.txt
-
+#include "MonoBlueprintCompiler.h"
 #include "MonoEditorPluginPrivatePCH.h"
 #include "MonoBlueprint.h"
 #include "MonoScriptClass.h"
 #include "MonoScriptBind_Component.h"
-#include "MonoBlueprintCompiler.h"
+
 #include "Kismet2NameValidators.h"
 #include "KismetReinstanceUtilities.h"
 
@@ -93,7 +93,7 @@ void FMonoBlueprintCompiler::CreateClassVariablesFromBlueprint()
 			GetFieldBlueprintArgs(Field, PinCategory, IsArray, InnerType);
 			if (!PinCategory.IsEmpty())
 			{
-				FEdGraphPinType ScriptPinType(PinCategory, TEXT(""), InnerType, IsArray, false);
+				FEdGraphPinType ScriptPinType(PinCategory, TEXT(""), InnerType, IsArray, false,false,false, FEdGraphTerminalType());
 				UProperty* ScriptProperty = CreateVariable(Field.Name, ScriptPinType);
 				if (ScriptProperty != NULL)
 				{
@@ -110,23 +110,23 @@ void FMonoBlueprintCompiler::CreateClassVariablesFromBlueprint()
 
 void FMonoBlueprintCompiler::CreateScriptContextProperty()
 {
-	// The only case we don't need a script context is if the script class derives form UScriptPluginComponent
-	UClass* ContextClass = NULL;
-	//if (Blueprint->ParentClass->IsChildOf(AActor::StaticClass()))
-	{
-		ContextClass = UMonoScriptBind_Component::StaticClass();
-	}
-	//else if (!Blueprint->ParentClass->IsChildOf(UScriptPluginComponent::StaticClass()))
+	//// The only case we don't need a script context is if the script class derives form UScriptPluginComponent
+	//UClass* ContextClass = NULL;
+	////if (Blueprint->ParentClass->IsChildOf(AActor::StaticClass()))
 	//{
-	//	ContextClass = UScriptContext::StaticClass();
+	//	ContextClass = UMonoScriptBind_Component::StaticClass();
 	//}
+	////else if (!Blueprint->ParentClass->IsChildOf(UScriptPluginComponent::StaticClass()))
+	////{
+	////	ContextClass = UScriptContext::StaticClass();
+	////}
 
-	if (ContextClass)
-	{
-		FEdGraphPinType ScriptContextPinType(Schema->PC_Object, TEXT(""), ContextClass, false, false);
-		ContextProperty = CastChecked<UObjectProperty>(CreateVariable(TEXT("Generated_ScriptContext"), ScriptContextPinType));
-		ContextProperty->SetPropertyFlags(CPF_ContainsInstancedReference | CPF_InstancedReference);
-	}
+	//if (ContextClass)
+	//{
+	//	FEdGraphPinType ScriptContextPinType(Schema->PC_Object, TEXT(""), ContextClass, false, false);
+	//	ContextProperty = CastChecked<UObjectProperty>(CreateVariable(TEXT("Generated_ScriptContext"), ScriptContextPinType));
+	//	ContextProperty->SetPropertyFlags(CPF_ContainsInstancedReference | CPF_InstancedReference);
+	//}
 }
 
 
@@ -154,43 +154,43 @@ void FMonoBlueprintCompiler::CreateFunctionList()
 
 void FMonoBlueprintCompiler::CreateScriptDefinedFunction(FScriptField& Field)
 {
-	//check(ContextProperty);
-	
-	UMonoBlueprint* Blueprint = ScriptBlueprint();
-	const FString FunctionName = Field.Name.ToString();
-	// Create Blueprint Graph which consists of 3 nodes: 'Entry', 'Get Script Context' and 'Call Function'
-	// @todo: once we figure out how to get parameter lists for functions we can add suport for that here
+	////check(ContextProperty);
+	//
+	//UMonoBlueprint* Blueprint = ScriptBlueprint();
+	//const FString FunctionName = Field.Name.ToString();
+	//// Create Blueprint Graph which consists of 3 nodes: 'Entry', 'Get Script Context' and 'Call Function'
+	//// @todo: once we figure out how to get parameter lists for functions we can add suport for that here
 
-	UEdGraph* ScriptFunctionGraph = NewObject<UEdGraph>(Blueprint, *FString::Printf(TEXT("%s_Graph"), *FunctionName));
-	ScriptFunctionGraph->Schema = UEdGraphSchema_K2::StaticClass();
-	ScriptFunctionGraph->SetFlags(RF_Transient);
-	
-	FKismetFunctionContext* FunctionContext = CreateFunctionContext();
-	FunctionContext->SourceGraph = ScriptFunctionGraph;
-	FunctionContext->bCreateDebugData = false;
+	//UEdGraph* ScriptFunctionGraph = NewObject<UEdGraph>(Blueprint, *FString::Printf(TEXT("%s_Graph"), *FunctionName));
+	//ScriptFunctionGraph->Schema = UEdGraphSchema_K2::StaticClass();
+	//ScriptFunctionGraph->SetFlags(RF_Transient);
+	//
+	//FKismetFunctionContext* FunctionContext = CreateFunctionContext();
+	//FunctionContext->SourceGraph = ScriptFunctionGraph;
+	//FunctionContext->bCreateDebugData = false;
 
-	UK2Node_FunctionEntry* EntryNode = SpawnIntermediateNode<UK2Node_FunctionEntry>(NULL, ScriptFunctionGraph);
-	EntryNode->CustomGeneratedFunctionName = Field.Name;
-	EntryNode->AllocateDefaultPins();
+	//UK2Node_FunctionEntry* EntryNode = SpawnIntermediateNode<UK2Node_FunctionEntry>(NULL, ScriptFunctionGraph);
+	//EntryNode->CustomGeneratedFunctionName = Field.Name;
+	//EntryNode->AllocateDefaultPins();
 
-	//UK2Node_VariableGet* GetVariableNode = SpawnIntermediateNode<UK2Node_VariableGet>(NULL, ScriptFunctionGraph);
-	//GetVariableNode->VariableReference.SetSelfMember(ContextProperty->GetFName());
-	//GetVariableNode->AllocateDefaultPins();
+	////UK2Node_VariableGet* GetVariableNode = SpawnIntermediateNode<UK2Node_VariableGet>(NULL, ScriptFunctionGraph);
+	////GetVariableNode->VariableReference.SetSelfMember(ContextProperty->GetFName());
+	////GetVariableNode->AllocateDefaultPins();
 
-	
-	UK2Node_CallFunction* CallFunctionNode = SpawnIntermediateNode<UK2Node_CallFunction>(NULL, ScriptFunctionGraph);
-	CallFunctionNode->FunctionReference.SetExternalMember(*(FunctionName+"_1")/*TEXT("CallScriptFunction")*/, NewClass/*UMonoScriptBind_Component::StaticClass()*/);
-	CallFunctionNode->AllocateDefaultPins();
-	//UEdGraphPin* FunctionNamePin = CallFunctionNode->FindPinChecked(TEXT("FunctionName"));
-	//FunctionNamePin->DefaultValue = FunctionName;
+	//
+	//UK2Node_CallFunction* CallFunctionNode = SpawnIntermediateNode<UK2Node_CallFunction>(NULL, ScriptFunctionGraph);
+	//CallFunctionNode->FunctionReference.SetExternalMember(*(FunctionName+"_1")/*TEXT("CallScriptFunction")*/, NewClass/*UMonoScriptBind_Component::StaticClass()*/);
+	//CallFunctionNode->AllocateDefaultPins();
+	////UEdGraphPin* FunctionNamePin = CallFunctionNode->FindPinChecked(TEXT("FunctionName"));
+	////FunctionNamePin->DefaultValue = FunctionName;
 
-	// Link nodes together
-	UEdGraphPin* ExecPin = Schema->FindExecutionPin(*EntryNode, EGPD_Output);
-	//UEdGraphPin* GetVariableOutPin = GetVariableNode->FindPinChecked(ContextProperty->GetName());
-	UEdGraphPin* CallFunctionPin = Schema->FindExecutionPin(*CallFunctionNode, EGPD_Input);
-	//UEdGraphPin* FunctionTargetPin = CallFunctionNode->FindPinChecked(TEXT("self"));
-	ExecPin->MakeLinkTo(CallFunctionPin);
-	//GetVariableOutPin->MakeLinkTo(FunctionTargetPin);
+	//// Link nodes together
+	//UEdGraphPin* ExecPin = Schema->FindExecutionPin(*EntryNode, EGPD_Output);
+	////UEdGraphPin* GetVariableOutPin = GetVariableNode->FindPinChecked(ContextProperty->GetName());
+	//UEdGraphPin* CallFunctionPin = Schema->FindExecutionPin(*CallFunctionNode, EGPD_Input);
+	////UEdGraphPin* FunctionTargetPin = CallFunctionNode->FindPinChecked(TEXT("self"));
+	//ExecPin->MakeLinkTo(CallFunctionPin);
+	////GetVariableOutPin->MakeLinkTo(FunctionTargetPin);
 }
 
 void FMonoBlueprintCompiler::FinishCompilingClass(UClass* Class)

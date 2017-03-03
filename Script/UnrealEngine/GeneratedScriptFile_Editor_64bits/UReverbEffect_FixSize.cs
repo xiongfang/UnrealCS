@@ -8,7 +8,7 @@ namespace UnrealEngine
 	public partial class UReverbEffect
 	{
 		static readonly int Density__Offset;
-		/// <summary>Density - 0.0 < 1.0 < 1.0 - Coloration of the late reverb - lower value is more</summary>
+		/// <summary>Density - 0.0 < 1.0 < 1.0 - Coloration of the late reverb - lower value is more grainy</summary>
 		public float Density
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+Density__Offset, typeof(float));}
@@ -98,7 +98,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int AirAbsorptionGainHF__Offset;
-		/// <summary>Air Absorption - 0.892 < 0.994 < 1.0 - lower value means more absorption</summary>
+		/// <summary>Air Absorption - 0.0 < 0.994 < 1.0 - lower value means more absorption</summary>
 		public float AirAbsorptionGainHF
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+AirAbsorptionGainHF__Offset, typeof(float));}
@@ -112,6 +112,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+RoomRolloffFactor__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+RoomRolloffFactor__Offset, false);}
+			
+		}
+		
+		static readonly int bChanged__Offset;
+		/// <summary>Transient property used to trigger real-time updates of the reverb for real-time editor previewing</summary>
+		public bool bChanged
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bChanged__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -130,6 +138,7 @@ namespace UnrealEngine
 			LateDelay__Offset=GetPropertyOffset(NativeClassPtr,"LateDelay");
 			AirAbsorptionGainHF__Offset=GetPropertyOffset(NativeClassPtr,"AirAbsorptionGainHF");
 			RoomRolloffFactor__Offset=GetPropertyOffset(NativeClassPtr,"RoomRolloffFactor");
+			bChanged__Offset=GetPropertyOffset(NativeClassPtr,"bChanged");
 			
 		}
 		

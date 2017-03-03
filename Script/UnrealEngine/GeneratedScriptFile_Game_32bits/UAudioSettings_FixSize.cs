@@ -71,6 +71,30 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bDisableMasterEQ__Offset;
+		public bool bDisableMasterEQ
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableMasterEQ__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableMasterEQ__Offset, 1,0,2,2);}
+			
+		}
+		
+		static readonly int bDisableMasterReverb__Offset;
+		public bool bDisableMasterReverb
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableMasterReverb__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableMasterReverb__Offset, 1,0,4,4);}
+			
+		}
+		
+		static readonly int bAllowCenterChannel3DPanning__Offset;
+		public bool bAllowCenterChannel3DPanning
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowCenterChannel3DPanning__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAllowCenterChannel3DPanning__Offset, 1,0,8,8);}
+			
+		}
+		
 		static readonly int DialogueFilenameFormat__Offset;
 		public FString DialogueFilenameFormat
 		{
@@ -90,6 +114,9 @@ namespace UnrealEngine
 			MaximumConcurrentStreams__Offset=GetPropertyOffset(NativeClassPtr,"MaximumConcurrentStreams");
 			QualityLevels__Offset=GetPropertyOffset(NativeClassPtr,"QualityLevels");
 			bAllowVirtualizedSounds__Offset=GetPropertyOffset(NativeClassPtr,"bAllowVirtualizedSounds");
+			bDisableMasterEQ__Offset=GetPropertyOffset(NativeClassPtr,"bDisableMasterEQ");
+			bDisableMasterReverb__Offset=GetPropertyOffset(NativeClassPtr,"bDisableMasterReverb");
+			bAllowCenterChannel3DPanning__Offset=GetPropertyOffset(NativeClassPtr,"bAllowCenterChannel3DPanning");
 			DialogueFilenameFormat__Offset=GetPropertyOffset(NativeClassPtr,"DialogueFilenameFormat");
 			
 		}

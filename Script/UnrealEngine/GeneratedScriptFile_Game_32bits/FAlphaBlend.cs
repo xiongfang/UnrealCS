@@ -8,8 +8,6 @@ namespace UnrealEngine
 	[StructLayout(LayoutKind.Explicit,Size=44)]
 	public partial struct FAlphaBlend
 	{
-		[FieldOffset(0)]
-		public EAlphaBlendOption BlendOption;
 		[FieldOffset(8)]
 		public float BlendTime;
 		

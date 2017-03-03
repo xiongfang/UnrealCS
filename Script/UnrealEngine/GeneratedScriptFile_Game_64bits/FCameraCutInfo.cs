@@ -11,7 +11,7 @@ namespace UnrealEngine
 		[FieldOffset(0)]
 		public FVector Location;
 		[FieldOffset(12)]
-		public float TimeStamp;
+		public float Timestamp;
 		
 	}
 	

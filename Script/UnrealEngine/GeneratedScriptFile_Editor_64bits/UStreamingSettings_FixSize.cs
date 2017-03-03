@@ -116,6 +116,33 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int LevelStreamingUnregisterComponentsTimeLimit__Offset;
+		/// <summary>Maximum allowed time to spend while unregistering components during level streaming (ms per frame).</summary>
+		public float LevelStreamingUnregisterComponentsTimeLimit
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+LevelStreamingUnregisterComponentsTimeLimit__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LevelStreamingUnregisterComponentsTimeLimit__Offset, false);}
+			
+		}
+		
+		static readonly int LevelStreamingComponentsUnregistrationGranularity__Offset;
+		/// <summary>Batching granularity used to unregister actor components during level streaming.</summary>
+		public int LevelStreamingComponentsUnregistrationGranularity
+		{
+			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+LevelStreamingComponentsUnregistrationGranularity__Offset, typeof(int));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LevelStreamingComponentsUnregistrationGranularity__Offset, false);}
+			
+		}
+		
+		static readonly int EventDrivenLoaderEnabled__Offset;
+		/// <summary>Enables the event driven loader in cooked builds.</summary>
+		public bool EventDrivenLoaderEnabled
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), EventDrivenLoaderEnabled__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), EventDrivenLoaderEnabled__Offset, 1,0,1,1);}
+			
+		}
+		
 		static UStreamingSettings()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("StreamingSettings");
@@ -131,6 +158,9 @@ namespace UnrealEngine
 			PriorityAsyncLoadingExtraTime__Offset=GetPropertyOffset(NativeClassPtr,"PriorityAsyncLoadingExtraTime");
 			LevelStreamingActorsUpdateTimeLimit__Offset=GetPropertyOffset(NativeClassPtr,"LevelStreamingActorsUpdateTimeLimit");
 			LevelStreamingComponentsRegistrationGranularity__Offset=GetPropertyOffset(NativeClassPtr,"LevelStreamingComponentsRegistrationGranularity");
+			LevelStreamingUnregisterComponentsTimeLimit__Offset=GetPropertyOffset(NativeClassPtr,"LevelStreamingUnregisterComponentsTimeLimit");
+			LevelStreamingComponentsUnregistrationGranularity__Offset=GetPropertyOffset(NativeClassPtr,"LevelStreamingComponentsUnregistrationGranularity");
+			EventDrivenLoaderEnabled__Offset=GetPropertyOffset(NativeClassPtr,"EventDrivenLoaderEnabled");
 			
 		}
 		

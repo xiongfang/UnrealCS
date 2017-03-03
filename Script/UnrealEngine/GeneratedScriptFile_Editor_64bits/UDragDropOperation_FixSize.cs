@@ -41,18 +41,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int Pivot__Offset;
-		/// <summary>
-		/// Controls where the drag widget visual will appear when dragged relative to the pointer performing
-		/// the drag operation.
-		/// </summary>
-		public EDragPivot Pivot
-		{
-			get{ CheckIsValid();return (EDragPivot)Marshal.PtrToStructure(_this.Get()+Pivot__Offset, typeof(EDragPivot));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Pivot__Offset, false);}
-			
-		}
-		
 		static readonly int Offset__Offset;
 		/// <summary>A percentage offset (-1..+1) from the Pivot location, the percentage is of the desired size of the dragged visual.</summary>
 		public FVector2D Offset
@@ -92,7 +80,6 @@ namespace UnrealEngine
 			Tag__Offset=GetPropertyOffset(NativeClassPtr,"Tag");
 			Payload__Offset=GetPropertyOffset(NativeClassPtr,"Payload");
 			DefaultDragVisual__Offset=GetPropertyOffset(NativeClassPtr,"DefaultDragVisual");
-			Pivot__Offset=GetPropertyOffset(NativeClassPtr,"Pivot");
 			Offset__Offset=GetPropertyOffset(NativeClassPtr,"Offset");
 			OnDrop__Offset=GetPropertyOffset(NativeClassPtr,"OnDrop");
 			OnDragCancelled__Offset=GetPropertyOffset(NativeClassPtr,"OnDragCancelled");

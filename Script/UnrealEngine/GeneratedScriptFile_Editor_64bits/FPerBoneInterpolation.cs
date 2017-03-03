@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=20)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FPerBoneInterpolation
 	{
 		[FieldOffset(0)]
 		public FBoneReference BoneReference;
-		[FieldOffset(16)]
+		[FieldOffset(20)]
 		public float InterpolationSpeedPerSec;
 		
 	}

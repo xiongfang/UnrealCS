@@ -25,6 +25,45 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int InscatteringColorCubemap__Offset;
+		/// <summary>
+		/// Cubemap that can be specified for fog color, which is useful to make distant, heavily fogged scene elements match the sky.
+		/// When the cubemap is specified, FogInscatteringColor is ignored and Directional inscattering is disabled.
+		/// </summary>
+		public UTextureCube InscatteringColorCubemap
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + InscatteringColorCubemap__Offset); if (v == IntPtr.Zero)return null; UTextureCube retValue = new UTextureCube(); retValue._this = v; return retValue; }
+			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + InscatteringColorCubemap__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + InscatteringColorCubemap__Offset, value._this.Get()); }
+			
+		}
+		
+		static readonly int InscatteringTextureTint__Offset;
+		/// <summary>Tint color used when InscatteringColorCubemap is specified, for quick edits without having to reimport InscatteringColorCubemap.</summary>
+		public FLinearColor InscatteringTextureTint
+		{
+			get{ CheckIsValid();return (FLinearColor)Marshal.PtrToStructure(_this.Get()+InscatteringTextureTint__Offset, typeof(FLinearColor));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InscatteringTextureTint__Offset, false);}
+			
+		}
+		
+		static readonly int FullyDirectionalInscatteringColorDistance__Offset;
+		/// <summary>Distance at which InscatteringColorCubemap should be used directly for the Inscattering Color.</summary>
+		public float FullyDirectionalInscatteringColorDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+FullyDirectionalInscatteringColorDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+FullyDirectionalInscatteringColorDistance__Offset, false);}
+			
+		}
+		
+		static readonly int NonDirectionalInscatteringColorDistance__Offset;
+		/// <summary>Distance at which only the average color of InscatteringColorCubemap should be used as Inscattering Color.</summary>
+		public float NonDirectionalInscatteringColorDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+NonDirectionalInscatteringColorDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NonDirectionalInscatteringColorDistance__Offset, false);}
+			
+		}
+		
 		static readonly int DirectionalInscatteringExponent__Offset;
 		/// <summary>
 		/// Controls the size of the directional inscattering cone, which is used to approximate inscattering from a directional light.
@@ -95,17 +134,31 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int FogCutoffDistance__Offset;
+		/// <summary>Scene elements past this distance will not have fog applied.  This is useful for excluding skyboxes which already have fog baked in.</summary>
+		public float FogCutoffDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+FogCutoffDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+FogCutoffDistance__Offset, false);}
+			
+		}
+		
 		static UExponentialHeightFogComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("ExponentialHeightFogComponent");
 			FogDensity__Offset=GetPropertyOffset(NativeClassPtr,"FogDensity");
 			FogInscatteringColor__Offset=GetPropertyOffset(NativeClassPtr,"FogInscatteringColor");
+			InscatteringColorCubemap__Offset=GetPropertyOffset(NativeClassPtr,"InscatteringColorCubemap");
+			InscatteringTextureTint__Offset=GetPropertyOffset(NativeClassPtr,"InscatteringTextureTint");
+			FullyDirectionalInscatteringColorDistance__Offset=GetPropertyOffset(NativeClassPtr,"FullyDirectionalInscatteringColorDistance");
+			NonDirectionalInscatteringColorDistance__Offset=GetPropertyOffset(NativeClassPtr,"NonDirectionalInscatteringColorDistance");
 			DirectionalInscatteringExponent__Offset=GetPropertyOffset(NativeClassPtr,"DirectionalInscatteringExponent");
 			DirectionalInscatteringStartDistance__Offset=GetPropertyOffset(NativeClassPtr,"DirectionalInscatteringStartDistance");
 			DirectionalInscatteringColor__Offset=GetPropertyOffset(NativeClassPtr,"DirectionalInscatteringColor");
 			FogHeightFalloff__Offset=GetPropertyOffset(NativeClassPtr,"FogHeightFalloff");
 			FogMaxOpacity__Offset=GetPropertyOffset(NativeClassPtr,"FogMaxOpacity");
 			StartDistance__Offset=GetPropertyOffset(NativeClassPtr,"StartDistance");
+			FogCutoffDistance__Offset=GetPropertyOffset(NativeClassPtr,"FogCutoffDistance");
 			
 		}
 		

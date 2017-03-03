@@ -150,6 +150,21 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int Curves__Offset;
+		public UCurveTable Curves
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + Curves__Offset); if (v == IntPtr.Zero)return null; UCurveTable retValue = new UCurveTable(); retValue._this = v; return retValue; }
+			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + Curves__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + Curves__Offset, value._this.Get()); }
+			
+		}
+		
+		static readonly int InternalCurves__Offset;
+		public UCurveTable InternalCurves
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + InternalCurves__Offset); if (v == IntPtr.Zero)return null; UCurveTable retValue = new UCurveTable(); retValue._this = v; return retValue; }
+			
+		}
+		
 		static USoundWave()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("SoundWave");
@@ -171,6 +186,8 @@ namespace UnrealEngine
 			RawPCMDataSize__Offset=GetPropertyOffset(NativeClassPtr,"RawPCMDataSize");
 			Subtitles__Offset=GetPropertyOffset(NativeClassPtr,"Subtitles");
 			LocalizedSubtitles__Offset=GetPropertyOffset(NativeClassPtr,"LocalizedSubtitles");
+			Curves__Offset=GetPropertyOffset(NativeClassPtr,"Curves");
+			InternalCurves__Offset=GetPropertyOffset(NativeClassPtr,"InternalCurves");
 			
 		}
 		

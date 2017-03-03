@@ -158,17 +158,17 @@ public  void SetLinearXLimit(ELinearConstraintMotion ConstraintType,float LimitS
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetAngularDriveParams(IntPtr _this,float InSpring,float InDamping,float InForceLimit);
+extern static void SetAngularDriveParams(IntPtr _this,float PositionStrength,float VelocityStrength,float InForceLimit);
 /// <summary>
 /// Sets the drive params for the angular drive.
-///     @param InSpring         Spring force for the drive
-///     @param InDamping        Damping of the drive
+///     @param PositionStrength         Positional strength for the drive (stiffness)
+///     @param VelocityStrength         Velocity strength of the drive (damping)
 ///     @param InForceLimit     Max force applied by the drive
 /// </summary>
-public  void SetAngularDriveParams(float InSpring,float InDamping,float InForceLimit)
+public  void SetAngularDriveParams(float PositionStrength,float VelocityStrength,float InForceLimit)
 {
 	CheckIsValid();
-	SetAngularDriveParams(_this.Get(),InSpring,InDamping,InForceLimit);
+	SetAngularDriveParams(_this.Get(),PositionStrength,VelocityStrength,InForceLimit);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -196,17 +196,17 @@ public  void SetAngularOrientationTarget(FRotator InPosTarget)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetLinearDriveParams(IntPtr _this,float InSpring,float InDamping,float InForceLimit);
+extern static void SetLinearDriveParams(IntPtr _this,float PositionStrength,float VelocityStrength,float InForceLimit);
 /// <summary>
 /// Sets the drive params for the linear drive.
-///     @param InSpring         Spring force for the drive
-///     @param InDamping        Damping of the drive
+///     @param PositionStrength         Positional strength for the drive (stiffness)
+///     @param VelocityStrength         Velocity strength of the drive (damping)
 ///     @param InForceLimit     Max force applied by the drive
 /// </summary>
-public  void SetLinearDriveParams(float InSpring,float InDamping,float InForceLimit)
+public  void SetLinearDriveParams(float PositionStrength,float VelocityStrength,float InForceLimit)
 {
 	CheckIsValid();
-	SetLinearDriveParams(_this.Get(),InSpring,InDamping,InForceLimit);
+	SetLinearDriveParams(_this.Get(),PositionStrength,VelocityStrength,InForceLimit);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -234,29 +234,65 @@ public  void SetLinearPositionTarget(FVector InPosTarget)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetAngularVelocityDrive(IntPtr _this,int bEnableSwingDrive,int bEnableTwistDrive);
+extern static void SetAngularDriveMode(IntPtr _this,int DriveMode);
 /// <summary>
-/// Enables/Disables angular velocity drive
-///     @param bEnableSwingDrive        Indicates whether the drive for the swing axis should be enabled
-///     @param bEnableTwistDrive        Indicates whether the drive for the twit axis should be enabled
+/// Switches the angular drive mode between SLERP and Twist And Swing
+///      @param DriveMode        The angular drive mode to use. SLERP uses shortest spherical path, but will not work if any angular constraints are locked. Twist and Swing decomposes the path into the different angular degrees of freedom but may experience gimbal lock
 /// </summary>
-public  void SetAngularVelocityDrive(bool bEnableSwingDrive,bool bEnableTwistDrive)
+public  void SetAngularDriveMode(EAngularDriveMode DriveMode)
 {
 	CheckIsValid();
-	SetAngularVelocityDrive(_this.Get(),bEnableSwingDrive?1:0,bEnableTwistDrive?1:0);
+	SetAngularDriveMode(_this.Get(),(int)DriveMode);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetAngularOrientationDrive(IntPtr _this,int bEnableSwingDrive,int bEnableTwistDrive);
+extern static void SetAngularVelocityDriveSLERP(IntPtr _this,int bEnableSLERP);
 /// <summary>
-/// Enables/Disables angular orientation drive
-///     @param bEnableSwingDrive        Indicates whether the drive for the swing axis should be enabled
-///     @param bEnableTwistDrive        Indicates whether the drive for the twist axis should be enabled
+/// Enables/Disables the angular velocity slerp drive. Only relevant if the AngularDriveMode is set to SLERP
+///      @param bEnableSLERP             Indicates whether the SLERP drive should be enabled. Only relevant if the AngularDriveMode is set to SLERP
 /// </summary>
-public  void SetAngularOrientationDrive(bool bEnableSwingDrive,bool bEnableTwistDrive)
+public  void SetAngularVelocityDriveSLERP(bool bEnableSLERP)
 {
 	CheckIsValid();
-	SetAngularOrientationDrive(_this.Get(),bEnableSwingDrive?1:0,bEnableTwistDrive?1:0);
+	SetAngularVelocityDriveSLERP(_this.Get(),bEnableSLERP?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetAngularVelocityDriveTwistAndSwing(IntPtr _this,int bEnableTwistDrive,int bEnableSwingDrive);
+/// <summary>
+/// Enables/Disables angular velocity twist and swing drive. Only relevant if the AngularDriveMode is set to Twist and Swing
+///      @param bEnableSwingDrive        Indicates whether the drive for the swing axis should be enabled. Only relevant if the AngularDriveMode is set to Twist and Swing
+///      @param bEnableTwistDrive        Indicates whether the drive for the twist axis should be enabled. Only relevant if the AngularDriveMode is set to Twist and Swing
+/// </summary>
+public  void SetAngularVelocityDriveTwistAndSwing(bool bEnableTwistDrive,bool bEnableSwingDrive)
+{
+	CheckIsValid();
+	SetAngularVelocityDriveTwistAndSwing(_this.Get(),bEnableTwistDrive?1:0,bEnableSwingDrive?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetOrientationDriveSLERP(IntPtr _this,int bEnableSLERP);
+/// <summary>
+/// Enables/Disables the angular orientation slerp drive. Only relevant if the AngularDriveMode is set to SLERP
+///      @param bEnableSLERP             Indicates whether the SLERP drive should be enabled. Only relevant if the AngularDriveMode is set to SLERP
+/// </summary>
+public  void SetOrientationDriveSLERP(bool bEnableSLERP)
+{
+	CheckIsValid();
+	SetOrientationDriveSLERP(_this.Get(),bEnableSLERP?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetOrientationDriveTwistAndSwing(IntPtr _this,int bEnableTwistDrive,int bEnableSwingDrive);
+/// <summary>
+/// Enables/Disables angular orientation drive. Only relevant if the AngularDriveMode is set to Twist and Swing
+///      @param bEnableSwingDrive        Indicates whether the drive for the swing axis should be enabled. Only relevant if the AngularDriveMode is set to Twist and Swing
+///      @param bEnableTwistDrive        Indicates whether the drive for the twist axis should be enabled. Only relevant if the AngularDriveMode is set to Twist and Swing
+/// </summary>
+public  void SetOrientationDriveTwistAndSwing(bool bEnableTwistDrive,bool bEnableSwingDrive)
+{
+	CheckIsValid();
+	SetOrientationDriveTwistAndSwing(_this.Get(),bEnableTwistDrive?1:0,bEnableSwingDrive?1:0);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

@@ -129,13 +129,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DesignSizeMode__Offset;
-		public EDesignPreviewSizeMode DesignSizeMode
-		{
-			get{ CheckIsValid();return (EDesignPreviewSizeMode)Marshal.PtrToStructure(_this.Get()+DesignSizeMode__Offset, typeof(EDesignPreviewSizeMode));}
-			
-		}
-		
 		static readonly int PaletteCategory__Offset;
 		/// <summary>The category this widget appears in the palette.</summary>
 		public string PaletteCategory
@@ -180,7 +173,6 @@ namespace UnrealEngine
 			DesignTimeSize__Offset=GetPropertyOffset(NativeClassPtr,"DesignTimeSize");
 			bUseDesignTimeSize__Offset=GetPropertyOffset(NativeClassPtr,"bUseDesignTimeSize");
 			bUseDesiredSizeAtDesignTime__Offset=GetPropertyOffset(NativeClassPtr,"bUseDesiredSizeAtDesignTime");
-			DesignSizeMode__Offset=GetPropertyOffset(NativeClassPtr,"DesignSizeMode");
 			PaletteCategory__Offset=GetPropertyOffset(NativeClassPtr,"PaletteCategory");
 			PreviewBackground__Offset=GetPropertyOffset(NativeClassPtr,"PreviewBackground");
 			InputComponent__Offset=GetPropertyOffset(NativeClassPtr,"InputComponent");

@@ -86,6 +86,16 @@ public  void SetTargetLocation(FVector NewLocation)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static IntPtr GetGrabbedComponent(IntPtr _this);
+/// <summary>Returns the currently grabbed component, or null if nothing is grabbed.</summary>
+public  UPrimitiveComponent GetGrabbedComponent()
+{
+	CheckIsValid();
+	IntPtr ___ret = GetGrabbedComponent(_this.Get());
+	if(___ret==IntPtr.Zero) return null; UPrimitiveComponent ___ret2= new UPrimitiveComponent(){ _this = ___ret }; return ___ret2;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void ReleaseComponent(IntPtr _this);
 /// <summary>Release the currently held component</summary>
 public  void ReleaseComponent()
@@ -95,12 +105,21 @@ public  void ReleaseComponent()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void GrabComponent(IntPtr _this,IntPtr Component,string InBoneName,ref FVector GrabLocation,int bConstrainRotation);
-/// <summary>Grab the specified component</summary>
-public  void GrabComponent(UPrimitiveComponent Component,string InBoneName,FVector GrabLocation,bool bConstrainRotation)
+extern static void GrabComponentAtLocationWithRotation(IntPtr _this,IntPtr Component,string InBoneName,ref FVector Location,ref FRotator Rotation);
+/// <summary>Grab the specified component at a given location and rotation. Constrains rotation.</summary>
+public  void GrabComponentAtLocationWithRotation(UPrimitiveComponent Component,string InBoneName,FVector Location,FRotator Rotation)
 {
 	CheckIsValid();
-	GrabComponent(_this.Get(),Component,InBoneName,ref GrabLocation,bConstrainRotation?1:0);
+	GrabComponentAtLocationWithRotation(_this.Get(),Component,InBoneName,ref Location,ref Rotation);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void GrabComponentAtLocation(IntPtr _this,IntPtr Component,string InBoneName,ref FVector GrabLocation);
+/// <summary>Grab the specified component at a given location. Does NOT constraint rotation which means the handle will pivot about GrabLocation.</summary>
+public  void GrabComponentAtLocation(UPrimitiveComponent Component,string InBoneName,FVector GrabLocation)
+{
+	CheckIsValid();
+	GrabComponentAtLocation(_this.Get(),Component,InBoneName,ref GrabLocation);
 	
 }
 	[MethodImplAttribute(MethodImplOptions.InternalCall)]

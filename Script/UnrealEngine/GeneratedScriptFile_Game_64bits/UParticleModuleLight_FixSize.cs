@@ -71,6 +71,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int LightingChannels__Offset;
+		public FLightingChannels LightingChannels
+		{
+			get{ CheckIsValid();return (FLightingChannels)Marshal.PtrToStructure(_this.Get()+LightingChannels__Offset, typeof(FLightingChannels));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LightingChannels__Offset, false);}
+			
+		}
+		
 		static readonly int bHighQualityLights__Offset;
 		public bool bHighQualityLights
 		{
@@ -98,6 +106,7 @@ namespace UnrealEngine
 			BrightnessOverLife__Offset=GetPropertyOffset(NativeClassPtr,"BrightnessOverLife");
 			RadiusScale__Offset=GetPropertyOffset(NativeClassPtr,"RadiusScale");
 			LightExponent__Offset=GetPropertyOffset(NativeClassPtr,"LightExponent");
+			LightingChannels__Offset=GetPropertyOffset(NativeClassPtr,"LightingChannels");
 			bHighQualityLights__Offset=GetPropertyOffset(NativeClassPtr,"bHighQualityLights");
 			bShadowCastingLights__Offset=GetPropertyOffset(NativeClassPtr,"bShadowCastingLights");
 			

@@ -35,15 +35,6 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 48, 1, 0, 2, 2); } }}
 			
 		}
-		/// <summary>Allows tuning the compression level for the replicated location vector. You should only need to change this from the default if you see visual artifacts.</summary>
-		[FieldOffset(49)]
-		public EVectorQuantization LocationQuantizationLevel;
-		/// <summary>Allows tuning the compression level for the replicated velocity vectors. You should only need to change this from the default if you see visual artifacts.</summary>
-		[FieldOffset(50)]
-		public EVectorQuantization VelocityQuantizationLevel;
-		/// <summary>Allows tuning the compression level for replicated rotation. You should only need to change this from the default if you see visual artifacts.</summary>
-		[FieldOffset(51)]
-		public ERotatorQuantization RotationQuantizationLevel;
 		
 	}
 	

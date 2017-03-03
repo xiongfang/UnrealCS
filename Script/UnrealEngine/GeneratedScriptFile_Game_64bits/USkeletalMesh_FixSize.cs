@@ -138,14 +138,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int StreamingDistanceMultiplier__Offset;
-		public float StreamingDistanceMultiplier
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+StreamingDistanceMultiplier__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+StreamingDistanceMultiplier__Offset, false);}
-			
-		}
-		
 		static readonly int MorphTargets__Offset;
 		public TObjectArray<UMorphTarget>  MorphTargets
 		{
@@ -159,6 +151,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return new TStructArray<FClothingAssetData>((FScriptArray)Marshal.PtrToStructure(_this.Get()+ClothingAssets__Offset, typeof(FScriptArray)));}
 					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+ClothingAssets__Offset, false);}
+			
+		}
+		
+		static readonly int PostProcessAnimBlueprint__Offset;
+		public TSubclassOf<UAnimInstance>  PostProcessAnimBlueprint
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + PostProcessAnimBlueprint__Offset); return v; }
+			set{ CheckIsValid(); Marshal.WriteIntPtr(_this.Get() + PostProcessAnimBlueprint__Offset, value); }
 			
 		}
 		
@@ -198,9 +198,9 @@ namespace UnrealEngine
 			BodySetup__Offset=GetPropertyOffset(NativeClassPtr,"BodySetup");
 			PhysicsAsset__Offset=GetPropertyOffset(NativeClassPtr,"PhysicsAsset");
 			ShadowPhysicsAsset__Offset=GetPropertyOffset(NativeClassPtr,"ShadowPhysicsAsset");
-			StreamingDistanceMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"StreamingDistanceMultiplier");
 			MorphTargets__Offset=GetPropertyOffset(NativeClassPtr,"MorphTargets");
 			ClothingAssets__Offset=GetPropertyOffset(NativeClassPtr,"ClothingAssets");
+			PostProcessAnimBlueprint__Offset=GetPropertyOffset(NativeClassPtr,"PostProcessAnimBlueprint");
 			AssetUserData__Offset=GetPropertyOffset(NativeClassPtr,"AssetUserData");
 			Sockets__Offset=GetPropertyOffset(NativeClassPtr,"Sockets");
 			

@@ -68,27 +68,43 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bOverrideSubtitlePriority__Offset;
+		public bool bOverrideSubtitlePriority
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOverrideSubtitlePriority__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOverrideSubtitlePriority__Offset, 1,0,1,1);}
+			
+		}
+		
 		static readonly int bIsUISound__Offset;
 		public bool bIsUISound
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsUISound__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsUISound__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsUISound__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsUISound__Offset, 1,0,1,1);}
 			
 		}
 		
 		static readonly int bEnableLowPassFilter__Offset;
 		public bool bEnableLowPassFilter
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableLowPassFilter__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableLowPassFilter__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableLowPassFilter__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableLowPassFilter__Offset, 1,0,2,2);}
 			
 		}
 		
 		static readonly int bOverridePriority__Offset;
 		public bool bOverridePriority
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOverridePriority__Offset, 1, 0, 128, 128);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOverridePriority__Offset, 1,0,128,128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bOverridePriority__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bOverridePriority__Offset, 1,0,4,4);}
+			
+		}
+		
+		static readonly int bSuppressSubtitles__Offset;
+		public bool bSuppressSubtitles
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSuppressSubtitles__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bSuppressSubtitles__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -140,6 +156,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int SubtitlePriority__Offset;
+		public float SubtitlePriority
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+SubtitlePriority__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+SubtitlePriority__Offset, false);}
+			
+		}
+		
 		static readonly int VolumeWeightedPriorityScale__Offset;
 		public float VolumeWeightedPriorityScale
 		{
@@ -179,9 +203,9 @@ namespace UnrealEngine
 		}
 		
 		static readonly int AttenuationOverrides__Offset;
-		public FAttenuationSettings AttenuationOverrides
+		public FSoundAttenuationSettings AttenuationOverrides
 		{
-			get{ CheckIsValid();return (FAttenuationSettings)Marshal.PtrToStructure(_this.Get()+AttenuationOverrides__Offset, typeof(FAttenuationSettings));}
+			get{ CheckIsValid();return (FSoundAttenuationSettings)Marshal.PtrToStructure(_this.Get()+AttenuationOverrides__Offset, typeof(FSoundAttenuationSettings));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AttenuationOverrides__Offset, false);}
 			
 		}
@@ -202,6 +226,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int OnAudioPlaybackPercent__Offset;
+		public FMulticastScriptDelegate OnAudioPlaybackPercent
+		{
+			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+OnAudioPlaybackPercent__Offset, typeof(FMulticastScriptDelegate)));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OnAudioPlaybackPercent__Offset, false);}
+			
+		}
+		
 		static UAudioComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("AudioComponent");
@@ -213,15 +245,18 @@ namespace UnrealEngine
 			bShouldRemainActiveIfDropped__Offset=GetPropertyOffset(NativeClassPtr,"bShouldRemainActiveIfDropped");
 			bAllowSpatialization__Offset=GetPropertyOffset(NativeClassPtr,"bAllowSpatialization");
 			bOverrideAttenuation__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideAttenuation");
+			bOverrideSubtitlePriority__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideSubtitlePriority");
 			bIsUISound__Offset=GetPropertyOffset(NativeClassPtr,"bIsUISound");
 			bEnableLowPassFilter__Offset=GetPropertyOffset(NativeClassPtr,"bEnableLowPassFilter");
 			bOverridePriority__Offset=GetPropertyOffset(NativeClassPtr,"bOverridePriority");
+			bSuppressSubtitles__Offset=GetPropertyOffset(NativeClassPtr,"bSuppressSubtitles");
 			PitchModulationMin__Offset=GetPropertyOffset(NativeClassPtr,"PitchModulationMin");
 			PitchModulationMax__Offset=GetPropertyOffset(NativeClassPtr,"PitchModulationMax");
 			VolumeModulationMin__Offset=GetPropertyOffset(NativeClassPtr,"VolumeModulationMin");
 			VolumeModulationMax__Offset=GetPropertyOffset(NativeClassPtr,"VolumeModulationMax");
 			VolumeMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"VolumeMultiplier");
 			Priority__Offset=GetPropertyOffset(NativeClassPtr,"Priority");
+			SubtitlePriority__Offset=GetPropertyOffset(NativeClassPtr,"SubtitlePriority");
 			VolumeWeightedPriorityScale__Offset=GetPropertyOffset(NativeClassPtr,"VolumeWeightedPriorityScale");
 			PitchMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"PitchMultiplier");
 			HighFrequencyGainMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"HighFrequencyGainMultiplier");
@@ -230,6 +265,7 @@ namespace UnrealEngine
 			AttenuationOverrides__Offset=GetPropertyOffset(NativeClassPtr,"AttenuationOverrides");
 			ConcurrencySettings__Offset=GetPropertyOffset(NativeClassPtr,"ConcurrencySettings");
 			OnAudioFinished__Offset=GetPropertyOffset(NativeClassPtr,"OnAudioFinished");
+			OnAudioPlaybackPercent__Offset=GetPropertyOffset(NativeClassPtr,"OnAudioPlaybackPercent");
 			
 		}
 		

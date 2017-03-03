@@ -24,7 +24,7 @@ namespace UnrealEngine
 		/// If set, then chunks which are tagged as "support" chunks (via NxDestructibleChunkDesc::isSupportChunk)
 		/// will have environmental support in static destructibles.
 		/// Note: if both bAssetDefinedSupport and bWorldSupport are set, then chunks must be tagged as
-		/// "support" chunks AND overlap the NxScene's static geometry in order to be environmentally supported.
+		/// "support" chunks AND overlap the Scene's static geometry in order to be environmentally supported.
 		/// </summary>
 		public bool bAssetDefinedSupport
 		{
@@ -33,10 +33,10 @@ namespace UnrealEngine
 			
 		}
 		/// <summary>
-		/// If set, then chunks which overlap the NxScene's static geometry will have environmental support in
+		/// If set, then chunks which overlap the Scene's static geometry will have environmental support in
 		/// static destructibles.
 		/// Note: if both bAssetDefinedSupport and bWorldSupport are set, then chunks must be tagged as
-		/// "support" chunks AND overlap the NxScene's static geometry in order to be environmentally supported.
+		/// "support" chunks AND overlap the Scene's static geometry in order to be environmentally supported.
 		/// </summary>
 		public bool bWorldSupport
 		{

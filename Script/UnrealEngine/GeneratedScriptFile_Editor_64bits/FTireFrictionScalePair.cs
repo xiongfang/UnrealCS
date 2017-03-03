@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	/// <summary>Pairs desired tire friction scale with tire type</summary>
+	/// <summary>DEPRECATED Pairs desired tire friction scale with tire type</summary>
 	[StructLayout(LayoutKind.Explicit,Size=16)]
 	public partial struct FTireFrictionScalePair
 	{

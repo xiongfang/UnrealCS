@@ -115,7 +115,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int Pitch__Offset;
-		/// <summary>Playback pitch for sound - Minimum is 0.4, maximum is 2.0 - it is a simple linear multiplier to the SampleRate.</summary>
+		/// <summary>Playback pitch for sound.</summary>
 		public float Pitch
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+Pitch__Offset, typeof(float));}
@@ -219,6 +219,23 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int Curves__Offset;
+		/// <summary>Curves associated with this sound wave</summary>
+		public UCurveTable Curves
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + Curves__Offset); if (v == IntPtr.Zero)return null; UCurveTable retValue = new UCurveTable(); retValue._this = v; return retValue; }
+			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + Curves__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + Curves__Offset, value._this.Get()); }
+			
+		}
+		
+		static readonly int InternalCurves__Offset;
+		/// <summary>Hold a reference to our internal curve so we can switch back to it if we want to</summary>
+		public UCurveTable InternalCurves
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + InternalCurves__Offset); if (v == IntPtr.Zero)return null; UCurveTable retValue = new UCurveTable(); retValue._this = v; return retValue; }
+			
+		}
+		
 		static USoundWave()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("SoundWave");
@@ -246,6 +263,8 @@ namespace UnrealEngine
 			SourceFilePath__Offset=GetPropertyOffset(NativeClassPtr,"SourceFilePath");
 			SourceFileTimestamp__Offset=GetPropertyOffset(NativeClassPtr,"SourceFileTimestamp");
 			AssetImportData__Offset=GetPropertyOffset(NativeClassPtr,"AssetImportData");
+			Curves__Offset=GetPropertyOffset(NativeClassPtr,"Curves");
+			InternalCurves__Offset=GetPropertyOffset(NativeClassPtr,"InternalCurves");
 			
 		}
 		

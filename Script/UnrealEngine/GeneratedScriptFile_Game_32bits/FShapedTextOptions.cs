@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=4)]
+	[StructLayout(LayoutKind.Explicit,Size=8)]
 	public partial struct FShapedTextOptions
 	{
 		public bool bOverride_TextShapingMethod
@@ -20,10 +20,6 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 0, 1, 0, 2, 2); } }}
 			
 		}
-		[FieldOffset(1)]
-		public ETextShapingMethod TextShapingMethod;
-		[FieldOffset(2)]
-		public ETextFlowDirection TextFlowDirection;
 		
 	}
 	

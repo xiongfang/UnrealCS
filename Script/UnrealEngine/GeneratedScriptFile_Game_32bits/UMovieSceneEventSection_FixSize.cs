@@ -14,10 +14,18 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int EventData__Offset;
+		public FMovieSceneEventSectionData EventData
+		{
+			get{ CheckIsValid();return (FMovieSceneEventSectionData)Marshal.PtrToStructure(_this.Get()+EventData__Offset, typeof(FMovieSceneEventSectionData));}
+			
+		}
+		
 		static UMovieSceneEventSection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneEventSection");
 			Events__Offset=GetPropertyOffset(NativeClassPtr,"Events");
+			EventData__Offset=GetPropertyOffset(NativeClassPtr,"EventData");
 			
 		}
 		

@@ -7,14 +7,6 @@ namespace UnrealEngine
 {
 	public partial class UFont
 	{
-		static readonly int FontCacheType__Offset;
-		public EFontCacheType FontCacheType
-		{
-			get{ CheckIsValid();return (EFontCacheType)Marshal.PtrToStructure(_this.Get()+FontCacheType__Offset, typeof(EFontCacheType));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+FontCacheType__Offset, false);}
-			
-		}
-		
 		static readonly int Characters__Offset;
 		public TStructArray<FFontCharacter> Characters
 		{
@@ -135,7 +127,6 @@ namespace UnrealEngine
 		static UFont()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("Font");
-			FontCacheType__Offset=GetPropertyOffset(NativeClassPtr,"FontCacheType");
 			Characters__Offset=GetPropertyOffset(NativeClassPtr,"Characters");
 			Textures__Offset=GetPropertyOffset(NativeClassPtr,"Textures");
 			IsRemapped__Offset=GetPropertyOffset(NativeClassPtr,"IsRemapped");

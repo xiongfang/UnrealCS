@@ -14,14 +14,6 @@ public  void OnNavigationBoundsUpdated(ANavMeshBoundsVolume NavVolume)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetGeometryGatheringMode(IntPtr _this,int NewMode);
-public  void SetGeometryGatheringMode(ENavDataGatheringModeConfig NewMode)
-{
-	CheckIsValid();
-	SetGeometryGatheringMode(_this.Get(),(int)NewMode);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void UnregisterNavigationInvoker(IntPtr _this,IntPtr Invoker);
 /// <summary>
 /// Removes given actor from the list of active navigation enforcers.

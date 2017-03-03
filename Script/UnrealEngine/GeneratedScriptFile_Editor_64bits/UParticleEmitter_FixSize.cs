@@ -156,15 +156,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int SignificanceLevel__Offset;
-		/// <summary>The significance level required of this emitter's owner for this emitter to be active.</summary>
-		public EParticleSignificanceLevel SignificanceLevel
-		{
-			get{ CheckIsValid();return (EParticleSignificanceLevel)Marshal.PtrToStructure(_this.Get()+SignificanceLevel__Offset, typeof(EParticleSignificanceLevel));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+SignificanceLevel__Offset, false);}
-			
-		}
-		
 		static UParticleEmitter()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("ParticleEmitter");
@@ -184,7 +175,6 @@ namespace UnrealEngine
 			bCookedOut__Offset=GetPropertyOffset(NativeClassPtr,"bCookedOut");
 			bDisabledLODsKeepEmitterAlive__Offset=GetPropertyOffset(NativeClassPtr,"bDisabledLODsKeepEmitterAlive");
 			bDisableWhenInsignficant__Offset=GetPropertyOffset(NativeClassPtr,"bDisableWhenInsignficant");
-			SignificanceLevel__Offset=GetPropertyOffset(NativeClassPtr,"SignificanceLevel");
 			
 		}
 		

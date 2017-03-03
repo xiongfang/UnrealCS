@@ -7,14 +7,6 @@ namespace UnrealEngine
 {
 	public partial class UUserInterfaceSettings
 	{
-		static readonly int RenderFocusRule__Offset;
-		public ERenderFocusRule RenderFocusRule
-		{
-			get{ CheckIsValid();return (ERenderFocusRule)Marshal.PtrToStructure(_this.Get()+RenderFocusRule__Offset, typeof(ERenderFocusRule));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+RenderFocusRule__Offset, false);}
-			
-		}
-		
 		static readonly int DefaultCursor__Offset;
 		public FStringClassReference DefaultCursor
 		{
@@ -79,14 +71,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int UIScaleRule__Offset;
-		public EUIScalingRule UIScaleRule
-		{
-			get{ CheckIsValid();return (EUIScalingRule)Marshal.PtrToStructure(_this.Get()+UIScaleRule__Offset, typeof(EUIScalingRule));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+UIScaleRule__Offset, false);}
-			
-		}
-		
 		static readonly int CustomScalingRuleClass__Offset;
 		public FStringClassReference CustomScalingRuleClass
 		{
@@ -100,6 +84,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (FRuntimeFloatCurve)Marshal.PtrToStructure(_this.Get()+UIScaleCurve__Offset, typeof(FRuntimeFloatCurve));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+UIScaleCurve__Offset, false);}
+			
+		}
+		
+		static readonly int bLoadWidgetsOnDedicatedServer__Offset;
+		public bool bLoadWidgetsOnDedicatedServer
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLoadWidgetsOnDedicatedServer__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bLoadWidgetsOnDedicatedServer__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -128,7 +120,6 @@ namespace UnrealEngine
 		static UUserInterfaceSettings()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("UserInterfaceSettings");
-			RenderFocusRule__Offset=GetPropertyOffset(NativeClassPtr,"RenderFocusRule");
 			DefaultCursor__Offset=GetPropertyOffset(NativeClassPtr,"DefaultCursor");
 			TextEditBeamCursor__Offset=GetPropertyOffset(NativeClassPtr,"TextEditBeamCursor");
 			CrosshairsCursor__Offset=GetPropertyOffset(NativeClassPtr,"CrosshairsCursor");
@@ -137,9 +128,9 @@ namespace UnrealEngine
 			GrabHandClosedCursor__Offset=GetPropertyOffset(NativeClassPtr,"GrabHandClosedCursor");
 			SlashedCircleCursor__Offset=GetPropertyOffset(NativeClassPtr,"SlashedCircleCursor");
 			ApplicationScale__Offset=GetPropertyOffset(NativeClassPtr,"ApplicationScale");
-			UIScaleRule__Offset=GetPropertyOffset(NativeClassPtr,"UIScaleRule");
 			CustomScalingRuleClass__Offset=GetPropertyOffset(NativeClassPtr,"CustomScalingRuleClass");
 			UIScaleCurve__Offset=GetPropertyOffset(NativeClassPtr,"UIScaleCurve");
+			bLoadWidgetsOnDedicatedServer__Offset=GetPropertyOffset(NativeClassPtr,"bLoadWidgetsOnDedicatedServer");
 			CursorClasses__Offset=GetPropertyOffset(NativeClassPtr,"CursorClasses");
 			CustomScalingRuleClassInstance__Offset=GetPropertyOffset(NativeClassPtr,"CustomScalingRuleClassInstance");
 			CustomScalingRule__Offset=GetPropertyOffset(NativeClassPtr,"CustomScalingRule");

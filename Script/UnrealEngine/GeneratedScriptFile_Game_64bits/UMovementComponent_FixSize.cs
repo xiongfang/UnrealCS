@@ -45,14 +45,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int PlaneConstraintAxisSetting__Offset;
-		public EPlaneConstraintAxisSetting PlaneConstraintAxisSetting
-		{
-			get{ CheckIsValid();return (EPlaneConstraintAxisSetting)Marshal.PtrToStructure(_this.Get()+PlaneConstraintAxisSetting__Offset, typeof(EPlaneConstraintAxisSetting));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+PlaneConstraintAxisSetting__Offset, false);}
-			
-		}
-		
 		static readonly int PlaneConstraintNormal__Offset;
 		public FVector PlaneConstraintNormal
 		{
@@ -109,7 +101,6 @@ namespace UnrealEngine
 			Velocity__Offset=GetPropertyOffset(NativeClassPtr,"Velocity");
 			bConstrainToPlane__Offset=GetPropertyOffset(NativeClassPtr,"bConstrainToPlane");
 			bSnapToPlaneAtStart__Offset=GetPropertyOffset(NativeClassPtr,"bSnapToPlaneAtStart");
-			PlaneConstraintAxisSetting__Offset=GetPropertyOffset(NativeClassPtr,"PlaneConstraintAxisSetting");
 			PlaneConstraintNormal__Offset=GetPropertyOffset(NativeClassPtr,"PlaneConstraintNormal");
 			PlaneConstraintOrigin__Offset=GetPropertyOffset(NativeClassPtr,"PlaneConstraintOrigin");
 			bUpdateOnlyIfRendered__Offset=GetPropertyOffset(NativeClassPtr,"bUpdateOnlyIfRendered");

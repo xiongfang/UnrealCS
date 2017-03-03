@@ -20,10 +20,19 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bIgnoreTimeDilation__Offset;
+		/// <summary>True if global time dilation should be ignored by this timeline, false otherwise.</summary>
+		public bool bIgnoreTimeDilation
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoreTimeDilation__Offset, 1, 0, 1, 1);}
+			
+		}
+		
 		static UTimelineComponent()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("TimelineComponent");
 			TheTimeline__Offset=GetPropertyOffset(NativeClassPtr,"TheTimeline");
+			bIgnoreTimeDilation__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreTimeDilation");
 			
 		}
 		

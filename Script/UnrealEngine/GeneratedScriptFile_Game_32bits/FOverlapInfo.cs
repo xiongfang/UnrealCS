@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=144)]
+	[StructLayout(LayoutKind.Explicit,Size=132)]
 	public partial struct FOverlapInfo
 	{
 		

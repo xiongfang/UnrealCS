@@ -70,11 +70,7 @@ public:
 		Properties.FindOrAdd(StructName).Add(PropertyName);
 	}
 
-	bool HasProperty(const UStruct* Struct, const UProperty* Property) const
-	{
-		const TSet<FName>* List = Properties.Find(Struct->GetFName());
-		return List && List->Contains(Property->GetFName());
-	}
+	bool HasProperty(const UStruct* Struct, const UProperty* Property) const;
 
 private:
 	TSet<FName> Enumerations;

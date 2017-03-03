@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>The description of a user activity</summary>
-	[StructLayout(LayoutKind.Explicit,Size=16)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FUserActivity
 	{
 		/// <summary>Describes the user's activity</summary>

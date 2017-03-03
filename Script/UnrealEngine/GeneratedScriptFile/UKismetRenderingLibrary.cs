@@ -16,6 +16,7 @@ public static void EndDrawCanvasToRenderTarget(UObject WorldContextObject,FDrawT
 extern static void BeginDrawCanvasToRenderTarget(IntPtr _this,IntPtr WorldContextObject,IntPtr TextureRenderTarget,out IntPtr Canvas,out FVector2D Size,out FDrawToRenderTargetContext Context);
 /// <summary>
 /// Returns a Canvas object that can be used to draw to the specified render target.
+/// Canvas has functions like DrawMaterial with size parameters that can be used to draw to a specific area of a render target.
 /// Be sure to call EndDrawCanvasToRenderTarget to complete the rendering!
 /// </summary>
 public static void BeginDrawCanvasToRenderTarget(UObject WorldContextObject,UTextureRenderTarget2D TextureRenderTarget,out UCanvas Canvas,out FVector2D Size,out FDrawToRenderTargetContext Context)
@@ -65,7 +66,7 @@ public static UTextureRenderTarget2D CreateRenderTarget2D(UObject WorldContextOb
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void ClearRenderTarget2D(IntPtr _this,IntPtr WorldContextObject,IntPtr TextureRenderTarget,ref FLinearColor ClearColor);
 /// <summary>Clears the specified render target with the given ClearColor.</summary>
-public static void ClearRenderTarget2D(UObject WorldContextObject,UTextureRenderTarget2D TextureRenderTarget,FLinearColor ClearColor)
+public static void ClearRenderTarget2D(UObject WorldContextObject,UTextureRenderTarget2D TextureRenderTarget,FLinearColor ClearColor=default(FLinearColor))
 {
 	ClearRenderTarget2D(IntPtr.Zero,WorldContextObject,TextureRenderTarget,ref ClearColor);
 	

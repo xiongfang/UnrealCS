@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=392)]
+	[StructLayout(LayoutKind.Explicit,Size=368)]
 	public partial struct FVectorCurve
 	{
 		[FieldOffset(32)]

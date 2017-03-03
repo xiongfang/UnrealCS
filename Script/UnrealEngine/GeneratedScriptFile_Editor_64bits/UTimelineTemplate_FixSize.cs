@@ -60,6 +60,15 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bIgnoreTimeDilation__Offset;
+		/// <summary>If we want the timeline to ignore global time dilation</summary>
+		public bool bIgnoreTimeDilation
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoreTimeDilation__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIgnoreTimeDilation__Offset, 1,0,16,16);}
+			
+		}
+		
 		static readonly int EventTracks__Offset;
 		/// <summary>Set of event tracks</summary>
 		public TStructArray<FTTEventTrack> EventTracks
@@ -121,6 +130,7 @@ namespace UnrealEngine
 			bLoop__Offset=GetPropertyOffset(NativeClassPtr,"bLoop");
 			bReplicated__Offset=GetPropertyOffset(NativeClassPtr,"bReplicated");
 			bValidatedAsWired__Offset=GetPropertyOffset(NativeClassPtr,"bValidatedAsWired");
+			bIgnoreTimeDilation__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreTimeDilation");
 			EventTracks__Offset=GetPropertyOffset(NativeClassPtr,"EventTracks");
 			FloatTracks__Offset=GetPropertyOffset(NativeClassPtr,"FloatTracks");
 			VectorTracks__Offset=GetPropertyOffset(NativeClassPtr,"VectorTracks");

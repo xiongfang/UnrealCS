@@ -5,18 +5,18 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=920)]
+	[StructLayout(LayoutKind.Explicit,Size=868)]
 	public partial struct FComboBoxStyle
 	{
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FComboButtonStyle ComboButtonStyle;
-		[FieldOffset(856)]
+		[FieldOffset(812)]
 		public FSlateSound PressedSlateSound;
-		[FieldOffset(880)]
+		[FieldOffset(832)]
 		public FSlateSound SelectionChangeSlateSound;
-		[FieldOffset(904)]
+		[FieldOffset(852)]
 		public FName PressedSound;
-		[FieldOffset(912)]
+		[FieldOffset(860)]
 		public FName SelectionChangeSound;
 		
 	}

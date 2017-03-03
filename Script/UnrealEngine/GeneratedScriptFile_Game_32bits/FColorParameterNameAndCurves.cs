@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=352)]
+	[StructLayout(LayoutKind.Explicit,Size=348)]
 	public partial struct FColorParameterNameAndCurves
 	{
 		[FieldOffset(0)]

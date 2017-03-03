@@ -13,15 +13,6 @@ namespace UnrealEngine
 	/// </summary>
 	public partial class UFont
 	{
-		static readonly int FontCacheType__Offset;
-		/// <summary>What kind of font caching should we use? This controls which options we see</summary>
-		public EFontCacheType FontCacheType
-		{
-			get{ CheckIsValid();return (EFontCacheType)Marshal.PtrToStructure(_this.Get()+FontCacheType__Offset, typeof(EFontCacheType));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+FontCacheType__Offset, false);}
-			
-		}
-		
 		static readonly int Characters__Offset;
 		/// <summary>
 		/// List of characters in the font.  For a MultiFont, this will include all characters in all sub-fonts!  Thus,
@@ -170,7 +161,6 @@ namespace UnrealEngine
 		static UFont()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("Font");
-			FontCacheType__Offset=GetPropertyOffset(NativeClassPtr,"FontCacheType");
 			Characters__Offset=GetPropertyOffset(NativeClassPtr,"Characters");
 			Textures__Offset=GetPropertyOffset(NativeClassPtr,"Textures");
 			IsRemapped__Offset=GetPropertyOffset(NativeClassPtr,"IsRemapped");

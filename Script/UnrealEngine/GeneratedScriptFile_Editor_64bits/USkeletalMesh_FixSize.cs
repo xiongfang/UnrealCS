@@ -224,19 +224,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int StreamingDistanceMultiplier__Offset;
-		/// <summary>
-		/// Allows artists to adjust the distance where textures using UV 0 are streamed in/out.
-		/// 1.0 is the default, whereas a higher value increases the streamed-in resolution.
-		/// Value can be < 0 (from legcay content, or code changes)
-		/// </summary>
-		public float StreamingDistanceMultiplier
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+StreamingDistanceMultiplier__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+StreamingDistanceMultiplier__Offset, false);}
-			
-		}
-		
 		static readonly int MorphTargets__Offset;
 		public TObjectArray<UMorphTarget>  MorphTargets
 		{
@@ -287,6 +274,19 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int PostProcessAnimBlueprint__Offset;
+		/// <summary>
+		/// Animation Blueprint class to run as a post process for this mesh.
+		/// This blueprint will be ran before physics, but after the main
+		/// anim instance for any skeletal mesh component using this mesh.
+		/// </summary>
+		public TSubclassOf<UAnimInstance>  PostProcessAnimBlueprint
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + PostProcessAnimBlueprint__Offset); return v; }
+			set{ CheckIsValid(); Marshal.WriteIntPtr(_this.Get() + PostProcessAnimBlueprint__Offset, value); }
+			
+		}
+		
 		static readonly int AssetUserData__Offset;
 		/// <summary>Array of user data stored with the asset</summary>
 		public TObjectArray<UAssetUserData>  AssetUserData
@@ -334,13 +334,13 @@ namespace UnrealEngine
 			ThumbnailInfo__Offset=GetPropertyOffset(NativeClassPtr,"ThumbnailInfo");
 			OptimizationSettings__Offset=GetPropertyOffset(NativeClassPtr,"OptimizationSettings");
 			PreviewAttachedAssetContainer__Offset=GetPropertyOffset(NativeClassPtr,"PreviewAttachedAssetContainer");
-			StreamingDistanceMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"StreamingDistanceMultiplier");
 			MorphTargets__Offset=GetPropertyOffset(NativeClassPtr,"MorphTargets");
 			SelectedEditorSection__Offset=GetPropertyOffset(NativeClassPtr,"SelectedEditorSection");
 			SelectedClothingSection__Offset=GetPropertyOffset(NativeClassPtr,"SelectedClothingSection");
 			FloorOffset__Offset=GetPropertyOffset(NativeClassPtr,"FloorOffset");
 			RetargetBasePose__Offset=GetPropertyOffset(NativeClassPtr,"RetargetBasePose");
 			ClothingAssets__Offset=GetPropertyOffset(NativeClassPtr,"ClothingAssets");
+			PostProcessAnimBlueprint__Offset=GetPropertyOffset(NativeClassPtr,"PostProcessAnimBlueprint");
 			AssetUserData__Offset=GetPropertyOffset(NativeClassPtr,"AssetUserData");
 			Sockets__Offset=GetPropertyOffset(NativeClassPtr,"Sockets");
 			

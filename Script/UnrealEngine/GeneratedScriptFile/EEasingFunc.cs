@@ -16,9 +16,9 @@ namespace UnrealEngine
 		SinusoidalOut=3,
 		/// <summary>Sinusoidal in/out interpolation.</summary>
 		SinusoidalInOut=4,
-		/// <summary>Immediately accelerates, but smoothly decelerates into the target.  Ease amount controlled by BlendExp.</summary>
-		EaseIn=5,
 		/// <summary>Smoothly accelerates, but does not decelerate into the target.  Ease amount controlled by BlendExp.</summary>
+		EaseIn=5,
+		/// <summary>Immediately accelerates, but smoothly decelerates into the target.  Ease amount controlled by BlendExp.</summary>
 		EaseOut=6,
 		/// <summary>Smoothly accelerates and decelerates.  Ease amount controlled by BlendExp.</summary>
 		EaseInOut=7,

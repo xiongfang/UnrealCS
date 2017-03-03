@@ -7,13 +7,6 @@ namespace UnrealEngine
 {
 	public partial class UMaterialExpressionBreakMaterialAttributes
 	{
-		static readonly int Struct__Offset;
-		public FExpressionInput Struct
-		{
-			get{ CheckIsValid();return (FExpressionInput)Marshal.PtrToStructure(_this.Get()+Struct__Offset, typeof(FExpressionInput));}
-			
-		}
-		
 		static readonly int MaterialAttributes__Offset;
 		public FMaterialAttributesInput MaterialAttributes
 		{
@@ -24,7 +17,6 @@ namespace UnrealEngine
 		static UMaterialExpressionBreakMaterialAttributes()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MaterialExpressionBreakMaterialAttributes");
-			Struct__Offset=GetPropertyOffset(NativeClassPtr,"Struct");
 			MaterialAttributes__Offset=GetPropertyOffset(NativeClassPtr,"MaterialAttributes");
 			
 		}

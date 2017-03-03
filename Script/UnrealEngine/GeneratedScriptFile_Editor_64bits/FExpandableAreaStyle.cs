@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Represents the appearance of an SExpandableArea</summary>
-	[StructLayout(LayoutKind.Explicit,Size=312)]
+	[StructLayout(LayoutKind.Explicit,Size=320)]
 	public partial struct FExpandableAreaStyle
 	{
 		/// <summary>Image to use when the area is collapsed</summary>
@@ -15,6 +15,9 @@ namespace UnrealEngine
 		/// <summary>Image to use when the area is expanded</summary>
 		[FieldOffset(160)]
 		public FSlateBrush ExpandedImage;
+		/// <summary>How long the rollout animation lasts</summary>
+		[FieldOffset(312)]
+		public float RolloutAnimationSeconds;
 		
 	}
 	

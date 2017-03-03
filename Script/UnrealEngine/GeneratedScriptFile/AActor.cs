@@ -18,7 +18,7 @@ public  UActorComponent[] GetComponentsByTag(TSubclassOf<UActorComponent>  Compo
 extern static IntPtr[] GetComponentsByClass(IntPtr _this,IntPtr ComponentClass);
 /// <summary>
 /// Gets all the components that inherit from the given class.
-///               Currently returns an array of UActorComponent which must be cast to the correct type.
+///       Currently returns an array of UActorComponent which must be cast to the correct type.
 /// </summary>
 public  UActorComponent[] GetComponentsByClass(TSubclassOf<UActorComponent>  ComponentClass)
 {
@@ -102,6 +102,26 @@ public  void GetAttachedActors(out AActor[] OutActors)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static string GetAttachParentSocketName(IntPtr _this);
+/// <summary>Walk up the attachment chain from RootComponent until we encounter a different actor, and return the socket name in the component. If we are not attached to a component in a different actor, returns NAME_None</summary>
+public  string GetAttachParentSocketName()
+{
+	CheckIsValid();
+	string ___ret = GetAttachParentSocketName(_this.Get());
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static IntPtr GetAttachParentActor(IntPtr _this);
+/// <summary>Walk up the attachment chain from RootComponent until we encounter a different actor, and return it. If we are not attached to a component in a different actor, returns NULL</summary>
+public  AActor GetAttachParentActor()
+{
+	CheckIsValid();
+	IntPtr ___ret = GetAttachParentActor(_this.Get());
+	if(___ret==IntPtr.Zero) return null; AActor ___ret2= new AActor(){ _this = ___ret }; return ___ret2;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static int K2_TeleportTo(IntPtr _this,ref FVector DestLocation,ref FRotator DestRotation);
 /// <summary>
 /// Teleport this actor to a new location. If the actor doesn't fit exactly at the location specified, tries to slightly move it out of walls and such.
@@ -118,6 +138,7 @@ public  bool K2_TeleportTo(FVector DestLocation,FRotator DestRotation)
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static IntPtr GetParentActor(IntPtr _this);
+/// <summary>If this Actor was created by a Child Actor Component returns the Actor that owns that Child Actor Component</summary>
 public  AActor GetParentActor()
 {
 	CheckIsValid();
@@ -127,6 +148,7 @@ public  AActor GetParentActor()
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static IntPtr GetParentComponent(IntPtr _this);
+/// <summary>If this Actor was created by a Child Actor Component returns that Child Actor Component</summary>
 public  UChildActorComponent GetParentComponent()
 {
 	CheckIsValid();
@@ -418,20 +440,6 @@ public  bool ActorHasTag(string Tag)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void K2_DetachFromActor(IntPtr _this,int LocationRule,int RotationRule,int ScaleRule);
-/// <summary>
-/// Detaches the RootComponent of this Actor from any SceneComponent it is currently attached to.
-/// @param  LocationRule                         How to handle translation when detaching.
-/// @param  RotationRule                         How to handle rotation when detaching.
-/// @param  ScaleRule                            How to handle scale when detaching.
-/// </summary>
-public  void K2_DetachFromActor(EDetachmentRule LocationRule=EDetachmentRule.KeepRelative,EDetachmentRule RotationRule=EDetachmentRule.KeepRelative,EDetachmentRule ScaleRule=EDetachmentRule.KeepRelative)
-{
-	CheckIsValid();
-	K2_DetachFromActor(_this.Get(),(int)LocationRule,(int)RotationRule,(int)ScaleRule);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void DetachRootComponentFromParent(IntPtr _this,int bMaintainWorldPosition);
 /// <summary>
 /// Detaches the RootComponent of this Actor from any SceneComponent it is currently attached to.
@@ -444,23 +452,6 @@ public  void DetachRootComponentFromParent(bool bMaintainWorldPosition=true)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void K2_AttachToActor(IntPtr _this,IntPtr ParentActor,string SocketName,int LocationRule,int RotationRule,int ScaleRule,int bWeldSimulatedBodies);
-/// <summary>
-/// Attaches the RootComponent of this Actor to the supplied component, optionally at a named socket. It is not valid to call this on components that are not Registered.
-/// @param ParentActor                           Actor to attach this actor's RootComponent to
-/// @param SocketName                            Socket name to attach to, if any
-/// @param LocationRule                          How to handle translation when attaching.
-/// @param RotationRule                          How to handle rotation when attaching.
-/// @param ScaleRule                                     How to handle scale when attaching.
-/// @param bWeldSimulatedBodies          Whether to weld together simulated physics bodies.
-/// </summary>
-public  void K2_AttachToActor(AActor ParentActor,string SocketName,EAttachmentRule LocationRule,EAttachmentRule RotationRule,EAttachmentRule ScaleRule,bool bWeldSimulatedBodies)
-{
-	CheckIsValid();
-	K2_AttachToActor(_this.Get(),ParentActor,SocketName,(int)LocationRule,(int)RotationRule,(int)ScaleRule,bWeldSimulatedBodies?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void K2_AttachRootComponentToActor(IntPtr _this,IntPtr InParentActor,string InSocketName,int AttachLocationType,int bWeldSimulatedBodies);
 /// <summary>
 /// Attaches the RootComponent of this Actor to the supplied component, optionally at a named socket. It is not valid to call this on components that are not Registered.
@@ -470,21 +461,6 @@ public  void K2_AttachRootComponentToActor(AActor InParentActor,string InSocketN
 {
 	CheckIsValid();
 	K2_AttachRootComponentToActor(_this.Get(),InParentActor,InSocketName,(int)AttachLocationType,bWeldSimulatedBodies?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void K2_AttachToComponent(IntPtr _this,IntPtr Parent,string SocketName,int LocationRule,int RotationRule,int ScaleRule,int bWeldSimulatedBodies);
-/// <summary>
-/// Attaches the RootComponent of this Actor to the supplied component, optionally at a named socket. It is not valid to call this on components that are not Registered.
-/// @param  Parent                                       Parent to attach to.
-/// @param  SocketName                           Optional socket to attach to on the parent.
-/// @param  AttachmentRules                      How to handle transforms when attaching.
-/// @param  bWeldSimulatedBodies         Whether to weld together simulated physics bodies.
-/// </summary>
-public  void K2_AttachToComponent(USceneComponent Parent,string SocketName,EAttachmentRule LocationRule,EAttachmentRule RotationRule,EAttachmentRule ScaleRule,bool bWeldSimulatedBodies)
-{
-	CheckIsValid();
-	K2_AttachToComponent(_this.Get(),Parent,SocketName,(int)LocationRule,(int)RotationRule,(int)ScaleRule,bWeldSimulatedBodies?1:0);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -1076,7 +1052,7 @@ public  void EnableInput(APlayerController PlayerController)
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void OnRep_Instigator(IntPtr _this);
-/// <summary>Called on clients when Instigatolr is replicated.</summary>
+/// <summary>Called on clients when Instigator is replicated.</summary>
 public  void OnRep_Instigator()
 {
 	CheckIsValid();

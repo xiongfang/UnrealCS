@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=984)]
+	[StructLayout(LayoutKind.Explicit,Size=1296)]
 	public partial struct FMinimalViewInfo
 	{
 		/// <summary>Location</summary>
@@ -50,8 +50,11 @@ namespace UnrealEngine
 		[FieldOffset(52)]
 		public float PostProcessBlendWeight;
 		/// <summary>Post-process settings to use if PostProcessBlendWeight is non-zero.</summary>
-		[FieldOffset(56)]
+		[FieldOffset(64)]
 		public FPostProcessSettings PostProcessSettings;
+		/// <summary>Off-axis / off-center projection offset as proportion of screen dimensions</summary>
+		[FieldOffset(1280)]
+		public FVector2D OffCenterProjectionOffset;
 		
 	}
 	

@@ -124,6 +124,24 @@ public  void SetMasterPoseComponent(USkinnedMeshComponent NewMasterBoneComponent
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void ClearVertexColorOverride(IntPtr _this,int LODIndex);
+/// <summary>Clear any applied vertex color override</summary>
+public  void ClearVertexColorOverride(int LODIndex)
+{
+	CheckIsValid();
+	ClearVertexColorOverride(_this.Get(),LODIndex);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetVertexColorOverride_LinearColor(IntPtr _this,int LODIndex,FLinearColor[] VertexColors);
+/// <summary>Allow override of vertex colors on a per-component basis, taking array of Blueprint-friendly LinearColors.</summary>
+public  void SetVertexColorOverride_LinearColor(int LODIndex,FLinearColor[] VertexColors)
+{
+	CheckIsValid();
+	SetVertexColorOverride_LinearColor(_this.Get(),LODIndex,VertexColors);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static string GetParentBone(IntPtr _this,string BoneName);
 /// <summary>
 /// Get Parent Bone of the input bone

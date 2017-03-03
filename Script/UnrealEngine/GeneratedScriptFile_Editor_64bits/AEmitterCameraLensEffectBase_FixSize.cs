@@ -21,7 +21,6 @@ namespace UnrealEngine
 		public UParticleSystem PS_CameraEffectNonExtremeContent
 		{
 			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + PS_CameraEffectNonExtremeContent__Offset); if (v == IntPtr.Zero)return null; UParticleSystem retValue = new UParticleSystem(); retValue._this = v; return retValue; }
-			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + PS_CameraEffectNonExtremeContent__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + PS_CameraEffectNonExtremeContent__Offset, value._this.Get()); }
 			
 		}
 		
@@ -63,6 +62,15 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bResetWhenRetriggered__Offset;
+		/// <summary>If bAllowMultipleInstances is true and this effect is retriggered, the particle system will be reset if this is true</summary>
+		public bool bResetWhenRetriggered
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bResetWhenRetriggered__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bResetWhenRetriggered__Offset, 1,0,2,2);}
+			
+		}
+		
 		static readonly int EmittersToTreatAsSame__Offset;
 		/// <summary>
 		/// If an emitter class in this array is currently playing, do not play this effect.
@@ -92,6 +100,7 @@ namespace UnrealEngine
 			RelativeTransform__Offset=GetPropertyOffset(NativeClassPtr,"RelativeTransform");
 			BaseFOV__Offset=GetPropertyOffset(NativeClassPtr,"BaseFOV");
 			bAllowMultipleInstances__Offset=GetPropertyOffset(NativeClassPtr,"bAllowMultipleInstances");
+			bResetWhenRetriggered__Offset=GetPropertyOffset(NativeClassPtr,"bResetWhenRetriggered");
 			EmittersToTreatAsSame__Offset=GetPropertyOffset(NativeClassPtr,"EmittersToTreatAsSame");
 			DistFromCamera__Offset=GetPropertyOffset(NativeClassPtr,"DistFromCamera");
 			

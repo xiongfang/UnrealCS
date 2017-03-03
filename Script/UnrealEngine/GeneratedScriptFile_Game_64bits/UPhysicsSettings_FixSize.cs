@@ -213,11 +213,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bDisableActiveTransforms__Offset;
-		public bool bDisableActiveTransforms
+		static readonly int bDisableActiveActors__Offset;
+		public bool bDisableActiveActors
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableActiveTransforms__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableActiveTransforms__Offset, 1,0,1,255);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableActiveActors__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableActiveActors__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -330,7 +330,7 @@ namespace UnrealEngine
 			bDefaultHasComplexCollision__Offset=GetPropertyOffset(NativeClassPtr,"bDefaultHasComplexCollision");
 			bSuppressFaceRemapTable__Offset=GetPropertyOffset(NativeClassPtr,"bSuppressFaceRemapTable");
 			bSupportUVFromHitResults__Offset=GetPropertyOffset(NativeClassPtr,"bSupportUVFromHitResults");
-			bDisableActiveTransforms__Offset=GetPropertyOffset(NativeClassPtr,"bDisableActiveTransforms");
+			bDisableActiveActors__Offset=GetPropertyOffset(NativeClassPtr,"bDisableActiveActors");
 			bDisableCCD__Offset=GetPropertyOffset(NativeClassPtr,"bDisableCCD");
 			MaxPhysicsDeltaTime__Offset=GetPropertyOffset(NativeClassPtr,"MaxPhysicsDeltaTime");
 			bSubstepping__Offset=GetPropertyOffset(NativeClassPtr,"bSubstepping");

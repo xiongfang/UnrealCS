@@ -31,6 +31,22 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int RandomSpread__Offset;
+		public float RandomSpread
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+RandomSpread__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+RandomSpread__Offset, false);}
+			
+		}
+		
+		static readonly int RandomDistribution__Offset;
+		public float RandomDistribution
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+RandomDistribution__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+RandomDistribution__Offset, false);}
+			
+		}
+		
 		static readonly int RadiusScale__Offset;
 		public float RadiusScale
 		{
@@ -69,6 +85,8 @@ namespace UnrealEngine
 			Resilience__Offset=GetPropertyOffset(NativeClassPtr,"Resilience");
 			ResilienceScaleOverLife__Offset=GetPropertyOffset(NativeClassPtr,"ResilienceScaleOverLife");
 			Friction__Offset=GetPropertyOffset(NativeClassPtr,"Friction");
+			RandomSpread__Offset=GetPropertyOffset(NativeClassPtr,"RandomSpread");
+			RandomDistribution__Offset=GetPropertyOffset(NativeClassPtr,"RandomDistribution");
 			RadiusScale__Offset=GetPropertyOffset(NativeClassPtr,"RadiusScale");
 			RadiusBias__Offset=GetPropertyOffset(NativeClassPtr,"RadiusBias");
 			Response__Offset=GetPropertyOffset(NativeClassPtr,"Response");

@@ -23,34 +23,50 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bEnableAISystem__Offset;
+		public bool bEnableAISystem
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableAISystem__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableAISystem__Offset, 1,0,4,4);}
+			
+		}
+		
 		static readonly int bEnableWorldComposition__Offset;
 		public bool bEnableWorldComposition
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableWorldComposition__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableWorldComposition__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableWorldComposition__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableWorldComposition__Offset, 1,0,8,8);}
+			
+		}
+		
+		static readonly int bUseClientSideLevelStreamingVolumes__Offset;
+		public bool bUseClientSideLevelStreamingVolumes
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseClientSideLevelStreamingVolumes__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseClientSideLevelStreamingVolumes__Offset, 1,0,16,16);}
 			
 		}
 		
 		static readonly int bEnableWorldOriginRebasing__Offset;
 		public bool bEnableWorldOriginRebasing
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableWorldOriginRebasing__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableWorldOriginRebasing__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableWorldOriginRebasing__Offset, 1, 0, 32, 32);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableWorldOriginRebasing__Offset, 1,0,32,32);}
 			
 		}
 		
 		static readonly int bWorldGravitySet__Offset;
 		public bool bWorldGravitySet
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWorldGravitySet__Offset, 1, 0, 16, 16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWorldGravitySet__Offset, 1, 0, 64, 64);}
 			
 		}
 		
 		static readonly int bGlobalGravitySet__Offset;
 		public bool bGlobalGravitySet
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalGravitySet__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalGravitySet__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalGravitySet__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalGravitySet__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -102,18 +118,10 @@ namespace UnrealEngine
 		}
 		
 		static readonly int DefaultGameMode__Offset;
-		public TSubclassOf<AGameMode>  DefaultGameMode
+		public TSubclassOf<AGameModeBase>  DefaultGameMode
 		{
 			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + DefaultGameMode__Offset); return v; }
 			set{ CheckIsValid(); Marshal.WriteIntPtr(_this.Get() + DefaultGameMode__Offset, value); }
-			
-		}
-		
-		static readonly int DefaultMapPrefixes__Offset;
-		public TStructArray<FGameModePrefix> DefaultMapPrefixes
-		{
-			get{ CheckIsValid();return new TStructArray<FGameModePrefix>((FScriptArray)Marshal.PtrToStructure(_this.Get()+DefaultMapPrefixes__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+DefaultMapPrefixes__Offset, false);}
 			
 		}
 		
@@ -161,6 +169,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+GlobalDistanceFieldViewDistance__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+GlobalDistanceFieldViewDistance__Offset, false);}
+			
+		}
+		
+		static readonly int DynamicIndirectShadowsSelfShadowingIntensity__Offset;
+		public float DynamicIndirectShadowsSelfShadowingIntensity
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DynamicIndirectShadowsSelfShadowingIntensity__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DynamicIndirectShadowsSelfShadowingIntensity__Offset, false);}
 			
 		}
 		
@@ -212,14 +228,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int LevelLightingQuality__Offset;
-		public ELightingBuildQuality LevelLightingQuality
-		{
-			get{ CheckIsValid();return (ELightingBuildQuality)Marshal.PtrToStructure(_this.Get()+LevelLightingQuality__Offset, typeof(ELightingBuildQuality));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LevelLightingQuality__Offset, false);}
-			
-		}
-		
 		static readonly int DefaultReverbSettings__Offset;
 		public FReverbSettings DefaultReverbSettings
 		{
@@ -249,6 +257,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+WorldToMeters__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+WorldToMeters__Offset, false);}
+			
+		}
+		
+		static readonly int MonoCullingDistance__Offset;
+		public float MonoCullingDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+MonoCullingDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MonoCullingDistance__Offset, false);}
 			
 		}
 		
@@ -354,7 +370,9 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("WorldSettings");
 			bEnableWorldBoundsChecks__Offset=GetPropertyOffset(NativeClassPtr,"bEnableWorldBoundsChecks");
 			bEnableNavigationSystem__Offset=GetPropertyOffset(NativeClassPtr,"bEnableNavigationSystem");
+			bEnableAISystem__Offset=GetPropertyOffset(NativeClassPtr,"bEnableAISystem");
 			bEnableWorldComposition__Offset=GetPropertyOffset(NativeClassPtr,"bEnableWorldComposition");
+			bUseClientSideLevelStreamingVolumes__Offset=GetPropertyOffset(NativeClassPtr,"bUseClientSideLevelStreamingVolumes");
 			bEnableWorldOriginRebasing__Offset=GetPropertyOffset(NativeClassPtr,"bEnableWorldOriginRebasing");
 			bWorldGravitySet__Offset=GetPropertyOffset(NativeClassPtr,"bWorldGravitySet");
 			bGlobalGravitySet__Offset=GetPropertyOffset(NativeClassPtr,"bGlobalGravitySet");
@@ -365,24 +383,24 @@ namespace UnrealEngine
 			DefaultPhysicsVolumeClass__Offset=GetPropertyOffset(NativeClassPtr,"DefaultPhysicsVolumeClass");
 			PhysicsCollisionHandlerClass__Offset=GetPropertyOffset(NativeClassPtr,"PhysicsCollisionHandlerClass");
 			DefaultGameMode__Offset=GetPropertyOffset(NativeClassPtr,"DefaultGameMode");
-			DefaultMapPrefixes__Offset=GetPropertyOffset(NativeClassPtr,"DefaultMapPrefixes");
 			GameNetworkManagerClass__Offset=GetPropertyOffset(NativeClassPtr,"GameNetworkManagerClass");
 			PackedLightAndShadowMapTextureSize__Offset=GetPropertyOffset(NativeClassPtr,"PackedLightAndShadowMapTextureSize");
 			bMinimizeBSPSections__Offset=GetPropertyOffset(NativeClassPtr,"bMinimizeBSPSections");
 			DefaultColorScale__Offset=GetPropertyOffset(NativeClassPtr,"DefaultColorScale");
 			DefaultMaxDistanceFieldOcclusionDistance__Offset=GetPropertyOffset(NativeClassPtr,"DefaultMaxDistanceFieldOcclusionDistance");
 			GlobalDistanceFieldViewDistance__Offset=GetPropertyOffset(NativeClassPtr,"GlobalDistanceFieldViewDistance");
+			DynamicIndirectShadowsSelfShadowingIntensity__Offset=GetPropertyOffset(NativeClassPtr,"DynamicIndirectShadowsSelfShadowingIntensity");
 			bPrecomputeVisibility__Offset=GetPropertyOffset(NativeClassPtr,"bPrecomputeVisibility");
 			bPlaceCellsOnlyAlongCameraTracks__Offset=GetPropertyOffset(NativeClassPtr,"bPlaceCellsOnlyAlongCameraTracks");
 			VisibilityCellSize__Offset=GetPropertyOffset(NativeClassPtr,"VisibilityCellSize");
 			VisibilityAggressiveness__Offset=GetPropertyOffset(NativeClassPtr,"VisibilityAggressiveness");
 			bForceNoPrecomputedLighting__Offset=GetPropertyOffset(NativeClassPtr,"bForceNoPrecomputedLighting");
 			LightmassSettings__Offset=GetPropertyOffset(NativeClassPtr,"LightmassSettings");
-			LevelLightingQuality__Offset=GetPropertyOffset(NativeClassPtr,"LevelLightingQuality");
 			DefaultReverbSettings__Offset=GetPropertyOffset(NativeClassPtr,"DefaultReverbSettings");
 			DefaultAmbientZoneSettings__Offset=GetPropertyOffset(NativeClassPtr,"DefaultAmbientZoneSettings");
 			DefaultBaseSoundMix__Offset=GetPropertyOffset(NativeClassPtr,"DefaultBaseSoundMix");
 			WorldToMeters__Offset=GetPropertyOffset(NativeClassPtr,"WorldToMeters");
+			MonoCullingDistance__Offset=GetPropertyOffset(NativeClassPtr,"MonoCullingDistance");
 			BookMarks__Offset=GetPropertyOffset(NativeClassPtr,"BookMarks");
 			TimeDilation__Offset=GetPropertyOffset(NativeClassPtr,"TimeDilation");
 			MatineeTimeDilation__Offset=GetPropertyOffset(NativeClassPtr,"MatineeTimeDilation");

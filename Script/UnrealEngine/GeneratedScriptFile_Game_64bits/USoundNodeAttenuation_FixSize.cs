@@ -16,9 +16,9 @@ namespace UnrealEngine
 		}
 		
 		static readonly int AttenuationOverrides__Offset;
-		public FAttenuationSettings AttenuationOverrides
+		public FSoundAttenuationSettings AttenuationOverrides
 		{
-			get{ CheckIsValid();return (FAttenuationSettings)Marshal.PtrToStructure(_this.Get()+AttenuationOverrides__Offset, typeof(FAttenuationSettings));}
+			get{ CheckIsValid();return (FSoundAttenuationSettings)Marshal.PtrToStructure(_this.Get()+AttenuationOverrides__Offset, typeof(FSoundAttenuationSettings));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AttenuationOverrides__Offset, false);}
 			
 		}

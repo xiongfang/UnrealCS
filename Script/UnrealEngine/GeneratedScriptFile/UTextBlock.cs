@@ -31,10 +31,22 @@ public  string GetText()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetMinDesiredWidth(IntPtr _this,float InMinDesiredWidth);
+/// <summary>
+/// Set the minimum desired width for this text block
+/// @param InMinDesiredWidth new minimum desired width
+/// </summary>
+public  void SetMinDesiredWidth(float InMinDesiredWidth)
+{
+	CheckIsValid();
+	SetMinDesiredWidth(_this.Get(),InMinDesiredWidth);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetJustification(IntPtr _this,int InJustification);
 /// <summary>
 /// Set the text justification for this text block
-/// @param Justification new justification
+/// @param InJustification new justification
 /// </summary>
 public  void SetJustification(ETextJustify InJustification)
 {

@@ -102,66 +102,59 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bReplayHasRootMotionSources__Offset;
-		public bool bReplayHasRootMotionSources
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplayHasRootMotionSources__Offset, 1, 0, 2, 2);}
-			
-		}
-		
 		static readonly int bPressedJump__Offset;
 		public bool bPressedJump
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bPressedJump__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bPressedJump__Offset, 1, 0, 2, 2);}
 			
 		}
 		
 		static readonly int bClientUpdating__Offset;
 		public bool bClientUpdating
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientUpdating__Offset, 1, 0, 8, 8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientUpdating__Offset, 1, 0, 4, 4);}
 			
 		}
 		
 		static readonly int bClientWasFalling__Offset;
 		public bool bClientWasFalling
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientWasFalling__Offset, 1, 0, 16, 16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientWasFalling__Offset, 1, 0, 8, 8);}
 			
 		}
 		
 		static readonly int bClientResimulateRootMotion__Offset;
 		public bool bClientResimulateRootMotion
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotion__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotion__Offset, 1, 0, 16, 16);}
 			
 		}
 		
 		static readonly int bClientResimulateRootMotionSources__Offset;
 		public bool bClientResimulateRootMotionSources
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotionSources__Offset, 1, 0, 64, 64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotionSources__Offset, 1, 0, 32, 32);}
 			
 		}
 		
 		static readonly int bSimGravityDisabled__Offset;
 		public bool bSimGravityDisabled
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSimGravityDisabled__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSimGravityDisabled__Offset, 1, 0, 64, 64);}
 			
 		}
 		
 		static readonly int bClientCheckEncroachmentOnNetUpdate__Offset;
 		public bool bClientCheckEncroachmentOnNetUpdate
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientCheckEncroachmentOnNetUpdate__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientCheckEncroachmentOnNetUpdate__Offset, 1, 0, 128, 128);}
 			
 		}
 		
 		static readonly int bServerMoveIgnoreRootMotion__Offset;
 		public bool bServerMoveIgnoreRootMotion
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bServerMoveIgnoreRootMotion__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bServerMoveIgnoreRootMotion__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -197,11 +190,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bJumpMaxCountExceeded__Offset;
-		public bool bJumpMaxCountExceeded
+		static readonly int bWasJumping__Offset;
+		public bool bWasJumping
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bJumpMaxCountExceeded__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bJumpMaxCountExceeded__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasJumping__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWasJumping__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -210,6 +203,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+OnReachedJumpApex__Offset, typeof(FMulticastScriptDelegate)));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OnReachedJumpApex__Offset, false);}
+			
+		}
+		
+		static readonly int MovementModeChangedDelegate__Offset;
+		public FMulticastScriptDelegate MovementModeChangedDelegate
+		{
+			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+MovementModeChangedDelegate__Offset, typeof(FMulticastScriptDelegate)));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MovementModeChangedDelegate__Offset, false);}
 			
 		}
 		
@@ -266,7 +267,6 @@ namespace UnrealEngine
 			bInBaseReplication__Offset=GetPropertyOffset(NativeClassPtr,"bInBaseReplication");
 			CrouchedEyeHeight__Offset=GetPropertyOffset(NativeClassPtr,"CrouchedEyeHeight");
 			bIsCrouched__Offset=GetPropertyOffset(NativeClassPtr,"bIsCrouched");
-			bReplayHasRootMotionSources__Offset=GetPropertyOffset(NativeClassPtr,"bReplayHasRootMotionSources");
 			bPressedJump__Offset=GetPropertyOffset(NativeClassPtr,"bPressedJump");
 			bClientUpdating__Offset=GetPropertyOffset(NativeClassPtr,"bClientUpdating");
 			bClientWasFalling__Offset=GetPropertyOffset(NativeClassPtr,"bClientWasFalling");
@@ -279,8 +279,9 @@ namespace UnrealEngine
 			JumpMaxHoldTime__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxHoldTime");
 			JumpMaxCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxCount");
 			JumpCurrentCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpCurrentCount");
-			bJumpMaxCountExceeded__Offset=GetPropertyOffset(NativeClassPtr,"bJumpMaxCountExceeded");
+			bWasJumping__Offset=GetPropertyOffset(NativeClassPtr,"bWasJumping");
 			OnReachedJumpApex__Offset=GetPropertyOffset(NativeClassPtr,"OnReachedJumpApex");
+			MovementModeChangedDelegate__Offset=GetPropertyOffset(NativeClassPtr,"MovementModeChangedDelegate");
 			OnCharacterMovementUpdated__Offset=GetPropertyOffset(NativeClassPtr,"OnCharacterMovementUpdated");
 			SavedRootMotion__Offset=GetPropertyOffset(NativeClassPtr,"SavedRootMotion");
 			ClientRootMotionParams__Offset=GetPropertyOffset(NativeClassPtr,"ClientRootMotionParams");

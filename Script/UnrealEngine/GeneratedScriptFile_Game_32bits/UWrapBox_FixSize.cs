@@ -15,10 +15,28 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int WrapWidth__Offset;
+		public float WrapWidth
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+WrapWidth__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+WrapWidth__Offset, false);}
+			
+		}
+		
+		static readonly int bExplicitWrapWidth__Offset;
+		public bool bExplicitWrapWidth
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bExplicitWrapWidth__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bExplicitWrapWidth__Offset, 1,0,1,255);}
+			
+		}
+		
 		static UWrapBox()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("WrapBox");
 			InnerSlotPadding__Offset=GetPropertyOffset(NativeClassPtr,"InnerSlotPadding");
+			WrapWidth__Offset=GetPropertyOffset(NativeClassPtr,"WrapWidth");
+			bExplicitWrapWidth__Offset=GetPropertyOffset(NativeClassPtr,"bExplicitWrapWidth");
 			
 		}
 		

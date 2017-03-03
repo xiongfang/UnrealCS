@@ -20,8 +20,6 @@ namespace UnrealEngine
 		public int EndNotify;
 		[FieldOffset(28)]
 		public int InterruptNotify;
-		[FieldOffset(32)]
-		public EAlphaBlendOption BlendMode;
 		[FieldOffset(56)]
 		public ETransitionLogicType LogicType;
 		[FieldOffset(0)]

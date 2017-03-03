@@ -33,41 +33,37 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bRunUpdatesInWorkerThreads__Offset;
-		/// <summary>
-		/// Allows this anim instance to update its native update, blend tree, montages and asset players on
-		/// a worker thread. this requires certain conditions to be met:
-		/// - All access of variables in the blend tree should be a direct access of a member variable
-		/// - No BlueprintUpdateAnimation event should be used (i.e. the event graph should be empty). Only native update is permitted.
-		/// </summary>
 		public bool bRunUpdatesInWorkerThreads
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRunUpdatesInWorkerThreads__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRunUpdatesInWorkerThreads__Offset, 1,0,1,255);}
 			
 		}
 		
 		static readonly int bCanUseParallelUpdateAnimation__Offset;
-		/// <summary>
-		/// Whether we can use parallel updates for our animations.
-		/// Conditions affecting this include:
-		/// - Use of BlueprintUpdateAnimation
-		/// - Use of non 'fast-path' EvaluateGraphExposedInputs in the node graph
-		/// </summary>
 		public bool bCanUseParallelUpdateAnimation
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCanUseParallelUpdateAnimation__Offset, 1, 0, 1, 255);}
 			
 		}
 		
-		static readonly int bWarnAboutBlueprintUsage__Offset;
+		static readonly int bUseMultiThreadedAnimationUpdate__Offset;
 		/// <summary>
-		/// Selecting this option will cause the compiler to emit warnings whenever a call into Blueprint
-		/// is made from the animation graph. This can help track down optimizations that need to be made.
+		/// Allows this anim instance to update its native update, blend tree, montages and asset players on
+		/// a worker thread. This flag is propagated from the UAnimBlueprint to this instance by the compiler.
+		/// The compiler will attempt to pick up any issues that may occur with threaded update.
+		/// For updates to run in multiple threads both this flag and the project setting "Allow Multi Threaded
+		/// Animation Update" should be set.
 		/// </summary>
+		public bool bUseMultiThreadedAnimationUpdate
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMultiThreadedAnimationUpdate__Offset, 1, 0, 1, 255);}
+			
+		}
+		
+		static readonly int bWarnAboutBlueprintUsage__Offset;
 		public bool bWarnAboutBlueprintUsage
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWarnAboutBlueprintUsage__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWarnAboutBlueprintUsage__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -95,6 +91,15 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+OnMontageEnded__Offset, typeof(FMulticastScriptDelegate)));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OnMontageEnded__Offset, false);}
+			
+		}
+		
+		static readonly int OnAllMontageInstancesEnded__Offset;
+		/// <summary>Called when all Montage instances have ended.</summary>
+		public FMulticastScriptDelegate OnAllMontageInstancesEnded
+		{
+			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+OnAllMontageInstancesEnded__Offset, typeof(FMulticastScriptDelegate)));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OnAllMontageInstancesEnded__Offset, false);}
 			
 		}
 		
@@ -130,10 +135,12 @@ namespace UnrealEngine
 			RootMotionMode__Offset=GetPropertyOffset(NativeClassPtr,"RootMotionMode");
 			bRunUpdatesInWorkerThreads__Offset=GetPropertyOffset(NativeClassPtr,"bRunUpdatesInWorkerThreads");
 			bCanUseParallelUpdateAnimation__Offset=GetPropertyOffset(NativeClassPtr,"bCanUseParallelUpdateAnimation");
+			bUseMultiThreadedAnimationUpdate__Offset=GetPropertyOffset(NativeClassPtr,"bUseMultiThreadedAnimationUpdate");
 			bWarnAboutBlueprintUsage__Offset=GetPropertyOffset(NativeClassPtr,"bWarnAboutBlueprintUsage");
 			OnMontageBlendingOut__Offset=GetPropertyOffset(NativeClassPtr,"OnMontageBlendingOut");
 			OnMontageStarted__Offset=GetPropertyOffset(NativeClassPtr,"OnMontageStarted");
 			OnMontageEnded__Offset=GetPropertyOffset(NativeClassPtr,"OnMontageEnded");
+			OnAllMontageInstancesEnded__Offset=GetPropertyOffset(NativeClassPtr,"OnAllMontageInstancesEnded");
 			bQueueMontageEvents__Offset=GetPropertyOffset(NativeClassPtr,"bQueueMontageEvents");
 			ActiveAnimNotifyState__Offset=GetPropertyOffset(NativeClassPtr,"ActiveAnimNotifyState");
 			

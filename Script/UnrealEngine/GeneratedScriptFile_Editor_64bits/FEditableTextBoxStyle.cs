@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Represents the appearance of an SEditableTextBox</summary>
-	[StructLayout(LayoutKind.Explicit,Size=2224)]
+	[StructLayout(LayoutKind.Explicit,Size=2264)]
 	public partial struct FEditableTextBoxStyle
 	{
 		/// <summary>Border background image when the box is not hovered or focused</summary>
@@ -28,22 +28,22 @@ namespace UnrealEngine
 		[FieldOffset(632)]
 		public FSlateFontInfo Font;
 		/// <summary>The foreground color of text.</summary>
-		[FieldOffset(696)]
+		[FieldOffset(736)]
 		public FSlateColor ForegroundColor;
 		/// <summary>The background color applied to the active background image</summary>
-		[FieldOffset(736)]
+		[FieldOffset(776)]
 		public FSlateColor BackgroundColor;
 		/// <summary>The read-only foreground color of text in read-only mode.</summary>
-		[FieldOffset(776)]
+		[FieldOffset(816)]
 		public FSlateColor ReadOnlyForegroundColor;
 		/// <summary>Padding around the horizontal scrollbar</summary>
-		[FieldOffset(816)]
+		[FieldOffset(856)]
 		public FMargin HScrollBarPadding;
 		/// <summary>Padding around the vertical scrollbar</summary>
-		[FieldOffset(832)]
+		[FieldOffset(872)]
 		public FMargin VScrollBarPadding;
 		/// <summary>Style used for the scrollbars</summary>
-		[FieldOffset(848)]
+		[FieldOffset(888)]
 		public FScrollBarStyle ScrollBarStyle;
 		
 	}

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=56)]
+	[StructLayout(LayoutKind.Explicit,Size=40)]
 	public partial struct FTypefaceEntry
 	{
 		[FieldOffset(0)]

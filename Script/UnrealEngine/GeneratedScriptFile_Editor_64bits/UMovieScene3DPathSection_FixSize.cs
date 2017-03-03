@@ -17,24 +17,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int FrontAxisEnum__Offset;
-		/// <summary>Front Axis</summary>
-		public MovieScene3DPathSection_Axis FrontAxisEnum
-		{
-			get{ CheckIsValid();return (MovieScene3DPathSection_Axis)Marshal.PtrToStructure(_this.Get()+FrontAxisEnum__Offset, typeof(MovieScene3DPathSection_Axis));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+FrontAxisEnum__Offset, false);}
-			
-		}
-		
-		static readonly int UpAxisEnum__Offset;
-		/// <summary>Up Axis</summary>
-		public MovieScene3DPathSection_Axis UpAxisEnum
-		{
-			get{ CheckIsValid();return (MovieScene3DPathSection_Axis)Marshal.PtrToStructure(_this.Get()+UpAxisEnum__Offset, typeof(MovieScene3DPathSection_Axis));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+UpAxisEnum__Offset, false);}
-			
-		}
-		
 		static readonly int bFollow__Offset;
 		/// <summary>Follow Curve</summary>
 		public bool bFollow
@@ -66,8 +48,6 @@ namespace UnrealEngine
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieScene3DPathSection");
 			TimingCurve__Offset=GetPropertyOffset(NativeClassPtr,"TimingCurve");
-			FrontAxisEnum__Offset=GetPropertyOffset(NativeClassPtr,"FrontAxisEnum");
-			UpAxisEnum__Offset=GetPropertyOffset(NativeClassPtr,"UpAxisEnum");
 			bFollow__Offset=GetPropertyOffset(NativeClassPtr,"bFollow");
 			bReverse__Offset=GetPropertyOffset(NativeClassPtr,"bReverse");
 			bForceUpright__Offset=GetPropertyOffset(NativeClassPtr,"bForceUpright");

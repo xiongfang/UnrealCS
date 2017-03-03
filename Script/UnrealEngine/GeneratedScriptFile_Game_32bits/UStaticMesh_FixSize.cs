@@ -22,6 +22,21 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int StaticMaterials__Offset;
+		public TStructArray<FStaticMaterial> StaticMaterials
+		{
+			get{ CheckIsValid();return new TStructArray<FStaticMaterial>((FScriptArray)Marshal.PtrToStructure(_this.Get()+StaticMaterials__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+StaticMaterials__Offset, false);}
+			
+		}
+		
+		static readonly int LightmapUVDensity__Offset;
+		public float LightmapUVDensity
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+LightmapUVDensity__Offset, typeof(float));}
+			
+		}
+		
 		static readonly int LightMapResolution__Offset;
 		public int LightMapResolution
 		{
@@ -35,6 +50,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+LightMapCoordinateIndex__Offset, typeof(int));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+LightMapCoordinateIndex__Offset, false);}
+			
+		}
+		
+		static readonly int bGenerateMeshDistanceField__Offset;
+		public bool bGenerateMeshDistanceField
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGenerateMeshDistanceField__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGenerateMeshDistanceField__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -54,34 +77,18 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bUseMaximumStreamingTexelRatio__Offset;
-		public bool bUseMaximumStreamingTexelRatio
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMaximumStreamingTexelRatio__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseMaximumStreamingTexelRatio__Offset, 1,0,1,1);}
-			
-		}
-		
 		static readonly int bStripComplexCollisionForConsole__Offset;
 		public bool bStripComplexCollisionForConsole
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStripComplexCollisionForConsole__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bStripComplexCollisionForConsole__Offset, 1, 0, 1, 1);}
 			
 		}
 		
 		static readonly int bHasNavigationData__Offset;
 		public bool bHasNavigationData
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasNavigationData__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bHasNavigationData__Offset, 1,0,4,4);}
-			
-		}
-		
-		static readonly int StreamingDistanceMultiplier__Offset;
-		public float StreamingDistanceMultiplier
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+StreamingDistanceMultiplier__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+StreamingDistanceMultiplier__Offset, false);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasNavigationData__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bHasNavigationData__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -160,14 +167,15 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("StaticMesh");
 			MinLOD__Offset=GetPropertyOffset(NativeClassPtr,"MinLOD");
 			Materials__Offset=GetPropertyOffset(NativeClassPtr,"Materials");
+			StaticMaterials__Offset=GetPropertyOffset(NativeClassPtr,"StaticMaterials");
+			LightmapUVDensity__Offset=GetPropertyOffset(NativeClassPtr,"LightmapUVDensity");
 			LightMapResolution__Offset=GetPropertyOffset(NativeClassPtr,"LightMapResolution");
 			LightMapCoordinateIndex__Offset=GetPropertyOffset(NativeClassPtr,"LightMapCoordinateIndex");
+			bGenerateMeshDistanceField__Offset=GetPropertyOffset(NativeClassPtr,"bGenerateMeshDistanceField");
 			BodySetup__Offset=GetPropertyOffset(NativeClassPtr,"BodySetup");
 			LODForCollision__Offset=GetPropertyOffset(NativeClassPtr,"LODForCollision");
-			bUseMaximumStreamingTexelRatio__Offset=GetPropertyOffset(NativeClassPtr,"bUseMaximumStreamingTexelRatio");
 			bStripComplexCollisionForConsole__Offset=GetPropertyOffset(NativeClassPtr,"bStripComplexCollisionForConsole");
 			bHasNavigationData__Offset=GetPropertyOffset(NativeClassPtr,"bHasNavigationData");
-			StreamingDistanceMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"StreamingDistanceMultiplier");
 			LpvBiasMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"LpvBiasMultiplier");
 			bAllowCPUAccess__Offset=GetPropertyOffset(NativeClassPtr,"bAllowCPUAccess");
 			Sockets__Offset=GetPropertyOffset(NativeClassPtr,"Sockets");

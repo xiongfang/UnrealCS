@@ -33,7 +33,6 @@ namespace UnrealEngine
 		public bool bRunUpdatesInWorkerThreads
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRunUpdatesInWorkerThreads__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRunUpdatesInWorkerThreads__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -44,11 +43,17 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bUseMultiThreadedAnimationUpdate__Offset;
+		public bool bUseMultiThreadedAnimationUpdate
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMultiThreadedAnimationUpdate__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static readonly int bWarnAboutBlueprintUsage__Offset;
 		public bool bWarnAboutBlueprintUsage
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWarnAboutBlueprintUsage__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWarnAboutBlueprintUsage__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -76,6 +81,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int OnAllMontageInstancesEnded__Offset;
+		public FMulticastScriptDelegate OnAllMontageInstancesEnded
+		{
+			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+OnAllMontageInstancesEnded__Offset, typeof(FMulticastScriptDelegate)));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OnAllMontageInstancesEnded__Offset, false);}
+			
+		}
+		
 		static readonly int bQueueMontageEvents__Offset;
 		public bool bQueueMontageEvents
 		{
@@ -99,10 +112,12 @@ namespace UnrealEngine
 			RootMotionMode__Offset=GetPropertyOffset(NativeClassPtr,"RootMotionMode");
 			bRunUpdatesInWorkerThreads__Offset=GetPropertyOffset(NativeClassPtr,"bRunUpdatesInWorkerThreads");
 			bCanUseParallelUpdateAnimation__Offset=GetPropertyOffset(NativeClassPtr,"bCanUseParallelUpdateAnimation");
+			bUseMultiThreadedAnimationUpdate__Offset=GetPropertyOffset(NativeClassPtr,"bUseMultiThreadedAnimationUpdate");
 			bWarnAboutBlueprintUsage__Offset=GetPropertyOffset(NativeClassPtr,"bWarnAboutBlueprintUsage");
 			OnMontageBlendingOut__Offset=GetPropertyOffset(NativeClassPtr,"OnMontageBlendingOut");
 			OnMontageStarted__Offset=GetPropertyOffset(NativeClassPtr,"OnMontageStarted");
 			OnMontageEnded__Offset=GetPropertyOffset(NativeClassPtr,"OnMontageEnded");
+			OnAllMontageInstancesEnded__Offset=GetPropertyOffset(NativeClassPtr,"OnAllMontageInstancesEnded");
 			bQueueMontageEvents__Offset=GetPropertyOffset(NativeClassPtr,"bQueueMontageEvents");
 			ActiveAnimNotifyState__Offset=GetPropertyOffset(NativeClassPtr,"ActiveAnimNotifyState");
 			

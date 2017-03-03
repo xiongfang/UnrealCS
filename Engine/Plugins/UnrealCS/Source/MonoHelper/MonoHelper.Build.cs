@@ -9,7 +9,9 @@ namespace UnrealBuildTool.Rules
 	{
 		public MonoHelper(TargetInfo Target)
 		{
-			PublicIncludePaths.AddRange(
+            PrivatePCHHeaderFile = "Private/MonoHelperPrivatePCH.h";
+
+            PublicIncludePaths.AddRange(
 				new string[] {					
 					//"Programs/UnrealHeaderTool/Public",
 					// ... add other public include paths required here ...

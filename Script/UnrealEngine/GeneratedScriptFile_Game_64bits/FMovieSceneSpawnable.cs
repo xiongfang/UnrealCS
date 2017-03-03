@@ -18,8 +18,6 @@ namespace UnrealEngine
 						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+40, false);}}}
 			
 		}
-		[FieldOffset(56)]
-		public ESpawnOwnership Ownership;
 		
 	}
 	

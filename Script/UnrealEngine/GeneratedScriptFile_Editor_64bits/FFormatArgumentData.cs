@@ -22,8 +22,6 @@ namespace UnrealEngine
 		public int ArgumentValueInt;
 		[FieldOffset(52)]
 		public float ArgumentValueFloat;
-		[FieldOffset(56)]
-		public ETextGender ArgumentValueGender;
 		
 	}
 	

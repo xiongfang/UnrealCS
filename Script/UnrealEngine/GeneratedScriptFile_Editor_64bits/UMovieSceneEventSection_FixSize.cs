@@ -9,10 +9,16 @@ namespace UnrealEngine
 	public partial class UMovieSceneEventSection
 	{
 		static readonly int Events__Offset;
-		/// <summary>The section's keys.</summary>
 		public FNameCurve Events
 		{
 			get{ CheckIsValid();return (FNameCurve)Marshal.PtrToStructure(_this.Get()+Events__Offset, typeof(FNameCurve));}
+			
+		}
+		
+		static readonly int EventData__Offset;
+		public FMovieSceneEventSectionData EventData
+		{
+			get{ CheckIsValid();return (FMovieSceneEventSectionData)Marshal.PtrToStructure(_this.Get()+EventData__Offset, typeof(FMovieSceneEventSectionData));}
 			
 		}
 		
@@ -20,6 +26,7 @@ namespace UnrealEngine
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneEventSection");
 			Events__Offset=GetPropertyOffset(NativeClassPtr,"Events");
+			EventData__Offset=GetPropertyOffset(NativeClassPtr,"EventData");
 			
 		}
 		

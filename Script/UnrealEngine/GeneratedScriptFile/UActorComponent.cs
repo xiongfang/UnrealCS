@@ -121,6 +121,18 @@ public  void SetTickableWhenPaused(bool bTickableWhenPaused)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetAutoActivate(IntPtr _this,int bNewAutoActivate);
+/// <summary>
+/// Sets whether the component should be auto activate or not. Only safe during construction scripts.
+/// @param bNewAutoActivate - The new auto activate state of the component
+/// </summary>
+public  void SetAutoActivate(bool bNewAutoActivate)
+{
+	CheckIsValid();
+	SetAutoActivate(_this.Get(),bNewAutoActivate?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static int IsActive(IntPtr _this);
 /// <summary>
 /// Returns whether the component is active or not

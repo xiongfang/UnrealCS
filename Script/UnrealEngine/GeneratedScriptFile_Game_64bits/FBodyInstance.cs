@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=432)]
+	[StructLayout(LayoutKind.Explicit,Size=544)]
 	public partial struct FBodyInstance
 	{
 		[FieldOffset(20)]
@@ -156,27 +156,25 @@ namespace UnrealEngine
 		public float MassScale;
 		[FieldOffset(192)]
 		public FWalkableSlopeOverride WalkableSlopeOverride;
-		[FieldOffset(208)]
-		public float MaxAngularVelocity;
-		[FieldOffset(212)]
-		public float CustomSleepThresholdMultiplier;
 		[FieldOffset(216)]
-		public float PhysicsBlendWeight;
+		public float MaxAngularVelocity;
 		[FieldOffset(220)]
+		public float CustomSleepThresholdMultiplier;
+		[FieldOffset(224)]
+		public float PhysicsBlendWeight;
+		[FieldOffset(228)]
 		public int PositionSolverIterationCount;
-		[FieldOffset(264)]
-		public ulong RigidActorSyncId;
 		[FieldOffset(272)]
-		public ulong RigidActorAsyncId;
+		public ulong RigidActorSyncId;
 		[FieldOffset(280)]
+		public ulong RigidActorAsyncId;
+		[FieldOffset(288)]
 		public int VelocitySolverIterationCount;
-		[FieldOffset(428)]
-		public ESleepFamily SleepFamily;
-		[FieldOffset(429)]
+		[FieldOffset(541)]
 		public EDOFMode DOFMode;
-		[FieldOffset(430)]
+		[FieldOffset(542)]
 		public ECollisionEnabled CollisionEnabled;
-		[FieldOffset(431)]
+		[FieldOffset(543)]
 		public ECollisionChannel ObjectType;
 		
 	}

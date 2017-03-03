@@ -53,21 +53,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int Visiblity__Offset;
-		public ESlateVisibility Visiblity
-		{
-			get{ CheckIsValid();return (ESlateVisibility)Marshal.PtrToStructure(_this.Get()+Visiblity__Offset, typeof(ESlateVisibility));}
-			
-		}
-		
-		static readonly int Visibility__Offset;
-		public ESlateVisibility Visibility
-		{
-			get{ CheckIsValid();return (ESlateVisibility)Marshal.PtrToStructure(_this.Get()+Visibility__Offset, typeof(ESlateVisibility));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Visibility__Offset, false);}
-			
-		}
-		
 		static readonly int bOverride_Cursor__Offset;
 		public bool bOverride_Cursor
 		{
@@ -133,8 +118,6 @@ namespace UnrealEngine
 			bIsEnabled__Offset=GetPropertyOffset(NativeClassPtr,"bIsEnabled");
 			ToolTipText__Offset=GetPropertyOffset(NativeClassPtr,"ToolTipText");
 			ToolTipWidget__Offset=GetPropertyOffset(NativeClassPtr,"ToolTipWidget");
-			Visiblity__Offset=GetPropertyOffset(NativeClassPtr,"Visiblity");
-			Visibility__Offset=GetPropertyOffset(NativeClassPtr,"Visibility");
 			bOverride_Cursor__Offset=GetPropertyOffset(NativeClassPtr,"bOverride_Cursor");
 			Cursor__Offset=GetPropertyOffset(NativeClassPtr,"Cursor");
 			bIsVolatile__Offset=GetPropertyOffset(NativeClassPtr,"bIsVolatile");

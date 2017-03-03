@@ -121,7 +121,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int NodeGuid__Offset;
-		/// <summary>GUID to uniquely identify this node, to facilitate diff'ing versions of this graph</summary>
+		/// <summary>GUID to uniquely identify this node, to facilitate diffing versions of this graph</summary>
 		public FGuid NodeGuid
 		{
 			get{ CheckIsValid();return (FGuid)Marshal.PtrToStructure(_this.Get()+NodeGuid__Offset, typeof(FGuid));}
@@ -133,14 +133,6 @@ namespace UnrealEngine
 		public ENodeAdvancedPins AdvancedPinDisplay
 		{
 			get{ CheckIsValid();return (ENodeAdvancedPins)Marshal.PtrToStructure(_this.Get()+AdvancedPinDisplay__Offset, typeof(ENodeAdvancedPins));}
-			
-		}
-		
-		static readonly int EnabledState__Offset;
-		/// <summary>Indicates in what state the node is enabled, which may eliminate it from being compiled</summary>
-		public ENodeEnabledState EnabledState
-		{
-			get{ CheckIsValid();return (ENodeEnabledState)Marshal.PtrToStructure(_this.Get()+EnabledState__Offset, typeof(ENodeEnabledState));}
 			
 		}
 		
@@ -179,7 +171,6 @@ namespace UnrealEngine
 			ErrorMsg__Offset=GetPropertyOffset(NativeClassPtr,"ErrorMsg");
 			NodeGuid__Offset=GetPropertyOffset(NativeClassPtr,"NodeGuid");
 			AdvancedPinDisplay__Offset=GetPropertyOffset(NativeClassPtr,"AdvancedPinDisplay");
-			EnabledState__Offset=GetPropertyOffset(NativeClassPtr,"EnabledState");
 			bUserSetEnabledState__Offset=GetPropertyOffset(NativeClassPtr,"bUserSetEnabledState");
 			bIsNodeEnabled__Offset=GetPropertyOffset(NativeClassPtr,"bIsNodeEnabled");
 			

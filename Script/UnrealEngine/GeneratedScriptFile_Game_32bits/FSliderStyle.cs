@@ -5,18 +5,18 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=496)]
+	[StructLayout(LayoutKind.Explicit,Size=472)]
 	public partial struct FSliderStyle
 	{
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FSlateBrush NormalBarImage;
-		[FieldOffset(128)]
+		[FieldOffset(120)]
 		public FSlateBrush DisabledBarImage;
-		[FieldOffset(248)]
+		[FieldOffset(236)]
 		public FSlateBrush NormalThumbImage;
-		[FieldOffset(368)]
+		[FieldOffset(352)]
 		public FSlateBrush DisabledThumbImage;
-		[FieldOffset(488)]
+		[FieldOffset(468)]
 		public float BarThickness;
 		
 	}

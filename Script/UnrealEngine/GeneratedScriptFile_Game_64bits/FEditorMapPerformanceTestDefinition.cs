@@ -9,7 +9,7 @@ namespace UnrealEngine
 	public partial struct FEditorMapPerformanceTestDefinition
 	{
 		[FieldOffset(0)]
-		public FFilePath PerformanceTestmap;
+		public FStringAssetReference PerformanceTestmap;
 		[FieldOffset(16)]
 		public int TestTimer;
 		

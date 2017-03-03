@@ -8,30 +8,32 @@ namespace UnrealEngine
 	/// <summary>Implements a section in sub-sequence tracks.</summary>
 	public partial class UMovieSceneSubSection
 	{
+		static readonly int Parameters__Offset;
+		public FMovieSceneSectionParameters Parameters
+		{
+			get{ CheckIsValid();return (FMovieSceneSectionParameters)Marshal.PtrToStructure(_this.Get()+Parameters__Offset, typeof(FMovieSceneSectionParameters));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Parameters__Offset, false);}
+			
+		}
+		
 		static readonly int StartOffset__Offset;
-		/// <summary>Number of seconds to skip at the beginning of the sub-sequence.</summary>
 		public float StartOffset
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+StartOffset__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+StartOffset__Offset, false);}
 			
 		}
 		
 		static readonly int TimeScale__Offset;
-		/// <summary>Playback time scaling factor.</summary>
 		public float TimeScale
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+TimeScale__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TimeScale__Offset, false);}
 			
 		}
 		
 		static readonly int PrerollTime__Offset;
-		/// <summary>Preroll time.</summary>
 		public float PrerollTime
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+PrerollTime__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+PrerollTime__Offset, false);}
 			
 		}
 		
@@ -68,6 +70,7 @@ namespace UnrealEngine
 		static UMovieSceneSubSection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneSubSection");
+			Parameters__Offset=GetPropertyOffset(NativeClassPtr,"Parameters");
 			StartOffset__Offset=GetPropertyOffset(NativeClassPtr,"StartOffset");
 			TimeScale__Offset=GetPropertyOffset(NativeClassPtr,"TimeScale");
 			PrerollTime__Offset=GetPropertyOffset(NativeClassPtr,"PrerollTime");

@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=56)]
+	[StructLayout(LayoutKind.Explicit,Size=48)]
 	public partial struct FMaterialAttributesInput
 	{
-		[FieldOffset(48)]
+		[FieldOffset(44)]
 		public int PropertyConnectedBitmask;
 		[FieldOffset(0)]
 		public int OutputIndex;
@@ -24,7 +24,7 @@ namespace UnrealEngine
 		public int MaskB;
 		[FieldOffset(32)]
 		public int MaskA;
-		[FieldOffset(40)]
+		[FieldOffset(36)]
 		public FName ExpressionName;
 		
 	}

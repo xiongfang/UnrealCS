@@ -1,8 +1,8 @@
 // Copyright xg_55,All Rights Reserved.Support E-mail: xg_55@126.com
 // For details, see LICENSE.txt
-
-#include "ScriptGeneratorPluginPrivatePCH.h"
 #include "ScriptCodeGeneratorBase.h"
+#include "ScriptGeneratorPluginPrivatePCH.h"
+
 
 FScriptCodeGeneratorBase::FScriptCodeGeneratorBase(const FString& InRootLocalPath, const FString& InRootBuildPath, const FString& InOutputDirectory, const FString& InIncludeBase)
 {

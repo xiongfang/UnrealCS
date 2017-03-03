@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=688)]
+	[StructLayout(LayoutKind.Explicit,Size=704)]
 	public partial struct FGPUSpriteEmitterInfo
 	{
 		public TObjectArray<UParticleModule> SpawnModules
@@ -54,13 +54,23 @@ namespace UnrealEngine
 		}
 		[FieldOffset(400)]
 		public EParticleCollisionMode CollisionMode;
+		public bool bRemoveHMDRoll
+		{
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 404, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 404, 1, 0, 1, 1); } }}
+			
+		}
 		[FieldOffset(408)]
+		public float MinFacingCameraBlendDistance;
+		[FieldOffset(412)]
+		public float MaxFacingCameraBlendDistance;
+		[FieldOffset(416)]
 		public FRawDistributionVector DynamicColor;
-		[FieldOffset(488)]
+		[FieldOffset(496)]
 		public FRawDistributionFloat DynamicAlpha;
-		[FieldOffset(544)]
+		[FieldOffset(552)]
 		public FRawDistributionVector DynamicColorScale;
-		[FieldOffset(624)]
+		[FieldOffset(632)]
 		public FRawDistributionFloat DynamicAlphaScale;
 		
 	}

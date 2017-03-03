@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>A rich, editable float curve</summary>
-	[StructLayout(LayoutKind.Explicit,Size=120)]
+	[StructLayout(LayoutKind.Explicit,Size=112)]
 	public partial struct FRichCurve
 	{
 		/// <summary>Pre-infinity extrapolation state</summary>
@@ -15,6 +15,9 @@ namespace UnrealEngine
 		/// <summary>Post-infinity extrapolation state</summary>
 		[FieldOffset(89)]
 		public ERichCurveExtrapolation PostInfinityExtrap;
+		/// <summary>Default value</summary>
+		[FieldOffset(92)]
+		public float DefaultValue;
 		/// <summary>Sorted array of keys</summary>
 		public TStructArray<FRichCurveKey> Keys
 		{
@@ -22,9 +25,6 @@ namespace UnrealEngine
 						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+96, false);}}}
 			
 		}
-		/// <summary>Default value</summary>
-		[FieldOffset(112)]
-		public float DefaultValue;
 		/// <summary>Map of which key handles go to which indices.</summary>
 		[FieldOffset(8)]
 		public FKeyHandleMap KeyHandlesToIndices;

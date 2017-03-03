@@ -124,15 +124,15 @@ namespace UnrealEngine
 		static readonly int bActorEnableCollision__Offset;
 		public bool bActorEnableCollision
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 2, 2);}
 			
 		}
 		
 		static readonly int bReplicates__Offset;
 		public bool bReplicates
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -311,14 +311,6 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGenerateOverlapEventsDuringLevelStreaming__Offset, 1, 0, 64, 64);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGenerateOverlapEventsDuringLevelStreaming__Offset, 1,0,64,64);}
-			
-		}
-		
-		static readonly int SpawnCollisionHandlingMethod__Offset;
-		public ESpawnActorCollisionHandlingMethod SpawnCollisionHandlingMethod
-		{
-			get{ CheckIsValid();return (ESpawnActorCollisionHandlingMethod)Marshal.PtrToStructure(_this.Get()+SpawnCollisionHandlingMethod__Offset, typeof(ESpawnActorCollisionHandlingMethod));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+SpawnCollisionHandlingMethod__Offset, false);}
 			
 		}
 		
@@ -593,7 +585,6 @@ namespace UnrealEngine
 			bFindCameraComponentWhenViewTarget__Offset=GetPropertyOffset(NativeClassPtr,"bFindCameraComponentWhenViewTarget");
 			bRelevantForNetworkReplays__Offset=GetPropertyOffset(NativeClassPtr,"bRelevantForNetworkReplays");
 			bGenerateOverlapEventsDuringLevelStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bGenerateOverlapEventsDuringLevelStreaming");
-			SpawnCollisionHandlingMethod__Offset=GetPropertyOffset(NativeClassPtr,"SpawnCollisionHandlingMethod");
 			Instigator__Offset=GetPropertyOffset(NativeClassPtr,"Instigator");
 			Children__Offset=GetPropertyOffset(NativeClassPtr,"Children");
 			RootComponent__Offset=GetPropertyOffset(NativeClassPtr,"RootComponent");

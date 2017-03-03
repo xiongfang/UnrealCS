@@ -186,7 +186,7 @@ namespace Game
             if (pc.IsInputKeyDown(key))
             {
                 USkeletalMeshComponent mesh = Cast< USkeletalMeshComponent>( pc.K2_GetPawn().GetComponentByClass(typeof(USkeletalMeshComponent)));
-                mesh.GetAnimInstance().Montage_Play(Montage, 1);
+                //mesh.GetAnimInstance().Montage_Play(Montage, 1);
             }
 
             float movex, movey;

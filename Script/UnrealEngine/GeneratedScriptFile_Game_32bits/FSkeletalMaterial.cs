@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=8)]
+	[StructLayout(LayoutKind.Explicit,Size=36)]
 	public partial struct FSkeletalMaterial
 	{
 		public bool bEnableShadowCasting
@@ -20,6 +20,10 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 5, 1, 0, 1, 255); } }}
 			
 		}
+		[FieldOffset(8)]
+		public FName MaterialSlotName;
+		[FieldOffset(16)]
+		public FMeshUVChannelInfo UVChannelData;
 		
 	}
 	

@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=1000)]
+	[StructLayout(LayoutKind.Explicit,Size=1328)]
 	public partial struct FTViewTarget
 	{
-		[FieldOffset(8)]
+		[FieldOffset(16)]
 		public FMinimalViewInfo POV;
 		
 	}

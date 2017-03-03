@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=136)]
+	[StructLayout(LayoutKind.Explicit,Size=128)]
 	public partial struct FHitResult
 	{
 		public bool bBlockingHit
@@ -40,9 +40,9 @@ namespace UnrealEngine
 		public float PenetrationDepth;
 		[FieldOffset(88)]
 		public int Item;
-		[FieldOffset(120)]
+		[FieldOffset(116)]
 		public FName BoneName;
-		[FieldOffset(128)]
+		[FieldOffset(124)]
 		public int FaceIndex;
 		
 	}

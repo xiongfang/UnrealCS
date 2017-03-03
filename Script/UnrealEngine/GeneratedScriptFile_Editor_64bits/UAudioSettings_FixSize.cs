@@ -78,6 +78,33 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bDisableMasterEQ__Offset;
+		/// <summary>Disables master EQ effect in the audio DSP graph.</summary>
+		public bool bDisableMasterEQ
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableMasterEQ__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableMasterEQ__Offset, 1,0,2,2);}
+			
+		}
+		
+		static readonly int bDisableMasterReverb__Offset;
+		/// <summary>Disables master reverb effect in the audio DSP graph.</summary>
+		public bool bDisableMasterReverb
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableMasterReverb__Offset, 1, 0, 4, 4);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableMasterReverb__Offset, 1,0,4,4);}
+			
+		}
+		
+		static readonly int bAllowCenterChannel3DPanning__Offset;
+		/// <summary>Enables the surround sound spatialization calculations to include the center channel.</summary>
+		public bool bAllowCenterChannel3DPanning
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowCenterChannel3DPanning__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bAllowCenterChannel3DPanning__Offset, 1,0,8,8);}
+			
+		}
+		
 		static readonly int DialogueFilenameFormat__Offset;
 		/// <summary>
 		/// The format string to use when generating the filename for contexts within dialogue waves. This must generate unique names for your project.
@@ -106,6 +133,9 @@ namespace UnrealEngine
 			MaximumConcurrentStreams__Offset=GetPropertyOffset(NativeClassPtr,"MaximumConcurrentStreams");
 			QualityLevels__Offset=GetPropertyOffset(NativeClassPtr,"QualityLevels");
 			bAllowVirtualizedSounds__Offset=GetPropertyOffset(NativeClassPtr,"bAllowVirtualizedSounds");
+			bDisableMasterEQ__Offset=GetPropertyOffset(NativeClassPtr,"bDisableMasterEQ");
+			bDisableMasterReverb__Offset=GetPropertyOffset(NativeClassPtr,"bDisableMasterReverb");
+			bAllowCenterChannel3DPanning__Offset=GetPropertyOffset(NativeClassPtr,"bAllowCenterChannel3DPanning");
 			DialogueFilenameFormat__Offset=GetPropertyOffset(NativeClassPtr,"DialogueFilenameFormat");
 			
 		}

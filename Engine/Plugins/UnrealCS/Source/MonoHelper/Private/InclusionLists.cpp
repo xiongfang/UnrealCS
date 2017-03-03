@@ -1,8 +1,8 @@
 // Copyright xg_55,All Rights Reserved.Support E-mail: xg_55@126.com
 // For details, see LICENSE.txt
-
-#include "MonoHelperPrivatePCH.h"
 #include "InclusionLists.h"
+#include "MonoHelperPrivatePCH.h"
+
 
 bool FInclusionLists::HasFunction(const UStruct* Struct, const UFunction* Function) const
 {
@@ -23,4 +23,10 @@ bool FInclusionLists::HasFunction(const UStruct* Struct, const UFunction* Functi
 	//	return CategoryList->Contains(Category);
 	//}
 	return false;
+}
+
+bool FInclusionLists::HasProperty(const UStruct* Struct, const UProperty* Property) const
+{
+	const TSet<FName>* List = Properties.Find(Struct->GetFName());
+	return List && List->Contains(Property->GetFName());
 }

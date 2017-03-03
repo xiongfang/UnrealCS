@@ -16,7 +16,7 @@ namespace UnrealEngine
 		/// <summary>Max value for this parameter.</summary>
 		[FieldOffset(20)]
 		public float Max;
-		/// <summary>how many grid for this parameter.</summary>
+		/// <summary>The number of grid divisions for this parameter (axis).</summary>
 		[FieldOffset(24)]
 		public int GridNum;
 		

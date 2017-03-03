@@ -313,6 +313,85 @@ public  void SetRootMotionMode(ERootMotionMode Value)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static IntPtr GetCurrentActiveMontage(IntPtr _this);
+/// <summary>
+/// Get a current Active Montage in this AnimInstance.
+///               Note that there might be multiple Active at the same time. This will only return the first active one it finds. *
+/// </summary>
+public  UAnimMontage GetCurrentActiveMontage()
+{
+	CheckIsValid();
+	IntPtr ___ret = GetCurrentActiveMontage(_this.Get());
+	if(___ret==IntPtr.Zero) return null; UAnimMontage ___ret2= new UAnimMontage(){ _this = ___ret }; return ___ret2;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsAnyMontagePlaying(IntPtr _this);
+/// <summary>Returns true if any montage is playing currently. Doesn't mean it's active though, it could be blending out.</summary>
+public  bool IsAnyMontagePlaying()
+{
+	CheckIsValid();
+	int ___ret = IsAnyMontagePlaying(_this.Get());
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static float Montage_GetPlayRate(IntPtr _this,IntPtr Montage);
+/// <summary>
+/// Get PlayRate for Montage.
+///       If Montage reference is NULL, PlayRate for any Active Montage will be returned.
+///       If Montage is not playing, 0 is returned.
+/// </summary>
+public  float Montage_GetPlayRate(UAnimMontage Montage)
+{
+	CheckIsValid();
+	float ___ret = Montage_GetPlayRate(_this.Get(),Montage);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static float Montage_GetBlendTime(IntPtr _this,IntPtr Montage);
+/// <summary>
+/// Get the current blend time of the Montage.
+///       If Montage reference is NULL, it will return the current blend time on the first active Montage found.
+/// </summary>
+public  float Montage_GetBlendTime(UAnimMontage Montage)
+{
+	CheckIsValid();
+	float ___ret = Montage_GetBlendTime(_this.Get(),Montage);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int Montage_GetIsStopped(IntPtr _this,IntPtr Montage);
+/// <summary>return true if Montage is not currently active. (not valid or blending out)</summary>
+public  bool Montage_GetIsStopped(UAnimMontage Montage)
+{
+	CheckIsValid();
+	int ___ret = Montage_GetIsStopped(_this.Get(),Montage);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void Montage_SetPosition(IntPtr _this,IntPtr Montage,float NewPosition);
+/// <summary>Set position.</summary>
+public  void Montage_SetPosition(UAnimMontage Montage,float NewPosition)
+{
+	CheckIsValid();
+	Montage_SetPosition(_this.Get(),Montage,NewPosition);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static float Montage_GetPosition(IntPtr _this,IntPtr Montage);
+/// <summary>Get Current Montage Position</summary>
+public  float Montage_GetPosition(UAnimMontage Montage)
+{
+	CheckIsValid();
+	float ___ret = Montage_GetPosition(_this.Get(),Montage);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static string Montage_GetCurrentSection(IntPtr _this,IntPtr Montage);
 /// <summary>Returns the name of the current animation montage section.</summary>
 public  string Montage_GetCurrentSection(UAnimMontage Montage)
@@ -417,16 +496,6 @@ public  void Montage_Stop(float InBlendOutTime,UAnimMontage Montage)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static float Montage_Play(IntPtr _this,IntPtr MontageToPlay,float InPlayRate,int ReturnValueType);
-/// <summary>Plays an animation montage. Returns the length of the animation montage in seconds. Returns 0.f if failed to play.</summary>
-public  float Montage_Play(UAnimMontage MontageToPlay,float InPlayRate=1.000000f,EMontagePlayReturnType ReturnValueType=EMontagePlayReturnType.MontageLength)
-{
-	CheckIsValid();
-	float ___ret = Montage_Play(_this.Get(),MontageToPlay,InPlayRate,(int)ReturnValueType);
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static int IsPlayingSlotAnimation(IntPtr _this,IntPtr Asset,string SlotNodeName);
 /// <summary>Return true if it's playing the slot animation</summary>
 public  bool IsPlayingSlotAnimation(UAnimSequenceBase Asset,string SlotNodeName)
@@ -446,12 +515,12 @@ public  void StopSlotAnimation(float InBlendOutTime=0.250000f,string SlotNodeNam
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static IntPtr PlaySlotAnimationAsDynamicMontage(IntPtr _this,IntPtr Asset,string SlotNodeName,float BlendInTime,float BlendOutTime,float InPlayRate,int LoopCount,float BlendOutTriggerTime);
+extern static IntPtr PlaySlotAnimationAsDynamicMontage(IntPtr _this,IntPtr Asset,string SlotNodeName,float BlendInTime,float BlendOutTime,float InPlayRate,int LoopCount,float BlendOutTriggerTime,float InTimeToStartMontageAt);
 /// <summary>Play normal animation asset on the slot node by creating a dynamic UAnimMontage. You can only play one asset (whether montage or animsequence) at a time per SlotGroup.</summary>
-public  UAnimMontage PlaySlotAnimationAsDynamicMontage(UAnimSequenceBase Asset,string SlotNodeName,float BlendInTime=0.250000f,float BlendOutTime=0.250000f,float InPlayRate=1.000000f,int LoopCount=1,float BlendOutTriggerTime=-1.000000f)
+public  UAnimMontage PlaySlotAnimationAsDynamicMontage(UAnimSequenceBase Asset,string SlotNodeName,float BlendInTime=0.250000f,float BlendOutTime=0.250000f,float InPlayRate=1.000000f,int LoopCount=1,float BlendOutTriggerTime=-1.000000f,float InTimeToStartMontageAt=0.000000f)
 {
 	CheckIsValid();
-	IntPtr ___ret = PlaySlotAnimationAsDynamicMontage(_this.Get(),Asset,SlotNodeName,BlendInTime,BlendOutTime,InPlayRate,LoopCount,BlendOutTriggerTime);
+	IntPtr ___ret = PlaySlotAnimationAsDynamicMontage(_this.Get(),Asset,SlotNodeName,BlendInTime,BlendOutTime,InPlayRate,LoopCount,BlendOutTriggerTime,InTimeToStartMontageAt);
 	if(___ret==IntPtr.Zero) return null; UAnimMontage ___ret2= new UAnimMontage(){ _this = ___ret }; return ___ret2;
 	
 }
@@ -482,6 +551,32 @@ public  AActor GetOwningActor()
 	CheckIsValid();
 	IntPtr ___ret = GetOwningActor(_this.Get());
 	if(___ret==IntPtr.Zero) return null; AActor ___ret2= new AActor(){ _this = ___ret }; return ___ret2;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SnapshotPose(IntPtr _this,out FPoseSnapshot Snapshot);
+/// <summary>
+/// Takes a snapshot of the current skeletal mesh component pose and saves it to the specified snapshot.
+/// The snapshot is taken at the current LOD, so if for example you took the snapshot at LOD1
+/// and then used it at LOD0 any bones not in LOD1 will use the reference pose
+/// </summary>
+public  void SnapshotPose(out FPoseSnapshot Snapshot)
+{
+	CheckIsValid();
+	SnapshotPose(_this.Get(),out Snapshot);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SavePoseSnapshot(IntPtr _this,string SnapshotName);
+/// <summary>
+/// Takes a snapshot of the current skeletal mesh component pose & saves it internally.
+/// This snapshot can then be retrieved by name in the animation blueprint for blending.
+/// The snapshot is taken at the current LOD, so if for example you took the snapshot at LOD1 and then used it at LOD0 any bones not in LOD1 will use the reference pose
+/// </summary>
+public  void SavePoseSnapshot(string SnapshotName)
+{
+	CheckIsValid();
+	SavePoseSnapshot(_this.Get(),SnapshotName);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

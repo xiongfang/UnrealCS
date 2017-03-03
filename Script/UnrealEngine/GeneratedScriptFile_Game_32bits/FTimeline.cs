@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=208)]
+	[StructLayout(LayoutKind.Explicit,Size=128)]
 	public partial struct FTimeline
 	{
 		[FieldOffset(0)]
@@ -58,7 +58,7 @@ namespace UnrealEngine
 						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+56, false);}}}
 			
 		}
-		[FieldOffset(184)]
+		[FieldOffset(116)]
 		public FName DirectionPropertyName;
 		
 	}

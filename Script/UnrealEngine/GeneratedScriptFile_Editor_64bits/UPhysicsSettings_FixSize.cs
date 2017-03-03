@@ -36,7 +36,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int SimulateScratchMemorySize__Offset;
-		/// <summary>Amount of memory to reserve for PhysX simulate(), this is per pxscene</summary>
+		/// <summary>Amount of memory to reserve for PhysX simulate(), this is per pxscene and will be rounded up to the next 16K boundary</summary>
 		public int SimulateScratchMemorySize
 		{
 			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+SimulateScratchMemorySize__Offset, typeof(int));}
@@ -242,12 +242,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bDisableActiveTransforms__Offset;
+		static readonly int bDisableActiveActors__Offset;
 		/// <summary>If true, physx will not update unreal with any bodies that have moved during the simulation. This should only be used if you have no physx simulation or you are manually updating the unreal data via polling physx.</summary>
-		public bool bDisableActiveTransforms
+		public bool bDisableActiveActors
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableActiveTransforms__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableActiveTransforms__Offset, 1,0,1,255);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisableActiveActors__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisableActiveActors__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -370,7 +370,7 @@ namespace UnrealEngine
 			bDefaultHasComplexCollision__Offset=GetPropertyOffset(NativeClassPtr,"bDefaultHasComplexCollision");
 			bSuppressFaceRemapTable__Offset=GetPropertyOffset(NativeClassPtr,"bSuppressFaceRemapTable");
 			bSupportUVFromHitResults__Offset=GetPropertyOffset(NativeClassPtr,"bSupportUVFromHitResults");
-			bDisableActiveTransforms__Offset=GetPropertyOffset(NativeClassPtr,"bDisableActiveTransforms");
+			bDisableActiveActors__Offset=GetPropertyOffset(NativeClassPtr,"bDisableActiveActors");
 			bDisableCCD__Offset=GetPropertyOffset(NativeClassPtr,"bDisableCCD");
 			MaxPhysicsDeltaTime__Offset=GetPropertyOffset(NativeClassPtr,"MaxPhysicsDeltaTime");
 			bSubstepping__Offset=GetPropertyOffset(NativeClassPtr,"bSubstepping");

@@ -19,3 +19,4 @@
 
 DECLARE_LOG_CATEGORY_EXTERN(LogMonoEditor, Log, All);
 
+#define WITH_MONO_HOTRELOAD 1

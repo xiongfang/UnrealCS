@@ -370,7 +370,10 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bUseControllerDesiredRotation__Offset;
-		/// <summary>If true, smoothly rotate the Character toward the Controller's desired rotation, using RotationRate as the rate of rotation change. Overridden by OrientRotationToMovement.</summary>
+		/// <summary>
+		/// If true, smoothly rotate the Character toward the Controller's desired rotation (typically Controller->ControlRotation), using RotationRate as the rate of rotation change. Overridden by OrientRotationToMovement.
+		/// Normally you will want to make sure that other settings are cleared, such as bUseControllerRotationYaw on the Character.
+		/// </summary>
 		public bool bUseControllerDesiredRotation
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseControllerDesiredRotation__Offset, 1, 0, 1, 1);}
@@ -866,15 +869,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int NetworkSmoothingMode__Offset;
-		/// <summary>Smoothing mode for simulated proxies in network game.</summary>
-		public ENetworkSmoothingMode NetworkSmoothingMode
-		{
-			get{ CheckIsValid();return (ENetworkSmoothingMode)Marshal.PtrToStructure(_this.Get()+NetworkSmoothingMode__Offset, typeof(ENetworkSmoothingMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NetworkSmoothingMode__Offset, false);}
-			
-		}
-		
 		static readonly int LedgeCheckThreshold__Offset;
 		/// <summary>Used in determining if pawn is going off ledge.  If the ledge is "shorter" than this value then the pawn will be able to walk off it. *</summary>
 		public float LedgeCheckThreshold
@@ -1164,7 +1158,7 @@ namespace UnrealEngine
 		/// <summary>Was velocity requested by path following?</summary>
 		public bool bHasRequestedVelocity
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasRequestedVelocity__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasRequestedVelocity__Offset, 1, 0, 64, 64);}
 			
 		}
 		
@@ -1172,7 +1166,7 @@ namespace UnrealEngine
 		/// <summary>Was acceleration requested to be always max speed?</summary>
 		public bool bRequestedMoveWithMaxSpeed
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRequestedMoveWithMaxSpeed__Offset, 1, 0, 64, 64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRequestedMoveWithMaxSpeed__Offset, 1, 0, 128, 128);}
 			
 		}
 		
@@ -1180,7 +1174,7 @@ namespace UnrealEngine
 		/// <summary>Was avoidance updated in this frame?</summary>
 		public bool bWasAvoidanceUpdated
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasAvoidanceUpdated__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasAvoidanceUpdated__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -1188,8 +1182,8 @@ namespace UnrealEngine
 		/// <summary>Whether to raycast to underlying geometry to better conform navmesh-walking characters</summary>
 		public bool bProjectNavMeshWalking
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshWalking__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshWalking__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshWalking__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshWalking__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -1197,8 +1191,8 @@ namespace UnrealEngine
 		/// <summary>Use both WorldStatic and WorldDynamic channels for NavWalking geometry conforming</summary>
 		public bool bProjectNavMeshOnBothWorldChannels
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -1320,6 +1314,15 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+NavMeshProjectionHeightScaleDown__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NavMeshProjectionHeightScaleDown__Offset, false);}
+			
+		}
+		
+		static readonly int NavWalkingFloorDistTolerance__Offset;
+		/// <summary>Ignore small differences in ground height between server and client data during NavWalking mode</summary>
+		public float NavWalkingFloorDistTolerance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+NavWalkingFloorDistTolerance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NavWalkingFloorDistTolerance__Offset, false);}
 			
 		}
 		
@@ -1466,7 +1469,6 @@ namespace UnrealEngine
 			ListenServerNetworkSimulatedSmoothRotationTime__Offset=GetPropertyOffset(NativeClassPtr,"ListenServerNetworkSimulatedSmoothRotationTime");
 			NetworkMaxSmoothUpdateDistance__Offset=GetPropertyOffset(NativeClassPtr,"NetworkMaxSmoothUpdateDistance");
 			NetworkNoSmoothUpdateDistance__Offset=GetPropertyOffset(NativeClassPtr,"NetworkNoSmoothUpdateDistance");
-			NetworkSmoothingMode__Offset=GetPropertyOffset(NativeClassPtr,"NetworkSmoothingMode");
 			LedgeCheckThreshold__Offset=GetPropertyOffset(NativeClassPtr,"LedgeCheckThreshold");
 			JumpOutOfWaterPitch__Offset=GetPropertyOffset(NativeClassPtr,"JumpOutOfWaterPitch");
 			CurrentFloor__Offset=GetPropertyOffset(NativeClassPtr,"CurrentFloor");
@@ -1512,6 +1514,7 @@ namespace UnrealEngine
 			NavMeshProjectionInterpSpeed__Offset=GetPropertyOffset(NativeClassPtr,"NavMeshProjectionInterpSpeed");
 			NavMeshProjectionHeightScaleUp__Offset=GetPropertyOffset(NativeClassPtr,"NavMeshProjectionHeightScaleUp");
 			NavMeshProjectionHeightScaleDown__Offset=GetPropertyOffset(NativeClassPtr,"NavMeshProjectionHeightScaleDown");
+			NavWalkingFloorDistTolerance__Offset=GetPropertyOffset(NativeClassPtr,"NavWalkingFloorDistTolerance");
 			PostPhysicsTickFunction__Offset=GetPropertyOffset(NativeClassPtr,"PostPhysicsTickFunction");
 			MinTimeBetweenTimeStampResets__Offset=GetPropertyOffset(NativeClassPtr,"MinTimeBetweenTimeStampResets");
 			CurrentRootMotion__Offset=GetPropertyOffset(NativeClassPtr,"CurrentRootMotion");

@@ -5,14 +5,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=48)]
+	[StructLayout(LayoutKind.Explicit,Size=36)]
 	public partial struct FBlueprintInputKeyDelegateBinding
 	{
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FInputChord InputChord;
-		[FieldOffset(32)]
+		[FieldOffset(24)]
 		public EInputEvent InputKeyEvent;
-		[FieldOffset(40)]
+		[FieldOffset(28)]
 		public FName FunctionNameToBind;
 		public bool bConsumeInput
 		{

@@ -652,14 +652,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int NetworkSmoothingMode__Offset;
-		public ENetworkSmoothingMode NetworkSmoothingMode
-		{
-			get{ CheckIsValid();return (ENetworkSmoothingMode)Marshal.PtrToStructure(_this.Get()+NetworkSmoothingMode__Offset, typeof(ENetworkSmoothingMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NetworkSmoothingMode__Offset, false);}
-			
-		}
-		
 		static readonly int LedgeCheckThreshold__Offset;
 		public float LedgeCheckThreshold
 		{
@@ -872,37 +864,37 @@ namespace UnrealEngine
 		static readonly int bHasRequestedVelocity__Offset;
 		public bool bHasRequestedVelocity
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasRequestedVelocity__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasRequestedVelocity__Offset, 1, 0, 64, 64);}
 			
 		}
 		
 		static readonly int bRequestedMoveWithMaxSpeed__Offset;
 		public bool bRequestedMoveWithMaxSpeed
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRequestedMoveWithMaxSpeed__Offset, 1, 0, 64, 64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRequestedMoveWithMaxSpeed__Offset, 1, 0, 128, 128);}
 			
 		}
 		
 		static readonly int bWasAvoidanceUpdated__Offset;
 		public bool bWasAvoidanceUpdated
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasAvoidanceUpdated__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasAvoidanceUpdated__Offset, 1, 0, 1, 1);}
 			
 		}
 		
 		static readonly int bProjectNavMeshWalking__Offset;
 		public bool bProjectNavMeshWalking
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshWalking__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshWalking__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshWalking__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshWalking__Offset, 1,0,8,8);}
 			
 		}
 		
 		static readonly int bProjectNavMeshOnBothWorldChannels__Offset;
 		public bool bProjectNavMeshOnBothWorldChannels
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1, 0, 8, 8);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1,0,8,8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1, 0, 16, 16);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bProjectNavMeshOnBothWorldChannels__Offset, 1,0,16,16);}
 			
 		}
 		
@@ -1004,6 +996,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+NavMeshProjectionHeightScaleDown__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NavMeshProjectionHeightScaleDown__Offset, false);}
+			
+		}
+		
+		static readonly int NavWalkingFloorDistTolerance__Offset;
+		public float NavWalkingFloorDistTolerance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+NavWalkingFloorDistTolerance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+NavWalkingFloorDistTolerance__Offset, false);}
 			
 		}
 		
@@ -1135,7 +1135,6 @@ namespace UnrealEngine
 			ListenServerNetworkSimulatedSmoothRotationTime__Offset=GetPropertyOffset(NativeClassPtr,"ListenServerNetworkSimulatedSmoothRotationTime");
 			NetworkMaxSmoothUpdateDistance__Offset=GetPropertyOffset(NativeClassPtr,"NetworkMaxSmoothUpdateDistance");
 			NetworkNoSmoothUpdateDistance__Offset=GetPropertyOffset(NativeClassPtr,"NetworkNoSmoothUpdateDistance");
-			NetworkSmoothingMode__Offset=GetPropertyOffset(NativeClassPtr,"NetworkSmoothingMode");
 			LedgeCheckThreshold__Offset=GetPropertyOffset(NativeClassPtr,"LedgeCheckThreshold");
 			JumpOutOfWaterPitch__Offset=GetPropertyOffset(NativeClassPtr,"JumpOutOfWaterPitch");
 			CurrentFloor__Offset=GetPropertyOffset(NativeClassPtr,"CurrentFloor");
@@ -1181,6 +1180,7 @@ namespace UnrealEngine
 			NavMeshProjectionInterpSpeed__Offset=GetPropertyOffset(NativeClassPtr,"NavMeshProjectionInterpSpeed");
 			NavMeshProjectionHeightScaleUp__Offset=GetPropertyOffset(NativeClassPtr,"NavMeshProjectionHeightScaleUp");
 			NavMeshProjectionHeightScaleDown__Offset=GetPropertyOffset(NativeClassPtr,"NavMeshProjectionHeightScaleDown");
+			NavWalkingFloorDistTolerance__Offset=GetPropertyOffset(NativeClassPtr,"NavWalkingFloorDistTolerance");
 			PostPhysicsTickFunction__Offset=GetPropertyOffset(NativeClassPtr,"PostPhysicsTickFunction");
 			MinTimeBetweenTimeStampResets__Offset=GetPropertyOffset(NativeClassPtr,"MinTimeBetweenTimeStampResets");
 			CurrentRootMotion__Offset=GetPropertyOffset(NativeClassPtr,"CurrentRootMotion");

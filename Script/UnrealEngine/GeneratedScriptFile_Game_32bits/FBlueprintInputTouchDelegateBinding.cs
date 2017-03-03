@@ -8,7 +8,7 @@ namespace UnrealEngine
 	[StructLayout(LayoutKind.Explicit,Size=16)]
 	public partial struct FBlueprintInputTouchDelegateBinding
 	{
-		[FieldOffset(1)]
+		[FieldOffset(4)]
 		public EInputEvent InputKeyEvent;
 		[FieldOffset(8)]
 		public FName FunctionNameToBind;

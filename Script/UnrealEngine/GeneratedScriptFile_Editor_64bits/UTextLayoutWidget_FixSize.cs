@@ -47,15 +47,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int WrappingPolicy__Offset;
-		/// <summary>The wrapping policy to use.</summary>
-		public ETextWrappingPolicy WrappingPolicy
-		{
-			get{ CheckIsValid();return (ETextWrappingPolicy)Marshal.PtrToStructure(_this.Get()+WrappingPolicy__Offset, typeof(ETextWrappingPolicy));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+WrappingPolicy__Offset, false);}
-			
-		}
-		
 		static readonly int Margin__Offset;
 		/// <summary>The amount of blank space left around the edges of text area.</summary>
 		public FMargin Margin
@@ -81,7 +72,6 @@ namespace UnrealEngine
 			Justification__Offset=GetPropertyOffset(NativeClassPtr,"Justification");
 			AutoWrapText__Offset=GetPropertyOffset(NativeClassPtr,"AutoWrapText");
 			WrapTextAt__Offset=GetPropertyOffset(NativeClassPtr,"WrapTextAt");
-			WrappingPolicy__Offset=GetPropertyOffset(NativeClassPtr,"WrappingPolicy");
 			Margin__Offset=GetPropertyOffset(NativeClassPtr,"Margin");
 			LineHeightPercentage__Offset=GetPropertyOffset(NativeClassPtr,"LineHeightPercentage");
 			

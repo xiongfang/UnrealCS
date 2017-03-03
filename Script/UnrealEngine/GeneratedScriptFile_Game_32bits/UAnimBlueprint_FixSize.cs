@@ -22,11 +22,29 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bUseMultiThreadedAnimationUpdate__Offset;
+		public bool bUseMultiThreadedAnimationUpdate
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseMultiThreadedAnimationUpdate__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseMultiThreadedAnimationUpdate__Offset, 1,0,1,255);}
+			
+		}
+		
+		static readonly int bWarnAboutBlueprintUsage__Offset;
+		public bool bWarnAboutBlueprintUsage
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWarnAboutBlueprintUsage__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWarnAboutBlueprintUsage__Offset, 1,0,1,255);}
+			
+		}
+		
 		static UAnimBlueprint()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("AnimBlueprint");
 			TargetSkeleton__Offset=GetPropertyOffset(NativeClassPtr,"TargetSkeleton");
 			Groups__Offset=GetPropertyOffset(NativeClassPtr,"Groups");
+			bUseMultiThreadedAnimationUpdate__Offset=GetPropertyOffset(NativeClassPtr,"bUseMultiThreadedAnimationUpdate");
+			bWarnAboutBlueprintUsage__Offset=GetPropertyOffset(NativeClassPtr,"bWarnAboutBlueprintUsage");
 			
 		}
 		

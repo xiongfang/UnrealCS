@@ -4,5 +4,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine{
 public partial class UMaterialExpressionNoise:UMaterialExpression 
 {
+	[MethodImplAttribute(MethodImplOptions.InternalCall)]
+	public extern static new IntPtr StaticClass();
 }
 }

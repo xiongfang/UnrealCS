@@ -14,15 +14,6 @@ namespace UnrealEngine
 	/// </summary>
 	public partial class UCheckBox
 	{
-		static readonly int CheckedState__Offset;
-		/// <summary>Whether the check box is currently in a checked state</summary>
-		public ECheckBoxState CheckedState
-		{
-			get{ CheckIsValid();return (ECheckBoxState)Marshal.PtrToStructure(_this.Get()+CheckedState__Offset, typeof(ECheckBoxState));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+CheckedState__Offset, false);}
-			
-		}
-		
 		static readonly int WidgetStyle__Offset;
 		/// <summary>The checkbox bar style</summary>
 		public FCheckBoxStyle WidgetStyle
@@ -158,7 +149,6 @@ namespace UnrealEngine
 		static UCheckBox()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("CheckBox");
-			CheckedState__Offset=GetPropertyOffset(NativeClassPtr,"CheckedState");
 			WidgetStyle__Offset=GetPropertyOffset(NativeClassPtr,"WidgetStyle");
 			Style__Offset=GetPropertyOffset(NativeClassPtr,"Style");
 			UncheckedImage__Offset=GetPropertyOffset(NativeClassPtr,"UncheckedImage");

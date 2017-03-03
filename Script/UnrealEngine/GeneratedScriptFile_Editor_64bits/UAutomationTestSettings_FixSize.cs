@@ -10,9 +10,9 @@ namespace UnrealEngine
 	{
 		static readonly int AutomationTestmap__Offset;
 		/// <summary>The automation test map to be used for several of the automation tests.</summary>
-		public FFilePath AutomationTestmap
+		public FStringAssetReference AutomationTestmap
 		{
-			get{ CheckIsValid();return (FFilePath)Marshal.PtrToStructure(_this.Get()+AutomationTestmap__Offset, typeof(FFilePath));}
+			get{ CheckIsValid();return (FStringAssetReference)Marshal.PtrToStructure(_this.Get()+AutomationTestmap__Offset, typeof(FStringAssetReference));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AutomationTestmap__Offset, false);}
 			
 		}
@@ -125,6 +125,15 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int DefaultScreenshotResolution__Offset;
+		/// <summary>The default resolution to take all automation screenshots at.</summary>
+		public FIntPoint DefaultScreenshotResolution
+		{
+			get{ CheckIsValid();return (FIntPoint)Marshal.PtrToStructure(_this.Get()+DefaultScreenshotResolution__Offset, typeof(FIntPoint));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DefaultScreenshotResolution__Offset, false);}
+			
+		}
+		
 		static UAutomationTestSettings()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("AutomationTestSettings");
@@ -141,6 +150,7 @@ namespace UnrealEngine
 			ExternalTools__Offset=GetPropertyOffset(NativeClassPtr,"ExternalTools");
 			ImportExportTestDefinitions__Offset=GetPropertyOffset(NativeClassPtr,"ImportExportTestDefinitions");
 			LaunchOnSettings__Offset=GetPropertyOffset(NativeClassPtr,"LaunchOnSettings");
+			DefaultScreenshotResolution__Offset=GetPropertyOffset(NativeClassPtr,"DefaultScreenshotResolution");
 			
 		}
 		

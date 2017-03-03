@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=16)]
+	[StructLayout(LayoutKind.Explicit,Size=12)]
 	public partial struct FNameCurveKey
 	{
 		[FieldOffset(0)]
 		public float Time;
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FName Value;
 		
 	}

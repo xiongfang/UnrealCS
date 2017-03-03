@@ -5,18 +5,18 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=544)]
+	[StructLayout(LayoutKind.Explicit,Size=584)]
 	public partial struct FEditableTextStyle
 	{
 		[FieldOffset(8)]
 		public FSlateFontInfo Font;
-		[FieldOffset(72)]
-		public FSlateColor ColorAndOpacity;
 		[FieldOffset(112)]
+		public FSlateColor ColorAndOpacity;
+		[FieldOffset(152)]
 		public FSlateBrush BackgroundImageSelected;
-		[FieldOffset(256)]
+		[FieldOffset(296)]
 		public FSlateBrush BackgroundImageComposing;
-		[FieldOffset(400)]
+		[FieldOffset(440)]
 		public FSlateBrush CaretImage;
 		
 	}

@@ -411,22 +411,6 @@ public static void SetInputMode_GameOnly(APlayerController Target)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetInputMode_GameAndUIEx(IntPtr _this,IntPtr Target,IntPtr InWidgetToFocus,int InMouseLockMode,int bHideCursorDuringCapture);
-/// <summary>Setup an input mode that allows only the UI to respond to user input, and if the UI doesn't handle it player input / player controller gets a chance.</summary>
-public static void SetInputMode_GameAndUIEx(APlayerController Target,UWidget InWidgetToFocus,EMouseLockMode InMouseLockMode=EMouseLockMode.DoNotLock,bool bHideCursorDuringCapture=true)
-{
-	SetInputMode_GameAndUIEx(IntPtr.Zero,Target,InWidgetToFocus,(int)InMouseLockMode,bHideCursorDuringCapture?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetInputMode_UIOnlyEx(IntPtr _this,IntPtr Target,IntPtr InWidgetToFocus,int InMouseLockMode);
-/// <summary>Setup an input mode that allows only the UI to respond to user input.</summary>
-public static void SetInputMode_UIOnlyEx(APlayerController Target,UWidget InWidgetToFocus,EMouseLockMode InMouseLockMode=EMouseLockMode.DoNotLock)
-{
-	SetInputMode_UIOnlyEx(IntPtr.Zero,Target,InWidgetToFocus,(int)InMouseLockMode);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static IntPtr CreateDragDropOperation(IntPtr _this,IntPtr OperationClass);
 /// <summary>
 /// Creates a new drag and drop operation that can be returned from a drag begin to inform the UI what i

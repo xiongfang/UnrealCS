@@ -108,7 +108,11 @@ namespace UnrealEngine
 		}
 		
 		static readonly int TransitionScreenSize__Offset;
-		/// <summary>Override transition screen size value, determines the screen size / draw distance at which the proxy mesh is visible</summary>
+		/// <summary>
+		/// Override transition screen size value, determines the screen size at which the proxy is visible
+		/// The screen size is based around the projected diameter of the bounding
+		/// sphere of the model. i.e. 0.5 means half the screen's maximum dimension.
+		/// </summary>
 		public float TransitionScreenSize
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+TransitionScreenSize__Offset, typeof(float));}
@@ -126,7 +130,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int ScreenSize__Offset;
-		/// <summary>Override screen size value, used when creating the proxy mesh</summary>
+		/// <summary>Override screen size value used in mesh reduction, when creating the proxy mesh</summary>
 		public int ScreenSize
 		{
 			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+ScreenSize__Offset, typeof(int));}

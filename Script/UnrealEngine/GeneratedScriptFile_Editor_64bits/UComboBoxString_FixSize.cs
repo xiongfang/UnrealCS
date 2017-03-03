@@ -73,6 +73,18 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int EnableGamepadNavigationMode__Offset;
+		/// <summary>
+		/// When false, directional keys will change the selection. When true, ComboBox
+		/// must be activated and will only capture arrow input while activated.
+		/// </summary>
+		public bool EnableGamepadNavigationMode
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), EnableGamepadNavigationMode__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), EnableGamepadNavigationMode__Offset, 1,0,1,255);}
+			
+		}
+		
 		static readonly int Font__Offset;
 		/// <summary>
 		/// The default font to use in the combobox, only applies if you're not implementing OnGenerateWidgetEvent
@@ -91,6 +103,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return (FSlateColor)Marshal.PtrToStructure(_this.Get()+ForegroundColor__Offset, typeof(FSlateColor));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ForegroundColor__Offset, false);}
+			
+		}
+		
+		static readonly int bIsFocusable__Offset;
+		public bool bIsFocusable
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsFocusable__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsFocusable__Offset, 1,0,1,255);}
 			
 		}
 		
@@ -122,8 +142,10 @@ namespace UnrealEngine
 			ContentPadding__Offset=GetPropertyOffset(NativeClassPtr,"ContentPadding");
 			MaxListHeight__Offset=GetPropertyOffset(NativeClassPtr,"MaxListHeight");
 			HasDownArrow__Offset=GetPropertyOffset(NativeClassPtr,"HasDownArrow");
+			EnableGamepadNavigationMode__Offset=GetPropertyOffset(NativeClassPtr,"EnableGamepadNavigationMode");
 			Font__Offset=GetPropertyOffset(NativeClassPtr,"Font");
 			ForegroundColor__Offset=GetPropertyOffset(NativeClassPtr,"ForegroundColor");
+			bIsFocusable__Offset=GetPropertyOffset(NativeClassPtr,"bIsFocusable");
 			OnSelectionChanged__Offset=GetPropertyOffset(NativeClassPtr,"OnSelectionChanged");
 			OnOpening__Offset=GetPropertyOffset(NativeClassPtr,"OnOpening");
 			

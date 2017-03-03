@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>LOD specific setup for the skeletal mesh component.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=16)]
+	[StructLayout(LayoutKind.Explicit,Size=24)]
 	public partial struct FSkelMeshComponentLODInfo
 	{
 		/// <summary>Material corresponds to section. To show/hide each section, use this.</summary>

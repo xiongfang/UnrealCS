@@ -8,6 +8,14 @@ namespace UnrealEngine
 	/// <summary>Base class for movie scene sections</summary>
 	public partial class UMovieSceneSection
 	{
+		static readonly int EvalOptions__Offset;
+		public FMovieSceneSectionEvalOptions EvalOptions
+		{
+			get{ CheckIsValid();return (FMovieSceneSectionEvalOptions)Marshal.PtrToStructure(_this.Get()+EvalOptions__Offset, typeof(FMovieSceneSectionEvalOptions));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+EvalOptions__Offset, false);}
+			
+		}
+		
 		static readonly int StartTime__Offset;
 		/// <summary>The start time of the section</summary>
 		public float StartTime
@@ -72,6 +80,7 @@ namespace UnrealEngine
 		static UMovieSceneSection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneSection");
+			EvalOptions__Offset=GetPropertyOffset(NativeClassPtr,"EvalOptions");
 			StartTime__Offset=GetPropertyOffset(NativeClassPtr,"StartTime");
 			EndTime__Offset=GetPropertyOffset(NativeClassPtr,"EndTime");
 			RowIndex__Offset=GetPropertyOffset(NativeClassPtr,"RowIndex");

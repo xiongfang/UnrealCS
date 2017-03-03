@@ -11,7 +11,6 @@ namespace UnrealEngine
 		public bool bDisplayEditorVertically
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bDisplayEditorVertically__Offset, 1, 0, 1, 255);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bDisplayEditorVertically__Offset, 1,0,1,255);}
 			
 		}
 		

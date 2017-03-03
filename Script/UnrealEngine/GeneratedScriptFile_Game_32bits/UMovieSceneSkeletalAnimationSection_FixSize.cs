@@ -7,6 +7,14 @@ namespace UnrealEngine
 {
 	public partial class UMovieSceneSkeletalAnimationSection
 	{
+		static readonly int Params__Offset;
+		public FMovieSceneSkeletalAnimationParams Params
+		{
+			get{ CheckIsValid();return (FMovieSceneSkeletalAnimationParams)Marshal.PtrToStructure(_this.Get()+Params__Offset, typeof(FMovieSceneSkeletalAnimationParams));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Params__Offset, false);}
+			
+		}
+		
 		static readonly int AnimSequence__Offset;
 		public UAnimSequence AnimSequence
 		{
@@ -18,7 +26,6 @@ namespace UnrealEngine
 		public UAnimSequenceBase Animation
 		{
 			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + Animation__Offset); if (v == IntPtr.Zero)return null; UAnimSequenceBase retValue = new UAnimSequenceBase(); retValue._this = v; return retValue; }
-			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + Animation__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + Animation__Offset, value._this.Get()); }
 			
 		}
 		
@@ -26,7 +33,6 @@ namespace UnrealEngine
 		public float StartOffset
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+StartOffset__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+StartOffset__Offset, false);}
 			
 		}
 		
@@ -34,7 +40,6 @@ namespace UnrealEngine
 		public float EndOffset
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+EndOffset__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+EndOffset__Offset, false);}
 			
 		}
 		
@@ -42,7 +47,6 @@ namespace UnrealEngine
 		public float PlayRate
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+PlayRate__Offset, typeof(float));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+PlayRate__Offset, false);}
 			
 		}
 		
@@ -50,7 +54,6 @@ namespace UnrealEngine
 		public bool bReverse
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReverse__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReverse__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -58,13 +61,13 @@ namespace UnrealEngine
 		public FName SlotName
 		{
 			get{ CheckIsValid();return (FName)Marshal.PtrToStructure(_this.Get()+SlotName__Offset, typeof(FName));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+SlotName__Offset, false);}
 			
 		}
 		
 		static UMovieSceneSkeletalAnimationSection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieSceneSkeletalAnimationSection");
+			Params__Offset=GetPropertyOffset(NativeClassPtr,"Params");
 			AnimSequence__Offset=GetPropertyOffset(NativeClassPtr,"AnimSequence");
 			Animation__Offset=GetPropertyOffset(NativeClassPtr,"Animation");
 			StartOffset__Offset=GetPropertyOffset(NativeClassPtr,"StartOffset");

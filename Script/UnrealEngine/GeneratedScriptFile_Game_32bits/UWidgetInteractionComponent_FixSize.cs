@@ -31,19 +31,19 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int TraceChannel__Offset;
+		public ECollisionChannel TraceChannel
+		{
+			get{ CheckIsValid();return (ECollisionChannel)Marshal.PtrToStructure(_this.Get()+TraceChannel__Offset, typeof(ECollisionChannel));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TraceChannel__Offset, false);}
+			
+		}
+		
 		static readonly int InteractionDistance__Offset;
 		public float InteractionDistance
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+InteractionDistance__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InteractionDistance__Offset, false);}
-			
-		}
-		
-		static readonly int InteractionSource__Offset;
-		public EWidgetInteractionSource InteractionSource
-		{
-			get{ CheckIsValid();return (EWidgetInteractionSource)Marshal.PtrToStructure(_this.Get()+InteractionSource__Offset, typeof(EWidgetInteractionSource));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InteractionSource__Offset, false);}
 			
 		}
 		
@@ -133,8 +133,8 @@ namespace UnrealEngine
 			OnHoveredWidgetChanged__Offset=GetPropertyOffset(NativeClassPtr,"OnHoveredWidgetChanged");
 			VirtualUserIndex__Offset=GetPropertyOffset(NativeClassPtr,"VirtualUserIndex");
 			PointerIndex__Offset=GetPropertyOffset(NativeClassPtr,"PointerIndex");
+			TraceChannel__Offset=GetPropertyOffset(NativeClassPtr,"TraceChannel");
 			InteractionDistance__Offset=GetPropertyOffset(NativeClassPtr,"InteractionDistance");
-			InteractionSource__Offset=GetPropertyOffset(NativeClassPtr,"InteractionSource");
 			bEnableHitTesting__Offset=GetPropertyOffset(NativeClassPtr,"bEnableHitTesting");
 			bShowDebug__Offset=GetPropertyOffset(NativeClassPtr,"bShowDebug");
 			DebugColor__Offset=GetPropertyOffset(NativeClassPtr,"DebugColor");

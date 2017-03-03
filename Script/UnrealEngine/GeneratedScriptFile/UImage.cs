@@ -22,6 +22,14 @@ public  void SetBrushFromMaterial(UMaterialInterface Material)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetBrushFromTextureDynamic(IntPtr _this,IntPtr Texture,int bMatchSize);
+public  void SetBrushFromTextureDynamic(UTexture2DDynamic Texture,bool bMatchSize=false)
+{
+	CheckIsValid();
+	SetBrushFromTextureDynamic(_this.Get(),Texture,bMatchSize?1:0);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetBrushFromTexture(IntPtr _this,IntPtr Texture,int bMatchSize);
 public  void SetBrushFromTexture(UTexture2D Texture,bool bMatchSize=false)
 {

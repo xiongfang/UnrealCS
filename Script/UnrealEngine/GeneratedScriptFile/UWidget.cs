@@ -5,6 +5,36 @@ namespace UnrealEngine{
 public partial class UWidget:UVisual 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static IntPtr GetOwningPlayer(IntPtr _this);
+/// <summary>
+/// Gets the player controller associated with this UI.
+/// @return The player controller that owns the UI.
+/// </summary>
+public  APlayerController GetOwningPlayer()
+{
+	CheckIsValid();
+	IntPtr ___ret = GetOwningPlayer(_this.Get());
+	if(___ret==IntPtr.Zero) return null; APlayerController ___ret2= new APlayerController(){ _this = ___ret }; return ___ret2;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FGeometry GetCachedGeometry(IntPtr _this);
+/// <summary>
+/// Gets the last geometry used to Tick the widget.  This data may not exist yet if this call happens prior to
+/// the widget having been ticked/painted, or it may be out of date, or a frame behind.
+/// We recommend not to use this data unless there's no other way to solve your problem.  Normally in Slate we
+/// try and handle these issues by making a dependent widget part of the hierarchy, as to avoid frame behind
+/// or what are referred to as hysteresis problems, both caused by depending on geometry from the previous frame
+/// being used to advise how to layout a dependent object the current frame.
+/// </summary>
+public  FGeometry GetCachedGeometry()
+{
+	CheckIsValid();
+	FGeometry ___ret = GetCachedGeometry(_this.Get());
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void RemoveFromParent(IntPtr _this);
 /// <summary>
 /// Removes the widget from its parent widget.  If this widget was added to the player's screen or the viewport
@@ -167,25 +197,6 @@ public  void ForceVolatile(bool bForce)
 {
 	CheckIsValid();
 	ForceVolatile(_this.Get(),bForce?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetVisibility(IntPtr _this,int InVisibility);
-/// <summary>Sets the visibility of the widget.</summary>
-public  void SetVisibility(ESlateVisibility InVisibility)
-{
-	CheckIsValid();
-	SetVisibility(_this.Get(),(int)InVisibility);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetVisibility(IntPtr _this);
-/// <summary>Gets the current visibility of the widget.</summary>
-public  ESlateVisibility GetVisibility()
-{
-	CheckIsValid();
-	int ___ret = GetVisibility(_this.Get());
-	return (ESlateVisibility)___ret;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

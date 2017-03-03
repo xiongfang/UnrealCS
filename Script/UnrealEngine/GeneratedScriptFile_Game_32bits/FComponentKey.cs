@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=32)]
+	[StructLayout(LayoutKind.Explicit,Size=28)]
 	public partial struct FComponentKey
 	{
-		[FieldOffset(8)]
+		[FieldOffset(4)]
 		public FName SCSVariableName;
-		[FieldOffset(16)]
+		[FieldOffset(12)]
 		public FGuid AssociatedGuid;
 		
 	}

@@ -77,6 +77,52 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bUseCustomProjectionMatrix__Offset;
+		/// <summary>Whether a custom projection matrix will be used during rendering. Use with caution. Does not currently affect culling</summary>
+		public bool bUseCustomProjectionMatrix
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseCustomProjectionMatrix__Offset, 1, 0, 1, 255);}
+			
+		}
+		
+		static readonly int CustomProjectionMatrix__Offset;
+		/// <summary>The custom projection matrix to use</summary>
+		public FMatrix CustomProjectionMatrix
+		{
+			get{ CheckIsValid();return (FMatrix)Marshal.PtrToStructure(_this.Get()+CustomProjectionMatrix__Offset, typeof(FMatrix));}
+			
+		}
+		
+		static readonly int bEnableClipPlane__Offset;
+		/// <summary>
+		/// Enables a clip plane while rendering the scene capture which is useful for portals.
+		/// The global clip plane must be enabled in the renderer project settings for this to work.
+		/// </summary>
+		public bool bEnableClipPlane
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableClipPlane__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableClipPlane__Offset, 1,0,1,255);}
+			
+		}
+		
+		static readonly int ClipPlaneBase__Offset;
+		/// <summary>Base position for the clip plane, can be any position on the plane.</summary>
+		public FVector ClipPlaneBase
+		{
+			get{ CheckIsValid();return (FVector)Marshal.PtrToStructure(_this.Get()+ClipPlaneBase__Offset, typeof(FVector));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ClipPlaneBase__Offset, false);}
+			
+		}
+		
+		static readonly int ClipPlaneNormal__Offset;
+		/// <summary>Normal for the plane.</summary>
+		public FVector ClipPlaneNormal
+		{
+			get{ CheckIsValid();return (FVector)Marshal.PtrToStructure(_this.Get()+ClipPlaneNormal__Offset, typeof(FVector));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ClipPlaneNormal__Offset, false);}
+			
+		}
+		
 		static USceneCaptureComponent2D()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("SceneCaptureComponent2D");
@@ -88,6 +134,11 @@ namespace UnrealEngine
 			CompositeMode__Offset=GetPropertyOffset(NativeClassPtr,"CompositeMode");
 			PostProcessSettings__Offset=GetPropertyOffset(NativeClassPtr,"PostProcessSettings");
 			PostProcessBlendWeight__Offset=GetPropertyOffset(NativeClassPtr,"PostProcessBlendWeight");
+			bUseCustomProjectionMatrix__Offset=GetPropertyOffset(NativeClassPtr,"bUseCustomProjectionMatrix");
+			CustomProjectionMatrix__Offset=GetPropertyOffset(NativeClassPtr,"CustomProjectionMatrix");
+			bEnableClipPlane__Offset=GetPropertyOffset(NativeClassPtr,"bEnableClipPlane");
+			ClipPlaneBase__Offset=GetPropertyOffset(NativeClassPtr,"ClipPlaneBase");
+			ClipPlaneNormal__Offset=GetPropertyOffset(NativeClassPtr,"ClipPlaneNormal");
 			
 		}
 		

@@ -33,6 +33,36 @@ public static bool LinePlaneIntersection(FVector LineStart,FVector LineEnd,FPlan
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsPointInBoxWithTransform(IntPtr _this,ref FVector Point,ref FTransform BoxWorldTransform,ref FVector BoxExtent);
+/// <summary>
+/// Determines whether a given point is in a box with a given transform. Includes points on the box.
+/// @param Point                          Point to test
+/// @param BoxWorldTransform      Component-to-World transform of the box.
+/// @param BoxExtent                      Extents of the box (distance in each axis from origin), in component space.
+/// @return Whether the point is in the box.
+/// </summary>
+public static bool IsPointInBoxWithTransform(FVector Point,FTransform BoxWorldTransform,FVector BoxExtent)
+{
+	int ___ret = IsPointInBoxWithTransform(IntPtr.Zero,ref Point,ref BoxWorldTransform,ref BoxExtent);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsPointInBox(IntPtr _this,ref FVector Point,ref FVector BoxOrigin,ref FVector BoxExtent);
+/// <summary>
+/// Determines whether the given point is in a box. Includes points on the box.
+/// @param Point                 Point to test
+/// @param BoxOrigin             Origin of the box
+/// @param BoxExtent             Extents of the box (distance in each axis from origin)
+/// @return Whether the point is in the box.
+/// </summary>
+public static bool IsPointInBox(FVector Point,FVector BoxOrigin,FVector BoxExtent)
+{
+	int ___ret = IsPointInBox(IntPtr.Zero,ref Point,ref BoxOrigin,ref BoxExtent);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static int PointsAreCoplanar(IntPtr _this,FVector[] Points,float Tolerance);
 /// <summary>
 /// Determines whether a given set of points are coplanar, with a tolerance. Any three points or less are always coplanar.
@@ -145,6 +175,56 @@ extern static int RandomIntegerFromStream(IntPtr _this,int Max,ref FRandomStream
 public static int RandomIntegerFromStream(int Max,FRandomStream Stream)
 {
 	int ___ret = RandomIntegerFromStream(IntPtr.Zero,Max,ref Stream);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void ResetVectorSpringState(IntPtr _this,out FVectorSpringState SpringState);
+/// <summary>Resets the state of a given spring</summary>
+public static void ResetVectorSpringState(out FVectorSpringState SpringState)
+{
+	ResetVectorSpringState(IntPtr.Zero,out SpringState);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void ResetFloatSpringState(IntPtr _this,out FFloatSpringState SpringState);
+/// <summary>Resets the state of a given spring</summary>
+public static void ResetFloatSpringState(out FFloatSpringState SpringState)
+{
+	ResetFloatSpringState(IntPtr.Zero,out SpringState);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FVector VectorSpringInterp(IntPtr _this,ref FVector Current,ref FVector Target,out FVectorSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass);
+/// <summary>
+/// Uses a simple spring model to interpolate a vector from Current to Target.
+/// @param Current                                Current value
+/// @param Target                                 Target value
+/// @param SpringState                    Data related to spring model (velocity, error, etc..) - Create a unique variable per spring
+/// @param Stiffness                              How stiff the spring model is (more stiffness means more oscillation around the target value)
+/// @param CriticalDampingFactor  How much damping to apply to the spring (0 means no damping, 1 means critically damped which means no oscillation)
+/// @param Mass                                   Multiplier that acts like mass on a spring
+/// </summary>
+public static FVector VectorSpringInterp(FVector Current,FVector Target,out FVectorSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass=1.000000f)
+{
+	FVector ___ret = VectorSpringInterp(IntPtr.Zero,ref Current,ref Target,out SpringState,Stiffness,CriticalDampingFactor,DeltaTime,Mass);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static float FloatSpringInterp(IntPtr _this,float Current,float Target,out FFloatSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass);
+/// <summary>
+/// Uses a simple spring model to interpolate a float from Current to Target.
+/// @param Current                               Current value
+/// @param Target                                Target value
+/// @param SpringState                   Data related to spring model (velocity, error, etc..) - Create a unique variable per spring
+/// @param Stiffness                             How stiff the spring model is (more stiffness means more oscillation around the target value)
+/// @param CriticalDampingFactor How much damping to apply to the spring (0 means no damping, 1 means critically damped which means no oscillation)
+/// @param Mass                                  Multiplier that acts like mass on a spring
+/// </summary>
+public static float FloatSpringInterp(float Current,float Target,out FFloatSpringState SpringState,float Stiffness,float CriticalDampingFactor,float DeltaTime,float Mass=1.000000f)
+{
+	float ___ret = FloatSpringInterp(IntPtr.Zero,Current,Target,out SpringState,Stiffness,CriticalDampingFactor,DeltaTime,Mass);
 	return ___ret;
 	
 }
@@ -969,6 +1049,24 @@ public static FVector MakeVector(float X,float Y,float Z)
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FBox2D MakeBox2D(IntPtr _this,ref FVector2D Min,ref FVector2D Max);
+/// <summary>Makes an FBox2D from Min and Max and sets IsValid to true</summary>
+public static FBox2D MakeBox2D(FVector2D Min,FVector2D Max)
+{
+	FBox2D ___ret = MakeBox2D(IntPtr.Zero,ref Min,ref Max);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FBox MakeBox(IntPtr _this,ref FVector Min,ref FVector Max);
+/// <summary>Makes an FBox from Min and Max and sets IsValid to true</summary>
+public static FBox MakeBox(FVector Min,FVector Max)
+{
+	FBox ___ret = MakeBox(IntPtr.Zero,ref Min,ref Max);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static FLinearColor Conv_FloatToLinearColor(IntPtr _this,float InFloat);
 /// <summary>Convert a float into a LinearColor, where each element is that float</summary>
 public static FLinearColor Conv_FloatToLinearColor(float InFloat)
@@ -983,6 +1081,15 @@ extern static FVector Conv_FloatToVector(IntPtr _this,float InFloat);
 public static FVector Conv_FloatToVector(float InFloat)
 {
 	FVector ___ret = Conv_FloatToVector(IntPtr.Zero,InFloat);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FVector Conv_IntVectorToVector(IntPtr _this,ref FIntVector InIntVector);
+/// <summary>Convert an IntVector to a vector</summary>
+public static FVector Conv_IntVectorToVector(FIntVector InIntVector)
+{
+	FVector ___ret = Conv_IntVectorToVector(IntPtr.Zero,ref InIntVector);
 	return ___ret;
 	
 }
@@ -1092,6 +1199,15 @@ public static bool Conv_IntToBool(int InInt)
 {
 	int ___ret = Conv_IntToBool(IntPtr.Zero,InInt);
 	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FIntVector Conv_IntToIntVector(IntPtr _this,int InInt);
+/// <summary>Converts an integer to an IntVector</summary>
+public static FIntVector Conv_IntToIntVector(int InInt)
+{
+	FIntVector ___ret = Conv_IntToIntVector(IntPtr.Zero,InInt);
+	return ___ret;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -1903,11 +2019,11 @@ public static bool EqualEqual_RotatorRotator(FRotator A,FRotator B,float ErrorTo
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FVector GetDirectionVector(IntPtr _this,ref FVector From,ref FVector To);
+extern static FVector GetDirectionUnitVector(IntPtr _this,ref FVector From,ref FVector To);
 /// <summary>Find the unit direction vector from one position to another.</summary>
-public static FVector GetDirectionVector(FVector From,FVector To)
+public static FVector GetDirectionUnitVector(FVector From,FVector To)
 {
-	FVector ___ret = GetDirectionVector(IntPtr.Zero,ref From,ref To);
+	FVector ___ret = GetDirectionUnitVector(IntPtr.Zero,ref From,ref To);
 	return ___ret;
 	
 }
@@ -2059,6 +2175,21 @@ extern static void FindNearestPointsOnLineSegments(IntPtr _this,ref FVector Segm
 public static void FindNearestPointsOnLineSegments(FVector Segment1Start,FVector Segment1End,FVector Segment2Start,FVector Segment2End,out FVector Segment1Point,out FVector Segment2Point)
 {
 	FindNearestPointsOnLineSegments(IntPtr.Zero,ref Segment1Start,ref Segment1End,ref Segment2Start,ref Segment2End,out Segment1Point,out Segment2Point);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FVector GetReflectionVector(IntPtr _this,ref FVector Direction,ref FVector SurfaceNormal);
+/// <summary>
+/// Given a direction vector and a surface normal, returns the vector reflected across the surface normal.
+/// Produces a result like shining a laser at a mirror!
+/// @param Direction Direction vector the ray is coming from.
+/// @param SurfaceNormal A normal of the surface the ray should be reflected on.
+/// @returns Reflected vector.
+/// </summary>
+public static FVector GetReflectionVector(FVector Direction,FVector SurfaceNormal)
+{
+	FVector ___ret = GetReflectionVector(IntPtr.Zero,ref Direction,ref SurfaceNormal);
+	return ___ret;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
@@ -2489,6 +2620,15 @@ extern static int FCeil(IntPtr _this,float A);
 public static int FCeil(float A)
 {
 	int ___ret = FCeil(IntPtr.Zero,A);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FIntVector FTruncVector(IntPtr _this,ref FVector InVector);
+/// <summary>Rounds A to an integer with truncation towards zero for each element in a vector.  (e.g. -1.7 truncated to -1, 2.8 truncated to 2)</summary>
+public static FIntVector FTruncVector(FVector InVector)
+{
+	FIntVector ___ret = FTruncVector(IntPtr.Zero,ref InVector);
 	return ___ret;
 	
 }

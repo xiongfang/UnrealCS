@@ -5,20 +5,20 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=872)]
+	[StructLayout(LayoutKind.Explicit,Size=852)]
 	public partial struct FTransformCurve
 	{
-		[FieldOffset(32)]
+		[FieldOffset(24)]
 		public FVectorCurve TranslationCurve;
-		[FieldOffset(312)]
+		[FieldOffset(300)]
 		public FVectorCurve RotationCurve;
-		[FieldOffset(592)]
+		[FieldOffset(576)]
 		public FVectorCurve ScaleCurve;
 		[FieldOffset(0)]
 		public FName LastObservedName;
 		[FieldOffset(8)]
 		public FSmartName Name;
-		[FieldOffset(24)]
+		[FieldOffset(20)]
 		public int CurveTypeFlags;
 		
 	}

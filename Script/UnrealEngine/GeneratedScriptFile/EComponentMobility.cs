@@ -14,7 +14,6 @@ namespace UnrealEngine
 		Static=0,
 		/// <summary>
 		/// A stationary light will only have its shadowing and bounced lighting from static geometry baked by Lightmass, all other lighting will be dynamic.
-		/// - Stationary only makes sense for light components
 		/// - It can change color and intensity in game.
 		/// - Can't move
 		/// - Allows partial baked lighting

@@ -32,22 +32,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int Show3DTrajectory__Offset;
-		/// <summary>Whether to show the 3d trajectory</summary>
-		public EShow3DTrajectory Show3DTrajectory
-		{
-			get{ CheckIsValid();return (EShow3DTrajectory)Marshal.PtrToStructure(_this.Get()+Show3DTrajectory__Offset, typeof(EShow3DTrajectory));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+Show3DTrajectory__Offset, false);}
-			
-		}
-		
 		static UMovieScene3DTransformSection()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("MovieScene3DTransformSection");
 			Translation__Offset=GetPropertyOffset(NativeClassPtr,"Translation");
 			Rotation__Offset=GetPropertyOffset(NativeClassPtr,"Rotation");
 			Scale__Offset=GetPropertyOffset(NativeClassPtr,"Scale");
-			Show3DTrajectory__Offset=GetPropertyOffset(NativeClassPtr,"Show3DTrajectory");
 			
 		}
 		

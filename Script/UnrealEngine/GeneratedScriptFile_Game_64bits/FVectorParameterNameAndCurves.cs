@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=376)]
+	[StructLayout(LayoutKind.Explicit,Size=352)]
 	public partial struct FVectorParameterNameAndCurves
 	{
 		[FieldOffset(0)]
@@ -14,9 +14,9 @@ namespace UnrealEngine
 		public int Index;
 		[FieldOffset(16)]
 		public FRichCurve XCurve;
-		[FieldOffset(136)]
+		[FieldOffset(128)]
 		public FRichCurve YCurve;
-		[FieldOffset(256)]
+		[FieldOffset(240)]
 		public FRichCurve ZCurve;
 		
 	}

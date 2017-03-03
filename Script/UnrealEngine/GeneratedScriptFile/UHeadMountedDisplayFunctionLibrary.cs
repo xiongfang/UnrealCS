@@ -119,24 +119,26 @@ public static bool IsInLowPersistenceMode()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void GetTrackingSensorParameters(IntPtr _this,out FVector Origin,out FRotator Rotation,out float HFOV,out float VFOV,out float Distance,out float NearPlane,out float FarPlane,out int IsActive,int Index);
+extern static void GetTrackingSensorParameters(IntPtr _this,out FVector Origin,out FRotator Rotation,out float LeftFOV,out float RightFOV,out float TopFOV,out float BottomFOV,out float Distance,out float NearPlane,out float FarPlane,out int IsActive,int Index);
 /// <summary>
 /// If the HMD has a positional sensor, this will return the game-world location of it, as well as the parameters for the bounding region of tracking.
 /// This allows an in-game representation of the legal positional tracking range.  All values will be zeroed if the sensor is not available or the HMD does not support it.
 /// @param Index                         (in) Index of the tracking sensor to query
 /// @param Origin                        (out) Origin, in world-space, of the sensor
 /// @param Rotation                      (out) Rotation, in world-space, of the sensor
-/// @param HFOV                          (out) Field-of-view, horizontal, in degrees, of the valid tracking zone of the sensor
-/// @param VFOV                          (out) Field-of-view, vertical, in degrees, of the valid tracking zone of the sensor
+/// @param LeftFOV                       (out) Field-of-view, left from center, in degrees, of the valid tracking zone of the sensor
+/// @param RightFOV                      (out) Field-of-view, right from center, in degrees, of the valid tracking zone of the sensor
+/// @param TopFOV                        (out) Field-of-view, top from center, in degrees, of the valid tracking zone of the sensor
+/// @param BottomFOV                     (out) Field-of-view, bottom from center, in degrees, of the valid tracking zone of the sensor
 /// @param Distance                      (out) Nominal distance to sensor, in world-space
 /// @param NearPlane                     (out) Near plane distance of the tracking volume, in world-space
 /// @param FarPlane                      (out) Far plane distance of the tracking volume, in world-space
 /// @param IsActive                      (out) True, if the query for the specified sensor succeeded.
 /// </summary>
-public static void GetTrackingSensorParameters(out FVector Origin,out FRotator Rotation,out float HFOV,out float VFOV,out float Distance,out float NearPlane,out float FarPlane,out bool IsActive,int Index=0)
+public static void GetTrackingSensorParameters(out FVector Origin,out FRotator Rotation,out float LeftFOV,out float RightFOV,out float TopFOV,out float BottomFOV,out float Distance,out float NearPlane,out float FarPlane,out bool IsActive,int Index=0)
 {
 	int IsActive_temp;
-	GetTrackingSensorParameters(IntPtr.Zero,out Origin,out Rotation,out HFOV,out VFOV,out Distance,out NearPlane,out FarPlane,out IsActive_temp,Index);
+	GetTrackingSensorParameters(IntPtr.Zero,out Origin,out Rotation,out LeftFOV,out RightFOV,out TopFOV,out BottomFOV,out Distance,out NearPlane,out FarPlane,out IsActive_temp,Index);
 	IsActive=IsActive_temp!=0;
 	
 }
@@ -192,6 +194,18 @@ extern static int EnableHMD(IntPtr _this,int bEnable);
 public static bool EnableHMD(bool bEnable)
 {
 	int ___ret = EnableHMD(IntPtr.Zero,bEnable?1:0);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsHeadMountedDisplayConnected(IntPtr _this);
+/// <summary>
+/// Returns whether or not the HMD hardware is connected and ready to use.  It may or may not actually be in use.
+/// @return (Boolean)  status whether the HMD hardware is connected and ready to use.  It may or may not actually be in use.
+/// </summary>
+public static bool IsHeadMountedDisplayConnected()
+{
+	int ___ret = IsHeadMountedDisplayConnected(IntPtr.Zero);
 	return ___ret!=0;
 	
 }

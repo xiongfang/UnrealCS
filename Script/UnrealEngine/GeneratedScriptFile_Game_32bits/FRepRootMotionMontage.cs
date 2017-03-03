@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=224)]
+	[StructLayout(LayoutKind.Explicit,Size=220)]
 	public partial struct FRepRootMotionMontage
 	{
 		public bool bIsActive

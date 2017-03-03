@@ -29,15 +29,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int BehaviourType__Offset;
-		/// <summary>Movement behaviour of the component</summary>
-		public EInterpToBehaviourType BehaviourType
-		{
-			get{ CheckIsValid();return (EInterpToBehaviourType)Marshal.PtrToStructure(_this.Get()+BehaviourType__Offset, typeof(EInterpToBehaviourType));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+BehaviourType__Offset, false);}
-			
-		}
-		
 		static readonly int bForceSubStepping__Offset;
 		/// <summary>
 		/// If true, forces sub-stepping to break up movement into discrete smaller steps to improve accuracy of the trajectory.
@@ -139,7 +130,6 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("InterpToMovementComponent");
 			Duration__Offset=GetPropertyOffset(NativeClassPtr,"Duration");
 			bPauseOnImpact__Offset=GetPropertyOffset(NativeClassPtr,"bPauseOnImpact");
-			BehaviourType__Offset=GetPropertyOffset(NativeClassPtr,"BehaviourType");
 			bForceSubStepping__Offset=GetPropertyOffset(NativeClassPtr,"bForceSubStepping");
 			OnInterpToReverse__Offset=GetPropertyOffset(NativeClassPtr,"OnInterpToReverse");
 			OnInterpToStop__Offset=GetPropertyOffset(NativeClassPtr,"OnInterpToStop");

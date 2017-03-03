@@ -7,10 +7,25 @@ namespace UnrealEngine
 {
 	public partial class UBlendSpaceBase
 	{
-		static readonly int BlendParameters__Offset;
-		public FBlendParameter BlendParameters
+		static readonly int bRotationBlendInMeshSpace__Offset;
+		public bool bRotationBlendInMeshSpace
 		{
-			get{ CheckIsValid();return (FBlendParameter)Marshal.PtrToStructure(_this.Get()+BlendParameters__Offset, typeof(FBlendParameter));}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRotationBlendInMeshSpace__Offset, 1, 0, 1, 255);}
+			
+		}
+		
+		static readonly int AnimLength__Offset;
+		public float AnimLength
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+AnimLength__Offset, typeof(float));}
+			
+		}
+		
+		static readonly int PerBoneBlend__Offset;
+		public TStructArray<FPerBoneInterpolation> PerBoneBlend
+		{
+			get{ CheckIsValid();return new TStructArray<FPerBoneInterpolation>((FScriptArray)Marshal.PtrToStructure(_this.Get()+PerBoneBlend__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+PerBoneBlend__Offset, false);}
 			
 		}
 		
@@ -38,32 +53,10 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bRotationBlendInMeshSpace__Offset;
-		public bool bRotationBlendInMeshSpace
+		static readonly int SampleIndexWithMarkers__Offset;
+		public int SampleIndexWithMarkers
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRotationBlendInMeshSpace__Offset, 1, 0, 1, 255);}
-			
-		}
-		
-		static readonly int NumOfDimension__Offset;
-		public int NumOfDimension
-		{
-			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+NumOfDimension__Offset, typeof(int));}
-			
-		}
-		
-		static readonly int AnimLength__Offset;
-		public float AnimLength
-		{
-			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+AnimLength__Offset, typeof(float));}
-			
-		}
-		
-		static readonly int PerBoneBlend__Offset;
-		public TStructArray<FPerBoneInterpolation> PerBoneBlend
-		{
-			get{ CheckIsValid();return new TStructArray<FPerBoneInterpolation>((FScriptArray)Marshal.PtrToStructure(_this.Get()+PerBoneBlend__Offset, typeof(FScriptArray)));}
-					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+PerBoneBlend__Offset, false);}
+			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+SampleIndexWithMarkers__Offset, typeof(int));}
 			
 		}
 		
@@ -83,19 +76,27 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int BlendParameters__Offset;
+		public FBlendParameter BlendParameters
+		{
+			get{ CheckIsValid();return (FBlendParameter)Marshal.PtrToStructure(_this.Get()+BlendParameters__Offset, typeof(FBlendParameter));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+BlendParameters__Offset, false);}
+			
+		}
+		
 		static UBlendSpaceBase()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("BlendSpaceBase");
-			BlendParameters__Offset=GetPropertyOffset(NativeClassPtr,"BlendParameters");
+			bRotationBlendInMeshSpace__Offset=GetPropertyOffset(NativeClassPtr,"bRotationBlendInMeshSpace");
+			AnimLength__Offset=GetPropertyOffset(NativeClassPtr,"AnimLength");
+			PerBoneBlend__Offset=GetPropertyOffset(NativeClassPtr,"PerBoneBlend");
 			InterpolationParam__Offset=GetPropertyOffset(NativeClassPtr,"InterpolationParam");
 			TargetWeightInterpolationSpeedPerSec__Offset=GetPropertyOffset(NativeClassPtr,"TargetWeightInterpolationSpeedPerSec");
 			NotifyTriggerMode__Offset=GetPropertyOffset(NativeClassPtr,"NotifyTriggerMode");
-			bRotationBlendInMeshSpace__Offset=GetPropertyOffset(NativeClassPtr,"bRotationBlendInMeshSpace");
-			NumOfDimension__Offset=GetPropertyOffset(NativeClassPtr,"NumOfDimension");
-			AnimLength__Offset=GetPropertyOffset(NativeClassPtr,"AnimLength");
-			PerBoneBlend__Offset=GetPropertyOffset(NativeClassPtr,"PerBoneBlend");
+			SampleIndexWithMarkers__Offset=GetPropertyOffset(NativeClassPtr,"SampleIndexWithMarkers");
 			SampleData__Offset=GetPropertyOffset(NativeClassPtr,"SampleData");
 			GridSamples__Offset=GetPropertyOffset(NativeClassPtr,"GridSamples");
+			BlendParameters__Offset=GetPropertyOffset(NativeClassPtr,"BlendParameters");
 			
 		}
 		

@@ -108,6 +108,22 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bCastDistanceFieldIndirectShadow__Offset;
+		public bool bCastDistanceFieldIndirectShadow
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastDistanceFieldIndirectShadow__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastDistanceFieldIndirectShadow__Offset, 1,0,1,1);}
+			
+		}
+		
+		static readonly int DistanceFieldIndirectShadowMinVisibility__Offset;
+		public float DistanceFieldIndirectShadowMinVisibility
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+DistanceFieldIndirectShadowMinVisibility__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DistanceFieldIndirectShadowMinVisibility__Offset, false);}
+			
+		}
+		
 		static readonly int StreamingDistanceMultiplier__Offset;
 		public float StreamingDistanceMultiplier
 		{
@@ -186,6 +202,8 @@ namespace UnrealEngine
 			bIgnoreInstanceForTextureStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreInstanceForTextureStreaming");
 			bOverrideLightMapRes__Offset=GetPropertyOffset(NativeClassPtr,"bOverrideLightMapRes");
 			OverriddenLightMapRes__Offset=GetPropertyOffset(NativeClassPtr,"OverriddenLightMapRes");
+			bCastDistanceFieldIndirectShadow__Offset=GetPropertyOffset(NativeClassPtr,"bCastDistanceFieldIndirectShadow");
+			DistanceFieldIndirectShadowMinVisibility__Offset=GetPropertyOffset(NativeClassPtr,"DistanceFieldIndirectShadowMinVisibility");
 			StreamingDistanceMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"StreamingDistanceMultiplier");
 			SubDivisionStepSize__Offset=GetPropertyOffset(NativeClassPtr,"SubDivisionStepSize");
 			bUseSubDivisions__Offset=GetPropertyOffset(NativeClassPtr,"bUseSubDivisions");

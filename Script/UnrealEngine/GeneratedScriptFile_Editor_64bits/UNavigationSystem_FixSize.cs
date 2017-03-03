@@ -76,14 +76,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int DataGatheringMode__Offset;
-		public ENavDataGatheringModeConfig DataGatheringMode
-		{
-			get{ CheckIsValid();return (ENavDataGatheringModeConfig)Marshal.PtrToStructure(_this.Get()+DataGatheringMode__Offset, typeof(ENavDataGatheringModeConfig));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+DataGatheringMode__Offset, false);}
-			
-		}
-		
 		static readonly int bGenerateNavigationOnlyAroundNavigationInvokers__Offset;
 		/// <summary>
 		/// If set to true navigation will be generated only around registered "navigation enforcers"
@@ -158,13 +150,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int OperationMode__Offset;
-		public FNavigationSystemRunMode OperationMode
-		{
-			get{ CheckIsValid();return (FNavigationSystemRunMode)Marshal.PtrToStructure(_this.Get()+OperationMode__Offset, typeof(FNavigationSystemRunMode));}
-			
-		}
-		
 		static UNavigationSystem()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("NavigationSystem");
@@ -175,7 +160,6 @@ namespace UnrealEngine
 			bSupportRebuilding__Offset=GetPropertyOffset(NativeClassPtr,"bSupportRebuilding");
 			bInitialBuildingLocked__Offset=GetPropertyOffset(NativeClassPtr,"bInitialBuildingLocked");
 			bSkipAgentHeightCheckWhenPickingNavData__Offset=GetPropertyOffset(NativeClassPtr,"bSkipAgentHeightCheckWhenPickingNavData");
-			DataGatheringMode__Offset=GetPropertyOffset(NativeClassPtr,"DataGatheringMode");
 			bGenerateNavigationOnlyAroundNavigationInvokers__Offset=GetPropertyOffset(NativeClassPtr,"bGenerateNavigationOnlyAroundNavigationInvokers");
 			ActiveTilesUpdateInterval__Offset=GetPropertyOffset(NativeClassPtr,"ActiveTilesUpdateInterval");
 			SupportedAgents__Offset=GetPropertyOffset(NativeClassPtr,"SupportedAgents");
@@ -184,7 +168,6 @@ namespace UnrealEngine
 			NavDataRegistrationQueue__Offset=GetPropertyOffset(NativeClassPtr,"NavDataRegistrationQueue");
 			OnNavDataRegisteredEvent__Offset=GetPropertyOffset(NativeClassPtr,"OnNavDataRegisteredEvent");
 			OnNavigationGenerationFinishedDelegate__Offset=GetPropertyOffset(NativeClassPtr,"OnNavigationGenerationFinishedDelegate");
-			OperationMode__Offset=GetPropertyOffset(NativeClassPtr,"OperationMode");
 			
 		}
 		

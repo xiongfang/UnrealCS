@@ -86,6 +86,13 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bNativize__Offset;
+		public bool bNativize
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bNativize__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static UBlueprint()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("Blueprint");
@@ -100,6 +107,7 @@ namespace UnrealEngine
 			InheritableComponentHandler__Offset=GetPropertyOffset(NativeClassPtr,"InheritableComponentHandler");
 			BlueprintType__Offset=GetPropertyOffset(NativeClassPtr,"BlueprintType");
 			BlueprintSystemVersion__Offset=GetPropertyOffset(NativeClassPtr,"BlueprintSystemVersion");
+			bNativize__Offset=GetPropertyOffset(NativeClassPtr,"bNativize");
 			
 		}
 		

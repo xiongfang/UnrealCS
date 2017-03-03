@@ -23,6 +23,33 @@ public  void SetScalarParameterValueOnMaterials(string ParameterName,float Param
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int IsMaterialSlotNameValid(IntPtr _this,string MaterialSlotName);
+public  bool IsMaterialSlotNameValid(string MaterialSlotName)
+{
+	CheckIsValid();
+	int ___ret = IsMaterialSlotNameValid(_this.Get(),MaterialSlotName);
+	return ___ret!=0;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static FName[] GetMaterialSlotNames(IntPtr _this);
+public  FName[] GetMaterialSlotNames()
+{
+	CheckIsValid();
+	FName[] ___ret = GetMaterialSlotNames(_this.Get());
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static int GetMaterialIndex(IntPtr _this,string MaterialSlotName);
+public  int GetMaterialIndex(string MaterialSlotName)
+{
+	CheckIsValid();
+	int ___ret = GetMaterialIndex(_this.Get(),MaterialSlotName);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static IntPtr[] GetMaterials(IntPtr _this);
 public  UMaterialInterface[] GetMaterials()
 {

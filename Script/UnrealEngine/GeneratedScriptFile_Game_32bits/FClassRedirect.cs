@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=64)]
+	[StructLayout(LayoutKind.Explicit,Size=60)]
 	public partial struct FClassRedirect
 	{
 		[FieldOffset(0)]

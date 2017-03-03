@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=152)]
+	[StructLayout(LayoutKind.Explicit,Size=144)]
 	public partial struct FFloatCurve
 	{
 		[FieldOffset(32)]

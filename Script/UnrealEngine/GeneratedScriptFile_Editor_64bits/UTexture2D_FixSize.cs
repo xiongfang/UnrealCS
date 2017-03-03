@@ -92,11 +92,19 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bHasStreamingUpdatePending__Offset;
+		/// <summary>Whether some mips might be streamed soon. If false, the texture is not planned resolution will be stable.</summary>
+		public bool bHasStreamingUpdatePending
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasStreamingUpdatePending__Offset, 1, 0, 4, 4);}
+			
+		}
+		
 		static readonly int bHasCancelationPending__Offset;
 		/// <summary>Whether the current texture mip change request is pending cancellation.</summary>
 		public bool bHasCancelationPending
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasCancelationPending__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasCancelationPending__Offset, 1, 0, 8, 8);}
 			
 		}
 		
@@ -104,7 +112,15 @@ namespace UnrealEngine
 		/// <summary>Override whether to fully stream even if texture hasn't been rendered.</summary>
 		public bool bForceMiplevelsToBeResident
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMiplevelsToBeResident__Offset, 1, 0, 8, 8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bForceMiplevelsToBeResident__Offset, 1, 0, 16, 16);}
+			
+		}
+		
+		static readonly int bIgnoreStreamingMipBias__Offset;
+		/// <summary>Ignores the streaming mip bias used to accommodate memory constraints.</summary>
+		public bool bIgnoreStreamingMipBias
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoreStreamingMipBias__Offset, 1, 0, 32, 32);}
 			
 		}
 		
@@ -112,8 +128,8 @@ namespace UnrealEngine
 		/// <summary>Global and serialized version of ForceMiplevelsToBeResident.</summary>
 		public bool bGlobalForceMipLevelsToBeResident
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1, 0, 16, 16);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1,0,16,16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bGlobalForceMipLevelsToBeResident__Offset, 1,0,64,64);}
 			
 		}
 		
@@ -121,7 +137,7 @@ namespace UnrealEngine
 		/// <summary>Whether the texture has been painted in the editor.</summary>
 		public bool bHasBeenPaintedInEditor
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasBeenPaintedInEditor__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bHasBeenPaintedInEditor__Offset, 1, 0, 128, 128);}
 			
 		}
 		
@@ -155,8 +171,10 @@ namespace UnrealEngine
 			ForceMipLevelsToBeResidentTimestamp__Offset=GetPropertyOffset(NativeClassPtr,"ForceMipLevelsToBeResidentTimestamp");
 			bTemporarilyDisableStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bTemporarilyDisableStreaming");
 			bIsStreamable__Offset=GetPropertyOffset(NativeClassPtr,"bIsStreamable");
+			bHasStreamingUpdatePending__Offset=GetPropertyOffset(NativeClassPtr,"bHasStreamingUpdatePending");
 			bHasCancelationPending__Offset=GetPropertyOffset(NativeClassPtr,"bHasCancelationPending");
 			bForceMiplevelsToBeResident__Offset=GetPropertyOffset(NativeClassPtr,"bForceMiplevelsToBeResident");
+			bIgnoreStreamingMipBias__Offset=GetPropertyOffset(NativeClassPtr,"bIgnoreStreamingMipBias");
 			bGlobalForceMipLevelsToBeResident__Offset=GetPropertyOffset(NativeClassPtr,"bGlobalForceMipLevelsToBeResident");
 			bHasBeenPaintedInEditor__Offset=GetPropertyOffset(NativeClassPtr,"bHasBeenPaintedInEditor");
 			AddressX__Offset=GetPropertyOffset(NativeClassPtr,"AddressX");

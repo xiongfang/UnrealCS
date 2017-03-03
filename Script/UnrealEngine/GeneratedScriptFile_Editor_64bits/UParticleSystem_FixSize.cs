@@ -351,30 +351,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int InsignificantReaction__Offset;
-		/// <summary>The reaction this system takes when all emitters are insignificant.</summary>
-		public EParticleSystemInsignificanceReaction InsignificantReaction
-		{
-			get{ CheckIsValid();return (EParticleSystemInsignificanceReaction)Marshal.PtrToStructure(_this.Get()+InsignificantReaction__Offset, typeof(EParticleSystemInsignificanceReaction));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InsignificantReaction__Offset, false);}
-			
-		}
-		
 		static readonly int InsignificanceDelay__Offset;
 		/// <summary>Time delay between all emitters becoming insignificant and the systems insignificant reaction.</summary>
 		public float InsignificanceDelay
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+InsignificanceDelay__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InsignificanceDelay__Offset, false);}
-			
-		}
-		
-		static readonly int MaxSignificanceLevel__Offset;
-		/// <summary>The maximum level of significance for emitters in this system. Any emitters with a higher significance will be capped at this significance level.</summary>
-		public EParticleSignificanceLevel MaxSignificanceLevel
-		{
-			get{ CheckIsValid();return (EParticleSignificanceLevel)Marshal.PtrToStructure(_this.Get()+MaxSignificanceLevel__Offset, typeof(EParticleSignificanceLevel));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MaxSignificanceLevel__Offset, false);}
 			
 		}
 		
@@ -479,9 +461,7 @@ namespace UnrealEngine
 			bUseDelayRange__Offset=GetPropertyOffset(NativeClassPtr,"bUseDelayRange");
 			bAutoDeactivate__Offset=GetPropertyOffset(NativeClassPtr,"bAutoDeactivate");
 			MinTimeBetweenTicks__Offset=GetPropertyOffset(NativeClassPtr,"MinTimeBetweenTicks");
-			InsignificantReaction__Offset=GetPropertyOffset(NativeClassPtr,"InsignificantReaction");
 			InsignificanceDelay__Offset=GetPropertyOffset(NativeClassPtr,"InsignificanceDelay");
-			MaxSignificanceLevel__Offset=GetPropertyOffset(NativeClassPtr,"MaxSignificanceLevel");
 			MacroUVPosition__Offset=GetPropertyOffset(NativeClassPtr,"MacroUVPosition");
 			MacroUVRadius__Offset=GetPropertyOffset(NativeClassPtr,"MacroUVRadius");
 			OcclusionBoundsMethod__Offset=GetPropertyOffset(NativeClassPtr,"OcclusionBoundsMethod");

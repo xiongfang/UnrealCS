@@ -55,14 +55,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int AutoPossessAI__Offset;
-		public EAutoPossessAI AutoPossessAI
-		{
-			get{ CheckIsValid();return (EAutoPossessAI)Marshal.PtrToStructure(_this.Get()+AutoPossessAI__Offset, typeof(EAutoPossessAI));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AutoPossessAI__Offset, false);}
-			
-		}
-		
 		static readonly int AIControllerClass__Offset;
 		public TSubclassOf<AController>  AIControllerClass
 		{
@@ -122,7 +114,6 @@ namespace UnrealEngine
 			bCanAffectNavigationGeneration__Offset=GetPropertyOffset(NativeClassPtr,"bCanAffectNavigationGeneration");
 			BaseEyeHeight__Offset=GetPropertyOffset(NativeClassPtr,"BaseEyeHeight");
 			AutoPossessPlayer__Offset=GetPropertyOffset(NativeClassPtr,"AutoPossessPlayer");
-			AutoPossessAI__Offset=GetPropertyOffset(NativeClassPtr,"AutoPossessAI");
 			AIControllerClass__Offset=GetPropertyOffset(NativeClassPtr,"AIControllerClass");
 			PlayerState__Offset=GetPropertyOffset(NativeClassPtr,"PlayerState");
 			RemoteViewPitch__Offset=GetPropertyOffset(NativeClassPtr,"RemoteViewPitch");

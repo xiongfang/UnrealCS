@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=144)]
+	[StructLayout(LayoutKind.Explicit,Size=148)]
 	public partial struct FFontImportOptionsData
 	{
 		[FieldOffset(0)]
@@ -42,69 +42,69 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 16, 1, 0, 16, 16); } }}
 			
 		}
-		[FieldOffset(17)]
-		public EFontImportCharacterSet CharacterSet;
 		[FieldOffset(20)]
+		public EFontImportCharacterSet CharacterSet;
+		[FieldOffset(24)]
 		public FString Chars;
-		[FieldOffset(32)]
+		[FieldOffset(36)]
 		public FString UnicodeRange;
-		[FieldOffset(44)]
+		[FieldOffset(48)]
 		public FString CharsFilePath;
-		[FieldOffset(56)]
+		[FieldOffset(60)]
 		public FString CharsFileWildcard;
 		public bool bCreatePrintableOnly
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 68, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 68, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 72, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 72, 1, 0, 1, 1); } }}
 			
 		}
 		public bool bIncludeASCIIRange
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 68, 1, 0, 2, 2); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 68, 1, 0, 2, 2); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 72, 1, 0, 2, 2); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 72, 1, 0, 2, 2); } }}
 			
 		}
-		[FieldOffset(72)]
+		[FieldOffset(76)]
 		public FLinearColor ForegroundColor;
 		public bool bEnableDropShadow
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 88, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 88, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 92, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 92, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(92)]
-		public int TexturePageWidth;
 		[FieldOffset(96)]
-		public int TexturePageMaxHeight;
+		public int TexturePageWidth;
 		[FieldOffset(100)]
-		public int XPadding;
+		public int TexturePageMaxHeight;
 		[FieldOffset(104)]
-		public int YPadding;
+		public int XPadding;
 		[FieldOffset(108)]
-		public int ExtendBoxTop;
+		public int YPadding;
 		[FieldOffset(112)]
-		public int ExtendBoxBottom;
+		public int ExtendBoxTop;
 		[FieldOffset(116)]
-		public int ExtendBoxRight;
+		public int ExtendBoxBottom;
 		[FieldOffset(120)]
+		public int ExtendBoxRight;
+		[FieldOffset(124)]
 		public int ExtendBoxLeft;
 		public bool bEnableLegacyMode
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 124, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 124, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 128, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 128, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(128)]
+		[FieldOffset(132)]
 		public int Kerning;
 		public bool bUseDistanceFieldAlpha
 		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 132, 1, 0, 1, 1); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 132, 1, 0, 1, 1); } }}
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 136, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 136, 1, 0, 1, 1); } }}
 			
 		}
-		[FieldOffset(136)]
-		public int DistanceFieldScaleFactor;
 		[FieldOffset(140)]
+		public int DistanceFieldScaleFactor;
+		[FieldOffset(144)]
 		public float DistanceFieldScanRadiusScale;
 		
 	}

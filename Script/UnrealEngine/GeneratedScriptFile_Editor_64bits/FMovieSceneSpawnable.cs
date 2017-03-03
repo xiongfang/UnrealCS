@@ -25,16 +25,6 @@ namespace UnrealEngine
 						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+40, false);}}}
 			
 		}
-		/// <summary>Property indicating where ownership responsibility for this object lies</summary>
-		[FieldOffset(56)]
-		public ESpawnOwnership Ownership;
-		/// <summary>When true, this spawnable will not respect its ownership sematics outside of the playback range, when spawned from inside a currently editing sequence</summary>
-		public bool bIgnoreOwnershipInEditor
-		{
-			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 57, 1, 0, 1, 255); } }}
-			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 57, 1, 0, 1, 255); } }}
-			
-		}
 		/// <summary>Deprecated generated class</summary>
 		
 	}

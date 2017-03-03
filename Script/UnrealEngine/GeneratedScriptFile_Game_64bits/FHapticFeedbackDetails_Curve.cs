@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=256)]
+	[StructLayout(LayoutKind.Explicit,Size=240)]
 	public partial struct FHapticFeedbackDetails_Curve
 	{
 		[FieldOffset(0)]
 		public FRuntimeFloatCurve Frequency;
-		[FieldOffset(128)]
+		[FieldOffset(120)]
 		public FRuntimeFloatCurve Amplitude;
 		
 	}

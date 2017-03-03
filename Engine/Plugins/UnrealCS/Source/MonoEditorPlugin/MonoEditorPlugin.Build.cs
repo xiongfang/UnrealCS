@@ -9,7 +9,10 @@ namespace UnrealBuildTool.Rules
 	{
 		public MonoEditorPlugin(TargetInfo Target)
 		{
-			PublicIncludePaths.AddRange(
+
+            PrivatePCHHeaderFile = "Private/MonoEditorPluginPrivatePCH.h";
+
+            PublicIncludePaths.AddRange(
 				new string[] {					
 					//"Programs/UnrealHeaderTool/Public",
 					// ... add other public include paths required here ...
@@ -22,7 +25,7 @@ namespace UnrealBuildTool.Rules
 				}
 				);
 
-            PrivateDependencyModuleNames.AddRange(
+            PublicDependencyModuleNames.AddRange(
 				new string[]
 				{
 					"Core",
@@ -31,12 +34,12 @@ namespace UnrealBuildTool.Rules
 					"InputCore",
 					"UnrealEd",
 					"AssetTools",
-					"MonoPlugin",
 					"ClassViewer",
 					"KismetCompiler",
 					"Kismet",
 					"BlueprintGraph",
-                    "UMG"
+                    "UMG",
+                    "MonoPlugin",
 					// ... add other public dependencies that you statically link with here ...
 				}
 				);

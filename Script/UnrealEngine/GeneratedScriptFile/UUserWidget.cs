@@ -196,6 +196,18 @@ public  APawn GetOwningPlayerPawn()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetOwningPlayer(IntPtr _this,IntPtr LocalPlayerController);
+/// <summary>
+/// Sets the local player associated with this UI via PlayerController reference.
+/// @param LocalPlayerController The PlayerController of the local player you want to be the conceptual owner of this UI.
+/// </summary>
+public  void SetOwningPlayer(APlayerController LocalPlayerController)
+{
+	CheckIsValid();
+	SetOwningPlayer(_this.Get(),LocalPlayerController);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static IntPtr GetOwningPlayer(IntPtr _this);
 /// <summary>
 /// Gets the player controller associated with this UI.
@@ -211,7 +223,7 @@ public  APlayerController GetOwningPlayer()
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetOwningLocalPlayer(IntPtr _this,IntPtr LocalPlayer);
 /// <summary>
-/// Sets the local player associated with this UI.
+/// Sets the player associated with this UI via LocalPlayer reference.
 /// @param LocalPlayer The local player you want to be the conceptual owner of this UI.
 /// </summary>
 public  void SetOwningLocalPlayer(ULocalPlayer LocalPlayer)

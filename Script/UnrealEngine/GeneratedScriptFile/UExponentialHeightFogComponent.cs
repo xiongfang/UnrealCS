@@ -5,6 +5,14 @@ namespace UnrealEngine{
 public partial class UExponentialHeightFogComponent:USceneComponent 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetFogCutoffDistance(IntPtr _this,float Value);
+public  void SetFogCutoffDistance(float Value)
+{
+	CheckIsValid();
+	SetFogCutoffDistance(_this.Get(),Value);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void SetStartDistance(IntPtr _this,float Value);
 public  void SetStartDistance(float Value)
 {
@@ -50,6 +58,38 @@ public  void SetDirectionalInscatteringExponent(float Value)
 {
 	CheckIsValid();
 	SetDirectionalInscatteringExponent(_this.Get(),Value);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetInscatteringTextureTint(IntPtr _this,ref FLinearColor Value);
+public  void SetInscatteringTextureTint(FLinearColor Value)
+{
+	CheckIsValid();
+	SetInscatteringTextureTint(_this.Get(),ref Value);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetNonDirectionalInscatteringColorDistance(IntPtr _this,float Value);
+public  void SetNonDirectionalInscatteringColorDistance(float Value)
+{
+	CheckIsValid();
+	SetNonDirectionalInscatteringColorDistance(_this.Get(),Value);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetFullyDirectionalInscatteringColorDistance(IntPtr _this,float Value);
+public  void SetFullyDirectionalInscatteringColorDistance(float Value)
+{
+	CheckIsValid();
+	SetFullyDirectionalInscatteringColorDistance(_this.Get(),Value);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetInscatteringColorCubemap(IntPtr _this,IntPtr Value);
+public  void SetInscatteringColorCubemap(UTextureCube Value)
+{
+	CheckIsValid();
+	SetInscatteringColorCubemap(_this.Get(),Value);
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

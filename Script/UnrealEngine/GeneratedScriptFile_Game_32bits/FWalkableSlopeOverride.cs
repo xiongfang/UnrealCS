@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=8)]
+	[StructLayout(LayoutKind.Explicit,Size=16)]
 	public partial struct FWalkableSlopeOverride
 	{
 		[FieldOffset(0)]

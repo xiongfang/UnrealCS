@@ -129,18 +129,11 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bReplayHasRootMotionSources__Offset;
-		public bool bReplayHasRootMotionSources
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplayHasRootMotionSources__Offset, 1, 0, 2, 2);}
-			
-		}
-		
 		static readonly int bPressedJump__Offset;
 		/// <summary>When true, player wants to jump</summary>
 		public bool bPressedJump
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bPressedJump__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bPressedJump__Offset, 1, 0, 2, 2);}
 			
 		}
 		
@@ -148,7 +141,7 @@ namespace UnrealEngine
 		/// <summary>When true, applying updates to network client (replaying saved moves for a locally controlled character)</summary>
 		public bool bClientUpdating
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientUpdating__Offset, 1, 0, 8, 8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientUpdating__Offset, 1, 0, 4, 4);}
 			
 		}
 		
@@ -156,7 +149,7 @@ namespace UnrealEngine
 		/// <summary>True if Pawn was initially falling when started to replay network moves.</summary>
 		public bool bClientWasFalling
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientWasFalling__Offset, 1, 0, 16, 16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientWasFalling__Offset, 1, 0, 8, 8);}
 			
 		}
 		
@@ -164,7 +157,7 @@ namespace UnrealEngine
 		/// <summary>If server disagrees with root motion track position, client has to resimulate root motion from last AckedMove.</summary>
 		public bool bClientResimulateRootMotion
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotion__Offset, 1, 0, 32, 32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotion__Offset, 1, 0, 16, 16);}
 			
 		}
 		
@@ -172,7 +165,7 @@ namespace UnrealEngine
 		/// <summary>If server disagrees with root motion state, client has to resimulate root motion from last AckedMove.</summary>
 		public bool bClientResimulateRootMotionSources
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotionSources__Offset, 1, 0, 64, 64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientResimulateRootMotionSources__Offset, 1, 0, 32, 32);}
 			
 		}
 		
@@ -180,14 +173,14 @@ namespace UnrealEngine
 		/// <summary>Disable simulated gravity (set when character encroaches geometry on client, to keep him from falling through floors)</summary>
 		public bool bSimGravityDisabled
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSimGravityDisabled__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bSimGravityDisabled__Offset, 1, 0, 64, 64);}
 			
 		}
 		
 		static readonly int bClientCheckEncroachmentOnNetUpdate__Offset;
 		public bool bClientCheckEncroachmentOnNetUpdate
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientCheckEncroachmentOnNetUpdate__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bClientCheckEncroachmentOnNetUpdate__Offset, 1, 0, 128, 128);}
 			
 		}
 		
@@ -195,7 +188,7 @@ namespace UnrealEngine
 		/// <summary>Disable root motion on the server. When receiving a DualServerMove, where the first move is not root motion and the second is.</summary>
 		public bool bServerMoveIgnoreRootMotion
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bServerMoveIgnoreRootMotion__Offset, 1, 0, 2, 2);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bServerMoveIgnoreRootMotion__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -253,17 +246,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bJumpMaxCountExceeded__Offset;
-		/// <summary>
-		/// Whether or not the JumpMaxCount value has been exceeded.
-		/// This is set in CheckJumpInput, used in CanJump_Implementation, and reset in OnMovementModeChanged.
-		/// When providing overrides for these methods, it's recommended to either manually
-		/// set / reset this value, or call the Super:: method.
-		/// </summary>
-		public bool bJumpMaxCountExceeded
+		static readonly int bWasJumping__Offset;
+		/// <summary>Tracks whether or not the character was already jumping last frame.</summary>
+		public bool bWasJumping
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bJumpMaxCountExceeded__Offset, 1, 0, 1, 1);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bJumpMaxCountExceeded__Offset, 1,0,1,1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWasJumping__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bWasJumping__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -273,6 +261,15 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+OnReachedJumpApex__Offset, typeof(FMulticastScriptDelegate)));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OnReachedJumpApex__Offset, false);}
+			
+		}
+		
+		static readonly int MovementModeChangedDelegate__Offset;
+		/// <summary>Multicast delegate for MovementMode changing.</summary>
+		public FMulticastScriptDelegate MovementModeChangedDelegate
+		{
+			get{ CheckIsValid(); return ((FMulticastScriptDelegate)Marshal.PtrToStructure(_this.Get()+MovementModeChangedDelegate__Offset, typeof(FMulticastScriptDelegate)));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MovementModeChangedDelegate__Offset, false);}
 			
 		}
 		
@@ -349,7 +346,6 @@ namespace UnrealEngine
 			bInBaseReplication__Offset=GetPropertyOffset(NativeClassPtr,"bInBaseReplication");
 			CrouchedEyeHeight__Offset=GetPropertyOffset(NativeClassPtr,"CrouchedEyeHeight");
 			bIsCrouched__Offset=GetPropertyOffset(NativeClassPtr,"bIsCrouched");
-			bReplayHasRootMotionSources__Offset=GetPropertyOffset(NativeClassPtr,"bReplayHasRootMotionSources");
 			bPressedJump__Offset=GetPropertyOffset(NativeClassPtr,"bPressedJump");
 			bClientUpdating__Offset=GetPropertyOffset(NativeClassPtr,"bClientUpdating");
 			bClientWasFalling__Offset=GetPropertyOffset(NativeClassPtr,"bClientWasFalling");
@@ -362,8 +358,9 @@ namespace UnrealEngine
 			JumpMaxHoldTime__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxHoldTime");
 			JumpMaxCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpMaxCount");
 			JumpCurrentCount__Offset=GetPropertyOffset(NativeClassPtr,"JumpCurrentCount");
-			bJumpMaxCountExceeded__Offset=GetPropertyOffset(NativeClassPtr,"bJumpMaxCountExceeded");
+			bWasJumping__Offset=GetPropertyOffset(NativeClassPtr,"bWasJumping");
 			OnReachedJumpApex__Offset=GetPropertyOffset(NativeClassPtr,"OnReachedJumpApex");
+			MovementModeChangedDelegate__Offset=GetPropertyOffset(NativeClassPtr,"MovementModeChangedDelegate");
 			OnCharacterMovementUpdated__Offset=GetPropertyOffset(NativeClassPtr,"OnCharacterMovementUpdated");
 			SavedRootMotion__Offset=GetPropertyOffset(NativeClassPtr,"SavedRootMotion");
 			ClientRootMotionParams__Offset=GetPropertyOffset(NativeClassPtr,"ClientRootMotionParams");

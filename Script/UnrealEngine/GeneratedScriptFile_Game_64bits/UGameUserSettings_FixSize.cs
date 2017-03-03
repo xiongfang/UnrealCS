@@ -56,13 +56,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bUseDesktopResolutionForFullscreen__Offset;
-		public bool bUseDesktopResolutionForFullscreen
-		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseDesktopResolutionForFullscreen__Offset, 1, 0, 1, 255);}
-			
-		}
-		
 		static readonly int FullscreenMode__Offset;
 		public int FullscreenMode
 		{
@@ -177,6 +170,20 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bUseHDRDisplayOutput__Offset;
+		public bool bUseHDRDisplayOutput
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseHDRDisplayOutput__Offset, 1, 0, 1, 255);}
+			
+		}
+		
+		static readonly int HDRDisplayOutputNits__Offset;
+		public int HDRDisplayOutputNits
+		{
+			get{ CheckIsValid();return (int)Marshal.PtrToStructure(_this.Get()+HDRDisplayOutputNits__Offset, typeof(int));}
+			
+		}
+		
 		static readonly int OnGameUserSettingsUINeedsUpdate__Offset;
 		public FMulticastScriptDelegate OnGameUserSettingsUINeedsUpdate
 		{
@@ -195,7 +202,6 @@ namespace UnrealEngine
 			LastUserConfirmedResolutionSizeY__Offset=GetPropertyOffset(NativeClassPtr,"LastUserConfirmedResolutionSizeY");
 			WindowPosX__Offset=GetPropertyOffset(NativeClassPtr,"WindowPosX");
 			WindowPosY__Offset=GetPropertyOffset(NativeClassPtr,"WindowPosY");
-			bUseDesktopResolutionForFullscreen__Offset=GetPropertyOffset(NativeClassPtr,"bUseDesktopResolutionForFullscreen");
 			FullscreenMode__Offset=GetPropertyOffset(NativeClassPtr,"FullscreenMode");
 			LastConfirmedFullscreenMode__Offset=GetPropertyOffset(NativeClassPtr,"LastConfirmedFullscreenMode");
 			PreferredFullscreenMode__Offset=GetPropertyOffset(NativeClassPtr,"PreferredFullscreenMode");
@@ -212,6 +218,8 @@ namespace UnrealEngine
 			LastCPUBenchmarkSteps__Offset=GetPropertyOffset(NativeClassPtr,"LastCPUBenchmarkSteps");
 			LastGPUBenchmarkSteps__Offset=GetPropertyOffset(NativeClassPtr,"LastGPUBenchmarkSteps");
 			LastGPUBenchmarkMultiplier__Offset=GetPropertyOffset(NativeClassPtr,"LastGPUBenchmarkMultiplier");
+			bUseHDRDisplayOutput__Offset=GetPropertyOffset(NativeClassPtr,"bUseHDRDisplayOutput");
+			HDRDisplayOutputNits__Offset=GetPropertyOffset(NativeClassPtr,"HDRDisplayOutputNits");
 			OnGameUserSettingsUINeedsUpdate__Offset=GetPropertyOffset(NativeClassPtr,"OnGameUserSettingsUINeedsUpdate");
 			
 		}

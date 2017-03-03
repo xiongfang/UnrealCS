@@ -520,6 +520,22 @@ public static string BuildString_Vector2d(string AppendTo,string Prefix,FVector2
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static string BuildString_IntVector(IntPtr _this,string AppendTo,string Prefix,ref FIntVector InIntVector,string Suffix);
+/// <summary>
+/// Converts an IntVector->string, creating a new string in the form AppendTo+Prefix+InIntVector+Suffix
+/// @param AppendTo - An existing string to use as the start of the conversion string
+/// @param Prefix - A string to use as a prefix, after the AppendTo string
+/// @param InIntVector - The intVector value to convert. Uses the standard FVector::ToString conversion
+/// @param Suffix - A suffix to append to the end of the conversion string
+/// @return A new string built from the passed parameters
+/// </summary>
+public static string BuildString_IntVector(string AppendTo,string Prefix,FIntVector InIntVector,string Suffix)
+{
+	string ___ret = BuildString_IntVector(IntPtr.Zero,AppendTo,Prefix,ref InIntVector,Suffix);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static string BuildString_Vector(IntPtr _this,string AppendTo,string Prefix,ref FVector InVector,string Suffix);
 /// <summary>
 /// Converts a vector->string, creating a new string in the form AppendTo+Prefix+InVector+Suffix
@@ -701,6 +717,15 @@ extern static string Conv_Vector2dToString(IntPtr _this,ref FVector2D InVec);
 public static string Conv_Vector2dToString(FVector2D InVec)
 {
 	string ___ret = Conv_Vector2dToString(IntPtr.Zero,ref InVec);
+	return ___ret;
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static string Conv_IntVectorToString(IntPtr _this,ref FIntVector InIntVec);
+/// <summary>Converts an IntVector value to a string, in the form 'X= Y= Z='</summary>
+public static string Conv_IntVectorToString(FIntVector InIntVec)
+{
+	string ___ret = Conv_IntVectorToString(IntPtr.Zero,ref InIntVec);
 	return ___ret;
 	
 }

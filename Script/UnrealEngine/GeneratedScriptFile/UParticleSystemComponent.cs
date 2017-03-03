@@ -385,23 +385,6 @@ public  void SetBeamEndPoint(int EmitterIndex,FVector NewEndPoint)
 	SetBeamEndPoint(_this.Get(),EmitterIndex,ref NewEndPoint);
 	
 }
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetAutoAttachmentParameters(IntPtr _this,IntPtr Parent,string SocketName,int LocationRule,int RotationRule,int ScaleRule);
-/// <summary>
-/// Set AutoAttachParent, AutoAttachSocketName, AutoAttachLocationRule, AutoAttachRotationRule, AutoAttachScaleRule to the specified parameters. Does not change bAutoManageAttachment; that must be set separately.
-/// @param  Parent                       Component to attach to.
-/// @param  SocketName           Socket on Parent to attach to.
-/// @param  LocationRule         Option for how we handle our location when we attach to Parent.
-/// @param  RotationRule         Option for how we handle our rotation when we attach to Parent.
-/// @param  ScaleRule            Option for how we handle our scale when we attach to Parent.
-/// @see bAutoManageAttachment, AutoAttachParent, AutoAttachSocketName, AutoAttachLocationRule, AutoAttachRotationRule, AutoAttachScaleRule
-/// </summary>
-public  void SetAutoAttachmentParameters(USceneComponent Parent,string SocketName,EAttachmentRule LocationRule,EAttachmentRule RotationRule,EAttachmentRule ScaleRule)
-{
-	CheckIsValid();
-	SetAutoAttachmentParameters(_this.Get(),Parent,SocketName,(int)LocationRule,(int)RotationRule,(int)ScaleRule);
-	
-}
 	[MethodImplAttribute(MethodImplOptions.InternalCall)]
 	public extern static new IntPtr StaticClass();
 }

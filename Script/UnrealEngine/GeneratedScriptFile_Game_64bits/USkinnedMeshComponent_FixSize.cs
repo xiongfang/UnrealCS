@@ -142,14 +142,14 @@ namespace UnrealEngine
 		static readonly int bCanHighlightSelectedSections__Offset;
 		public bool bCanHighlightSelectedSections
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCanHighlightSelectedSections__Offset, 1, 0, 4, 4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCanHighlightSelectedSections__Offset, 1, 0, 2, 2);}
 			
 		}
 		
 		static readonly int bRecentlyRendered__Offset;
 		public bool bRecentlyRendered
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRecentlyRendered__Offset, 1, 0, 8, 8);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRecentlyRendered__Offset, 1, 0, 4, 4);}
 			
 		}
 		
@@ -173,6 +173,21 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCastCapsuleIndirectShadow__Offset, 1, 0, 2, 2);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bCastCapsuleIndirectShadow__Offset, 1,0,2,2);}
+			
+		}
+		
+		static readonly int CapsuleIndirectShadowMinVisibility__Offset;
+		public float CapsuleIndirectShadowMinVisibility
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+CapsuleIndirectShadowMinVisibility__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+CapsuleIndirectShadowMinVisibility__Offset, false);}
+			
+		}
+		
+		static readonly int bCPUSkinning__Offset;
+		public bool bCPUSkinning
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bCPUSkinning__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -231,6 +246,8 @@ namespace UnrealEngine
 			CustomSortAlternateIndexMode__Offset=GetPropertyOffset(NativeClassPtr,"CustomSortAlternateIndexMode");
 			bCastCapsuleDirectShadow__Offset=GetPropertyOffset(NativeClassPtr,"bCastCapsuleDirectShadow");
 			bCastCapsuleIndirectShadow__Offset=GetPropertyOffset(NativeClassPtr,"bCastCapsuleIndirectShadow");
+			CapsuleIndirectShadowMinVisibility__Offset=GetPropertyOffset(NativeClassPtr,"CapsuleIndirectShadowMinVisibility");
+			bCPUSkinning__Offset=GetPropertyOffset(NativeClassPtr,"bCPUSkinning");
 			CachedLocalBounds__Offset=GetPropertyOffset(NativeClassPtr,"CachedLocalBounds");
 			bCachedLocalBoundsUpToDate__Offset=GetPropertyOffset(NativeClassPtr,"bCachedLocalBoundsUpToDate");
 			bEnableUpdateRateOptimizations__Offset=GetPropertyOffset(NativeClassPtr,"bEnableUpdateRateOptimizations");

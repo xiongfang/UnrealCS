@@ -5,12 +5,12 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=96)]
+	[StructLayout(LayoutKind.Explicit,Size=92)]
 	public partial struct FComponentOverrideRecord
 	{
 		[FieldOffset(8)]
 		public FComponentKey ComponentKey;
-		[FieldOffset(40)]
+		[FieldOffset(36)]
 		public FBlueprintCookedComponentInstancingData CookedComponentInstancingData;
 		
 	}

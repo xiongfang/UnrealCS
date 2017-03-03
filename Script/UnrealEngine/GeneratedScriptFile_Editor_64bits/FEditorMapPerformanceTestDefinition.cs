@@ -11,7 +11,7 @@ namespace UnrealEngine
 	{
 		/// <summary>Map to be used for the Performance Capture *</summary>
 		[FieldOffset(0)]
-		public FFilePath PerformanceTestmap;
+		public FStringAssetReference PerformanceTestmap;
 		/// <summary>This is the length of time in seconds that this test will run for before stopping.</summary>
 		[FieldOffset(16)]
 		public int TestTimer;

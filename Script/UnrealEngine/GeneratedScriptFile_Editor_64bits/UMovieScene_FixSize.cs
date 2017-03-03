@@ -72,6 +72,13 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bPlaybackRangeLocked__Offset;
+		public bool bPlaybackRangeLocked
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bPlaybackRangeLocked__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static readonly int bForceFixedFrameIntervalPlayback__Offset;
 		public bool bForceFixedFrameIntervalPlayback
 		{
@@ -141,6 +148,7 @@ namespace UnrealEngine
 			CameraCutTrack__Offset=GetPropertyOffset(NativeClassPtr,"CameraCutTrack");
 			SelectionRange__Offset=GetPropertyOffset(NativeClassPtr,"SelectionRange");
 			PlaybackRange__Offset=GetPropertyOffset(NativeClassPtr,"PlaybackRange");
+			bPlaybackRangeLocked__Offset=GetPropertyOffset(NativeClassPtr,"bPlaybackRangeLocked");
 			bForceFixedFrameIntervalPlayback__Offset=GetPropertyOffset(NativeClassPtr,"bForceFixedFrameIntervalPlayback");
 			FixedFrameInterval__Offset=GetPropertyOffset(NativeClassPtr,"FixedFrameInterval");
 			EditorData__Offset=GetPropertyOffset(NativeClassPtr,"EditorData");

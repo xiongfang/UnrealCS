@@ -173,7 +173,7 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bActorEnableCollision
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorEnableCollision__Offset, 1, 0, 2, 2);}
 			
 		}
 		
@@ -184,8 +184,8 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bReplicates
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 4, 4);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,4,4);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bReplicates__Offset, 1, 0, 8, 8);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bReplicates__Offset, 1,0,8,8);}
 			
 		}
 		
@@ -403,15 +403,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int SpawnCollisionHandlingMethod__Offset;
-		/// <summary>Controls how to handle spawning this actor in a situation where it's colliding with something else. "Default" means AlwaysSpawn here.</summary>
-		public ESpawnActorCollisionHandlingMethod SpawnCollisionHandlingMethod
-		{
-			get{ CheckIsValid();return (ESpawnActorCollisionHandlingMethod)Marshal.PtrToStructure(_this.Get()+SpawnCollisionHandlingMethod__Offset, typeof(ESpawnActorCollisionHandlingMethod));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+SpawnCollisionHandlingMethod__Offset, false);}
-			
-		}
-		
 		static readonly int Instigator__Offset;
 		/// <summary>Pawn responsible for damage caused by this actor.</summary>
 		public APawn Instigator
@@ -579,7 +570,7 @@ namespace UnrealEngine
 		/// </summary>
 		public bool bAllowReceiveTickEventOnDedicatedServer
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowReceiveTickEventOnDedicatedServer__Offset, 1, 0, 1, 1);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAllowReceiveTickEventOnDedicatedServer__Offset, 1, 0, 2, 2);}
 			
 		}
 		
@@ -587,7 +578,7 @@ namespace UnrealEngine
 		/// <summary>Indicates the actor was pulled through a seamless travel.</summary>
 		public bool bActorSeamlessTraveled
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorSeamlessTraveled__Offset, 1, 0, 16, 16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bActorSeamlessTraveled__Offset, 1, 0, 32, 32);}
 			
 		}
 		
@@ -595,17 +586,17 @@ namespace UnrealEngine
 		/// <summary>Whether this actor should not be affected by world origin shifting.</summary>
 		public bool bIgnoresOriginShifting
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoresOriginShifting__Offset, 1, 0, 32, 32);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIgnoresOriginShifting__Offset, 1,0,32,32);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIgnoresOriginShifting__Offset, 1, 0, 64, 64);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIgnoresOriginShifting__Offset, 1,0,64,64);}
 			
 		}
 		
 		static readonly int bEnableAutoLODGeneration__Offset;
-		/// <summary>If true, and if World setting has bEnableHigerarhicalLOD is true, then it will generate LODActor from groups of clustered Actor</summary>
+		/// <summary>If true, and if World setting has bEnableHierarchicalLOD equal to true, then it will generate LODActor from groups of clustered Actor</summary>
 		public bool bEnableAutoLODGeneration
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableAutoLODGeneration__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableAutoLODGeneration__Offset, 1,0,64,64);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bEnableAutoLODGeneration__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bEnableAutoLODGeneration__Offset, 1,0,128,128);}
 			
 		}
 		
@@ -834,7 +825,6 @@ namespace UnrealEngine
 			bFindCameraComponentWhenViewTarget__Offset=GetPropertyOffset(NativeClassPtr,"bFindCameraComponentWhenViewTarget");
 			bRelevantForNetworkReplays__Offset=GetPropertyOffset(NativeClassPtr,"bRelevantForNetworkReplays");
 			bGenerateOverlapEventsDuringLevelStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bGenerateOverlapEventsDuringLevelStreaming");
-			SpawnCollisionHandlingMethod__Offset=GetPropertyOffset(NativeClassPtr,"SpawnCollisionHandlingMethod");
 			Instigator__Offset=GetPropertyOffset(NativeClassPtr,"Instigator");
 			Children__Offset=GetPropertyOffset(NativeClassPtr,"Children");
 			RootComponent__Offset=GetPropertyOffset(NativeClassPtr,"RootComponent");

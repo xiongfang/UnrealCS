@@ -9,9 +9,6 @@ namespace UnrealEngine
 	[StructLayout(LayoutKind.Explicit,Size=56)]
 	public partial struct FAlphaBlend
 	{
-		/// <summary>Type of blending used (Linear, Cubic, etc.)</summary>
-		[FieldOffset(0)]
-		public EAlphaBlendOption BlendOption;
 		/// <summary>If you're using Custom BlendOption, you can specify curve</summary>
 		/// <summary>Blend Time</summary>
 		[FieldOffset(16)]

@@ -5,16 +5,16 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=96)]
+	[StructLayout(LayoutKind.Explicit,Size=112)]
 	public partial struct FStaticMeshSourceModel
 	{
 		[FieldOffset(0)]
 		public FMeshBuildSettings BuildSettings;
-		[FieldOffset(56)]
+		[FieldOffset(64)]
 		public FMeshReductionSettings ReductionSettings;
-		[FieldOffset(88)]
+		[FieldOffset(100)]
 		public float LODDistance;
-		[FieldOffset(92)]
+		[FieldOffset(104)]
 		public float ScreenSize;
 		
 	}

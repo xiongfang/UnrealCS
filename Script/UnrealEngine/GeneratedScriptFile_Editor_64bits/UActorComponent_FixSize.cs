@@ -108,18 +108,12 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int bWantsBeginPlay__Offset;
-		/// <summary>If true, we call the virtual BeginPlay</summary>
-		public bool bWantsBeginPlay
+		static readonly int bIsEditorOnly__Offset;
+		/// <summary>If true, the component will be excluded from non-editor builds</summary>
+		public bool bIsEditorOnly
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bWantsBeginPlay__Offset, 1, 0, 128, 128);}
-			
-		}
-		
-		static readonly int CreationMethod__Offset;
-		public EComponentCreationMethod CreationMethod
-		{
-			get{ CheckIsValid();return (EComponentCreationMethod)Marshal.PtrToStructure(_this.Get()+CreationMethod__Offset, typeof(EComponentCreationMethod));}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsEditorOnly__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsEditorOnly__Offset, 1,0,1,1);}
 			
 		}
 		
@@ -161,8 +155,7 @@ namespace UnrealEngine
 			bIsActive__Offset=GetPropertyOffset(NativeClassPtr,"bIsActive");
 			bEditableWhenInherited__Offset=GetPropertyOffset(NativeClassPtr,"bEditableWhenInherited");
 			bCanEverAffectNavigation__Offset=GetPropertyOffset(NativeClassPtr,"bCanEverAffectNavigation");
-			bWantsBeginPlay__Offset=GetPropertyOffset(NativeClassPtr,"bWantsBeginPlay");
-			CreationMethod__Offset=GetPropertyOffset(NativeClassPtr,"CreationMethod");
+			bIsEditorOnly__Offset=GetPropertyOffset(NativeClassPtr,"bIsEditorOnly");
 			UCSModifiedProperties__Offset=GetPropertyOffset(NativeClassPtr,"UCSModifiedProperties");
 			OnComponentActivated__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentActivated");
 			OnComponentDeactivated__Offset=GetPropertyOffset(NativeClassPtr,"OnComponentDeactivated");

@@ -7,7 +7,9 @@ namespace UnrealEngine
 	{
 		AnimationBlueprint=0,
 		AnimationSingleNode=1,
-		EAnimationMode_MAX=2,
+		/// <summary>This is custom type, engine leaves AnimInstance as it is</summary>
+		AnimationCustomMode=2,
+		EAnimationMode_MAX=3,
 		
 	}
 	

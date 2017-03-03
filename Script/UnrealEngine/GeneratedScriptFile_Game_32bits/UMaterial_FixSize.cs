@@ -298,6 +298,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int AllowTranslucentCustomDepthWrites__Offset;
+		public bool AllowTranslucentCustomDepthWrites
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), AllowTranslucentCustomDepthWrites__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), AllowTranslucentCustomDepthWrites__Offset, 1,0,1,1);}
+			
+		}
+		
 		static readonly int TranslucentShadowDensityScale__Offset;
 		public float TranslucentShadowDensityScale
 		{
@@ -544,6 +552,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bNormalCurvatureToRoughness__Offset;
+		public bool bNormalCurvatureToRoughness
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bNormalCurvatureToRoughness__Offset, 1, 0, 1, 1);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bNormalCurvatureToRoughness__Offset, 1,0,1,1);}
+			
+		}
+		
 		static readonly int D3D11TessellationMode__Offset;
 		public EMaterialTessellationMode D3D11TessellationMode
 		{
@@ -718,6 +734,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int BlendableOutputAlpha__Offset;
+		public bool BlendableOutputAlpha
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), BlendableOutputAlpha__Offset, 1, 0, 1, 255);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), BlendableOutputAlpha__Offset, 1,0,1,255);}
+			
+		}
+		
 		static readonly int RefractionMode__Offset;
 		public ERefractionMode RefractionMode
 		{
@@ -791,6 +815,7 @@ namespace UnrealEngine
 			NumCustomizedUVs__Offset=GetPropertyOffset(NativeClassPtr,"NumCustomizedUVs");
 			TranslucencyLightingMode__Offset=GetPropertyOffset(NativeClassPtr,"TranslucencyLightingMode");
 			TranslucencyDirectionalLightingIntensity__Offset=GetPropertyOffset(NativeClassPtr,"TranslucencyDirectionalLightingIntensity");
+			AllowTranslucentCustomDepthWrites__Offset=GetPropertyOffset(NativeClassPtr,"AllowTranslucentCustomDepthWrites");
 			TranslucentShadowDensityScale__Offset=GetPropertyOffset(NativeClassPtr,"TranslucentShadowDensityScale");
 			TranslucentSelfShadowDensityScale__Offset=GetPropertyOffset(NativeClassPtr,"TranslucentSelfShadowDensityScale");
 			TranslucentSelfShadowSecondDensityScale__Offset=GetPropertyOffset(NativeClassPtr,"TranslucentSelfShadowSecondDensityScale");
@@ -822,6 +847,7 @@ namespace UnrealEngine
 			bUseLightmapDirectionality__Offset=GetPropertyOffset(NativeClassPtr,"bUseLightmapDirectionality");
 			bUseHQForwardReflections__Offset=GetPropertyOffset(NativeClassPtr,"bUseHQForwardReflections");
 			bUsePlanarForwardReflections__Offset=GetPropertyOffset(NativeClassPtr,"bUsePlanarForwardReflections");
+			bNormalCurvatureToRoughness__Offset=GetPropertyOffset(NativeClassPtr,"bNormalCurvatureToRoughness");
 			D3D11TessellationMode__Offset=GetPropertyOffset(NativeClassPtr,"D3D11TessellationMode");
 			bEnableCrackFreeDisplacement__Offset=GetPropertyOffset(NativeClassPtr,"bEnableCrackFreeDisplacement");
 			bEnableAdaptiveTessellation__Offset=GetPropertyOffset(NativeClassPtr,"bEnableAdaptiveTessellation");
@@ -845,6 +871,7 @@ namespace UnrealEngine
 			UsageFlagWarnings__Offset=GetPropertyOffset(NativeClassPtr,"UsageFlagWarnings");
 			BlendableLocation__Offset=GetPropertyOffset(NativeClassPtr,"BlendableLocation");
 			BlendablePriority__Offset=GetPropertyOffset(NativeClassPtr,"BlendablePriority");
+			BlendableOutputAlpha__Offset=GetPropertyOffset(NativeClassPtr,"BlendableOutputAlpha");
 			RefractionMode__Offset=GetPropertyOffset(NativeClassPtr,"RefractionMode");
 			RefractionDepthBias__Offset=GetPropertyOffset(NativeClassPtr,"RefractionDepthBias");
 			StateId__Offset=GetPropertyOffset(NativeClassPtr,"StateId");

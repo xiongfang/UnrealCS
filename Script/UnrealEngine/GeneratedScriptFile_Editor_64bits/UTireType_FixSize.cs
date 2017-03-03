@@ -5,10 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
+	/// <summary>DEPRECATED - Only used to allow conversion to new TireConfig in PhysXVehicles plugin</summary>
 	public partial class UTireType
 	{
 		static readonly int FrictionScale__Offset;
-		/// <summary>Scale the tire friction for this tire type</summary>
 		public float FrictionScale
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+FrictionScale__Offset, typeof(float));}

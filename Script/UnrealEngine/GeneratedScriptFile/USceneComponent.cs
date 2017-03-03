@@ -189,45 +189,11 @@ public  FName[] GetAllSocketNames()
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void K2_DetachFromComponent(IntPtr _this,int LocationRule,int RotationRule,int ScaleRule,int bCallModify);
-/// <summary>
-/// Detach this component from whatever it is attached to. Automatically unwelds components that are welded together (See WeldTo)
-/// @param LocationRule                          How to handle translations when detaching.
-/// @param RotationRule                          How to handle rotation when detaching.
-/// @param ScaleRule                                     How to handle scales when detaching.
-/// @param bCallModify                           If true, call Modify() on the component and the current attach parent component
-/// </summary>
-public  void K2_DetachFromComponent(EDetachmentRule LocationRule=EDetachmentRule.KeepRelative,EDetachmentRule RotationRule=EDetachmentRule.KeepRelative,EDetachmentRule ScaleRule=EDetachmentRule.KeepRelative,bool bCallModify=true)
-{
-	CheckIsValid();
-	K2_DetachFromComponent(_this.Get(),(int)LocationRule,(int)RotationRule,(int)ScaleRule,bCallModify?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static void DetachFromParent(IntPtr _this,int bMaintainWorldPosition,int bCallModify);
 public  void DetachFromParent(bool bMaintainWorldPosition=false,bool bCallModify=true)
 {
 	CheckIsValid();
 	DetachFromParent(_this.Get(),bMaintainWorldPosition?1:0,bCallModify?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int K2_AttachToComponent(IntPtr _this,IntPtr Parent,string SocketName,int LocationRule,int RotationRule,int ScaleRule,int bWeldSimulatedBodies);
-/// <summary>
-/// Attach this component to another scene component, optionally at a named socket. It is valid to call this on components whether or not they have been Registered.
-/// @param  Parent                                        Parent to attach to.
-/// @param  SocketName                            Optional socket to attach to on the parent.
-/// @param  LocationRule                          How to handle translation when attaching.
-/// @param  RotationRule                          How to handle rotation when attaching.
-/// @param  ScaleRule                                     How to handle scale when attaching.
-/// @param  bWeldSimulatedBodies          Whether to weld together simulated physics bodies.
-/// @return True if attachment is successful (or already attached to requested parent/socket), false if attachment is rejected and there is no change in AttachParent.
-/// </summary>
-public  bool K2_AttachToComponent(USceneComponent Parent,string SocketName,EAttachmentRule LocationRule,EAttachmentRule RotationRule,EAttachmentRule ScaleRule,bool bWeldSimulatedBodies)
-{
-	CheckIsValid();
-	int ___ret = K2_AttachToComponent(_this.Get(),Parent,SocketName,(int)LocationRule,(int)RotationRule,(int)ScaleRule,bWeldSimulatedBodies?1:0);
-	return ___ret!=0;
 	
 }
 [MethodImplAttribute(MethodImplOptions.InternalCall)]

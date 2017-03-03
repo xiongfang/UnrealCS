@@ -44,10 +44,10 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int Blocked__Offset;
-		public bool Blocked
+		static readonly int bLocked__Offset;
+		public bool bLocked
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), Blocked__Offset, 1, 0, 16, 16);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bLocked__Offset, 1, 0, 16, 16);}
 			
 		}
 		
@@ -62,14 +62,21 @@ namespace UnrealEngine
 		public bool bShouldBeVisible
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShouldBeVisible__Offset, 1, 0, 64, 64);}
-			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bShouldBeVisible__Offset, 1,0,64,64);}
+			
+		}
+		
+		static readonly int bIsStatic__Offset;
+		public bool bIsStatic
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bIsStatic__Offset, 1, 0, 128, 128);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bIsStatic__Offset, 1,0,128,128);}
 			
 		}
 		
 		static readonly int bShouldBlockOnLoad__Offset;
 		public bool bShouldBlockOnLoad
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShouldBlockOnLoad__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bShouldBlockOnLoad__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -188,9 +195,10 @@ namespace UnrealEngine
 			LODPackageNames__Offset=GetPropertyOffset(NativeClassPtr,"LODPackageNames");
 			LevelTransform__Offset=GetPropertyOffset(NativeClassPtr,"LevelTransform");
 			bShouldBeVisibleInEditor__Offset=GetPropertyOffset(NativeClassPtr,"bShouldBeVisibleInEditor");
-			Blocked__Offset=GetPropertyOffset(NativeClassPtr,"Blocked");
+			bLocked__Offset=GetPropertyOffset(NativeClassPtr,"bLocked");
 			bShouldBeLoaded__Offset=GetPropertyOffset(NativeClassPtr,"bShouldBeLoaded");
 			bShouldBeVisible__Offset=GetPropertyOffset(NativeClassPtr,"bShouldBeVisible");
+			bIsStatic__Offset=GetPropertyOffset(NativeClassPtr,"bIsStatic");
 			bShouldBlockOnLoad__Offset=GetPropertyOffset(NativeClassPtr,"bShouldBlockOnLoad");
 			LevelLODIndex__Offset=GetPropertyOffset(NativeClassPtr,"LevelLODIndex");
 			bDisableDistanceStreaming__Offset=GetPropertyOffset(NativeClassPtr,"bDisableDistanceStreaming");

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>The source data for runtime resources.</summary>
-	[StructLayout(LayoutKind.Explicit,Size=336)]
+	[StructLayout(LayoutKind.Explicit,Size=352)]
 	public partial struct FGPUSpriteResourceData
 	{
 		/// <summary>Quantized color samples.</summary>
@@ -102,24 +102,43 @@ namespace UnrealEngine
 		/// <summary>Bias applied to relative time upon collision.</summary>
 		[FieldOffset(300)]
 		public float CollisionTimeBias;
-		/// <summary>One minus the coefficient of friction applied to particles upon collision.</summary>
+		/// <summary>Control on reflection's random distribution spread.</summary>
 		[FieldOffset(304)]
+		public float CollisionRandomSpread;
+		/// <summary>Control on reflection's random distribution when colliding. (1=uniform distribution)</summary>
+		[FieldOffset(308)]
+		public float CollisionRandomDistribution;
+		/// <summary>One minus the coefficient of friction applied to particles upon collision.</summary>
+		[FieldOffset(312)]
 		public float OneMinusFriction;
 		/// <summary>Scale to apply to per-particle rotation rate.</summary>
-		[FieldOffset(308)]
+		[FieldOffset(316)]
 		public float RotationRateScale;
 		/// <summary>How much to stretch sprites based on camera motion blur.</summary>
-		[FieldOffset(312)]
+		[FieldOffset(320)]
 		public float CameraMotionBlurAmount;
 		/// <summary>Screen alignment for particles.</summary>
-		[FieldOffset(316)]
+		[FieldOffset(324)]
 		public EParticleScreenAlignment ScreenAlignment;
 		/// <summary>The method for locking the particles to a particular axis.</summary>
-		[FieldOffset(317)]
+		[FieldOffset(325)]
 		public EParticleAxisLock LockAxisFlag;
 		/// <summary>Pivot offset in UV space for placing the verts of each particle.</summary>
-		[FieldOffset(320)]
+		[FieldOffset(328)]
 		public FVector2D PivotOffset;
+		/// <summary>If true, removes the HMD view roll (e.g. in VR)</summary>
+		public bool bRemoveHMDRoll
+		{
+			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 336, 1, 0, 1, 1); } }}
+			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 336, 1, 0, 1, 1); } }}
+			
+		}
+		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_Square</summary>
+		[FieldOffset(340)]
+		public float MinFacingCameraBlendDistance;
+		/// <summary>The distance at which PSA_FacingCameraDistanceBlend    is fully PSA_FacingCameraPosition</summary>
+		[FieldOffset(344)]
+		public float MaxFacingCameraBlendDistance;
 		
 	}
 	

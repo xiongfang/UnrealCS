@@ -6,23 +6,23 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Represents the appearance of an SEditableText</summary>
-	[StructLayout(LayoutKind.Explicit,Size=568)]
+	[StructLayout(LayoutKind.Explicit,Size=608)]
 	public partial struct FEditableTextStyle
 	{
 		/// <summary>Font family and size to be used when displaying this text.</summary>
 		[FieldOffset(8)]
 		public FSlateFontInfo Font;
 		/// <summary>The color and opacity of this text</summary>
-		[FieldOffset(72)]
+		[FieldOffset(112)]
 		public FSlateColor ColorAndOpacity;
 		/// <summary>Background image for the selected text</summary>
-		[FieldOffset(112)]
+		[FieldOffset(152)]
 		public FSlateBrush BackgroundImageSelected;
 		/// <summary>Background image for the selected text</summary>
-		[FieldOffset(264)]
+		[FieldOffset(304)]
 		public FSlateBrush BackgroundImageComposing;
 		/// <summary>Image brush used for the caret</summary>
-		[FieldOffset(416)]
+		[FieldOffset(456)]
 		public FSlateBrush CaretImage;
 		
 	}

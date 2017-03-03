@@ -36,7 +36,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int bUseAccelerationForPaths__Offset;
-		/// <summary>If set, FixedPathBrakingDistance will be used for path following deceleration</summary>
+		/// <summary>If set, pathfollowing will control character movement via acceleration values. If false, it will set velocities directly.</summary>
 		public bool bUseAccelerationForPaths
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseAccelerationForPaths__Offset, 1, 0, 2, 2);}

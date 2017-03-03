@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=112)]
+	[StructLayout(LayoutKind.Explicit,Size=124)]
 	public partial struct FSkeletalMeshLODInfo
 	{
 		[FieldOffset(0)]
@@ -44,6 +44,8 @@ namespace UnrealEngine
 						set{ unsafe { fixed (void* p = &this) { Marshal.StructureToPtr(value.InterArray, new IntPtr(p)+100, false);}}}
 			
 		}
+		[FieldOffset(112)]
+		public FString SourceImportFilename;
 		
 	}
 	

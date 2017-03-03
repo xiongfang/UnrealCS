@@ -6,11 +6,10 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>
-	/// This is a highly experimental component to allow interaction with the Widget Component.  Not
-	/// everything should be expected to work correctly.  This class allows you to simulate a sort of
-	/// laser pointer device, when it hovers over widgets it will send the basic signals to show as if the
-	/// mouse were moving on top of it.  You'll then tell the component to simulate key presses, like
-	/// Left Mouse, down and up, to simulate a mouse click.
+	/// This is a component to allow interaction with the Widget Component.  This class allows you to
+	/// simulate a sort of laser pointer device, when it hovers over widgets it will send the basic signals
+	/// to show as if the mouse were moving on top of it.  You'll then tell the component to simulate key presses,
+	/// like Left Mouse, down and up, to simulate a mouse click.
 	/// </summary>
 	public partial class UWidgetInteractionComponent
 	{
@@ -48,25 +47,21 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int TraceChannel__Offset;
+		/// <summary>The trace channel to use when tracing for widget components in the world.</summary>
+		public ECollisionChannel TraceChannel
+		{
+			get{ CheckIsValid();return (ECollisionChannel)Marshal.PtrToStructure(_this.Get()+TraceChannel__Offset, typeof(ECollisionChannel));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+TraceChannel__Offset, false);}
+			
+		}
+		
 		static readonly int InteractionDistance__Offset;
 		/// <summary>The distance in game units the component should be able to interact with a widget component.</summary>
 		public float InteractionDistance
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+InteractionDistance__Offset, typeof(float));}
 			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InteractionDistance__Offset, false);}
-			
-		}
-		
-		static readonly int InteractionSource__Offset;
-		/// <summary>
-		/// Should we project from the world location of the component?  If you set this to false, you'll
-		/// need to call SetCustomHitResult(), and provide the result of a custom hit test form whatever
-		/// location you wish.
-		/// </summary>
-		public EWidgetInteractionSource InteractionSource
-		{
-			get{ CheckIsValid();return (EWidgetInteractionSource)Marshal.PtrToStructure(_this.Get()+InteractionSource__Offset, typeof(EWidgetInteractionSource));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+InteractionSource__Offset, false);}
 			
 		}
 		
@@ -180,8 +175,8 @@ namespace UnrealEngine
 			OnHoveredWidgetChanged__Offset=GetPropertyOffset(NativeClassPtr,"OnHoveredWidgetChanged");
 			VirtualUserIndex__Offset=GetPropertyOffset(NativeClassPtr,"VirtualUserIndex");
 			PointerIndex__Offset=GetPropertyOffset(NativeClassPtr,"PointerIndex");
+			TraceChannel__Offset=GetPropertyOffset(NativeClassPtr,"TraceChannel");
 			InteractionDistance__Offset=GetPropertyOffset(NativeClassPtr,"InteractionDistance");
-			InteractionSource__Offset=GetPropertyOffset(NativeClassPtr,"InteractionSource");
 			bEnableHitTesting__Offset=GetPropertyOffset(NativeClassPtr,"bEnableHitTesting");
 			bShowDebug__Offset=GetPropertyOffset(NativeClassPtr,"bShowDebug");
 			DebugColor__Offset=GetPropertyOffset(NativeClassPtr,"DebugColor");

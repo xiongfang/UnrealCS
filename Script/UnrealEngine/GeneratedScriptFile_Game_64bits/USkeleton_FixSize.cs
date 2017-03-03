@@ -23,6 +23,21 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int VirtualBoneGuid__Offset;
+		public FGuid VirtualBoneGuid
+		{
+			get{ CheckIsValid();return (FGuid)Marshal.PtrToStructure(_this.Get()+VirtualBoneGuid__Offset, typeof(FGuid));}
+			
+		}
+		
+		static readonly int VirtualBones__Offset;
+		public TStructArray<FVirtualBone> VirtualBones
+		{
+			get{ CheckIsValid();return new TStructArray<FVirtualBone>((FScriptArray)Marshal.PtrToStructure(_this.Get()+VirtualBones__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+VirtualBones__Offset, false);}
+			
+		}
+		
 		static readonly int LinkupCache__Offset;
 		public TStructArray<FSkeletonToMeshLinkup> LinkupCache
 		{
@@ -67,6 +82,8 @@ namespace UnrealEngine
 			IntPtr NativeClassPtr=GetNativeClassFromName("Skeleton");
 			BoneTree__Offset=GetPropertyOffset(NativeClassPtr,"BoneTree");
 			RefLocalPoses__Offset=GetPropertyOffset(NativeClassPtr,"RefLocalPoses");
+			VirtualBoneGuid__Offset=GetPropertyOffset(NativeClassPtr,"VirtualBoneGuid");
+			VirtualBones__Offset=GetPropertyOffset(NativeClassPtr,"VirtualBones");
 			LinkupCache__Offset=GetPropertyOffset(NativeClassPtr,"LinkupCache");
 			Sockets__Offset=GetPropertyOffset(NativeClassPtr,"Sockets");
 			SmartNames__Offset=GetPropertyOffset(NativeClassPtr,"SmartNames");

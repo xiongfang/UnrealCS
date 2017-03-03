@@ -14,14 +14,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int ReflectionSourceType__Offset;
-		public EReflectionSourceType ReflectionSourceType
-		{
-			get{ CheckIsValid();return (EReflectionSourceType)Marshal.PtrToStructure(_this.Get()+ReflectionSourceType__Offset, typeof(EReflectionSourceType));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+ReflectionSourceType__Offset, false);}
-			
-		}
-		
 		static readonly int Cubemap__Offset;
 		public UTextureCube Cubemap
 		{
@@ -65,7 +57,6 @@ namespace UnrealEngine
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("ReflectionCaptureComponent");
 			CaptureOffsetComponent__Offset=GetPropertyOffset(NativeClassPtr,"CaptureOffsetComponent");
-			ReflectionSourceType__Offset=GetPropertyOffset(NativeClassPtr,"ReflectionSourceType");
 			Cubemap__Offset=GetPropertyOffset(NativeClassPtr,"Cubemap");
 			SourceCubemapAngle__Offset=GetPropertyOffset(NativeClassPtr,"SourceCubemapAngle");
 			Brightness__Offset=GetPropertyOffset(NativeClassPtr,"Brightness");

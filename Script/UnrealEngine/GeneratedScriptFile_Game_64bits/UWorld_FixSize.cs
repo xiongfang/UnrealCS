@@ -42,13 +42,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int GameState__Offset;
-		public AGameState GameState
-		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + GameState__Offset); if (v == IntPtr.Zero)return null; AGameState retValue = new AGameState(); retValue._this = v; return retValue; }
-			
-		}
-		
 		static readonly int NetworkManager__Offset;
 		public AGameNetworkManager NetworkManager
 		{
@@ -101,6 +94,13 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int CurrentLevelPendingInvisibility__Offset;
+		public ULevel CurrentLevelPendingInvisibility
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + CurrentLevelPendingInvisibility__Offset); if (v == IntPtr.Zero)return null; ULevel retValue = new ULevel(); retValue._this = v; return retValue; }
+			
+		}
+		
 		static readonly int DemoNetDriver__Offset;
 		public UDemoNetDriver DemoNetDriver
 		{
@@ -130,9 +130,16 @@ namespace UnrealEngine
 		}
 		
 		static readonly int AuthorityGameMode__Offset;
-		public AGameMode AuthorityGameMode
+		public AGameModeBase AuthorityGameMode
 		{
-			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + AuthorityGameMode__Offset); if (v == IntPtr.Zero)return null; AGameMode retValue = new AGameMode(); retValue._this = v; return retValue; }
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + AuthorityGameMode__Offset); if (v == IntPtr.Zero)return null; AGameModeBase retValue = new AGameModeBase(); retValue._this = v; return retValue; }
+			
+		}
+		
+		static readonly int GameState__Offset;
+		public AGameStateBase GameState
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + GameState__Offset); if (v == IntPtr.Zero)return null; AGameStateBase retValue = new AGameStateBase(); retValue._this = v; return retValue; }
 			
 		}
 		
@@ -155,6 +162,14 @@ namespace UnrealEngine
 		{
 					get{ CheckIsValid();return new TObjectArray<ULevel>((FScriptArray)Marshal.PtrToStructure(_this.Get()+Levels__Offset, typeof(FScriptArray)));}
 					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+Levels__Offset, false);}
+			
+		}
+		
+		static readonly int LevelCollections__Offset;
+		public TStructArray<FLevelCollection> LevelCollections
+		{
+			get{ CheckIsValid();return new TStructArray<FLevelCollection>((FScriptArray)Marshal.PtrToStructure(_this.Get()+LevelCollections__Offset, typeof(FScriptArray)));}
+					set{ CheckIsValid();Marshal.StructureToPtr(value.InterArray, _this.Get()+LevelCollections__Offset, false);}
 			
 		}
 		
@@ -204,7 +219,7 @@ namespace UnrealEngine
 		static readonly int bAreConstraintsDirty__Offset;
 		public bool bAreConstraintsDirty
 		{
-			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAreConstraintsDirty__Offset, 1, 0, 128, 128);}
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bAreConstraintsDirty__Offset, 1, 0, 1, 1);}
 			
 		}
 		
@@ -216,7 +231,6 @@ namespace UnrealEngine
 			LineBatcher__Offset=GetPropertyOffset(NativeClassPtr,"LineBatcher");
 			PersistentLineBatcher__Offset=GetPropertyOffset(NativeClassPtr,"PersistentLineBatcher");
 			ForegroundLineBatcher__Offset=GetPropertyOffset(NativeClassPtr,"ForegroundLineBatcher");
-			GameState__Offset=GetPropertyOffset(NativeClassPtr,"GameState");
 			NetworkManager__Offset=GetPropertyOffset(NativeClassPtr,"NetworkManager");
 			PhysicsCollisionHandler__Offset=GetPropertyOffset(NativeClassPtr,"PhysicsCollisionHandler");
 			ExtraReferencedObjects__Offset=GetPropertyOffset(NativeClassPtr,"ExtraReferencedObjects");
@@ -224,14 +238,17 @@ namespace UnrealEngine
 			StreamingLevels__Offset=GetPropertyOffset(NativeClassPtr,"StreamingLevels");
 			StreamingLevelsPrefix__Offset=GetPropertyOffset(NativeClassPtr,"StreamingLevelsPrefix");
 			CurrentLevelPendingVisibility__Offset=GetPropertyOffset(NativeClassPtr,"CurrentLevelPendingVisibility");
+			CurrentLevelPendingInvisibility__Offset=GetPropertyOffset(NativeClassPtr,"CurrentLevelPendingInvisibility");
 			DemoNetDriver__Offset=GetPropertyOffset(NativeClassPtr,"DemoNetDriver");
 			MyParticleEventManager__Offset=GetPropertyOffset(NativeClassPtr,"MyParticleEventManager");
 			DefaultPhysicsVolume__Offset=GetPropertyOffset(NativeClassPtr,"DefaultPhysicsVolume");
 			NavigationSystem__Offset=GetPropertyOffset(NativeClassPtr,"NavigationSystem");
 			AuthorityGameMode__Offset=GetPropertyOffset(NativeClassPtr,"AuthorityGameMode");
+			GameState__Offset=GetPropertyOffset(NativeClassPtr,"GameState");
 			AISystem__Offset=GetPropertyOffset(NativeClassPtr,"AISystem");
 			AvoidanceManager__Offset=GetPropertyOffset(NativeClassPtr,"AvoidanceManager");
 			Levels__Offset=GetPropertyOffset(NativeClassPtr,"Levels");
+			LevelCollections__Offset=GetPropertyOffset(NativeClassPtr,"LevelCollections");
 			CurrentLevel__Offset=GetPropertyOffset(NativeClassPtr,"CurrentLevel");
 			OwningGameInstance__Offset=GetPropertyOffset(NativeClassPtr,"OwningGameInstance");
 			ParameterCollectionInstances__Offset=GetPropertyOffset(NativeClassPtr,"ParameterCollectionInstances");

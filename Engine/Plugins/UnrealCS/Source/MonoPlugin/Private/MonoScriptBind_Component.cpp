@@ -1,8 +1,8 @@
 ﻿// Copyright xg_55,All Rights Reserved.Support E-mail: xg_55@126.com
 // For details, see LICENSE.txt
-
-#include "MonoPluginPrivatePCH.h"
 #include "MonoScriptBind_Component.h"
+#include "MonoPluginPrivatePCH.h"
+
 //#if WITH_MONO
 #include "MonoDomain.h"
 #include "MonoScriptClass.h"

@@ -5,6 +5,10 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
+	/// <summary>
+	/// Cheat Manager is a central blueprint to implement test and debug code and actions that are not to ship with the game.
+	/// As the Cheat Manager is not instanced in shipping builds, it is for debugging purposes only
+	/// </summary>
 	public partial class UCheatManager
 	{
 		static readonly int DebugCameraControllerRef__Offset;
@@ -16,10 +20,7 @@ namespace UnrealEngine
 		}
 		
 		static readonly int DebugCameraControllerClass__Offset;
-		/// <summary>
-		/// Debug camera - used to have independent camera without stopping gameplay.
-		/// If the Outer PlayerController::DebugCameraClass is valid then it is used instead of default DebugCameraController class.
-		/// </summary>
+		/// <summary>Debug camera - used to have independent camera without stopping gameplay</summary>
 		public TSubclassOf<ADebugCameraController>  DebugCameraControllerClass
 		{
 			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + DebugCameraControllerClass__Offset); return v; }

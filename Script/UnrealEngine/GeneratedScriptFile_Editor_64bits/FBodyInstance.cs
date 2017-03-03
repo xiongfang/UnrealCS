@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Container for a physics representation of an object</summary>
-	[StructLayout(LayoutKind.Explicit,Size=432)]
+	[StructLayout(LayoutKind.Explicit,Size=544)]
 	public partial struct FBodyInstance
 	{
 		/// <summary>
@@ -35,7 +35,11 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 116, 1, 0, 2, 2); } }}
 			
 		}
-		/// <summary>If true, this body will use simulation. If false, will be 'fixed' (ie kinematic) and move where it is told.</summary>
+		/// <summary>
+		/// If true, this body will use simulation. If false, will be 'fixed' (ie kinematic) and move where it is told.
+		/// For a Skeletal Mesh Component, simulating requires a physics asset setup and assigned on the SkeletalMesh asset.
+		/// For a Static Mesh Component, simulating requires simple collision to be setup on the StaticMesh asset.
+		/// </summary>
 		public bool bSimulatePhysics
 		{
 			get{ unsafe { fixed (void* p = &this) { return BoolWrap.Get(new IntPtr(p), 116, 1, 0, 4, 4); } }}
@@ -203,31 +207,28 @@ namespace UnrealEngine
 		public FWalkableSlopeOverride WalkableSlopeOverride;
 		/// <summary>Allows you to override the PhysicalMaterial to use for simple collision on this body.</summary>
 		/// <summary>The maximum angular velocity for this instance</summary>
-		[FieldOffset(208)]
+		[FieldOffset(216)]
 		public float MaxAngularVelocity;
 		/// <summary>If the SleepFamily is set to custom, multiply the natural sleep threshold by this amount. A higher number will cause the body to sleep sooner.</summary>
-		[FieldOffset(212)]
+		[FieldOffset(220)]
 		public float CustomSleepThresholdMultiplier;
 		/// <summary>Provide appropriate interface for doing this instead of allowing BlueprintReadWrite *</summary>
-		[FieldOffset(216)]
+		[FieldOffset(224)]
 		public float PhysicsBlendWeight;
 		/// <summary>This physics body's solver iteration count for position. Increasing this will be more CPU intensive, but better stabilized.</summary>
-		[FieldOffset(220)]
+		[FieldOffset(228)]
 		public int PositionSolverIterationCount;
 		/// <summary>Internal use. Physics-engine id of the actor used during serialization. Needs to be outside the ifdef for serialization purposes</summary>
-		[FieldOffset(264)]
+		[FieldOffset(272)]
 		public ulong RigidActorSyncId;
 		/// <summary>Internal use. Physics-engine id of the actor used during serialization.  Needs to be outside the ifdef for serialization purposes</summary>
-		[FieldOffset(272)]
+		[FieldOffset(280)]
 		public ulong RigidActorAsyncId;
 		/// <summary>This physics body's solver iteration count for velocity. Increasing this will be more CPU intensive, but better stabilized.</summary>
-		[FieldOffset(280)]
+		[FieldOffset(288)]
 		public int VelocitySolverIterationCount;
-		/// <summary>The set of values used in considering when put this body to sleep.</summary>
-		[FieldOffset(428)]
-		public ESleepFamily SleepFamily;
 		/// <summary>Locks physical movement along specified axis.</summary>
-		[FieldOffset(429)]
+		[FieldOffset(541)]
 		public EDOFMode DOFMode;
 		/// <summary>
 		/// Type of collision enabled.
@@ -236,10 +237,10 @@ namespace UnrealEngine
 		///      Physics Only      : Only used only for physics simulation (rigid body, constraints). Cannot be used for spatial queries (raycasts, sweeps, overlaps). Useful for jiggly bits on characters that do not need per bone detection. Performance gains by keeping data out of query tree
 		///      Collision Enabled : Can be used for both spatial queries (raycasts, sweeps, overlaps) and simulation (rigid body, constraints).
 		/// </summary>
-		[FieldOffset(430)]
+		[FieldOffset(542)]
 		public ECollisionEnabled CollisionEnabled;
 		/// <summary>Enum indicating what type of object this should be considered as when it moves</summary>
-		[FieldOffset(431)]
+		[FieldOffset(543)]
 		public ECollisionChannel ObjectType;
 		
 	}

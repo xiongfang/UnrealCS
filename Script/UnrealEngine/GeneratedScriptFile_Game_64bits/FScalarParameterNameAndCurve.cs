@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=136)]
+	[StructLayout(LayoutKind.Explicit,Size=128)]
 	public partial struct FScalarParameterNameAndCurve
 	{
 		[FieldOffset(0)]

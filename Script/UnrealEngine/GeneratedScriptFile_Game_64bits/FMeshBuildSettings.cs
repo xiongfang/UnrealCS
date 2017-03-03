@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=56)]
+	[StructLayout(LayoutKind.Explicit,Size=64)]
 	public partial struct FMeshBuildSettings
 	{
 		public bool bUseMikkTSpace
@@ -80,6 +80,8 @@ namespace UnrealEngine
 			set{unsafe { fixed (void* p = &this) { BoolWrap.Set(value, new IntPtr(p), 44, 1, 0, 1, 255); } }}
 			
 		}
+		[FieldOffset(48)]
+		public float DistanceFieldBias;
 		
 	}
 	

@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-	[StructLayout(LayoutKind.Explicit,Size=128)]
+	[StructLayout(LayoutKind.Explicit,Size=120)]
 	public partial struct FRuntimeFloatCurve
 	{
 		[FieldOffset(0)]

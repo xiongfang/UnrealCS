@@ -11,7 +11,6 @@ namespace UnrealEngine
 	{
 		[FieldOffset(0)]
 		public int Indices;
-		/// <summary>MAX_VERTICES @fixmeconst</summary>
 		[FieldOffset(12)]
 		public float Weights;
 		

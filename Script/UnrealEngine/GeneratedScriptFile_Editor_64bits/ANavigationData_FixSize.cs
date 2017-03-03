@@ -72,15 +72,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int RuntimeGeneration__Offset;
-		/// <summary>Navigation data runtime generation options</summary>
-		public ERuntimeGenerationType RuntimeGeneration
-		{
-			get{ CheckIsValid();return (ERuntimeGenerationType)Marshal.PtrToStructure(_this.Get()+RuntimeGeneration__Offset, typeof(ERuntimeGenerationType));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+RuntimeGeneration__Offset, false);}
-			
-		}
-		
 		static readonly int ObservedPathsTickInterval__Offset;
 		/// <summary>all observed paths will be processed every ObservedPathsTickInterval seconds</summary>
 		public float ObservedPathsTickInterval
@@ -117,7 +108,6 @@ namespace UnrealEngine
 			bCanBeMainNavData__Offset=GetPropertyOffset(NativeClassPtr,"bCanBeMainNavData");
 			bCanSpawnOnRebuild__Offset=GetPropertyOffset(NativeClassPtr,"bCanSpawnOnRebuild");
 			bRebuildAtRuntime__Offset=GetPropertyOffset(NativeClassPtr,"bRebuildAtRuntime");
-			RuntimeGeneration__Offset=GetPropertyOffset(NativeClassPtr,"RuntimeGeneration");
 			ObservedPathsTickInterval__Offset=GetPropertyOffset(NativeClassPtr,"ObservedPathsTickInterval");
 			DataVersion__Offset=GetPropertyOffset(NativeClassPtr,"DataVersion");
 			SupportedAreas__Offset=GetPropertyOffset(NativeClassPtr,"SupportedAreas");

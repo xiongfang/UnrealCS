@@ -65,10 +65,11 @@ namespace UnrealEngine
 		}
 		
 		static readonly int BaseFOV__Offset;
-		/// <summary>The FOV</summary>
+		/// <summary>The base FOV that all FOV keys are relative to.</summary>
 		public float BaseFOV
 		{
 			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+BaseFOV__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+BaseFOV__Offset, false);}
 			
 		}
 		

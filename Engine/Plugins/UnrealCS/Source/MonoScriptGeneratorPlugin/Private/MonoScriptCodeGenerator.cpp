@@ -1,8 +1,8 @@
 ﻿// Copyright xg_55,All Rights Reserved.Support E-mail: xg_55@126.com
 // For details, see LICENSE.txt
-
-#include "ScriptGeneratorPluginPrivatePCH.h"
 #include "MonoScriptCodeGenerator.h"
+#include "ScriptGeneratorPluginPrivatePCH.h"
+
 #include "DocHelper.h"
 #include "IPluginManager.h"
 

@@ -150,15 +150,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int CompileMode__Offset;
-		/// <summary>The mode that will be used when compiling this class.</summary>
-		public EBlueprintCompileMode CompileMode
-		{
-			get{ CheckIsValid();return (EBlueprintCompileMode)Marshal.PtrToStructure(_this.Get()+CompileMode__Offset, typeof(EBlueprintCompileMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+CompileMode__Offset, false);}
-			
-		}
-		
 		static readonly int SimpleConstructionScript__Offset;
 		/// <summary>'Simple' construction script - graph of components to instance</summary>
 		public USimpleConstructionScript SimpleConstructionScript
@@ -390,6 +381,14 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int bNativize__Offset;
+		/// <summary>Deprecated properties.</summary>
+		public bool bNativize
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bNativize__Offset, 1, 0, 1, 255);}
+			
+		}
+		
 		static UBlueprint()
 		{
 			IntPtr NativeClassPtr=GetNativeClassFromName("Blueprint");
@@ -409,7 +408,6 @@ namespace UnrealEngine
 			bDisplayCompilePIEWarning__Offset=GetPropertyOffset(NativeClassPtr,"bDisplayCompilePIEWarning");
 			SearchGuid__Offset=GetPropertyOffset(NativeClassPtr,"SearchGuid");
 			bDeprecate__Offset=GetPropertyOffset(NativeClassPtr,"bDeprecate");
-			CompileMode__Offset=GetPropertyOffset(NativeClassPtr,"CompileMode");
 			SimpleConstructionScript__Offset=GetPropertyOffset(NativeClassPtr,"SimpleConstructionScript");
 			UbergraphPages__Offset=GetPropertyOffset(NativeClassPtr,"UbergraphPages");
 			FunctionGraphs__Offset=GetPropertyOffset(NativeClassPtr,"FunctionGraphs");
@@ -436,6 +434,7 @@ namespace UnrealEngine
 			CrcLastCompiledCDO__Offset=GetPropertyOffset(NativeClassPtr,"CrcLastCompiledCDO");
 			CrcLastCompiledSignature__Offset=GetPropertyOffset(NativeClassPtr,"CrcLastCompiledSignature");
 			OriginalClass__Offset=GetPropertyOffset(NativeClassPtr,"OriginalClass");
+			bNativize__Offset=GetPropertyOffset(NativeClassPtr,"bNativize");
 			
 		}
 		

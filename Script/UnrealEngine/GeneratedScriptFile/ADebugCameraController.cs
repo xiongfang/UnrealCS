@@ -5,6 +5,15 @@ namespace UnrealEngine{
 public partial class ADebugCameraController:APlayerController 
 {
 [MethodImplAttribute(MethodImplOptions.InternalCall)]
+extern static void SetPawnMovementSpeedScale(IntPtr _this,float NewSpeedScale);
+/// <summary>Sets the pawn movement speed scale.</summary>
+public  void SetPawnMovementSpeedScale(float NewSpeedScale)
+{
+	CheckIsValid();
+	SetPawnMovementSpeedScale(_this.Get(),NewSpeedScale);
+	
+}
+[MethodImplAttribute(MethodImplOptions.InternalCall)]
 extern static IntPtr GetSelectedActor(IntPtr _this);
 public  AActor GetSelectedActor()
 {

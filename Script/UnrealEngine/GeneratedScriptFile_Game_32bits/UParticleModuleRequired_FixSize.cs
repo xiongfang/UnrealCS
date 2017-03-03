@@ -39,6 +39,22 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int MinFacingCameraBlendDistance__Offset;
+		public float MinFacingCameraBlendDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+MinFacingCameraBlendDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MinFacingCameraBlendDistance__Offset, false);}
+			
+		}
+		
+		static readonly int MaxFacingCameraBlendDistance__Offset;
+		public float MaxFacingCameraBlendDistance
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+MaxFacingCameraBlendDistance__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+MaxFacingCameraBlendDistance__Offset, false);}
+			
+		}
+		
 		static readonly int bUseLocalSpace__Offset;
 		public bool bUseLocalSpace
 		{
@@ -76,6 +92,14 @@ namespace UnrealEngine
 		{
 			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bUseLegacyEmitterTime__Offset, 1, 0, 1, 1);}
 			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bUseLegacyEmitterTime__Offset, 1,0,1,1);}
+			
+		}
+		
+		static readonly int bRemoveHMDRoll__Offset;
+		public bool bRemoveHMDRoll
+		{
+			get{ CheckIsValid();return BoolWrap.Get(_this.Get(), bRemoveHMDRoll__Offset, 1, 0, 2, 2);}
+			set{ CheckIsValid();BoolWrap.Set(value,_this.Get(), bRemoveHMDRoll__Offset, 1,0,2,2);}
 			
 		}
 		
@@ -260,6 +284,38 @@ namespace UnrealEngine
 			
 		}
 		
+		static readonly int CutoutTexture__Offset;
+		public UTexture2D CutoutTexture
+		{
+			get{ CheckIsValid(); IntPtr v = Marshal.ReadIntPtr(_this.Get() + CutoutTexture__Offset); if (v == IntPtr.Zero)return null; UTexture2D retValue = new UTexture2D(); retValue._this = v; return retValue; }
+			set{ CheckIsValid(); if (value == null)Marshal.WriteIntPtr(_this.Get() + CutoutTexture__Offset, IntPtr.Zero);else Marshal.WriteIntPtr(_this.Get() + CutoutTexture__Offset, value._this.Get()); }
+			
+		}
+		
+		static readonly int BoundingMode__Offset;
+		public ESubUVBoundingVertexCount BoundingMode
+		{
+			get{ CheckIsValid();return (ESubUVBoundingVertexCount)Marshal.PtrToStructure(_this.Get()+BoundingMode__Offset, typeof(ESubUVBoundingVertexCount));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+BoundingMode__Offset, false);}
+			
+		}
+		
+		static readonly int OpacitySourceMode__Offset;
+		public EOpacitySourceMode OpacitySourceMode
+		{
+			get{ CheckIsValid();return (EOpacitySourceMode)Marshal.PtrToStructure(_this.Get()+OpacitySourceMode__Offset, typeof(EOpacitySourceMode));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+OpacitySourceMode__Offset, false);}
+			
+		}
+		
+		static readonly int AlphaThreshold__Offset;
+		public float AlphaThreshold
+		{
+			get{ CheckIsValid();return (float)Marshal.PtrToStructure(_this.Get()+AlphaThreshold__Offset, typeof(float));}
+			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+AlphaThreshold__Offset, false);}
+			
+		}
+		
 		static readonly int EmitterNormalsMode__Offset;
 		public EEmitterNormalsMode EmitterNormalsMode
 		{
@@ -292,14 +348,6 @@ namespace UnrealEngine
 			
 		}
 		
-		static readonly int UVFlippingMode__Offset;
-		public EParticleUVFlipMode UVFlippingMode
-		{
-			get{ CheckIsValid();return (EParticleUVFlipMode)Marshal.PtrToStructure(_this.Get()+UVFlippingMode__Offset, typeof(EParticleUVFlipMode));}
-			set{ CheckIsValid();Marshal.StructureToPtr(value, _this.Get()+UVFlippingMode__Offset, false);}
-			
-		}
-		
 		static readonly int NamedMaterialOverrides__Offset;
 		public TStructArray<FName> NamedMaterialOverrides
 		{
@@ -315,11 +363,14 @@ namespace UnrealEngine
 			EmitterOrigin__Offset=GetPropertyOffset(NativeClassPtr,"EmitterOrigin");
 			EmitterRotation__Offset=GetPropertyOffset(NativeClassPtr,"EmitterRotation");
 			ScreenAlignment__Offset=GetPropertyOffset(NativeClassPtr,"ScreenAlignment");
+			MinFacingCameraBlendDistance__Offset=GetPropertyOffset(NativeClassPtr,"MinFacingCameraBlendDistance");
+			MaxFacingCameraBlendDistance__Offset=GetPropertyOffset(NativeClassPtr,"MaxFacingCameraBlendDistance");
 			bUseLocalSpace__Offset=GetPropertyOffset(NativeClassPtr,"bUseLocalSpace");
 			bKillOnDeactivate__Offset=GetPropertyOffset(NativeClassPtr,"bKillOnDeactivate");
 			bKillOnCompleted__Offset=GetPropertyOffset(NativeClassPtr,"bKillOnCompleted");
 			SortMode__Offset=GetPropertyOffset(NativeClassPtr,"SortMode");
 			bUseLegacyEmitterTime__Offset=GetPropertyOffset(NativeClassPtr,"bUseLegacyEmitterTime");
+			bRemoveHMDRoll__Offset=GetPropertyOffset(NativeClassPtr,"bRemoveHMDRoll");
 			EmitterDuration__Offset=GetPropertyOffset(NativeClassPtr,"EmitterDuration");
 			EmitterDurationLow__Offset=GetPropertyOffset(NativeClassPtr,"EmitterDurationLow");
 			bEmitterDurationUseRange__Offset=GetPropertyOffset(NativeClassPtr,"bEmitterDurationUseRange");
@@ -343,11 +394,14 @@ namespace UnrealEngine
 			MacroUVRadius__Offset=GetPropertyOffset(NativeClassPtr,"MacroUVRadius");
 			bUseMaxDrawCount__Offset=GetPropertyOffset(NativeClassPtr,"bUseMaxDrawCount");
 			MaxDrawCount__Offset=GetPropertyOffset(NativeClassPtr,"MaxDrawCount");
+			CutoutTexture__Offset=GetPropertyOffset(NativeClassPtr,"CutoutTexture");
+			BoundingMode__Offset=GetPropertyOffset(NativeClassPtr,"BoundingMode");
+			OpacitySourceMode__Offset=GetPropertyOffset(NativeClassPtr,"OpacitySourceMode");
+			AlphaThreshold__Offset=GetPropertyOffset(NativeClassPtr,"AlphaThreshold");
 			EmitterNormalsMode__Offset=GetPropertyOffset(NativeClassPtr,"EmitterNormalsMode");
 			NormalsSphereCenter__Offset=GetPropertyOffset(NativeClassPtr,"NormalsSphereCenter");
 			NormalsCylinderDirection__Offset=GetPropertyOffset(NativeClassPtr,"NormalsCylinderDirection");
 			bOrbitModuleAffectsVelocityAlignment__Offset=GetPropertyOffset(NativeClassPtr,"bOrbitModuleAffectsVelocityAlignment");
-			UVFlippingMode__Offset=GetPropertyOffset(NativeClassPtr,"UVFlippingMode");
 			NamedMaterialOverrides__Offset=GetPropertyOffset(NativeClassPtr,"NamedMaterialOverrides");
 			
 		}
