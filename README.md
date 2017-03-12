@@ -10,7 +10,7 @@ code. It's perfect collaboration with the blueprint. It now supports Windows, Ma
 - Windows 64 bit
 - Windows 32 bit
 - Mac
-- Andriod
+- Android
 
 ios is on the way.
 
