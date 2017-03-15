@@ -86,11 +86,6 @@ namespace UnrealEngine
 			return TArrayToMonoArray(___ret,"UnrealEngine.FName,UnrealEngine");
 			
 		}
-		static void DetachFromParent(USceneComponent* _this,int32 bMaintainWorldPosition,int32 bCallModify)
-		{
-			_this->DetachFromParent(bMaintainWorldPosition>0?true:false,bCallModify>0?true:false);
-			
-		}
 		static int32 K2_AttachTo(USceneComponent* _this,USceneComponent* InParent,MonoString* InSocketName,int32 AttachType,int32 bWeldSimulatedBodies)
 		{
 			FName InSocketName_temp=MonoStringToFName(InSocketName);
@@ -300,7 +295,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.USceneComponent::GetSocketLocation",(const void*)GetSocketLocation);
 			mono_add_internal_call("UnrealEngine.USceneComponent::GetSocketTransform",(const void*)GetSocketTransform);
 			mono_add_internal_call("UnrealEngine.USceneComponent::GetAllSocketNames",(const void*)GetAllSocketNames);
-			mono_add_internal_call("UnrealEngine.USceneComponent::DetachFromParent",(const void*)DetachFromParent);
 			mono_add_internal_call("UnrealEngine.USceneComponent::K2_AttachTo",(const void*)K2_AttachTo);
 			mono_add_internal_call("UnrealEngine.USceneComponent::GetChildrenComponents",(const void*)GetChildrenComponents);
 			mono_add_internal_call("UnrealEngine.USceneComponent::GetChildComponent",(const void*)GetChildComponent);

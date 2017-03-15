@@ -59,42 +59,6 @@ namespace UnrealEngine
 			return FNameToMonoString(___ret);
 			
 		}
-		static float GetCurrentStateElapsedTime(UAnimInstance* _this,int32 MachineIndex)
-		{
-			float ___ret = _this->GetCurrentStateElapsedTime(MachineIndex);
-			return ___ret;
-			
-		}
-		static float GetStateWeight(UAnimInstance* _this,int32 MachineIndex,int32 StateIndex)
-		{
-			float ___ret = _this->GetStateWeight(MachineIndex,StateIndex);
-			return ___ret;
-			
-		}
-		static float GetAnimAssetPlayerTimeFromEndFraction(UAnimInstance* _this,UAnimationAsset* AnimAsset,float CurrentTime)
-		{
-			float ___ret = _this->GetAnimAssetPlayerTimeFromEndFraction(AnimAsset,CurrentTime);
-			return ___ret;
-			
-		}
-		static float GetAnimAssetPlayerTimeFromEnd(UAnimInstance* _this,UAnimationAsset* AnimAsset,float CurrentTime)
-		{
-			float ___ret = _this->GetAnimAssetPlayerTimeFromEnd(AnimAsset,CurrentTime);
-			return ___ret;
-			
-		}
-		static float GetAnimAssetPlayerTimeFraction(UAnimInstance* _this,UAnimationAsset* AnimAsset,float CurrentTime)
-		{
-			float ___ret = _this->GetAnimAssetPlayerTimeFraction(AnimAsset,CurrentTime);
-			return ___ret;
-			
-		}
-		static float GetAnimAssetPlayerLength(UAnimInstance* _this,UAnimationAsset* AnimAsset)
-		{
-			float ___ret = _this->GetAnimAssetPlayerLength(AnimAsset);
-			return ___ret;
-			
-		}
 		static float GetCurveValue(UAnimInstance* _this,MonoString* CurveName)
 		{
 			FName CurveName_temp=MonoStringToFName(CurveName);
@@ -321,13 +285,6 @@ namespace UnrealEngine
 			return ___ret;
 			
 		}
-		static float PlaySlotAnimation(UAnimInstance* _this,UAnimSequenceBase* Asset,MonoString* SlotNodeName,float BlendInTime,float BlendOutTime,float InPlayRate,int32 LoopCount)
-		{
-			FName SlotNodeName_temp=MonoStringToFName(SlotNodeName);
-			float ___ret = _this->PlaySlotAnimation(Asset,SlotNodeName_temp,BlendInTime,BlendOutTime,InPlayRate,LoopCount);
-			return ___ret;
-			
-		}
 		static USkeletalMeshComponent* GetOwningComponent(UAnimInstance* _this)
 		{
 			USkeletalMeshComponent* ___ret = _this->GetOwningComponent();
@@ -369,12 +326,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UAnimInstance::ClearMorphTargets",(const void*)ClearMorphTargets);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::SetMorphTarget",(const void*)SetMorphTarget);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::GetCurrentStateName",(const void*)GetCurrentStateName);
-			mono_add_internal_call("UnrealEngine.UAnimInstance::GetCurrentStateElapsedTime",(const void*)GetCurrentStateElapsedTime);
-			mono_add_internal_call("UnrealEngine.UAnimInstance::GetStateWeight",(const void*)GetStateWeight);
-			mono_add_internal_call("UnrealEngine.UAnimInstance::GetAnimAssetPlayerTimeFromEndFraction",(const void*)GetAnimAssetPlayerTimeFromEndFraction);
-			mono_add_internal_call("UnrealEngine.UAnimInstance::GetAnimAssetPlayerTimeFromEnd",(const void*)GetAnimAssetPlayerTimeFromEnd);
-			mono_add_internal_call("UnrealEngine.UAnimInstance::GetAnimAssetPlayerTimeFraction",(const void*)GetAnimAssetPlayerTimeFraction);
-			mono_add_internal_call("UnrealEngine.UAnimInstance::GetAnimAssetPlayerLength",(const void*)GetAnimAssetPlayerLength);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::GetCurveValue",(const void*)GetCurveValue);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::GetRelevantAnimTimeFraction",(const void*)GetRelevantAnimTimeFraction);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::GetRelevantAnimTime",(const void*)GetRelevantAnimTime);
@@ -413,7 +364,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UAnimInstance::IsPlayingSlotAnimation",(const void*)IsPlayingSlotAnimation);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::StopSlotAnimation",(const void*)StopSlotAnimation);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::PlaySlotAnimationAsDynamicMontage",(const void*)PlaySlotAnimationAsDynamicMontage);
-			mono_add_internal_call("UnrealEngine.UAnimInstance::PlaySlotAnimation",(const void*)PlaySlotAnimation);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::GetOwningComponent",(const void*)GetOwningComponent);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::GetOwningActor",(const void*)GetOwningActor);
 			mono_add_internal_call("UnrealEngine.UAnimInstance::SnapshotPose",(const void*)SnapshotPose);

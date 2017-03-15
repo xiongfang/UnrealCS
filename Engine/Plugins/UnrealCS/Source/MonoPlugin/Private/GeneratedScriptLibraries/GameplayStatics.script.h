@@ -611,12 +611,6 @@ namespace UnrealEngine
 			return ___ret;
 			
 		}
-		static AActor* BeginSpawningActorFromClass(UGameplayStatics* _this,UObject* WorldContextObject,TSubclassOf<AActor>  ActorClass,FTransform* SpawnTransform,int32 bNoCollisionFail,AActor* Owner)
-		{
-			AActor* ___ret = _this->BeginSpawningActorFromClass(WorldContextObject,ActorClass,*SpawnTransform,bNoCollisionFail>0?true:false,Owner);
-			return ___ret;
-			
-		}
 		static UObject* SpawnObject(UGameplayStatics* _this,TSubclassOf<UObject>  ObjectClass,UObject* Outer)
 		{
 			UObject* ___ret = _this->SpawnObject(ObjectClass,Outer);
@@ -726,7 +720,6 @@ namespace UnrealEngine
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetActorArrayBounds",(const void*)GetActorArrayBounds);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::GetActorArrayAverageLocation",(const void*)GetActorArrayAverageLocation);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::FinishSpawningActor",(const void*)FinishSpawningActor);
-			mono_add_internal_call("UnrealEngine.UGameplayStatics::BeginSpawningActorFromClass",(const void*)BeginSpawningActorFromClass);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::SpawnObject",(const void*)SpawnObject);
 			mono_add_internal_call("UnrealEngine.UGameplayStatics::StaticClass",(const void*)StaticClass);
 			
