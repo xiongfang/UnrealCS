@@ -1,7 +1,9 @@
 // Copyright xg_55,All Rights Reserved.Support E-mail: xg_55@126.com
 // For details, see LICENSE.txt
 #pragma once
-#include "CoreUObject.h"
+
+#include "Headers_Core.h"
+#include "Headers_CoreUObject.h"
 
 DECLARE_LOG_CATEGORY_EXTERN(LogMonoHelper, Log, All);
 

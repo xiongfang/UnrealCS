@@ -3,13 +3,21 @@
 
 #pragma once
 
+#include "Headers_Core.h"
+#include "Headers_CoreUObject.h"
+#include "Headers_Engine.h"
+
 #include "IMonoPlugin.h"
-#include "CoreUObject.h"
+
+
+
+
 #include "ModuleManager.h"
-#include "Engine.h"
-#include "UMG.h"
+#include "Engine/EngineTypes.h"
+#include "Tickable.h"
+
 #if WITH_EDITOR
-#include "UnrealEd.h"
+#include "Editor.h"
 #endif
 
 #if WITH_MONO
