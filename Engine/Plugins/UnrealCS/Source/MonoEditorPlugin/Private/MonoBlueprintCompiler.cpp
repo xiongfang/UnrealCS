@@ -78,7 +78,7 @@ void FMonoBlueprintCompiler::CreateClassVariablesFromBlueprint()
 {
 	Super::CreateClassVariablesFromBlueprint();
 
-	UMonoBlueprint* Blueprint = ScriptBlueprint();
+	UMonoBlueprint* MyBlueprint = ScriptBlueprint();
 	UMonoScriptClass* NewScripClass = CastChecked<UMonoScriptClass>(NewClass);
 	NewScripClass->ScriptProperties.Empty();
 
@@ -97,7 +97,7 @@ void FMonoBlueprintCompiler::CreateClassVariablesFromBlueprint()
 				UProperty* ScriptProperty = CreateVariable(Field.Name, ScriptPinType);
 				if (ScriptProperty != NULL)
 				{
-					ScriptProperty->SetMetaData(TEXT("Category"), *Blueprint->GetName());
+					ScriptProperty->SetMetaData(TEXT("Category"), *MyBlueprint->GetName());
 					ScriptProperty->SetPropertyFlags(CPF_BlueprintVisible | CPF_Edit);
 					NewScripClass->ScriptProperties.Add(ScriptProperty);
 				}
@@ -195,13 +195,13 @@ void FMonoBlueprintCompiler::CreateScriptDefinedFunction(FScriptField& Field)
 
 void FMonoBlueprintCompiler::FinishCompilingClass(UClass* Class)
 {
-	UMonoBlueprint* Blueprint = ScriptBlueprint();
+	UMonoBlueprint* MyBlueprint = ScriptBlueprint();
 
 	UMonoScriptClass* ScriptClass = CastChecked<UMonoScriptClass>(Class);
-	ScriptClass->ClassName = Blueprint->ClassName;
+	ScriptClass->ClassName = MyBlueprint->ClassName;
 
 	// Allow Blueprint Components to be used in Blueprints
-	if (Blueprint->ParentClass->IsChildOf(UActorComponent::StaticClass()) && Class != Blueprint->SkeletonGeneratedClass)
+	if (MyBlueprint->ParentClass->IsChildOf(UActorComponent::StaticClass()) && Class != MyBlueprint->SkeletonGeneratedClass)
 	{
 		Class->SetMetaData(TEXT("BlueprintSpawnableComponent"), TEXT("true"));
 	}

@@ -39,6 +39,17 @@ FMonoScriptCodeGenerator::FMonoScriptCodeGenerator(const FString& RootLocalPath,
 	BlackList.AddFunction("MatineeActor", "EnableGroupByName");
 	BlackList.AddFunction("PlanarReflection", "OnInterpToggle");
 
+
+	//deprecated
+	BlackList.AddFunction("AnimInstance", "GetCurrentStateElapsedTime");
+	BlackList.AddFunction("AnimInstance", "GetStateWeight");
+	BlackList.AddFunction("AnimInstance", "GetAnimAssetPlayerTimeFromEndFraction");
+	BlackList.AddFunction("AnimInstance", "GetAnimAssetPlayerTimeFromEnd");
+	BlackList.AddFunction("AnimInstance", "GetAnimAssetPlayerTimeFraction");
+	BlackList.AddFunction("AnimInstance", "GetAnimAssetPlayerLength");
+	BlackList.AddFunction("AnimInstance", "PlaySlotAnimation");
+	BlackList.AddFunction("SceneComponent", "DetachFromParent");
+	BlackList.AddFunction("GameplayStatics", "BeginSpawningActorFromClass");
 }
 
 void FMonoScriptCodeGenerator::FinishExport()
