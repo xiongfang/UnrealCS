@@ -33,7 +33,7 @@ void UMonoScriptBind_Component::OnRegister()
 	auto ScriptClass = UMonoScriptClass::GetScriptGeneratedClass(GetClass());
 	if (ScriptClass && GetWorld() && GetWorld()->WorldType != EWorldType::Editor)
 	{
-		Context = FScriptContextBase::CreateContext(ScriptClass->ClassName, ScriptClass, this);
+		Context.Reset(FScriptContextBase::CreateContext(ScriptClass->ClassName, ScriptClass, this));
 		if (!Context)
 		{
 			bAutoActivate = false;
@@ -62,8 +62,8 @@ void UMonoScriptBind_Component::InitDefault()
 	auto ScriptClass = UMonoScriptClass::GetScriptGeneratedClass(GetClass());
 	if (ScriptClass)
 	{
-		TAutoPtr<FScriptContextBase> TempContext;
-		TempContext = FScriptContextBase::CreateContext(ScriptClass->ClassName, ScriptClass, this);
+		TUniquePtr<FScriptContextBase> TempContext;
+		TempContext.Reset(FScriptContextBase::CreateContext(ScriptClass->ClassName, ScriptClass, this));
 		if (!TempContext)
 		{
 			bAutoActivate = false;
@@ -182,7 +182,7 @@ void UMonoScriptBind_Component::InvokeMonoEventThunk(FFrame& Stack, RESULT_DECL)
 void UMonoScriptBind_Component::HotReloadData()
 {
 	//查找方法
-	FMonoContext* MonoContext = (FMonoContext*)Context.GetOwnedPointer();
+	FMonoContext* MonoContext = (FMonoContext*)Context.Get();
 	methodInitializeComponent = MonoContext->FindMethod("InitializeComponent", 0);
 	methodOnRegister = MonoContext->FindMethod("OnRegister", 0);
 	methodOnUnregister = MonoContext->FindMethod("OnUnregister", 0);

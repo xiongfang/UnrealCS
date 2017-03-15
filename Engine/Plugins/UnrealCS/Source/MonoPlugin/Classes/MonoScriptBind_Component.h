@@ -50,7 +50,7 @@ public:
 	void InitDefault();
 
 	//_UObject需要用到这个方法
-	FScriptContextBase* GetContext() { return Context; }
+	FScriptContextBase* GetContext() { return Context.Get(); }
 protected:
 	void HotReloadData();
 
@@ -58,5 +58,5 @@ protected:
 	MonoMethod* methodOnRegister;
 	MonoMethod* methodOnUnregister;
 
-	TAutoPtr<FScriptContextBase> Context;
+	TUniquePtr<FScriptContextBase> Context;
 };
