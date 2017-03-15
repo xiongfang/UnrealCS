@@ -12,7 +12,7 @@ DEFINE_LOG_CATEGORY(LogScriptGenerator);
 class FScriptGeneratorPlugin : public IScriptGeneratorPlugin
 {
 	/** Specialized script code generator */
-	TAutoPtr<FScriptCodeGeneratorBase> CodeGenerator;
+	TUniquePtr<FScriptCodeGeneratorBase> CodeGenerator;
 
 	/** IModuleInterface implementation */
 	virtual void StartupModule() override;
@@ -67,7 +67,7 @@ void FScriptGeneratorPlugin::Initialize(const FString& RootLocalPath, const FStr
 {
 
     UE_LOG(LogScriptGenerator, Log, TEXT("Using Mono Script Generator."));
-    CodeGenerator = new FMonoScriptCodeGenerator(RootLocalPath, RootBuildPath, OutputDirectory, IncludeBase);
+    CodeGenerator.Reset(new FMonoScriptCodeGenerator(RootLocalPath, RootBuildPath, OutputDirectory, IncludeBase));
 	UE_LOG(LogScriptGenerator, Log, TEXT("Output directory: %s"), *OutputDirectory);
 }
 

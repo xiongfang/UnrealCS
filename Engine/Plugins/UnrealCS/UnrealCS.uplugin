@@ -18,18 +18,18 @@
 			"Name" : "MonoHelper",
 			"Type" : "Runtime",
 			"LoadingPhase" : "PreDefault",
-			"WhitelistPlatforms": [ "Win64","Win32","Android" ]
+			"WhitelistPlatforms": [ "Win64","Win32","Android","Mac" ]
 		},
 		{
 			"Name" : "MonoPlugin",
 			"Type" : "Runtime",
 			"LoadingPhase" : "PreDefault",
-			"WhitelistPlatforms": [ "Win64","Win32","Android" ]
+			"WhitelistPlatforms": [ "Win64","Win32","Android","Mac" ]
 		},
 		{
 			"Name" : "MonoEditorPlugin",
 			"Type" : "Editor",
-			"WhitelistPlatforms": [ "Win64","Win32","Android" ]
+			"WhitelistPlatforms": [ "Win64","Win32","Android","Mac" ]
 		}
 	]
 }

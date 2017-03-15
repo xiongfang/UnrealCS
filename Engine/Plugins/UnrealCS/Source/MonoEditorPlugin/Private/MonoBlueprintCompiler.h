@@ -53,7 +53,7 @@ protected:
 	/** New script class */
 	UMonoScriptClass* NewScriptBlueprintClass;
 	/** Script context */
-	TAutoPtr<FScriptContextBase> ScriptContext;
+	TUniquePtr<FScriptContextBase> ScriptContext;
 	/** Script-defined properties and functions */
 	TArray<FScriptField> ScriptDefinedFields;
 	/** Script context property generated for the compiled class */

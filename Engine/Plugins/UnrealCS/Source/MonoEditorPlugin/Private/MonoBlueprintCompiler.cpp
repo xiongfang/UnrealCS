@@ -136,7 +136,7 @@ void FMonoBlueprintCompiler::CreateFunctionList()
 {
 	//´´½¨º¯Êý
 	UMonoScriptClass* NewScriptClass = CastChecked<UMonoScriptClass>(NewClass);
-	NewScriptClass->Init(ScriptContext);
+	NewScriptClass->Init(ScriptContext.Get());
 
 	Super::CreateFunctionList();
 
@@ -220,7 +220,7 @@ void FMonoBlueprintCompiler::FinishCompilingClass(UClass* Class)
 void FMonoBlueprintCompiler::Compile()
 {
 	ScriptBlueprint()->UpdateSourceCodeIfChanged();
-	ScriptContext = FScriptContextBase::CreateContext(ScriptBlueprint()->ClassName, NULL, NULL);
+	ScriptContext.Reset(FScriptContextBase::CreateContext(ScriptBlueprint()->ClassName, NULL, NULL));
 	bool Result = true;
 	if (ScriptContext.IsValid())
 	{

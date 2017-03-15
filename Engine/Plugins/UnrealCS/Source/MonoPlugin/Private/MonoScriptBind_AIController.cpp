@@ -32,7 +32,7 @@ void AMonoScriptBind_AIController::BeginPlay()
 	auto ScriptClass = UMonoScriptClass::GetScriptGeneratedClass(GetClass());
 	if (ScriptClass && GetWorld() && GetWorld()->WorldType != EWorldType::Editor)
 	{
-		Context = FScriptContextBase::CreateContext(ScriptClass->ClassName, ScriptClass, this);
+		Context.Reset(FScriptContextBase::CreateContext(ScriptClass->ClassName, ScriptClass, this));
 	}
 	if (Context)
 	{

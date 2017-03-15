@@ -20,5 +20,5 @@ public:
 	void HotReload();
 #endif
 protected:
-	TAutoPtr<FScriptContextBase> Context;
+	TUniquePtr<FScriptContextBase> Context;
 };
