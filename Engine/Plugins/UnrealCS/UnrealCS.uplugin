@@ -1,6 +1,6 @@
 {
 	"FileVersion" : 3,
-	
+	"MarketplaceURL" : "com.epicgames.launcher://ue/marketplace/content/b34ba80007834687ae57a556a57b05f4",
 	"FriendlyName" : "UnrealCS - C# Script Plugin",
 	"Version" : 1,
 	"VersionName" : "1.0",
