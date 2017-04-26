@@ -30,7 +30,7 @@ static MonoAssembly* assembly_preload_hook(MonoAssemblyName *aname, char **assem
 	auto AsmName = FString(ANSI_TO_TCHAR(name));
 	auto AsmCulture = FString(ANSI_TO_TCHAR(culture));
 
-	//加上后缀名
+
 	if (!AsmName.EndsWith(TEXT(".dll"), ESearchCase::IgnoreCase))
 	{
 		AsmName = AsmName + TEXT(".dll");
@@ -41,16 +41,8 @@ static MonoAssembly* assembly_preload_hook(MonoAssemblyName *aname, char **assem
     }
 
     {
-//        // Check if we already have the assembly in memory
-//        char path2 [1024];
-//        snprintf (path2, sizeof (path2), "%s", name);
-//        // strip off the extension
-//        char *dot = strrchr (path2, '.');
-//        if (strncmp (dot, ".dll", 4) == 0)
-//            *dot = 0;
-        //MonoAssemblyName *aname2 = mono_assembly_name_new (path2);
+
         MonoAssembly* assembly = mono_assembly_loaded (aname);
-        //mono_assembly_name_free (aname2);
         if (assembly)
         {
             UE_LOG(LogMono, Log, TEXT("return loaded asm '%s'."), *name);
@@ -78,8 +70,7 @@ static MonoAssembly* assembly_preload_hook(MonoAssemblyName *aname, char **assem
 #endif
 		}
         
-        //转为绝对路径
-        
+        //Convert to absolute path
         auto AsmPath = FPaths::Combine(*LoadPath, *AsmName);
 		if (!FPaths::FileExists(AsmPath))
 		{
@@ -115,7 +106,7 @@ static MonoAssembly* assembly_preload_hook(MonoAssemblyName *aname, char **assem
         
         if(image == nullptr)
         {
-			//从档案加载
+			//load from IFileManager
 			IFileManager& FileManager = IFileManager::Get();
 			auto Reader = FileManager.CreateFileReader(*AsmPath);
 			if (!Reader)
@@ -130,9 +121,9 @@ static MonoAssembly* assembly_preload_hook(MonoAssemblyName *aname, char **assem
 
 			image = mono_image_open_from_data_with_name((char*)Data, Size, true, &status, false, name);
 
-			//释放读取的文件
+			//free data
 			FMemory::Free(Data);
-			//关闭文件，这样可以热更
+			//close file.this can hot reload
 			Reader->Close();
 
         }
@@ -191,7 +182,7 @@ static void install_preload_hook(const FString& MonoRuntimeDirectory, const FStr
 	MonoPreloadSearchPaths.Add(*MonoRuntimeDirectory);
 }
 
-//日志回调
+//mono runtime callback
 extern "C" void MonoPrintf(const char *string, mono_bool is_stdout)
 {
 #if !NO_LOGGING
@@ -228,7 +219,7 @@ extern "C" void MonoLog(const char *log_domain, const char *log_level, const cha
 }
 
 
-//本机热更通知
+//called from maindomain.dll. If the file game.dll changes, notify the editor  hot reload
 void G_NativeReload()
 {
 #if	WITH_MONO_HOTRELOAD
@@ -240,9 +231,8 @@ FMonoDomain* FMonoDomain::Instance = NULL;
 
 void FMonoDomain::Init()
 {
-    //IOS平台以AOT方式运行
+    //On the IOS platform, run in AOT mode
 #if PLATFORM_IOS
-    // 文件
     RegisterMonoModules();
     mono_jit_set_aot_only(true);
 #endif
@@ -294,6 +284,7 @@ void FMonoDomain::Init()
 }
 
 #if WITH_EDITOR
+//help function
 void CopyFolder(const TCHAR* Dest, const  TCHAR* Src)
 {
 	if (!FPaths::DirectoryExists(Dest))
@@ -321,34 +312,25 @@ void CopyFolder(const TCHAR* Dest, const  TCHAR* Src)
 void FMonoDomain::Install()
 {
 	FString PluginDir = IPluginManager::Get().FindPlugin(TEXT("UnrealCS"))->GetBaseDir();
-	//检查内容
+	//Copy Scripts/GameAssemblies to Game Contents directory
 	if (!FPaths::DirectoryExists(FPaths::Combine(*FPaths::GameContentDir(), TEXT("Scripts"), TEXT("GameAssemblies"))))
 	{
-		//复制内容模板到内容目录
 		FString ScriptsDir = FPaths::Combine(*PluginDir, TEXT("Scripts"));
 		CopyFolder(*FPaths::Combine(*FPaths::GameContentDir(), TEXT("Scripts")), *ScriptsDir);
 	}
-	//检查动态库
+	//Copy UnrealCS/EMono to  Binaries/ThirdParty/EMono
 	if (!FPaths::DirectoryExists(FPaths::Combine(*FPaths::EngineDir(), TEXT("Binaries"), TEXT("ThirdParty"), TEXT("EMono"))))
 	{
-		//复制内容模板到内容目录
 		FString BinDir = FPaths::Combine(*PluginDir, TEXT("EMono"));
 		CopyFolder(*FPaths::Combine(*FPaths::EngineDir(), TEXT("Binaries"),TEXT("ThirdParty"), TEXT("EMono")), *BinDir);
 	}
-
-	////检查脚本工程
-	//if (!FPaths::DirectoryExists(FPaths::Combine(*FPaths::GameDir(),TEXT("Project"))))
-	//{
-	//	//复制脚本模板到工程目录
-	//	FString ProjectDir = FPaths::Combine(*FPaths::GamePluginsDir(), TEXT("Mono"), TEXT("Project"));
-	//	CopyFolder(*FPaths::Combine(*FPaths::GameDir(), TEXT("Project")), *ProjectDir);
-	//}
 }
 
 MonoDomain* LastDomain = nullptr;
 
 void FMonoDomain::OnBeginPIE(const bool bIsSimulating)
 {
+	//Create an new app domain for PIE
 	LastDomain = Domain;
 	Domain = CreateGameDomain();
 }
@@ -489,7 +471,6 @@ void FMonoDomain::InitCreateMainDomain()
 	MainDomain = mono_jit_init_version(TCHAR_TO_ANSI(*GameName), TCHAR_TO_ANSI(*monoVersion));
 	check(MainDomain);
 
-	//Mac上的特殊处理
 #if PLATFORM_MAC
 	FModuleStatus MonoRuntimeStatus;
 	FModuleManager::Get().QueryModule("MonoPlugin", MonoRuntimeStatus);
@@ -501,17 +482,16 @@ void FMonoDomain::InitCreateMainDomain()
 		return;
 	}
 
-	//绑定本机代码
+	//bind native method
 	UnrealEngine::MonoBindFunctions();
 	UnrealEngine::ExtFunctionBinds();
 	mono_add_internal_call("MainDomain.Main::NativeReload", (const void*)G_NativeReload);
 	MainImage = mono_assembly_get_image(MainAssembly);
 
-	//调用初始化方法
+	//call MainDomain.Initialize
 	MonoClass* AssemblyMainClass = mono_class_from_name(MainImage, "MainDomain", "Main");
 	if (AssemblyMainClass != NULL)
 	{
-		//内部使用
 		MonoMethod* methodInitialize = mono_class_get_method_from_name(AssemblyMainClass, "Initialize", -1);
 		if (methodInitialize != nullptr)
 		{
@@ -538,7 +518,7 @@ void FMonoDomain::InitCreateMainDomain()
 			else
 			{
 				mainObjectHandle = mono_gchandle_new(mainObject,1);
-				//初始化Game
+				//load game.dll
 				this->HotReload();
 			}
 		}
@@ -556,8 +536,6 @@ void FMonoDomain::ShutDownMainDomain()
 	}
 }
 
-
-//真正的热更
 void FMonoDomain::NativeHotReload()
 {
 	TArray<FString> files;
@@ -582,17 +560,15 @@ void FMonoDomain::NativeHotReload()
 	}
 
 
-	//获取方法
 	MonoClass* MarshalUtilClass = mono_class_from_name(EngineImage, "UnrealEngine", "MarshalUtil");
 	if (MarshalUtilClass != NULL)
 	{
-		//内部使用
 		methodCreateInstance = mono_class_get_method_from_name(MarshalUtilClass, "CreateInstance", -1);
 		methodCreateArray = mono_class_get_method_from_name(MarshalUtilClass, "CreateArray", -1);
 	}
 
 #if WITH_MONO_HOTRELOAD
-	//查找所有导出类
+	//Find all exported classes
 	TArray<FString> ExportedClass;
 
 	MonoClass* AssemblyExportedClass = mono_class_from_name(Image, "Game", "AssemblyExportedClass");
@@ -620,7 +596,7 @@ void FMonoDomain::NativeHotReload()
 		}
 
 	}
-	//生成蓝图脚本
+	//Generate blueprint for each class
 	for (int i = 0; i < ExportedClass.Num(); i++)
 	{
 		MonoClass* C = mono_class_from_name(Image, "Game", TCHAR_TO_ANSI(*ExportedClass[i]));
@@ -628,7 +604,7 @@ void FMonoDomain::NativeHotReload()
 		{
 			UClass* Parent = NULL;
 
-			//查找父类
+			//parent
 			MonoClass* C_Parent = mono_class_get_parent(C);
 			while (C_Parent != NULL)
 			{
@@ -658,6 +634,7 @@ void FMonoDomain::NativeHotReload()
 			{
 
 				UE_LOG(LogMono, Log, TEXT("Found Class %s parent %s"), *ExportedClass[i], Parent != NULL ? *Parent->GetName() : TEXT(" null "));
+				//notify MonoEditor to create blueprint
 				IMonoPlugin::Get().Event_OnNewClass().Broadcast(ExportedClass[i], Parent);
 			}
 		}
@@ -671,7 +648,7 @@ void FMonoDomain::HotReload()
 {
 	UE_LOG(LogMono, Log, TEXT("Start Hot Reload"));
 
-	//移除所有Tick对象
+	//Remove all tickable objects
 	for (int32 i = 0; i < TickObjects.Num(); i++)
 	{
 		if (!TickObjects[i].removed)
@@ -741,6 +718,7 @@ void FMonoDomain::Tick(float DeltaTime)
 {
 
 #if WITH_MONO_HOTRELOAD
+	//if NeedHotReload from MainDomain.dll
 	if (NeedHotReload)
 	{
 		NeedHotReload = false;
@@ -829,11 +807,9 @@ void FMonoDomain::SendCommand(const FString& cmd)
 		PreviousDomain = NULL;
 	}
 
-	//调用初始化方法
 	MonoClass* AssemblyMainClass = mono_class_from_name(MainImage, "MainDomain", "Main");
 	if (AssemblyMainClass != NULL)
 	{
-		//内部使用
 		MonoMethod* methodOnCommand = mono_class_get_method_from_name(AssemblyMainClass, "OnCommand", -1);
 		if (methodOnCommand != nullptr)
 		{
