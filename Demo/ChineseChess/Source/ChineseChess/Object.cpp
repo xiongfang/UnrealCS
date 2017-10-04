@@ -1,0 +1,5 @@
+#include "ChineseChess.h"
+#include "Object.h"
+#include "System_String.h"
+#include "Boolean.h"
+#include "Object_ExtCpp.h"

@@ -1,0 +1,14 @@
+{
+  "name":"pj",
+	"dirs":
+	[
+		"."
+	],
+  "ref_namespace": [
+    "UnrealEngine",
+    "System"
+  ],
+	"ref_type":
+	[
+	]
+}

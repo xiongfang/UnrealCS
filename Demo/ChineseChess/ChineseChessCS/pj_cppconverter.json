@@ -1,0 +1,5261 @@
+{
+  "export_dir": "E:\\Git\\GIT_Projects\\UE_Chess\\ChineseChess\\Source\\ChineseChess",
+  "type_settings": [
+    {
+      "name": "System.Boolean",
+      "ext_header": "Boolean_ExtHeader.h"
+    },
+    {
+      "name": "System.Int32",
+      "ext_header": "Int32_ExtHeader.h",
+      "ext_cpp": "Int32_ExtCpp.h"
+    },
+    {
+      "name": "System.String",
+      "ext_header": "String_ExtHeader.h"
+    },
+    {
+      "name": "System.Console",
+      "ext_cpp": "Console_ExtCpp.h"
+    },
+    {
+      "name": "System.Object",
+      "ext_cpp": "Object_ExtCpp.h"
+    },
+    {
+      "name": "UnrealEngine.UObject",
+      "header_path": "Runtime/CoreUObject/Public/UObject/NoExportTypes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFontBulkData",
+      "header_path": "Runtime/SlateCore/Public/Fonts/FontBulkData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFontFaceInterface",
+      "header_path": "Runtime/SlateCore/Public/Fonts/FontFaceInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFontProviderInterface",
+      "header_path": "Runtime/SlateCore/Public/Fonts/FontProviderInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateTypes",
+      "header_path": "Runtime/SlateCore/Public/Styling/SlateTypes.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateWidgetStyleAsset",
+      "header_path": "Runtime/SlateCore/Public/Styling/SlateWidgetStyleAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateWidgetStyleContainerBase",
+      "header_path": "Runtime/SlateCore/Public/Styling/SlateWidgetStyleContainerBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateWidgetStyleContainerInterface",
+      "header_path": "Runtime/SlateCore/Public/Styling/SlateWidgetStyleContainerInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHandlerComponentFactory",
+      "header_path": "Runtime/PacketHandlers/PacketHandler/Classes/HandlerComponentFactory.h"
+
+    },
+    {
+      "name": "UnrealEngine.AActor",
+      "header_path": "Runtime/Engine/Classes/GameFramework/Actor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UActorComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ActorComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAISystemBase",
+      "header_path": "Runtime/Engine/Classes/AI/AISystemBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimationAsset",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimationAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimClassData",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimClassData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimClassInterface",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimClassInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimInstance",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimInstance.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimMetaData",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimMetaData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimNotify",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimNotifies/AnimNotify.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimNotifyState",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimNotifies/AnimNotifyState.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimSet",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimSet.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimStateMachineTypes",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimStateMachineTypes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAssetImportData",
+      "header_path": "Runtime/Engine/Classes/EditorFramework/AssetImportData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAssetMappingTable",
+      "header_path": "Runtime/Engine/Classes/Animation/AssetMappingTable.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAssetUserData",
+      "header_path": "Runtime/Engine/Classes/Engine/AssetUserData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAutomationTestSettings",
+      "header_path": "Runtime/Engine/Classes/Tests/AutomationTestSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAvoidanceManager",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/AvoidanceManager.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlendableInterface",
+      "header_path": "Runtime/Engine/Classes/Engine/BlendableInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlendProfile",
+      "header_path": "Runtime/Engine/Classes/Animation/BlendProfile.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprintAsyncActionBase",
+      "header_path": "Runtime/Engine/Classes/Kismet/BlueprintAsyncActionBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprintCore",
+      "header_path": "Runtime/Engine/Classes/Engine/BlueprintCore.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprintFunctionLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/BlueprintFunctionLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprintGeneratedClass",
+      "header_path": "Runtime/Engine/Classes/Engine/BlueprintGeneratedClass.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBodySetup",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/BodySetup.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBoneMaskFilter",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimData/BoneMaskFilter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBookMark",
+      "header_path": "Runtime/Engine/Classes/Engine/BookMark.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBookMark2D",
+      "header_path": "Runtime/Engine/Classes/Engine/BookMark2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBreakpoint",
+      "header_path": "Runtime/Engine/Classes/Engine/Breakpoint.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBrushBuilder",
+      "header_path": "Runtime/Engine/Classes/Engine/BrushBuilder.h"
+
+    },
+    {
+      "name": "UnrealEngine.UButtonStyleAsset",
+      "header_path": "Runtime/Engine/Classes/Slate/ButtonStyleAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCameraAnim",
+      "header_path": "Runtime/Engine/Classes/Camera/CameraAnim.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCameraAnimInst",
+      "header_path": "Runtime/Engine/Classes/Camera/CameraAnimInst.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCameraModifier",
+      "header_path": "Runtime/Engine/Classes/Camera/CameraModifier.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCameraShake",
+      "header_path": "Runtime/Engine/Classes/Camera/CameraShake.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCanvas",
+      "header_path": "Runtime/Engine/Classes/Engine/Canvas.h"
+
+    },
+    {
+      "name": "UnrealEngine.UChannel",
+      "header_path": "Runtime/Engine/Classes/Engine/Channel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCheatManager",
+      "header_path": "Runtime/Engine/Classes/GameFramework/CheatManager.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCheckBoxStyleAsset",
+      "header_path": "Runtime/Engine/Classes/Slate/CheckboxStyleAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCommandlet",
+      "header_path": "Runtime/Engine/Classes/Commandlets/Commandlet.h"
+
+    },
+    {
+      "name": "UnrealEngine.UConsole",
+      "header_path": "Runtime/Engine/Classes/Engine/Console.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCurveBase",
+      "header_path": "Runtime/Engine/Classes/Curves/CurveBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDEPRECATED_CurveEdPresetCurve",
+      "header_path": "Runtime/Engine/Classes/Curves/CurveEdPresetCurve.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCurveSourceInterface",
+      "header_path": "Runtime/Engine/Classes/Animation/CurveSourceInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCurveTable",
+      "header_path": "Runtime/Engine/Classes/Engine/CurveTable.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDamageType",
+      "header_path": "Runtime/Engine/Classes/GameFramework/DamageType.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDataAsset",
+      "header_path": "Runtime/Engine/Classes/Engine/DataAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDataTable",
+      "header_path": "Runtime/Engine/Classes/Engine/DataTable.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDestructibleFractureSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/DestructibleFractureSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDeveloperSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/DeveloperSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDeviceProfileManager",
+      "header_path": "Runtime/Engine/Classes/DeviceProfiles/DeviceProfileManager.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDialogueVoice",
+      "header_path": "Runtime/Engine/Classes/Sound/DialogueVoice.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDialogueWave",
+      "header_path": "Runtime/Engine/Classes/Sound/DialogueWave.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistribution",
+      "header_path": "Runtime/Engine/Classes/Distributions/Distribution.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDPICustomScalingRule",
+      "header_path": "Runtime/Engine/Classes/Engine/DPICustomScalingRule.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDynamicBlueprintBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/DynamicBlueprintBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEdGraph",
+      "header_path": "Runtime/Engine/Classes/EdGraph/EdGraph.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEdGraphNode",
+      "header_path": "Runtime/Engine/Classes/EdGraph/EdGraphNode.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEdGraphPin_Deprecated",
+      "header_path": "Runtime/Engine/Classes/EdGraph/EdGraphPin.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEdGraphSchema",
+      "header_path": "Runtime/Engine/Classes/EdGraph/EdGraphSchema.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEndUserSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/EndUserSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEngine",
+      "header_path": "Runtime/Engine/Classes/Engine/Engine.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEngineBaseTypes",
+      "header_path": "Runtime/Engine/Classes/Engine/EngineBaseTypes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEngineHandlerComponentFactory",
+      "header_path": "Runtime/Engine/Classes/PacketHandlers/EngineHandlerComponentFactory.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEngineTypes",
+      "header_path": "Runtime/Engine/Classes/Engine/EngineTypes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UExporter",
+      "header_path": "Runtime/Engine/Classes/Exporters/Exporter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFont",
+      "header_path": "Runtime/Engine/Classes/Engine/Font.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFontFace",
+      "header_path": "Runtime/Engine/Classes/Engine/FontFace.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFontImportOptions",
+      "header_path": "Runtime/Engine/Classes/Engine/FontImportOptions.h"
+
+    },
+    {
+      "name": "UnrealEngine.UForceFeedbackAttenuation",
+      "header_path": "Runtime/Engine/Classes/GameFramework/ForceFeedbackAttenuation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UForceFeedbackEffect",
+      "header_path": "Runtime/Engine/Classes/GameFramework/ForceFeedbackEffect.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGameInstance",
+      "header_path": "Runtime/Engine/Classes/Engine/GameInstance.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGameUserSettings",
+      "header_path": "Runtime/Engine/Classes/GameFramework/GameUserSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHapticFeedbackEffect_Base",
+      "header_path": "Runtime/Engine/Classes/Haptics/HapticFeedbackEffect_Base.h"
+
+    },
+    {
+      "name": "UnrealEngine.UImportantToggleSettingInterface",
+      "header_path": "Runtime/Engine/Classes/Engine/ImportantToggleSettingInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInheritableComponentHandler",
+      "header_path": "Runtime/Engine/Classes/Engine/InheritableComponentHandler.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputSettings",
+      "header_path": "Runtime/Engine/Classes/GameFramework/InputSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterface_AssetUserData",
+      "header_path": "Runtime/Engine/Classes/Interfaces/Interface_AssetUserData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterface_CollisionDataProvider",
+      "header_path": "Runtime/Engine/Classes/Interfaces/Interface_CollisionDataProvider.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterface_PostProcessVolume",
+      "header_path": "Runtime/Engine/Classes/Interfaces/Interface_PostProcessVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpCurveEdSetup",
+      "header_path": "Runtime/Engine/Classes/Engine/InterpCurveEdSetup.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpData",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpFilter",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpFilter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpGroup",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpGroup.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpGroupInst",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpGroupInst.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrack",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInst",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInst.h"
+
+    },
+    {
+      "name": "UnrealEngine.UIntSerialization",
+      "header_path": "Runtime/Engine/Classes/Engine/IntSerialization.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULayer",
+      "header_path": "Runtime/Engine/Classes/Layers/Layer.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULevel",
+      "header_path": "Runtime/Engine/Classes/Engine/Level.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULevelStreaming",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelStreaming.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULightmappedSurfaceCollection",
+      "header_path": "Runtime/Engine/Classes/Lightmass/LightmappedSurfaceCollection.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULightmassPrimitiveSettingsObject",
+      "header_path": "Runtime/Engine/Classes/Lightmass/LightmassPrimitiveSettingsObject.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULocalMessage",
+      "header_path": "Runtime/Engine/Classes/GameFramework/LocalMessage.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMapBuildDataRegistry",
+      "header_path": "Runtime/Engine/Classes/Engine/MapBuildDataRegistry.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpression",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpression.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialFunction",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialFunction.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialInterface",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialParameterCollection",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialParameterCollection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialParameterCollectionInstance",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialParameterCollectionInstance.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMatineeAnimInterface",
+      "header_path": "Runtime/Engine/Classes/Matinee/MatineeAnimInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMatineeInterface",
+      "header_path": "Runtime/Engine/Classes/Matinee/MatineeInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UModel",
+      "header_path": "Runtime/Engine/Classes/Intrinsic/Model.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMorphTarget",
+      "header_path": "Runtime/Engine/Classes/Animation/MorphTarget.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavAgentInterface",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAgentInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavArea",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAreas/NavArea.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavCollision",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavCollision.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavEdgeProviderInterface",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavEdgeProviderInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationDataChunk",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationDataChunk.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationPath",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationPath.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationPathGenerator",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationPathGenerator.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationQueryFilter",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavFilters/NavigationQueryFilter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationTypes",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationTypes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavLinkCustomInterface",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkCustomInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavLinkDefinition",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkDefinition.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavLinkHostInterface",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkHostInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavNodeInterface",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavNodeInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavPathObserverInterface",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavPathObserverInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavRelevantInterface",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavRelevantInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNetDriver",
+      "header_path": "Runtime/Engine/Classes/Engine/NetDriver.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNetworkPredictionInterface",
+      "header_path": "Runtime/Engine/Classes/Interfaces/NetworkPredictionInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UObjectLibrary",
+      "header_path": "Runtime/Engine/Classes/Engine/ObjectLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UObjectReferencer",
+      "header_path": "Runtime/Engine/Classes/Engine/ObjectReferencer.h"
+
+    },
+    {
+      "name": "UnrealEngine.UOnlineBlueprintCallProxyBase",
+      "header_path": "Runtime/Engine/Public/Net/OnlineBlueprintCallProxyBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UOnlineEngineInterface",
+      "header_path": "Runtime/Engine/Public/Net/OnlineEngineInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UOnlineSession",
+      "header_path": "Runtime/Engine/Classes/GameFramework/OnlineSession.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPackageMapClient",
+      "header_path": "Runtime/Engine/Classes/Engine/PackageMapClient.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleEmitter",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleEmitter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleLODLevel",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleLODLevel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModule",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleModule.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleEventSendToGame",
+      "header_path": "Runtime/Engine/Classes/Particles/Event/ParticleModuleEventSendToGame.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleSystem",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleSystem.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleSystemReplay",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleSystemReplay.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPendingNetGame",
+      "header_path": "Runtime/Engine/Classes/Engine/PendingNetGame.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicalMaterial",
+      "header_path": "Runtime/Engine/Classes/PhysicalMaterials/PhysicalMaterial.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDEPRECATED_PhysicalMaterialPropertyBase",
+      "header_path": "Runtime/Engine/Classes/PhysicalMaterials/PhysicalMaterialPropertyBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsAsset",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsCollisionHandler",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsCollisionHandler.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsConstraintTemplate",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsConstraintTemplate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsSerializer",
+      "header_path": "Runtime/Engine/Public/PhysicsSerializer.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlatformInterfaceBase",
+      "header_path": "Runtime/Engine/Classes/Engine/PlatformInterfaceBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlatformInterfaceWebResponse",
+      "header_path": "Runtime/Engine/Classes/Engine/PlatformInterfaceWebResponse.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlayer",
+      "header_path": "Runtime/Engine/Classes/Engine/Player.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlayerInput",
+      "header_path": "Runtime/Engine/Classes/GameFramework/PlayerInput.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPolys",
+      "header_path": "Runtime/Engine/Classes/Engine/Polys.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPoseWatch",
+      "header_path": "Runtime/Engine/Classes/Engine/PoseWatch.h"
+
+    },
+    {
+      "name": "UnrealEngine.UReporterBase",
+      "header_path": "Runtime/Engine/Classes/Debug/ReporterBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UReverbEffect",
+      "header_path": "Runtime/Engine/Classes/Sound/ReverbEffect.h"
+
+    },
+    {
+      "name": "UnrealEngine.URig",
+      "header_path": "Runtime/Engine/Classes/Animation/Rig.h"
+
+    },
+    {
+      "name": "UnrealEngine.URVOAvoidanceInterface",
+      "header_path": "Runtime/Engine/Public/AI/RVOAvoidanceInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.USaveGame",
+      "header_path": "Runtime/Engine/Classes/GameFramework/SaveGame.h"
+
+    },
+    {
+      "name": "UnrealEngine.UScene",
+      "header_path": "Runtime/Engine/Classes/Engine/Scene.h"
+
+    },
+    {
+      "name": "UnrealEngine.UScriptViewportClient",
+      "header_path": "Runtime/Engine/Classes/Engine/ScriptViewportClient.h"
+
+    },
+    {
+      "name": "UnrealEngine.USCS_Node",
+      "header_path": "Runtime/Engine/Classes/Engine/SCS_Node.h"
+
+    },
+    {
+      "name": "UnrealEngine.USelection",
+      "header_path": "Runtime/Engine/Classes/Engine/Selection.h"
+
+    },
+    {
+      "name": "UnrealEngine.USimpleConstructionScript",
+      "header_path": "Runtime/Engine/Classes/Engine/SimpleConstructionScript.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkeletalMesh",
+      "header_path": "Runtime/Engine/Classes/Engine/SkeletalMesh.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkeletalMeshReductionSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/SkeletalMeshReductionSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkeletalMeshSocket",
+      "header_path": "Runtime/Engine/Classes/Engine/SkeletalMeshSocket.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkeleton",
+      "header_path": "Runtime/Engine/Classes/Animation/Skeleton.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateBrushAsset",
+      "header_path": "Runtime/Engine/Classes/Slate/SlateBrushAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateTextureAtlasInterface",
+      "header_path": "Runtime/Engine/Public/Slate/SlateTextureAtlasInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundAttenuation",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundAttenuation.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundBase",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundClass",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundClass.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundConcurrency",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundConcurrency.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundEffectPreset",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundEffectPreset.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundGroups",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundGroups.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundMix",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundMix.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNode",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNode.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundSubmix",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundSubmix.h"
+
+    },
+    {
+      "name": "UnrealEngine.UStaticMesh",
+      "header_path": "Runtime/Engine/Classes/Engine/StaticMesh.h"
+
+    },
+    {
+      "name": "UnrealEngine.UStaticMeshSocket",
+      "header_path": "Runtime/Engine/Classes/Engine/StaticMeshSocket.h"
+
+    },
+    {
+      "name": "UnrealEngine.USubDSurface",
+      "header_path": "Runtime/Engine/Classes/Engine/SubDSurface.h"
+
+    },
+    {
+      "name": "UnrealEngine.USubsurfaceProfile",
+      "header_path": "Runtime/Engine/Classes/Engine/SubsurfaceProfile.h"
+
+    },
+    {
+      "name": "UnrealEngine.USubUVAnimation",
+      "header_path": "Runtime/Engine/Classes/Particles/SubUVAnimation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextPropertyTestObject",
+      "header_path": "Runtime/Engine/Classes/Tests/TextPropertyTestObject.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTexture",
+      "header_path": "Runtime/Engine/Classes/Engine/Texture.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextureLODSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/TextureLODSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UThumbnailInfo",
+      "header_path": "Runtime/Engine/Classes/EditorFramework/ThumbnailInfo.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTimelineTemplate",
+      "header_path": "Runtime/Engine/Classes/Engine/TimelineTemplate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTouchInterface",
+      "header_path": "Runtime/Engine/Classes/GameFramework/TouchInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UUserDefinedEnum",
+      "header_path": "Runtime/Engine/Classes/Engine/UserDefinedEnum.h"
+
+    },
+    {
+      "name": "UnrealEngine.UUserDefinedStruct",
+      "header_path": "Runtime/Engine/Classes/Engine/UserDefinedStruct.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVectorField",
+      "header_path": "Runtime/Engine/Classes/VectorField/VectorField.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVertexAttributeStream",
+      "header_path": "Runtime/Engine/Classes/Engine/SubDSurface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVisualLoggerAutomationTests",
+      "header_path": "Runtime/Engine/Classes/VisualLogger/VisualLoggerAutomationTests.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVisualLoggerDebugSnapshotInterface",
+      "header_path": "Runtime/Engine/Public/VisualLogger/VisualLoggerDebugSnapshotInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWorld",
+      "header_path": "Runtime/Engine/Classes/Engine/World.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWorldComposition",
+      "header_path": "Runtime/Engine/Classes/Engine/WorldComposition.h"
+
+    },
+    {
+      "name": "UnrealEngine.AAmbientSound",
+      "header_path": "Runtime/Engine/Classes/Sound/AmbientSound.h"
+
+    },
+    {
+      "name": "UnrealEngine.ABrush",
+      "header_path": "Runtime/Engine/Classes/Engine/Brush.h"
+
+    },
+    {
+      "name": "UnrealEngine.ACameraActor",
+      "header_path": "Runtime/Engine/Classes/Camera/CameraActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.AController",
+      "header_path": "Runtime/Engine/Classes/GameFramework/Controller.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADecalActor",
+      "header_path": "Runtime/Engine/Classes/Engine/DecalActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADestructibleActor",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/DestructibleActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADocumentationActor",
+      "header_path": "Runtime/Engine/Classes/Engine/DocumentationActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.AEmitter",
+      "header_path": "Runtime/Engine/Classes/Particles/Emitter.h"
+
+    },
+    {
+      "name": "UnrealEngine.AHUD",
+      "header_path": "Runtime/Engine/Classes/GameFramework/HUD.h"
+
+    },
+    {
+      "name": "UnrealEngine.AInfo",
+      "header_path": "Runtime/Engine/Classes/GameFramework/Info.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALevelBounds",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelBounds.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALevelScriptActor",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelScriptActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALight",
+      "header_path": "Runtime/Engine/Classes/Engine/Light.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALightmassPortal",
+      "header_path": "Runtime/Engine/Classes/Lightmass/LightmassPortal.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALODActor",
+      "header_path": "Runtime/Engine/Classes/Engine/LODActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.AMaterialInstanceActor",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialInstanceActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.AMatineeActor",
+      "header_path": "Runtime/Engine/Classes/Matinee/MatineeActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavigationData",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationData.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavigationGraphNode",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationGraphNode.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavigationObjectBase",
+      "header_path": "Runtime/Engine/Classes/Engine/NavigationObjectBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavigationTestingActor",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationTestingActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavLinkProxy",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkProxy.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANote",
+      "header_path": "Runtime/Engine/Classes/Engine/Note.h"
+
+    },
+    {
+      "name": "UnrealEngine.AParticleEventManager",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleEventManager.h"
+
+    },
+    {
+      "name": "UnrealEngine.APawn",
+      "header_path": "Runtime/Engine/Classes/GameFramework/Pawn.h"
+
+    },
+    {
+      "name": "UnrealEngine.APlayerCameraManager",
+      "header_path": "Runtime/Engine/Classes/Camera/PlayerCameraManager.h"
+
+    },
+    {
+      "name": "UnrealEngine.AReflectionCapture",
+      "header_path": "Runtime/Engine/Classes/Engine/ReflectionCapture.h"
+
+    },
+    {
+      "name": "UnrealEngine.ARigidBodyBase",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/RigidBodyBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASceneCapture",
+      "header_path": "Runtime/Engine/Classes/Engine/SceneCapture.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASkeletalMeshActor",
+      "header_path": "Runtime/Engine/Classes/Animation/SkeletalMeshActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASplineMeshActor",
+      "header_path": "Runtime/Engine/Classes/Engine/SplineMeshActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.AStaticMeshActor",
+      "header_path": "Runtime/Engine/Classes/Engine/StaticMeshActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASubDSurfaceActor",
+      "header_path": "Runtime/Engine/Classes/Engine/SubDSurfaceActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ATargetPoint",
+      "header_path": "Runtime/Engine/Classes/Engine/TargetPoint.h"
+
+    },
+    {
+      "name": "UnrealEngine.ATextRenderActor",
+      "header_path": "Runtime/Engine/Classes/Engine/TextRenderActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.ATriggerBase",
+      "header_path": "Runtime/Engine/Classes/Engine/TriggerBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.AVectorFieldVolume",
+      "header_path": "Runtime/Engine/Classes/VectorField/VectorFieldVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ABrushShape",
+      "header_path": "Runtime/Engine/Classes/Engine/BrushShape.h"
+
+    },
+    {
+      "name": "UnrealEngine.AVolume",
+      "header_path": "Runtime/Engine/Classes/GameFramework/Volume.h"
+
+    },
+    {
+      "name": "UnrealEngine.AAudioVolume",
+      "header_path": "Runtime/Engine/Classes/Sound/AudioVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ABlockingVolume",
+      "header_path": "Runtime/Engine/Classes/Engine/BlockingVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ACameraBlockingVolume",
+      "header_path": "Runtime/Engine/Classes/GameFramework/CameraBlockingVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ACullDistanceVolume",
+      "header_path": "Runtime/Engine/Classes/Engine/CullDistanceVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALevelStreamingVolume",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelStreamingVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALightmassCharacterIndirectDetailVolume",
+      "header_path": "Runtime/Engine/Classes/Lightmass/LightmassCharacterIndirectDetailVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ALightmassImportanceVolume",
+      "header_path": "Runtime/Engine/Classes/Lightmass/LightmassImportanceVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.AMeshMergeCullingVolume",
+      "header_path": "Runtime/Engine/Classes/Engine/MeshMergeCullingVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavMeshBoundsVolume",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavMeshBoundsVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavModifierVolume",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavModifierVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.APhysicsVolume",
+      "header_path": "Runtime/Engine/Classes/GameFramework/PhysicsVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.APostProcessVolume",
+      "header_path": "Runtime/Engine/Classes/Engine/PostProcessVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.APrecomputedVisibilityOverrideVolume",
+      "header_path": "Runtime/Engine/Classes/Lightmass/PrecomputedVisibilityOverrideVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.APrecomputedVisibilityVolume",
+      "header_path": "Runtime/Engine/Classes/Lightmass/PrecomputedVisibilityVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.APreCullTrianglesVolume",
+      "header_path": "Runtime/Engine/Classes/Engine/PreCullTrianglesVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ATriggerVolume",
+      "header_path": "Runtime/Engine/Classes/Engine/TriggerVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADefaultPhysicsVolume",
+      "header_path": "Runtime/Engine/Classes/GameFramework/DefaultPhysicsVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.AKillZVolume",
+      "header_path": "Runtime/Engine/Classes/GameFramework/KillZVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.APainCausingVolume",
+      "header_path": "Runtime/Engine/Classes/GameFramework/PainCausingVolume.h"
+
+    },
+    {
+      "name": "UnrealEngine.APlayerController",
+      "header_path": "Runtime/Engine/Classes/GameFramework/PlayerController.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADebugCameraController",
+      "header_path": "Runtime/Engine/Classes/Engine/DebugCameraController.h"
+
+    },
+    {
+      "name": "UnrealEngine.AEmitterCameraLensEffectBase",
+      "header_path": "Runtime/Engine/Classes/Particles/EmitterCameraLensEffectBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADebugCameraHUD",
+      "header_path": "Runtime/Engine/Classes/Engine/DebugCameraHUD.h"
+
+    },
+    {
+      "name": "UnrealEngine.AAtmosphericFog",
+      "header_path": "Runtime/Engine/Classes/Atmosphere/AtmosphericFog.h"
+
+    },
+    {
+      "name": "UnrealEngine.AExponentialHeightFog",
+      "header_path": "Runtime/Engine/Classes/Engine/ExponentialHeightFog.h"
+
+    },
+    {
+      "name": "UnrealEngine.AGameModeBase",
+      "header_path": "Runtime/Engine/Classes/GameFramework/GameModeBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.AGameNetworkManager",
+      "header_path": "Runtime/Engine/Classes/GameFramework/GameNetworkManager.h"
+
+    },
+    {
+      "name": "UnrealEngine.AGameSession",
+      "header_path": "Runtime/Engine/Classes/GameFramework/GameSession.h"
+
+    },
+    {
+      "name": "UnrealEngine.AGameStateBase",
+      "header_path": "Runtime/Engine/Classes/GameFramework/GameStateBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.APlayerState",
+      "header_path": "Runtime/Engine/Classes/GameFramework/PlayerState.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASkyLight",
+      "header_path": "Runtime/Engine/Classes/Engine/SkyLight.h"
+
+    },
+    {
+      "name": "UnrealEngine.AWindDirectionalSource",
+      "header_path": "Runtime/Engine/Classes/Engine/WindDirectionalSource.h"
+
+    },
+    {
+      "name": "UnrealEngine.AWorldSettings",
+      "header_path": "Runtime/Engine/Classes/GameFramework/WorldSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.AGameMode",
+      "header_path": "Runtime/Engine/Classes/GameFramework/GameMode.h"
+
+    },
+    {
+      "name": "UnrealEngine.AGameState",
+      "header_path": "Runtime/Engine/Classes/GameFramework/GameState.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADirectionalLight",
+      "header_path": "Runtime/Engine/Classes/Engine/DirectionalLight.h"
+
+    },
+    {
+      "name": "UnrealEngine.APointLight",
+      "header_path": "Runtime/Engine/Classes/Engine/PointLight.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASpotLight",
+      "header_path": "Runtime/Engine/Classes/Engine/SpotLight.h"
+
+    },
+    {
+      "name": "UnrealEngine.AGeneratedMeshAreaLight",
+      "header_path": "Runtime/Engine/Classes/Engine/GeneratedMeshAreaLight.h"
+
+    },
+    {
+      "name": "UnrealEngine.AMatineeActorCameraAnim",
+      "header_path": "Runtime/Engine/Classes/Matinee/MatineeActorCameraAnim.h"
+
+    },
+    {
+      "name": "UnrealEngine.AAbstractNavData",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/AbstractNavData.h"
+
+    },
+    {
+      "name": "UnrealEngine.ANavigationGraph",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationGraph.h"
+
+    },
+    {
+      "name": "UnrealEngine.ARecastNavMesh",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/RecastNavMesh.h"
+
+    },
+    {
+      "name": "UnrealEngine.APlayerStart",
+      "header_path": "Runtime/Engine/Classes/GameFramework/PlayerStart.h"
+
+    },
+    {
+      "name": "UnrealEngine.APlayerStartPIE",
+      "header_path": "Runtime/Engine/Classes/Engine/PlayerStartPIE.h"
+
+    },
+    {
+      "name": "UnrealEngine.ACharacter",
+      "header_path": "Runtime/Engine/Classes/GameFramework/Character.h"
+
+    },
+    {
+      "name": "UnrealEngine.ADefaultPawn",
+      "header_path": "Runtime/Engine/Classes/GameFramework/DefaultPawn.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASpectatorPawn",
+      "header_path": "Runtime/Engine/Classes/GameFramework/SpectatorPawn.h"
+
+    },
+    {
+      "name": "UnrealEngine.ABoxReflectionCapture",
+      "header_path": "Runtime/Engine/Classes/Engine/BoxReflectionCapture.h"
+
+    },
+    {
+      "name": "UnrealEngine.APlaneReflectionCapture",
+      "header_path": "Runtime/Engine/Classes/Engine/PlaneReflectionCapture.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASphereReflectionCapture",
+      "header_path": "Runtime/Engine/Classes/Engine/SphereReflectionCapture.h"
+
+    },
+    {
+      "name": "UnrealEngine.APhysicsConstraintActor",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsConstraintActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.APhysicsThruster",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsThruster.h"
+
+    },
+    {
+      "name": "UnrealEngine.ARadialForceActor",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/RadialForceActor.h"
+
+    },
+    {
+      "name": "UnrealEngine.APlanarReflection",
+      "header_path": "Runtime/Engine/Classes/Engine/PlanarReflection.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASceneCapture2D",
+      "header_path": "Runtime/Engine/Classes/Engine/SceneCapture2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.ASceneCaptureCube",
+      "header_path": "Runtime/Engine/Classes/Engine/SceneCaptureCube.h"
+
+    },
+    {
+      "name": "UnrealEngine.ATriggerBox",
+      "header_path": "Runtime/Engine/Classes/Engine/TriggerBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.ATriggerCapsule",
+      "header_path": "Runtime/Engine/Classes/Engine/TriggerCapsule.h"
+
+    },
+    {
+      "name": "UnrealEngine.ATriggerSphere",
+      "header_path": "Runtime/Engine/Classes/Engine/TriggerSphere.h"
+
+    },
+    {
+      "name": "UnrealEngine.UApplicationLifecycleComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ApplicationLifecycleComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputComponent",
+      "header_path": "Runtime/Engine/Classes/Components/InputComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovementComponent",
+      "header_path": "Runtime/Engine/Classes/GameFramework/MovementComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationInvokerComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationInvokerComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavRelevantComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavRelevantComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPawnNoiseEmitterComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PawnNoiseEmitterComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicalAnimationComponent",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicalAnimationComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsHandleComponent",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsHandleComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlatformEventsComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PlatformEventsComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USceneComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SceneComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTimelineComponent",
+      "header_path": "Runtime/Engine/Classes/Components/TimelineComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpToMovementComponent",
+      "header_path": "Runtime/Engine/Classes/Components/InterpToMovementComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavMovementComponent",
+      "header_path": "Runtime/Engine/Classes/GameFramework/NavMovementComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UProjectileMovementComponent",
+      "header_path": "Runtime/Engine/Classes/GameFramework/ProjectileMovementComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.URotatingMovementComponent",
+      "header_path": "Runtime/Engine/Classes/GameFramework/RotatingMovementComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPawnMovementComponent",
+      "header_path": "Runtime/Engine/Classes/GameFramework/PawnMovementComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCharacterMovementComponent",
+      "header_path": "Runtime/Engine/Classes/GameFramework/CharacterMovementComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFloatingPawnMovement",
+      "header_path": "Runtime/Engine/Classes/GameFramework/FloatingPawnMovement.h"
+
+    },
+    {
+      "name": "UnrealEngine.USpectatorPawnMovement",
+      "header_path": "Runtime/Engine/Classes/GameFramework/SpectatorPawnMovement.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavLinkCustomComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkCustomComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavModifierComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavModifierComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAtmosphericFogComponent",
+      "header_path": "Runtime/Engine/Classes/Atmosphere/AtmosphericFogComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAudioComponent",
+      "header_path": "Runtime/Engine/Classes/Components/AudioComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCameraComponent",
+      "header_path": "Runtime/Engine/Classes/Camera/CameraComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UChildActorComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ChildActorComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDecalComponent",
+      "header_path": "Runtime/Engine/Classes/Components/DecalComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UExponentialHeightFogComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ExponentialHeightFogComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UForceFeedbackComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ForceFeedbackComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULightComponentBase",
+      "header_path": "Runtime/Engine/Classes/Components/LightComponentBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULightmassPortalComponent",
+      "header_path": "Runtime/Engine/Classes/Components/LightmassPortalComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationGraphNodeComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationGraphNodeComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsConstraintComponent",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsConstraintComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsSpringComponent",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsSpringComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsThrusterComponent",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsThrusterComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPostProcessComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PostProcessComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPrimitiveComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PrimitiveComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.URadialForceComponent",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/RadialForceComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UReflectionCaptureComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ReflectionCaptureComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USceneCaptureComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SceneCaptureComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USpringArmComponent",
+      "header_path": "Runtime/Engine/Classes/GameFramework/SpringArmComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UStereoLayerComponent",
+      "header_path": "Runtime/Engine/Classes/Components/StereoLayerComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWindDirectionalSourceComponent",
+      "header_path": "Runtime/Engine/Classes/Components/WindDirectionalSourceComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULightComponent",
+      "header_path": "Runtime/Engine/Classes/Components/LightComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkyLightComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SkyLightComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDirectionalLightComponent",
+      "header_path": "Runtime/Engine/Classes/Components/DirectionalLightComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPointLightComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PointLightComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USpotLightComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SpotLightComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UArrowComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ArrowComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBillboardComponent",
+      "header_path": "Runtime/Engine/Classes/Components/BillboardComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBrushComponent",
+      "header_path": "Runtime/Engine/Classes/Components/BrushComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDrawFrustumComponent",
+      "header_path": "Runtime/Engine/Classes/Components/DrawFrustumComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULineBatchComponent",
+      "header_path": "Runtime/Engine/Classes/Components/LineBatchComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialBillboardComponent",
+      "header_path": "Runtime/Engine/Classes/Components/MaterialBillboardComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/MeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UModelComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ModelComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavLinkComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavLinkRenderingComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkRenderingComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavMeshRenderingComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavMeshRenderingComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavTestRenderingComponent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavTestRenderingComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleSystemComponent",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleSystemComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UShapeComponent",
+      "header_path": "Runtime/Engine/Classes/Components/ShapeComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USplineComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SplineComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USubDSurfaceComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SubDSurfaceComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextRenderComponent",
+      "header_path": "Runtime/Engine/Classes/Components/TextRenderComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVectorFieldComponent",
+      "header_path": "Runtime/Engine/Classes/Components/VectorFieldComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkinnedMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SkinnedMeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UStaticMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/StaticMeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDestructibleComponent",
+      "header_path": "Runtime/Engine/Classes/Components/DestructibleComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPoseableMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PoseableMeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkeletalMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SkeletalMeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInstancedStaticMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/InstancedStaticMeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USplineMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SplineMeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHierarchicalInstancedStaticMeshComponent",
+      "header_path": "Runtime/Engine/Classes/Components/HierarchicalInstancedStaticMeshComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBoxComponent",
+      "header_path": "Runtime/Engine/Classes/Components/BoxComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCapsuleComponent",
+      "header_path": "Runtime/Engine/Classes/Components/CapsuleComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USphereComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SphereComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDrawSphereComponent",
+      "header_path": "Runtime/Engine/Classes/Components/DrawSphereComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBoxReflectionCaptureComponent",
+      "header_path": "Runtime/Engine/Classes/Components/BoxReflectionCaptureComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlaneReflectionCaptureComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PlaneReflectionCaptureComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USphereReflectionCaptureComponent",
+      "header_path": "Runtime/Engine/Classes/Components/SphereReflectionCaptureComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlanarReflectionComponent",
+      "header_path": "Runtime/Engine/Classes/Components/PlanarReflectionComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.USceneCaptureComponent2D",
+      "header_path": "Runtime/Engine/Classes/Components/SceneCaptureComponent2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.USceneCaptureComponentCube",
+      "header_path": "Runtime/Engine/Classes/Components/SceneCaptureComponentCube.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimSequenceBase",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimSequenceBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlendSpaceBase",
+      "header_path": "Runtime/Engine/Classes/Animation/BlendSpaceBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPoseAsset",
+      "header_path": "Runtime/Engine/Classes/Animation/PoseAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompositeBase",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompositeBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimSequence",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimSequence.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimComposite",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimComposite.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimMontage",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimMontage.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlendSpace",
+      "header_path": "Runtime/Engine/Classes/Animation/BlendSpace.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlendSpace1D",
+      "header_path": "Runtime/Engine/Classes/Animation/BlendSpace1D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAimOffsetBlendSpace",
+      "header_path": "Runtime/Engine/Classes/Animation/AimOffsetBlendSpace.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAimOffsetBlendSpace1D",
+      "header_path": "Runtime/Engine/Classes/Animation/AimOffsetBlendSpace1D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress_Automatic",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress_Automatic.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress_BitwiseCompressOnly",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress_BitwiseCompressOnly.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress_LeastDestructive",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress_LeastDestructive.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress_RemoveEverySecondKey",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress_RemoveEverySecondKey.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress_RemoveLinearKeys",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress_RemoveLinearKeys.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress_RemoveTrivialKeys",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress_RemoveTrivialKeys.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimCompress_PerTrackCompression",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimCompress_PerTrackCompression.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimSingleNodeInstance",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimSingleNodeInstance.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimNotify_PlayParticleEffect",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimNotifies/AnimNotify_PlayParticleEffect.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimNotify_PlaySound",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimNotifies/AnimNotify_PlaySound.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimNotify_ResetClothingSimulation",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimNotifies/AnimNotify_ResetClothingSimulation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimNotifyState_TimedParticleEffect",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimNotifies/AnimNotifyState_TimedParticleEffect.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimNotifyState_Trail",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimNotifies/AnimNotifyState_Trail.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprint",
+      "header_path": "Runtime/Engine/Classes/Engine/Blueprint.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimBlueprint",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimBlueprint.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULevelScriptBlueprint",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelScriptBlueprint.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprintMapLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/BlueprintMapLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprintPlatformLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/BlueprintPlatformLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBlueprintSetLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/BlueprintSetLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDataTableFunctionLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/DataTableFunctionLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDebugDrawService",
+      "header_path": "Runtime/Engine/Classes/Debug/DebugDrawService.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGameplayStatics",
+      "header_path": "Runtime/Engine/Classes/Kismet/GameplayStatics.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHeadMountedDisplayFunctionLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/HeadMountedDisplayFunctionLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetArrayLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetArrayLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetGuidLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetGuidLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetInputLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetInputLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetMaterialLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetMaterialLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetMathLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetMathLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetNodeHelperLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetNodeHelperLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetRenderingLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetRenderingLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetStringLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetStringLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetSystemLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetSystemLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UKismetTextLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/KismetTextLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMeshVertexPainterKismetLibrary",
+      "header_path": "Runtime/Engine/Classes/MeshVertexPainter/MeshVertexPainterKismetLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavigationSystem",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavigationSystem.h"
+
+    },
+    {
+      "name": "UnrealEngine.UStereoLayerFunctionLibrary",
+      "header_path": "Runtime/Engine/Classes/Kismet/StereoLayerFunctionLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVisualLoggerKismetLibrary",
+      "header_path": "Runtime/Engine/Classes/VisualLogger/VisualLoggerKismetLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimBlueprintGeneratedClass",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimBlueprintGeneratedClass.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBodySetup2D",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/BodySetup2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.USkeletalBodySetup",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsAsset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCameraModifier_CameraShake",
+      "header_path": "Runtime/Engine/Classes/Camera/CameraModifier_CameraShake.h"
+
+    },
+    {
+      "name": "UnrealEngine.UActorChannel",
+      "header_path": "Runtime/Engine/Classes/Engine/ActorChannel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UControlChannel",
+      "header_path": "Runtime/Engine/Classes/Engine/ControlChannel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVoiceChannel",
+      "header_path": "Runtime/Engine/Classes/Engine/VoiceChannel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPluginCommandlet",
+      "header_path": "Runtime/Engine/Classes/Commandlets/PluginCommandlet.h"
+
+    },
+    {
+      "name": "UnrealEngine.USmokeTestCommandlet",
+      "header_path": "Runtime/Engine/Classes/Commandlets/SmokeTestCommandlet.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCurveFloat",
+      "header_path": "Runtime/Engine/Classes/Curves/CurveFloat.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCurveLinearColor",
+      "header_path": "Runtime/Engine/Classes/Curves/CurveLinearColor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCurveVector",
+      "header_path": "Runtime/Engine/Classes/Curves/CurveVector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPreviewMeshCollection",
+      "header_path": "Runtime/Engine/Classes/Engine/PreviewMeshCollection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTireType",
+      "header_path": "Runtime/Engine/Classes/Vehicles/TireType.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAnimationSettings",
+      "header_path": "Runtime/Engine/Classes/Animation/AnimationSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAudioSettings",
+      "header_path": "Runtime/Engine/Classes/Sound/AudioSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCollisionProfile",
+      "header_path": "Runtime/Engine/Classes/Engine/CollisionProfile.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGarbageCollectionSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/CoreSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMeshSimplificationSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/MeshSimplificationSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNetworkSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/NetworkSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPhysicsSettings",
+      "header_path": "Runtime/Engine/Classes/PhysicsEngine/PhysicsSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.URendererOverrideSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/RendererSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.URendererSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/RendererSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UStreamingSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/CoreSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UUserInterfaceSettings",
+      "header_path": "Runtime/Engine/Classes/Engine/UserInterfaceSettings.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionFloat",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionFloat.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionVector",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionVector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionFloatConstant",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionFloatConstant.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionFloatConstantCurve",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionFloatConstantCurve.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionFloatUniform",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionFloatUniform.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionFloatUniformCurve",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionFloatUniformCurve.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionFloatParameterBase",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionFloatParameterBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionFloatParticleParameter",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionFloatParticleParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionVectorConstant",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionVectorConstant.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionVectorConstantCurve",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionVectorConstantCurve.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionVectorUniform",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionVectorUniform.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionVectorUniformCurve",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionVectorUniformCurve.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionVectorParameterBase",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionVectorParameterBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDistributionVectorParticleParameter",
+      "header_path": "Runtime/Engine/Classes/Distributions/DistributionVectorParticleParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UComponentDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/ComponentDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/InputDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputActionDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/InputActionDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputAxisDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/InputAxisDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputAxisKeyDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/InputAxisKeyDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputKeyDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/InputKeyDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputTouchDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/InputTouchDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputVectorAxisDelegateBinding",
+      "header_path": "Runtime/Engine/Classes/Engine/InputVectorAxisDelegateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEdGraphNode_Documentation",
+      "header_path": "Runtime/Engine/Classes/EdGraph/EdGraphNode_Documentation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGameEngine",
+      "header_path": "Runtime/Engine/Classes/Engine/GameEngine.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPlatformGameInstance",
+      "header_path": "Runtime/Engine/Classes/Kismet/BlueprintPlatformLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHapticFeedbackEffect_Buffer",
+      "header_path": "Runtime/Engine/Classes/Haptics/HapticFeedbackEffect_Buffer.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHapticFeedbackEffect_Curve",
+      "header_path": "Runtime/Engine/Classes/Haptics/HapticFeedbackEffect_Curve.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHapticFeedbackEffect_SoundWave",
+      "header_path": "Runtime/Engine/Classes/Haptics/HapticFeedbackEffect_SoundWave.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpFilter_Classes",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpFilter_Classes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpFilter_Custom",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpFilter_Custom.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpGroupCamera",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpGroupCamera.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpGroupDirector",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpGroupDirector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpGroupInstCamera",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpGroupInstCamera.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpGroupInstDirector",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpGroupInstDirector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackBoolProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackBoolProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackDirector",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackDirector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackEvent",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackEvent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackFloatBase",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackFloatBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackLinearColorBase",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackLinearColorBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackMove",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackMove.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackParticleReplay",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackParticleReplay.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackToggle",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackToggle.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackVectorBase",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackVectorBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackVisibility",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackVisibility.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackAnimControl",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackAnimControl.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackFade",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackFade.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackFloatAnimBPParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackFloatAnimBPParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackFloatMaterialParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackFloatMaterialParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackFloatParticleParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackFloatParticleParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackFloatProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackFloatProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackMoveAxis",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackMoveAxis.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackSlomo",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackSlomo.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackLinearColorProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackLinearColorProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackAudioMaster",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackAudioMaster.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackColorProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackColorProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackColorScale",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackColorScale.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackSound",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackSound.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackVectorMaterialParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackVectorMaterialParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackVectorProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackVectorProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstAnimControl",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstAnimControl.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstAudioMaster",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstAudioMaster.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstColorScale",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstColorScale.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstDirector",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstDirector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstEvent",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstEvent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstFade",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstFade.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstFloatAnimBPParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstFloatAnimBPParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstFloatMaterialParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstFloatMaterialParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstFloatParticleParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstFloatParticleParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstMove",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstMove.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstParticleReplay",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstParticleReplay.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstProperty",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstProperty.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstSlomo",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstSlomo.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstSound",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstSound.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstToggle",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstToggle.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstVectorMaterialParam",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstVectorMaterialParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstVisibility",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstVisibility.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstBoolProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstBoolProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstColorProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstColorProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstFloatProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstFloatProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstLinearColorProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstLinearColorProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInterpTrackInstVectorProp",
+      "header_path": "Runtime/Engine/Classes/Matinee/InterpTrackInstVectorProp.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULevelStreamingAlwaysLoaded",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelStreamingAlwaysLoaded.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULevelStreamingKismet",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelStreamingKismet.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULevelStreamingPersistent",
+      "header_path": "Runtime/Engine/Classes/Engine/LevelStreamingPersistent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEngineMessage",
+      "header_path": "Runtime/Engine/Classes/GameFramework/EngineMessage.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionAbs",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionAbs.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionActorPositionWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionActorPositionWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionAdd",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionAdd.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionAppendVector",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionAppendVector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArccosine",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArccosine.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArccosineFast",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArccosineFast.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArcsine",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArcsine.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArcsineFast",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArcsineFast.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArctangent",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArctangent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArctangent2",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArctangent2.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArctangent2Fast",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArctangent2Fast.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionArctangentFast",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionArctangentFast.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionAtmosphericFogColor",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionAtmosphericFogColor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionAtmosphericLightColor",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionAtmosphericLightColor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionAtmosphericLightVector",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionAtmosphericLightVector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionBlackBody",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionBlackBody.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionBlendMaterialAttributes",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionBlendMaterialAttributes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionBreakMaterialAttributes",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionBreakMaterialAttributes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionBumpOffset",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionBumpOffset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCameraPositionWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCameraPositionWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCameraVectorWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCameraVectorWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCeil",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCeil.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionClamp",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionClamp.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCollectionParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCollectionParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionComment",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionComment.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionComponentMask",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionComponentMask.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionConstant",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionConstant.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionConstant2Vector",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionConstant2Vector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionConstant3Vector",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionConstant3Vector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionConstant4Vector",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionConstant4Vector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionConstantBiasScale",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionConstantBiasScale.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCosine",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCosine.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCrossProduct",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCrossProduct.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCustom",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCustom.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionCustomOutput",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionCustomOutput.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDDX",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDDX.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDDY",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDDY.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDecalDerivative",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDecalDerivative.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDecalLifetimeOpacity",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDecalLifetimeOpacity.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDecalMipmapLevel",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDecalMipmapLevel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDepthFade",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDepthFade.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDepthOfFieldFunction",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDepthOfFieldFunction.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDeriveNormalZ",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDeriveNormalZ.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDesaturation",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDesaturation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDistance",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDistance.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDistanceCullFade",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDistanceCullFade.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDistanceFieldGradient",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDistanceFieldGradient.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDistanceToNearestSurface",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDistanceToNearestSurface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDivide",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDivide.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDotProduct",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDotProduct.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionDynamicParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionDynamicParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionEyeAdaptation",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionEyeAdaptation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFeatureLevelSwitch",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFeatureLevelSwitch.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFloor",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFloor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFmod",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFmod.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFontSample",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFontSample.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFrac",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFrac.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFresnel",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFresnel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFunctionInput",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFunctionInput.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFunctionOutput",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFunctionOutput.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionGetMaterialAttributes",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionGetMaterialAttributes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionGIReplace",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionGIReplace.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionIf",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionIf.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionLightmapUVs",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionLightmapUVs.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionLightmassReplace",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionLightmassReplace.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionLightVector",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionLightVector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionLinearInterpolate",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionLinearInterpolate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionLogarithm2",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionLogarithm2.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionMakeMaterialAttributes",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionMakeMaterialAttributes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionMaterialFunctionCall",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionMaterialFunctionCall.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionMaterialProxyReplace",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionMaterialProxyReplace.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionMax",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionMax.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionMin",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionMin.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionMultiply",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionMultiply.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionNoise",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionNoise.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionNormalize",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionNormalize.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionObjectBounds",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionObjectBounds.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionObjectOrientation",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionObjectOrientation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionObjectPositionWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionObjectPositionWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionObjectRadius",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionObjectRadius.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionOneMinus",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionOneMinus.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPanner",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPanner.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleColor",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleColor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleDirection",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleDirection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleMacroUV",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleMacroUV.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleMotionBlurFade",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleMotionBlurFade.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticlePositionWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticlePositionWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleRadius",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleRadius.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleRandom",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleRandom.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleRelativeTime",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleRelativeTime.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleSize",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleSize.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleSpeed",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleSpeed.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPerInstanceFadeAmount",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPerInstanceFadeAmount.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPerInstanceRandom",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPerInstanceRandom.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPixelDepth",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPixelDepth.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPixelNormalWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPixelNormalWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPower",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPower.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPrecomputedAOMask",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPrecomputedAOMask.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPreSkinnedNormal",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPreSkinnedNormal.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPreSkinnedPosition",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPreSkinnedPosition.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionPreviousFrameSwitch",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionPreviousFrameSwitch.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionQualitySwitch",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionQualitySwitch.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionReflectionVectorWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionReflectionVectorWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionReroute",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionReroute.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionRotateAboutAxis",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionRotateAboutAxis.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionRotator",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionRotator.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionRound",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionRound.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSaturate",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSaturate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSceneColor",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSceneColor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSceneDepth",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSceneDepth.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSceneTexelSize",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSceneTexelSize.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSceneTexture",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSceneTexture.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionScreenPosition",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionScreenPosition.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSetMaterialAttributes",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSetMaterialAttributes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSine",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSine.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSpeedTree",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSpeedTree.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSphereMask",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSphereMask.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSphericalParticleOpacity",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSphericalParticleOpacity.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSquareRoot",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSquareRoot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionStaticBool",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionStaticBool.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionStaticSwitch",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionStaticSwitch.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionSubtract",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionSubtract.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTangent",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTangent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureBase",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureCoordinate",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureCoordinate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureProperty",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureProperty.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTime",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTime.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTransform",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTransform.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTransformPosition",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTransformPosition.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTruncate",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTruncate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTwoSidedSign",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTwoSidedSign.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionVectorNoise",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionVectorNoise.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionVertexColor",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionVertexColor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionVertexNormalWS",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionVertexNormalWS.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionViewProperty",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionViewProperty.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionViewSize",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionViewSize.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionWorldPosition",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionWorldPosition.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionClearCoatNormalCustomOutput",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionClearCoatNormalCustomOutput.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTangentOutput",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTangentOutput.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionFontSampleParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionFontSampleParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionScalarParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionScalarParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionStaticBoolParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionStaticBoolParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionStaticComponentMaskParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionStaticComponentMaskParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionVectorParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionVectorParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionStaticSwitchParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionStaticSwitchParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureObject",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureObject.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureSample",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureSample.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionParticleSubUV",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionParticleSubUV.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureSampleParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureSampleParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureObjectParameter",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureObjectParameter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureSampleParameter2D",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureSampleParameter2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureSampleParameterCube",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureSampleParameterCube.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionAntialiasedTextureMask",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionAntialiasedTextureMask.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialExpressionTextureSampleParameterSubUV",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialExpressionTextureSampleParameterSubUV.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterial",
+      "header_path": "Runtime/Engine/Classes/Materials/Material.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialInstance",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialInstance.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialInstanceConstant",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialInstanceConstant.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMaterialInstanceDynamic",
+      "header_path": "Runtime/Engine/Classes/Materials/MaterialInstanceDynamic.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavArea_Default",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAreas/NavArea_Default.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavArea_LowHeight",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAreas/NavArea_LowHeight.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavArea_Null",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAreas/NavArea_Null.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavArea_Obstacle",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAreas/NavArea_Obstacle.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavAreaMeta",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAreas/NavAreaMeta.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavAreaMeta_SwitchByAgent",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavAreas/NavAreaMeta_SwitchByAgent.h"
+
+    },
+    {
+      "name": "UnrealEngine.URecastNavMeshDataChunk",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/RecastNavMeshDataChunk.h"
+
+    },
+    {
+      "name": "UnrealEngine.URecastFilter_UseDefaultArea",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavFilters/RecastFilter_UseDefaultArea.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNavLinkTrivial",
+      "header_path": "Runtime/Engine/Classes/AI/Navigation/NavLinkTrivial.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDemoNetDriver",
+      "header_path": "Runtime/Engine/Classes/Engine/DemoNetDriver.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleSpriteEmitter",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleSpriteEmitter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAccelerationBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Acceleration/ParticleModuleAccelerationBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAttractorBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Attractor/ParticleModuleAttractorBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleBeamBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Beam/ParticleModuleBeamBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleCameraBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Camera/ParticleModuleCameraBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleCollisionBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Collision/ParticleModuleCollisionBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleColorBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Color/ParticleModuleColorBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleEventBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Event/ParticleModuleEventBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleKillBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Kill/ParticleModuleKillBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLifetimeBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Lifetime/ParticleModuleLifetimeBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLightBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Light/ParticleModuleLightBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMaterialBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Material/ParticleModuleMaterialBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleOrbitBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Orbit/ParticleModuleOrbitBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleOrientationBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Orientation/ParticleModuleOrientationBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleParameterBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Parameter/ParticleModuleParameterBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRequired",
+      "header_path": "Runtime/Engine/Classes/Particles/ParticleModuleRequired.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotationBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Rotation/ParticleModuleRotationBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotationRateBase",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleRotationRateBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSizeBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Size/ParticleModuleSizeBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSpawnBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Spawn/ParticleModuleSpawnBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSubUVBase",
+      "header_path": "Runtime/Engine/Classes/Particles/SubUV/ParticleModuleSubUVBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTrailBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Trail/ParticleModuleTrailBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTypeDataBase",
+      "header_path": "Runtime/Engine/Classes/Particles/TypeData/ParticleModuleTypeDataBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVectorFieldBase",
+      "header_path": "Runtime/Engine/Classes/Particles/VectorField/ParticleModuleVectorFieldBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVelocityBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Velocity/ParticleModuleVelocityBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAcceleration",
+      "header_path": "Runtime/Engine/Classes/Particles/Acceleration/ParticleModuleAcceleration.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAccelerationConstant",
+      "header_path": "Runtime/Engine/Classes/Particles/Acceleration/ParticleModuleAccelerationConstant.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAccelerationDrag",
+      "header_path": "Runtime/Engine/Classes/Particles/Acceleration/ParticleModuleAccelerationDrag.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAccelerationDragScaleOverLife",
+      "header_path": "Runtime/Engine/Classes/Particles/Acceleration/ParticleModuleAccelerationDragScaleOverLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAccelerationOverLifetime",
+      "header_path": "Runtime/Engine/Classes/Particles/Acceleration/ParticleModuleAccelerationOverLifetime.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAttractorLine",
+      "header_path": "Runtime/Engine/Classes/Particles/Attractor/ParticleModuleAttractorLine.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAttractorParticle",
+      "header_path": "Runtime/Engine/Classes/Particles/Attractor/ParticleModuleAttractorParticle.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAttractorPoint",
+      "header_path": "Runtime/Engine/Classes/Particles/Attractor/ParticleModuleAttractorPoint.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleAttractorPointGravity",
+      "header_path": "Runtime/Engine/Classes/Particles/Attractor/ParticleModuleAttractorPointGravity.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleBeamModifier",
+      "header_path": "Runtime/Engine/Classes/Particles/Beam/ParticleModuleBeamModifier.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleBeamNoise",
+      "header_path": "Runtime/Engine/Classes/Particles/Beam/ParticleModuleBeamNoise.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleBeamSource",
+      "header_path": "Runtime/Engine/Classes/Particles/Beam/ParticleModuleBeamSource.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleBeamTarget",
+      "header_path": "Runtime/Engine/Classes/Particles/Beam/ParticleModuleBeamTarget.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleCameraOffset",
+      "header_path": "Runtime/Engine/Classes/Particles/Camera/ParticleModuleCameraOffset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleCollision",
+      "header_path": "Runtime/Engine/Classes/Particles/Collision/ParticleModuleCollision.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleCollisionGPU",
+      "header_path": "Runtime/Engine/Classes/Particles/Collision/ParticleModuleCollisionGPU.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleColor",
+      "header_path": "Runtime/Engine/Classes/Particles/Color/ParticleModuleColor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleColorOverLife",
+      "header_path": "Runtime/Engine/Classes/Particles/Color/ParticleModuleColorOverLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleColorScaleOverLife",
+      "header_path": "Runtime/Engine/Classes/Particles/Color/ParticleModuleColorScaleOverLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleColor_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Color/ParticleModuleColor_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleEventGenerator",
+      "header_path": "Runtime/Engine/Classes/Particles/Event/ParticleModuleEventGenerator.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleEventReceiverBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Event/ParticleModuleEventReceiverBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleEventReceiverKillParticles",
+      "header_path": "Runtime/Engine/Classes/Particles/Event/ParticleModuleEventReceiverKillParticles.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleEventReceiverSpawn",
+      "header_path": "Runtime/Engine/Classes/Particles/Event/ParticleModuleEventReceiverSpawn.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleKillBox",
+      "header_path": "Runtime/Engine/Classes/Particles/Kill/ParticleModuleKillBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleKillHeight",
+      "header_path": "Runtime/Engine/Classes/Particles/Kill/ParticleModuleKillHeight.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLifetime",
+      "header_path": "Runtime/Engine/Classes/Particles/Lifetime/ParticleModuleLifetime.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLifetime_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Lifetime/ParticleModuleLifetime_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLight",
+      "header_path": "Runtime/Engine/Classes/Particles/Light/ParticleModuleLight.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLight_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Light/ParticleModuleLight_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocation",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationBoneSocket",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationBoneSocket.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationDirect",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationDirect.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationEmitter",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationEmitter.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationEmitterDirect",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationEmitterDirect.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationPrimitiveBase",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationPrimitiveBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationPrimitiveTriangle",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationPrimitiveTriangle.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationSkelVertSurface",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationSkelVertSurface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModulePivotOffset",
+      "header_path": "Runtime/Engine/Classes/Particles/Modules/Location/ParticleModulePivotOffset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSourceMovement",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleSourceMovement.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocation_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocation_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationWorldOffset",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationWorldOffset.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationWorldOffset_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationWorldOffset_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationPrimitiveCylinder",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationPrimitiveCylinder.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationPrimitiveSphere",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationPrimitiveSphere.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationPrimitiveCylinder_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationPrimitiveCylinder_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleLocationPrimitiveSphere_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Location/ParticleModuleLocationPrimitiveSphere_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMeshMaterial",
+      "header_path": "Runtime/Engine/Classes/Particles/Material/ParticleModuleMeshMaterial.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleOrbit",
+      "header_path": "Runtime/Engine/Classes/Particles/Orbit/ParticleModuleOrbit.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleOrientationAxisLock",
+      "header_path": "Runtime/Engine/Classes/Particles/Orientation/ParticleModuleOrientationAxisLock.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleParameterDynamic",
+      "header_path": "Runtime/Engine/Classes/Particles/Parameter/ParticleModuleParameterDynamic.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleParameterDynamic_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Parameter/ParticleModuleParameterDynamic_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMeshRotation",
+      "header_path": "Runtime/Engine/Classes/Particles/Rotation/ParticleModuleMeshRotation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotation",
+      "header_path": "Runtime/Engine/Classes/Particles/Rotation/ParticleModuleRotation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotationOverLifetime",
+      "header_path": "Runtime/Engine/Classes/Particles/Rotation/ParticleModuleRotationOverLifetime.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMeshRotation_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Rotation/ParticleModuleMeshRotation_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotation_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Rotation/ParticleModuleRotation_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMeshRotationRate",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleMeshRotationRate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMeshRotationRateMultiplyLife",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleMeshRotationRateMultiplyLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMeshRotationRateOverLife",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleMeshRotationRateOverLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotationRate",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleRotationRate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotationRateMultiplyLife",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleRotationRateMultiplyLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleMeshRotationRate_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleMeshRotationRate_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleRotationRate_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/RotationRate/ParticleModuleRotationRate_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSize",
+      "header_path": "Runtime/Engine/Classes/Particles/Size/ParticleModuleSize.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSizeMultiplyLife",
+      "header_path": "Runtime/Engine/Classes/Particles/Size/ParticleModuleSizeMultiplyLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSizeScale",
+      "header_path": "Runtime/Engine/Classes/Particles/Size/ParticleModuleSizeScale.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSizeScaleBySpeed",
+      "header_path": "Runtime/Engine/Classes/Particles/Size/ParticleModuleSizeScaleBySpeed.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSize_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Size/ParticleModuleSize_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSpawn",
+      "header_path": "Runtime/Engine/Classes/Particles/Spawn/ParticleModuleSpawn.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSpawnPerUnit",
+      "header_path": "Runtime/Engine/Classes/Particles/Spawn/ParticleModuleSpawnPerUnit.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSubUV",
+      "header_path": "Runtime/Engine/Classes/Particles/SubUV/ParticleModuleSubUV.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleSubUVMovie",
+      "header_path": "Runtime/Engine/Classes/Particles/SubUV/ParticleModuleSubUVMovie.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTrailSource",
+      "header_path": "Runtime/Engine/Classes/Particles/Trail/ParticleModuleTrailSource.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTypeDataAnimTrail",
+      "header_path": "Runtime/Engine/Classes/Particles/TypeData/ParticleModuleTypeDataAnimTrail.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTypeDataBeam2",
+      "header_path": "Runtime/Engine/Classes/Particles/TypeData/ParticleModuleTypeDataBeam2.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTypeDataGpu",
+      "header_path": "Runtime/Engine/Classes/Particles/TypeData/ParticleModuleTypeDataGpu.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTypeDataMesh",
+      "header_path": "Runtime/Engine/Classes/Particles/TypeData/ParticleModuleTypeDataMesh.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleTypeDataRibbon",
+      "header_path": "Runtime/Engine/Classes/Particles/TypeData/ParticleModuleTypeDataRibbon.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVectorFieldGlobal",
+      "header_path": "Runtime/Engine/Classes/Particles/VectorField/ParticleModuleVectorFieldGlobal.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVectorFieldLocal",
+      "header_path": "Runtime/Engine/Classes/Particles/VectorField/ParticleModuleVectorFieldLocal.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVectorFieldRotation",
+      "header_path": "Runtime/Engine/Classes/Particles/VectorField/ParticleModuleVectorFieldRotation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVectorFieldRotationRate",
+      "header_path": "Runtime/Engine/Classes/Particles/VectorField/ParticleModuleVectorFieldRotationRate.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVectorFieldScale",
+      "header_path": "Runtime/Engine/Classes/Particles/VectorField/ParticleModuleVectorFieldScale.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVectorFieldScaleOverLife",
+      "header_path": "Runtime/Engine/Classes/Particles/VectorField/ParticleModuleVectorFieldScaleOverLife.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVelocity",
+      "header_path": "Runtime/Engine/Classes/Particles/Velocity/ParticleModuleVelocity.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVelocityCone",
+      "header_path": "Runtime/Engine/Classes/Particles/Velocity/ParticleModuleVelocityCone.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVelocityInheritParent",
+      "header_path": "Runtime/Engine/Classes/Particles/Velocity/ParticleModuleVelocityInheritParent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVelocityOverLifetime",
+      "header_path": "Runtime/Engine/Classes/Particles/Velocity/ParticleModuleVelocityOverLifetime.h"
+
+    },
+    {
+      "name": "UnrealEngine.UParticleModuleVelocity_Seeded",
+      "header_path": "Runtime/Engine/Classes/Particles/Velocity/ParticleModuleVelocity_Seeded.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDemoPendingNetGame",
+      "header_path": "Runtime/Engine/Classes/Engine/DemoPendingNetGame.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCloudStorageBase",
+      "header_path": "Runtime/Engine/Classes/Engine/CloudStorageBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInGameAdManager",
+      "header_path": "Runtime/Engine/Classes/Engine/InGameAdManager.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMicroTransactionBase",
+      "header_path": "Runtime/Engine/Classes/Engine/MicroTransactionBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTwitterIntegrationBase",
+      "header_path": "Runtime/Engine/Classes/Engine/TwitterIntegrationBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULocalPlayer",
+      "header_path": "Runtime/Engine/Classes/Engine/LocalPlayer.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNetConnection",
+      "header_path": "Runtime/Engine/Classes/Engine/NetConnection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UChildConnection",
+      "header_path": "Runtime/Engine/Classes/Engine/ChildConnection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDemoNetConnection",
+      "header_path": "Runtime/Engine/Classes/Engine/DemoNetConnection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UReporterGraph",
+      "header_path": "Runtime/Engine/Classes/Debug/ReporterGraph.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGameViewportClient",
+      "header_path": "Runtime/Engine/Classes/Engine/GameViewportClient.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDestructibleMesh",
+      "header_path": "Runtime/Engine/Classes/Engine/DestructibleMesh.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDialogueSoundWaveProxy",
+      "header_path": "Runtime/Engine/Classes/Sound/DialogueSoundWaveProxy.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundCue",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundCue.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundWave",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundWave.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundWaveProcedural",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundWaveProcedural.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundEffectSourcePreset",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundEffectSource.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundEffectSubmixPreset",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundEffectSubmix.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeAssetReferencer",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeAssetReferencer.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeAttenuation",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeAttenuation.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeBranch",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeBranch.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeConcatenator",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeConcatenator.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeDelay",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeDelay.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeDialoguePlayer",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeDialoguePlayer.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeDistanceCrossFade",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeDistanceCrossFade.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeDoppler",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeDoppler.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeEnveloper",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeEnveloper.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeGroupControl",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeGroupControl.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeLooping",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeLooping.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeMature",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeMature.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeMixer",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeMixer.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeModulator",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeModulator.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeModulatorContinuous",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeModulatorContinuous.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeOscillator",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeOscillator.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeQualityLevel",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeQualityLevel.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeRandom",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeRandom.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeSoundClass",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeSoundClass.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeSwitch",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeSwitch.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeWaveParam",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeWaveParam.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeWavePlayer",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeWavePlayer.h"
+
+    },
+    {
+      "name": "UnrealEngine.USoundNodeParamCrossFade",
+      "header_path": "Runtime/Engine/Classes/Sound/SoundNodeParamCrossFade.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTexture2D",
+      "header_path": "Runtime/Engine/Classes/Engine/Texture2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTexture2DDynamic",
+      "header_path": "Runtime/Engine/Classes/Engine/Texture2DDynamic.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextureCube",
+      "header_path": "Runtime/Engine/Classes/Engine/TextureCube.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextureRenderTarget",
+      "header_path": "Runtime/Engine/Classes/Engine/TextureRenderTarget.h"
+
+    },
+    {
+      "name": "UnrealEngine.ULightMapTexture2D",
+      "header_path": "Runtime/Engine/Classes/Engine/LightMapTexture2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UShadowMapTexture2D",
+      "header_path": "Runtime/Engine/Classes/Engine/ShadowMapTexture2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextureLightProfile",
+      "header_path": "Runtime/Engine/Classes/Engine/TextureLightProfile.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextureRenderTarget2D",
+      "header_path": "Runtime/Engine/Classes/Engine/TextureRenderTarget2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextureRenderTargetCube",
+      "header_path": "Runtime/Engine/Classes/Engine/TextureRenderTargetCube.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCanvasRenderTarget2D",
+      "header_path": "Runtime/Engine/Classes/Engine/CanvasRenderTarget2D.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDeviceProfile",
+      "header_path": "Runtime/Engine/Classes/DeviceProfiles/DeviceProfile.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVectorFieldAnimated",
+      "header_path": "Runtime/Engine/Classes/VectorField/VectorFieldAnimated.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVectorFieldStatic",
+      "header_path": "Runtime/Engine/Classes/VectorField/VectorFieldStatic.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneBindingOverrides",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneBindingOverrides.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneBindingOverridesInterface",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneBindingOverridesInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneBindingOwnerInterface",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneBindingOwnerInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneFolder",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneFolder.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSequencePlayer",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneSequencePlayer.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSignedObject",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneSignedObject.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene",
+      "header_path": "Runtime/MovieScene/Public/MovieScene.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSection",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSequence",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneSequence.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneTrack",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneNameableTrack",
+      "header_path": "Runtime/MovieScene/Public/MovieSceneNameableTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DConstraintSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieScene3DConstraintSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DConstraintTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieScene3DConstraintTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DTransformSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieScene3DTransformSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneActorReferenceSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneActorReferenceSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneAudioSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneAudioSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneAudioTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneAudioTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneBoolSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneBoolSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneByteSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneByteSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCameraAnimSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneCameraAnimSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCameraAnimTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneCameraAnimTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCameraCutSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneCameraCutSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCameraCutTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneCameraCutTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCameraShakeSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneCameraShakeSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCameraShakeTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneCameraShakeTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneColorSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneColorSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneEnumSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneEnumSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneEventSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneEventSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneEventTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneEventTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneFloatSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneFloatSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneIntegerSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneIntegerSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneLevelVisibilitySection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneLevelVisibilitySection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneLevelVisibilityTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneLevelVisibilityTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneMaterialTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneMaterialTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneParameterSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneParameterSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneParticleParameterTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneParticleParameterTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneParticleSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneParticleSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneParticleTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneParticleTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScenePropertyTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieScenePropertyTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSkeletalAnimationSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneSkeletalAnimationSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSkeletalAnimationTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneSkeletalAnimationTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSpawnTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneSpawnTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneStringSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneStringSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSubSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneSubSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSubTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneSubTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneVectorSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneVectorSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DAttachSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieScene3DAttachSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DPathSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieScene3DPathSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DAttachTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieScene3DAttachTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DPathTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieScene3DPathTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSpawnSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneSpawnSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneFadeSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneFadeSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSlomoSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneSlomoSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneComponentMaterialTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneMaterialTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene3DTransformTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieScene3DTransformTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneActorReferenceTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneActorReferenceTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneBoolTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneBoolTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneByteTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneByteTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneColorTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneColorTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneEnumTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneEnumTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneFloatTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneFloatTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneIntegerTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneIntegerTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneStringTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneStringTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneVectorTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneVectorTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneVisibilityTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneVisibilityTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneFadeTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneFadeTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneSlomoTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneSlomoTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCinematicShotSection",
+      "header_path": "Runtime/MovieSceneTracks/Public/Sections/MovieSceneCinematicShotSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneCinematicShotTrack",
+      "header_path": "Runtime/MovieSceneTracks/Public/Tracks/MovieSceneCinematicShotTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UAsyncTaskDownloadImage",
+      "header_path": "Runtime/UMG/Public/Blueprint/AsyncTaskDownloadImage.h"
+
+    },
+    {
+      "name": "UnrealEngine.UDragDropOperation",
+      "header_path": "Runtime/UMG/Public/Blueprint/DragDropOperation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene2DTransformSection",
+      "header_path": "Runtime/UMG/Public/Animation/MovieScene2DTransformSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieScene2DTransformTrack",
+      "header_path": "Runtime/UMG/Public/Animation/MovieScene2DTransformTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneMarginSection",
+      "header_path": "Runtime/UMG/Public/Animation/MovieSceneMarginSection.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneMarginTrack",
+      "header_path": "Runtime/UMG/Public/Animation/MovieSceneMarginTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMovieSceneWidgetMaterialTrack",
+      "header_path": "Runtime/UMG/Public/Animation/MovieSceneWidgetMaterialTrack.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNamedSlotInterface",
+      "header_path": "Runtime/UMG/Public/Components/NamedSlotInterface.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPropertyBinding",
+      "header_path": "Runtime/UMG/Public/Binding/PropertyBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.URichTextBlockDecorator",
+      "header_path": "Runtime/UMG/Public/Components/RichTextBlockDecorator.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateBlueprintLibrary",
+      "header_path": "Runtime/UMG/Public/Blueprint/SlateBlueprintLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateDataSheet",
+      "header_path": "Runtime/UMG/Public/Slate/SlateDataSheet.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlateVectorArtData",
+      "header_path": "Runtime/UMG/Public/Slate/SlateVectorArtData.h"
+
+    },
+    {
+      "name": "UnrealEngine.UUMGSequencePlayer",
+      "header_path": "Runtime/UMG/Public/Animation/UMGSequencePlayer.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVisual",
+      "header_path": "Runtime/UMG/Public/Components/Visual.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetAnimation",
+      "header_path": "Runtime/UMG/Public/Animation/WidgetAnimation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetBlueprintGeneratedClass",
+      "header_path": "Runtime/UMG/Public/Blueprint/WidgetBlueprintGeneratedClass.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetBlueprintLibrary",
+      "header_path": "Runtime/UMG/Public/Blueprint/WidgetBlueprintLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetComponent",
+      "header_path": "Runtime/UMG/Public/Components/WidgetComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetInteractionComponent",
+      "header_path": "Runtime/UMG/Public/Components/WidgetInteractionComponent.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetLayoutLibrary",
+      "header_path": "Runtime/UMG/Public/Blueprint/WidgetLayoutLibrary.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetNavigation",
+      "header_path": "Runtime/UMG/Public/Blueprint/WidgetNavigation.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetTree",
+      "header_path": "Runtime/UMG/Public/Blueprint/WidgetTree.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBoolBinding",
+      "header_path": "Runtime/UMG/Public/Binding/BoolBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBrushBinding",
+      "header_path": "Runtime/UMG/Public/Binding/BrushBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCheckedStateBinding",
+      "header_path": "Runtime/UMG/Public/Binding/CheckedStateBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UColorBinding",
+      "header_path": "Runtime/UMG/Public/Binding/ColorBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UFloatBinding",
+      "header_path": "Runtime/UMG/Public/Binding/FloatBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInt32Binding",
+      "header_path": "Runtime/UMG/Public/Binding/Int32Binding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMouseCursorBinding",
+      "header_path": "Runtime/UMG/Public/Binding/MouseCursorBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextBinding",
+      "header_path": "Runtime/UMG/Public/Binding/TextBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVisibilityBinding",
+      "header_path": "Runtime/UMG/Public/Binding/VisibilityBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetBinding",
+      "header_path": "Runtime/UMG/Public/Binding/WidgetBinding.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPanelSlot",
+      "header_path": "Runtime/UMG/Public/Components/PanelSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidget",
+      "header_path": "Runtime/UMG/Public/Components/Widget.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBackgroundBlurSlot",
+      "header_path": "Runtime/UMG/Public/Components/BackgroundBlurSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBorderSlot",
+      "header_path": "Runtime/UMG/Public/Components/BorderSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UButtonSlot",
+      "header_path": "Runtime/UMG/Public/Components/ButtonSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCanvasPanelSlot",
+      "header_path": "Runtime/UMG/Public/Components/CanvasPanelSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGridSlot",
+      "header_path": "Runtime/UMG/Public/Components/GridSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHorizontalBoxSlot",
+      "header_path": "Runtime/UMG/Public/Components/HorizontalBoxSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UOverlaySlot",
+      "header_path": "Runtime/UMG/Public/Components/OverlaySlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.USafeZoneSlot",
+      "header_path": "Runtime/UMG/Public/Components/SafeZoneSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UScaleBoxSlot",
+      "header_path": "Runtime/UMG/Public/Components/ScaleBoxSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UScrollBoxSlot",
+      "header_path": "Runtime/UMG/Public/Components/ScrollBoxSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.USizeBoxSlot",
+      "header_path": "Runtime/UMG/Public/Components/SizeBoxSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UUniformGridSlot",
+      "header_path": "Runtime/UMG/Public/Components/UniformGridSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVerticalBoxSlot",
+      "header_path": "Runtime/UMG/Public/Components/VerticalBoxSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetSwitcherSlot",
+      "header_path": "Runtime/UMG/Public/Components/WidgetSwitcherSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWindowTitleBarAreaSlot",
+      "header_path": "Runtime/UMG/Public/Components/WindowTitleBarAreaSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWrapBoxSlot",
+      "header_path": "Runtime/UMG/Public/Components/WrapBoxSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCircularThrobber",
+      "header_path": "Runtime/UMG/Public/Components/CircularThrobber.h"
+
+    },
+    {
+      "name": "UnrealEngine.UComboBox",
+      "header_path": "Runtime/UMG/Public/Components/ComboBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UComboBoxString",
+      "header_path": "Runtime/UMG/Public/Components/ComboBoxString.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEditableText",
+      "header_path": "Runtime/UMG/Public/Components/EditableText.h"
+
+    },
+    {
+      "name": "UnrealEngine.UEditableTextBox",
+      "header_path": "Runtime/UMG/Public/Components/EditableTextBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UExpandableArea",
+      "header_path": "Runtime/UMG/Public/Components/ExpandableArea.h"
+
+    },
+    {
+      "name": "UnrealEngine.UImage",
+      "header_path": "Runtime/UMG/Public/Components/Image.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInputKeySelector",
+      "header_path": "Runtime/UMG/Public/Components/InputKeySelector.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNativeWidgetHost",
+      "header_path": "Runtime/UMG/Public/Components/NativeWidgetHost.h"
+
+    },
+    {
+      "name": "UnrealEngine.UPanelWidget",
+      "header_path": "Runtime/UMG/Public/Components/PanelWidget.h"
+
+    },
+    {
+      "name": "UnrealEngine.UProgressBar",
+      "header_path": "Runtime/UMG/Public/Components/ProgressBar.h"
+
+    },
+    {
+      "name": "UnrealEngine.UScrollBar",
+      "header_path": "Runtime/UMG/Public/Components/ScrollBar.h"
+
+    },
+    {
+      "name": "UnrealEngine.USlider",
+      "header_path": "Runtime/UMG/Public/Components/Slider.h"
+
+    },
+    {
+      "name": "UnrealEngine.USpacer",
+      "header_path": "Runtime/UMG/Public/Components/Spacer.h"
+
+    },
+    {
+      "name": "UnrealEngine.USpinBox",
+      "header_path": "Runtime/UMG/Public/Components/SpinBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTableViewBase",
+      "header_path": "Runtime/UMG/Public/Components/TableViewBase.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextLayoutWidget",
+      "header_path": "Runtime/UMG/Public/Components/TextWidgetTypes.h"
+
+    },
+    {
+      "name": "UnrealEngine.UThrobber",
+      "header_path": "Runtime/UMG/Public/Components/Throbber.h"
+
+    },
+    {
+      "name": "UnrealEngine.UUserWidget",
+      "header_path": "Runtime/UMG/Public/Blueprint/UserWidget.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCanvasPanel",
+      "header_path": "Runtime/UMG/Public/Components/CanvasPanel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UContentWidget",
+      "header_path": "Runtime/UMG/Public/Components/ContentWidget.h"
+
+    },
+    {
+      "name": "UnrealEngine.UGridPanel",
+      "header_path": "Runtime/UMG/Public/Components/GridPanel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UHorizontalBox",
+      "header_path": "Runtime/UMG/Public/Components/HorizontalBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UOverlay",
+      "header_path": "Runtime/UMG/Public/Components/Overlay.h"
+
+    },
+    {
+      "name": "UnrealEngine.UScrollBox",
+      "header_path": "Runtime/UMG/Public/Components/ScrollBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UUniformGridPanel",
+      "header_path": "Runtime/UMG/Public/Components/UniformGridPanel.h"
+
+    },
+    {
+      "name": "UnrealEngine.UVerticalBox",
+      "header_path": "Runtime/UMG/Public/Components/VerticalBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWidgetSwitcher",
+      "header_path": "Runtime/UMG/Public/Components/WidgetSwitcher.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWrapBox",
+      "header_path": "Runtime/UMG/Public/Components/WrapBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBackgroundBlur",
+      "header_path": "Runtime/UMG/Public/Components/BackgroundBlur.h"
+
+    },
+    {
+      "name": "UnrealEngine.UBorder",
+      "header_path": "Runtime/UMG/Public/Components/Border.h"
+
+    },
+    {
+      "name": "UnrealEngine.UButton",
+      "header_path": "Runtime/UMG/Public/Components/Button.h"
+
+    },
+    {
+      "name": "UnrealEngine.UCheckBox",
+      "header_path": "Runtime/UMG/Public/Components/CheckBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UInvalidationBox",
+      "header_path": "Runtime/UMG/Public/Components/InvalidationBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMenuAnchor",
+      "header_path": "Runtime/UMG/Public/Components/MenuAnchor.h"
+
+    },
+    {
+      "name": "UnrealEngine.UNamedSlot",
+      "header_path": "Runtime/UMG/Public/Components/NamedSlot.h"
+
+    },
+    {
+      "name": "UnrealEngine.URetainerBox",
+      "header_path": "Runtime/UMG/Public/Components/RetainerBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.USafeZone",
+      "header_path": "Runtime/UMG/Public/Components/SafeZone.h"
+
+    },
+    {
+      "name": "UnrealEngine.UScaleBox",
+      "header_path": "Runtime/UMG/Public/Components/ScaleBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.USizeBox",
+      "header_path": "Runtime/UMG/Public/Components/SizeBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.UViewport",
+      "header_path": "Runtime/UMG/Public/Components/Viewport.h"
+
+    },
+    {
+      "name": "UnrealEngine.UWindowTitleBarArea",
+      "header_path": "Runtime/UMG/Public/Components/WindowTitleBarArea.h"
+
+    },
+    {
+      "name": "UnrealEngine.UListView",
+      "header_path": "Runtime/UMG/Public/Components/ListView.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTileView",
+      "header_path": "Runtime/UMG/Public/Components/TileView.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMultiLineEditableText",
+      "header_path": "Runtime/UMG/Public/Components/MultiLineEditableText.h"
+
+    },
+    {
+      "name": "UnrealEngine.UMultiLineEditableTextBox",
+      "header_path": "Runtime/UMG/Public/Components/MultiLineEditableTextBox.h"
+
+    },
+    {
+      "name": "UnrealEngine.URichTextBlock",
+      "header_path": "Runtime/UMG/Public/Components/RichTextBlock.h"
+
+    },
+    {
+      "name": "UnrealEngine.UTextBlock",
+      "header_path": "Runtime/UMG/Public/Components/TextBlock.h"
+
+    }
+  ],
+
+  "export_namespace": [ "ChineseChessCS" ],
+  "export_type": [ ],
+  "ref_namespace": [ "UnrealEngine" ],
+  "precompile_header": "ChineseChess.h"
+}
