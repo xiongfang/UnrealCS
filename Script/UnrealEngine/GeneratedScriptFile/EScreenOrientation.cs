@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>The list of possible device/screen orientation for mobile devices</summary>

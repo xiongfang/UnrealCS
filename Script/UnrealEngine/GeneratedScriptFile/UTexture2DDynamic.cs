@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UTexture2DDynamic:UTexture 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UTexture2DDynamic:UTexture
+	{
+		/// <summary>The format of the texture.</summary>
+		public EPixelFormat Format;
+		
+		
+	}
+	
 }

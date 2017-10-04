@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Root Bone Lock options when extracting Root Motion.</summary>

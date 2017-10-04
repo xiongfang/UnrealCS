@@ -1,10 +1,24 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UDistributionVectorUniform:UDistributionVector 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UDistributionVectorUniform:UDistributionVector
+	{
+		/// <summary>Upper end of FVector magnitude range.</summary>
+		public FVector Max;
+		
+		/// <summary>Lower end of FVector magnitude range.</summary>
+		public FVector Min;
+		
+		/// <summary>If true, X == Y == Z ie. only one degree of freedom. If false, each axis is picked independently.</summary>
+		public bool bLockAxes;
+		
+		public EDistributionVectorLockFlags LockedAxes;
+		
+		public EDistributionVectorMirrorFlags MirrorFlags;
+		
+		public bool bUseExtremes;
+		
+		
+	}
+	
 }

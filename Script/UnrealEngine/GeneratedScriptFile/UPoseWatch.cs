@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UPoseWatch:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UPoseWatch:UObject
+	{
+		/// <summary>Node that we are trying to watch</summary>
+		public UEdGraphNode Node;
+		
+		public FColor PoseWatchColour;
+		
+		
+	}
+	
 }

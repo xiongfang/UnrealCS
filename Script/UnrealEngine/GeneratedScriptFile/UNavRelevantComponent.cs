@@ -1,18 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UNavRelevantComponent:UActorComponent 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetNavigationRelevancy(IntPtr _this,int bRelevant);
-public  void SetNavigationRelevancy(bool bRelevant)
-{
-	CheckIsValid();
-	SetNavigationRelevancy(_this.Get(),bRelevant?1:0);
+	public partial class UNavRelevantComponent:UActorComponent
+	{
+		public extern void SetNavigationRelevancy(bool bRelevant);
+		/// <summary>attach navigation data to entry for owner's root component (depends on its relevancy)</summary>
+		public bool bAttachToOwnersRoot;
+		
+		public UObject CachedNavParent;
+		
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

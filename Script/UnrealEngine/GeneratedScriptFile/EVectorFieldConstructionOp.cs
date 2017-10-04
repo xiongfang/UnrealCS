@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Operation used to construct the vector field from a 2D texture.</summary>

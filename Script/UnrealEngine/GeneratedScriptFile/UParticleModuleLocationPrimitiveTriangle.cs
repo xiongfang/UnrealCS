@@ -1,10 +1,17 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleLocationPrimitiveTriangle:UParticleModuleLocationBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleLocationPrimitiveTriangle:UParticleModuleLocationBase
+	{
+		public FRawDistributionVector StartOffset;
+		
+		public FRawDistributionFloat Height;
+		
+		public FRawDistributionFloat Angle;
+		
+		public FRawDistributionFloat Thickness;
+		
+		
+	}
+	
 }

@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>For an additive animation, indicates what the animation is relative to.</summary>

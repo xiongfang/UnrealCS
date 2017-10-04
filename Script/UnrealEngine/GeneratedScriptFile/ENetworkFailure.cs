@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Types of network failures broadcast from the engine</summary>

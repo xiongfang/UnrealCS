@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class AReflectionCapture:AActor 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class AReflectionCapture:AActor
+	{
+		public UReflectionCaptureComponent CaptureComponent;
+		
+		public UBillboardComponent SpriteComponent;
+		
+		public UBillboardComponent CaptureOffsetComponent;
+		
+		
+	}
+	
 }

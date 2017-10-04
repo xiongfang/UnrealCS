@@ -1,10 +1,16 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UPlaneReflectionCaptureComponent:UReflectionCaptureComponent 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UPlaneReflectionCaptureComponent:UReflectionCaptureComponent
+	{
+		/// <summary>Radius of the area that can receive reflections from this capture.</summary>
+		public float InfluenceRadiusScale;
+		
+		public UDrawSphereComponent PreviewInfluenceRadius;
+		
+		public UBoxComponent PreviewCaptureBox;
+		
+		
+	}
+	
 }

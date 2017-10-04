@@ -1,10 +1,23 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionClamp:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionClamp:UMaterialExpression
+	{
+		public FExpressionInput Input;
+		
+		/// <summary>Defaults to 'MinDefault' if not specified</summary>
+		public FExpressionInput Min;
+		
+		/// <summary>Defaults to 'MaxDefault' if not specified</summary>
+		public FExpressionInput Max;
+		
+		public EClampMode ClampMode;
+		
+		public float MinDefault;
+		
+		public float MaxDefault;
+		
+		
+	}
+	
 }

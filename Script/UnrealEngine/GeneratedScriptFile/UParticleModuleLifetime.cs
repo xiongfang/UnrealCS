@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleLifetime:UParticleModuleLifetimeBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleLifetime:UParticleModuleLifetimeBase
+	{
+		/// <summary>The lifetime of the particle, in seconds. Retrieved using the EmitterTime at the spawn of the particle.</summary>
+		public FRawDistributionFloat Lifetime;
+		
+		
+	}
+	
 }

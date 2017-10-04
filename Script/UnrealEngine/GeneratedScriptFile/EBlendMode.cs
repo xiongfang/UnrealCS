@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Note: This is mirrored in Lightmass, be sure to update the blend mode structure and logic there if this changes. // Note: Check UMaterialInstance::Serialize if changed!!</summary>

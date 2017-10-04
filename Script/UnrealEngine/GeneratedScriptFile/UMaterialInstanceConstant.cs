@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialInstanceConstant:UMaterialInstance 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialInstanceConstant:UMaterialInstance
+	{
+		/// <summary>
+		/// Unique ID for this material instance's parameter set
+		/// Updated on changes in the editor to allow those changes to be detected
+		/// </summary>
+		public FGuid ParameterStateId;
+		
+		
+	}
+	
 }

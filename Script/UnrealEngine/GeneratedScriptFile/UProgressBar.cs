@@ -1,37 +1,41 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UProgressBar:UWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetIsMarquee(IntPtr _this,int InbIsMarquee);
-/// <summary>Sets the progress bar to show as a marquee.</summary>
-public  void SetIsMarquee(bool InbIsMarquee)
-{
-	CheckIsValid();
-	SetIsMarquee(_this.Get(),InbIsMarquee?1:0);
+	public partial class UProgressBar:UWidget
+	{
+		/// <summary>Sets the progress bar to show as a marquee.</summary>
+		public extern void SetIsMarquee(bool InbIsMarquee);
+		/// <summary>Sets the fill color of the progress bar.</summary>
+		public extern void SetFillColorAndOpacity(FLinearColor InColor);
+		/// <summary>Sets the current value of the ProgressBar.</summary>
+		public extern void SetPercent(float InPercent);
+		/// <summary>The progress bar style</summary>
+		public FProgressBarStyle WidgetStyle;
+		
+		/// <summary>Style used for the progress bar</summary>
+		public USlateWidgetStyleAsset Style;
+		
+		/// <summary>The brush to use as the background of the progress bar</summary>
+		public USlateBrushAsset BackgroundImage;
+		
+		/// <summary>The brush to use as the fill image</summary>
+		public USlateBrushAsset FillImage;
+		
+		/// <summary>The brush to use as the marquee image</summary>
+		public USlateBrushAsset MarqueeImage;
+		
+		/// <summary>Used to determine the fill position of the progress bar ranging 0..1</summary>
+		public float Percent;
+		
+		/// <summary>Defines if this progress bar fills Left to right or right to left</summary>
+		public EProgressBarFillType BarFillType;
+		
+		public bool bIsMarquee;
+		
+		/// <summary>Fill Color and Opacity</summary>
+		public FLinearColor FillColorAndOpacity;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetFillColorAndOpacity(IntPtr _this,ref FLinearColor InColor);
-/// <summary>Sets the fill color of the progress bar.</summary>
-public  void SetFillColorAndOpacity(FLinearColor InColor)
-{
-	CheckIsValid();
-	SetFillColorAndOpacity(_this.Get(),ref InColor);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetPercent(IntPtr _this,float InPercent);
-/// <summary>Sets the current value of the ProgressBar.</summary>
-public  void SetPercent(float InPercent)
-{
-	CheckIsValid();
-	SetPercent(_this.Get(),InPercent);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

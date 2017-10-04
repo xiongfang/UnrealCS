@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>This is used by the drawing passes to determine tessellation policy, so changes here need to be supported in native code.</summary>

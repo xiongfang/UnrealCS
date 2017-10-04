@@ -1,10 +1,17 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UAnimClassData:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UAnimClassData:UObject
+	{
+		/// <summary>Target skeleton for this blueprint class</summary>
+		public USkeleton TargetSkeleton;
+		
+		/// <summary>The index of the root node in the animation tree</summary>
+		public int RootAnimNodeIndex;
+		
+		public UStructProperty RootAnimNodeProperty;
+		
+		
+	}
+	
 }

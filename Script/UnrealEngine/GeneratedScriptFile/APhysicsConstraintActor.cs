@@ -1,10 +1,17 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class APhysicsConstraintActor:ARigidBodyBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class APhysicsConstraintActor:ARigidBodyBase
+	{
+		public UPhysicsConstraintComponent ConstraintComp;
+		
+		public AActor ConstraintActor1;
+		
+		public AActor ConstraintActor2;
+		
+		public bool bDisableCollision;
+		
+		
+	}
+	
 }

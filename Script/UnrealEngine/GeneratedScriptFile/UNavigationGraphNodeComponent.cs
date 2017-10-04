@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UNavigationGraphNodeComponent:USceneComponent 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UNavigationGraphNodeComponent:USceneComponent
+	{
+		public FNavGraphNode Node;
+		
+		public UNavigationGraphNodeComponent NextNodeComponent;
+		
+		public UNavigationGraphNodeComponent PrevNodeComponent;
+		
+		
+	}
+	
 }

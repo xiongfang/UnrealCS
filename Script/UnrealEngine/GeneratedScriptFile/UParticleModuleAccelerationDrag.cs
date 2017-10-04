@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleAccelerationDrag:UParticleModuleAccelerationBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleAccelerationDrag:UParticleModuleAccelerationBase
+	{
+		/// <summary>Per-particle drag coefficient. Evaluted using emitter time.</summary>
+		public UDistributionFloat DragCoefficient;
+		
+		/// <summary>Per-particle drag coefficient. Evaluted using emitter time.</summary>
+		public FRawDistributionFloat DragCoefficientRaw;
+		
+		
+	}
+	
 }

@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInterpTrackInstAnimControl:UInterpTrackInst 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UInterpTrackInstAnimControl:UInterpTrackInst
+	{
+		public float LastUpdatePosition;
+		
+		public FVector InitPosition;
+		
+		public FRotator InitRotation;
+		
+		
+	}
+	
 }

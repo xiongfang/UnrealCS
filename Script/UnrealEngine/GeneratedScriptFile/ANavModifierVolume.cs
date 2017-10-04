@@ -1,10 +1,11 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class ANavModifierVolume:AVolume 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class ANavModifierVolume:AVolume
+	{
+		public TSubclassOf<UNavArea>  AreaClass;
+		
+		
+	}
+	
 }

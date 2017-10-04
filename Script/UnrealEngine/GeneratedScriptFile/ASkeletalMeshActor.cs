@@ -1,43 +1,32 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class ASkeletalMeshActor:AActor 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void OnRep_ReplicatedMaterial1(IntPtr _this);
-public  void OnRep_ReplicatedMaterial1()
-{
-	CheckIsValid();
-	OnRep_ReplicatedMaterial1(_this.Get());
+	public partial class ASkeletalMeshActor:AActor
+	{
+		public extern virtual void OnRep_ReplicatedMaterial1();
+		public extern virtual void OnRep_ReplicatedMaterial0();
+		public extern virtual void OnRep_ReplicatedPhysAsset();
+		/// <summary>Replication Notification Callbacks</summary>
+		public extern virtual void OnRep_ReplicatedMesh();
+		/// <summary>Whether or not this actor should respond to anim notifies - CURRENTLY ONLY AFFECTS PlayParticleEffect NOTIFIES*</summary>
+		public bool bShouldDoAnimNotifies;
+		
+		public bool bWakeOnLevelStart;
+		
+		public USkeletalMeshComponent SkeletalMeshComponent;
+		
+		/// <summary>Used to replicate mesh to clients</summary>
+		public USkeletalMesh ReplicatedMesh;
+		
+		/// <summary>Used to replicate physics asset to clients</summary>
+		public UPhysicsAsset ReplicatedPhysAsset;
+		
+		/// <summary>used to replicate the material in index 0</summary>
+		public UMaterialInterface ReplicatedMaterial0;
+		
+		public UMaterialInterface ReplicatedMaterial1;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void OnRep_ReplicatedMaterial0(IntPtr _this);
-public  void OnRep_ReplicatedMaterial0()
-{
-	CheckIsValid();
-	OnRep_ReplicatedMaterial0(_this.Get());
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void OnRep_ReplicatedPhysAsset(IntPtr _this);
-public  void OnRep_ReplicatedPhysAsset()
-{
-	CheckIsValid();
-	OnRep_ReplicatedPhysAsset(_this.Get());
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void OnRep_ReplicatedMesh(IntPtr _this);
-/// <summary>Replication Notification Callbacks</summary>
-public  void OnRep_ReplicatedMesh()
-{
-	CheckIsValid();
-	OnRep_ReplicatedMesh(_this.Get());
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneTrack:UMovieSceneSignedObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneTrack:UMovieSceneSignedObject
+	{
+		/// <summary>General evaluation options for a given track</summary>
+		public FMovieSceneTrackEvalOptions EvalOptions;
+		
+		/// <summary>This track's tint color</summary>
+		public FColor TrackTint;
+		
+		
+	}
+	
 }

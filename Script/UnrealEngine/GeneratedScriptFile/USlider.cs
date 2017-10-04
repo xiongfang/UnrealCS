@@ -1,74 +1,50 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USlider:UWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetSliderHandleColor(IntPtr _this,ref FLinearColor InValue);
-/// <summary>Sets the color of the handle bar</summary>
-public  void SetSliderHandleColor(FLinearColor InValue)
-{
-	CheckIsValid();
-	SetSliderHandleColor(_this.Get(),ref InValue);
+	public partial class USlider:UWidget
+	{
+		/// <summary>Sets the color of the handle bar</summary>
+		public extern void SetSliderHandleColor(FLinearColor InValue);
+		/// <summary>Sets the color of the slider bar</summary>
+		public extern void SetSliderBarColor(FLinearColor InValue);
+		/// <summary>Sets the amount to adjust the value by, when using a controller or keyboard</summary>
+		public extern void SetStepSize(float InValue);
+		/// <summary>Sets the handle to be interactive or fixed</summary>
+		public extern void SetLocked(bool InValue);
+		/// <summary>Sets if the slidable area should be indented to fit the handle</summary>
+		public extern void SetIndentHandle(bool InValue);
+		/// <summary>Sets the current value of the slider.</summary>
+		public extern void SetValue(float InValue);
+		/// <summary>Gets the current value of the slider.</summary>
+		public extern float GetValue();
+		/// <summary>The volume value to display.</summary>
+		public float Value;
+		
+		/// <summary>The progress bar style</summary>
+		public FSliderStyle WidgetStyle;
+		
+		/// <summary>The slider's orientation.</summary>
+		public EOrientation Orientation;
+		
+		/// <summary>The color to draw the slider bar in.</summary>
+		public FLinearColor SliderBarColor;
+		
+		/// <summary>The color to draw the slider handle in.</summary>
+		public FLinearColor SliderHandleColor;
+		
+		/// <summary>Whether the slidable area should be indented to fit the handle.</summary>
+		public bool IndentHandle;
+		
+		/// <summary>Whether the handle is interactive or fixed.</summary>
+		public bool Locked;
+		
+		/// <summary>The amount to adjust the value by, when using a controller or keyboard</summary>
+		public float StepSize;
+		
+		/// <summary>Should the slider be focusable?</summary>
+		public bool IsFocusable;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetSliderBarColor(IntPtr _this,ref FLinearColor InValue);
-/// <summary>Sets the color of the slider bar</summary>
-public  void SetSliderBarColor(FLinearColor InValue)
-{
-	CheckIsValid();
-	SetSliderBarColor(_this.Get(),ref InValue);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetStepSize(IntPtr _this,float InValue);
-/// <summary>Sets the amount to adjust the value by, when using a controller or keyboard</summary>
-public  void SetStepSize(float InValue)
-{
-	CheckIsValid();
-	SetStepSize(_this.Get(),InValue);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetLocked(IntPtr _this,int InValue);
-/// <summary>Sets the handle to be interactive or fixed</summary>
-public  void SetLocked(bool InValue)
-{
-	CheckIsValid();
-	SetLocked(_this.Get(),InValue?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetIndentHandle(IntPtr _this,int InValue);
-/// <summary>Sets if the slidable area should be indented to fit the handle</summary>
-public  void SetIndentHandle(bool InValue)
-{
-	CheckIsValid();
-	SetIndentHandle(_this.Get(),InValue?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetValue(IntPtr _this,float InValue);
-/// <summary>Sets the current value of the slider.</summary>
-public  void SetValue(float InValue)
-{
-	CheckIsValid();
-	SetValue(_this.Get(),InValue);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static float GetValue(IntPtr _this);
-/// <summary>Gets the current value of the slider.</summary>
-public  float GetValue()
-{
-	CheckIsValid();
-	float ___ret = GetValue(_this.Get());
-	return ___ret;
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

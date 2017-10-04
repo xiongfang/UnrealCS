@@ -1,10 +1,18 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class ADecalActor:AActor 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class ADecalActor:AActor
+	{
+		public UDecalComponent Decal;
+		
+		public UArrowComponent ArrowComponent;
+		
+		public UBillboardComponent SpriteComponent;
+		
+		/// <summary>formerly we used this component to draw a box, now we use the DecalComponentVisualizer</summary>
+		public UBoxComponent BoxComponent;
+		
+		
+	}
+	
 }

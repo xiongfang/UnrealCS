@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneWidgetMaterialTrack:UMovieSceneMaterialTrack 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneWidgetMaterialTrack:UMovieSceneMaterialTrack
+	{
+		/// <summary>The name of this track, generated from the property name path.</summary>
+		public FName TrackName;
+		
+		
+	}
+	
 }

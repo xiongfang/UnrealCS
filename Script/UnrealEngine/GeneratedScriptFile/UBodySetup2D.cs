@@ -1,10 +1,11 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UBodySetup2D:UBodySetup 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UBodySetup2D:UBodySetup
+	{
+		public FAggregateGeometry2D AggGeom2D;
+		
+		
+	}
+	
 }

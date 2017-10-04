@@ -1,10 +1,17 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UBrushComponent:UPrimitiveComponent 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UBrushComponent:UPrimitiveComponent
+	{
+		public UModel Brush;
+		
+		/// <summary>Description of collision</summary>
+		public UBodySetup BrushBodySetup;
+		
+		/// <summary>Local space translation</summary>
+		public FVector PrePivot;
+		
+		
+	}
+	
 }

@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UBlendProfile:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UBlendProfile:UObject
+	{
+		/// <summary>The skeleton that owns this profile</summary>
+		public USkeleton OwningSkeleton;
+		
+		
+	}
+	
 }

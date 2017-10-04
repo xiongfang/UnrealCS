@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UBlendSpace:UBlendSpaceBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UBlendSpace:UBlendSpaceBase
+	{
+		/// <summary>If you have input interpolation, which axis to drive animation speed (scale) - i.e. for locomotion animation, speed axis will drive animation speed (thus scale)*</summary>
+		public EBlendSpaceAxis AxisToScaleAnimation;
+		
+		
+	}
+	
 }

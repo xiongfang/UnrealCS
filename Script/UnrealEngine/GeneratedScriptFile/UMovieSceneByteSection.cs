@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneByteSection:UMovieSceneSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneByteSection:UMovieSceneSection
+	{
+		/// <summary>
+		/// Ordered curve data // @todo Sequencer This could be optimized by packing the bytes separately
+		/// // but that may not be worth the effort
+		/// </summary>
+		public FIntegralCurve ByteCurve;
+		
+		
+	}
+	
 }

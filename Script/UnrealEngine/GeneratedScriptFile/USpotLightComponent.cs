@@ -1,26 +1,20 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USpotLightComponent:UPointLightComponent 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetOuterConeAngle(IntPtr _this,float NewOuterConeAngle);
-public  void SetOuterConeAngle(float NewOuterConeAngle)
-{
-	CheckIsValid();
-	SetOuterConeAngle(_this.Get(),NewOuterConeAngle);
+	public partial class USpotLightComponent:UPointLightComponent
+	{
+		public extern void SetOuterConeAngle(float NewOuterConeAngle);
+		public extern void SetInnerConeAngle(float NewInnerConeAngle);
+		/// <summary>Degrees.</summary>
+		public float InnerConeAngle;
+		
+		/// <summary>Degrees.</summary>
+		public float OuterConeAngle;
+		
+		/// <summary>EditAnywhere, BlueprintReadOnly, Category=LightShaft, meta=(UIMin = "1.0", UIMax = "180.0")</summary>
+		public float LightShaftConeAngle;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetInnerConeAngle(IntPtr _this,float NewInnerConeAngle);
-public  void SetInnerConeAngle(float NewInnerConeAngle)
-{
-	CheckIsValid();
-	SetInnerConeAngle(_this.Get(),NewInnerConeAngle);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

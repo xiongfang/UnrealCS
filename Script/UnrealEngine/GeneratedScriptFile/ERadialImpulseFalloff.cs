@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Enum for controlling the falloff of strength of a radial impulse as a function of distance from Origin.</summary>

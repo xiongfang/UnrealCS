@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneCinematicShotSection:UMovieSceneSubSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneCinematicShotSection:UMovieSceneSubSection
+	{
+		/// <summary>The Shot's display name</summary>
+		public FText DisplayName;
+		
+		/// <summary>The shot's reference frame offset for single thumbnail rendering</summary>
+		public float ThumbnailReferenceOffset;
+		
+		
+	}
+	
 }

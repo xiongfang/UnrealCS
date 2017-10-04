@@ -1,10 +1,13 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class ASceneCapture2D:ASceneCapture 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class ASceneCapture2D:ASceneCapture
+	{
+		public USceneCaptureComponent2D CaptureComponent2D;
+		
+		public UDrawFrustumComponent DrawFrustum;
+		
+		
+	}
+	
 }

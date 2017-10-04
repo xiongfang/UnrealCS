@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UFontImportOptions:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UFontImportOptions:UObject
+	{
+		/// <summary>The actual data for this object.  We wrap it in a struct so that we can copy it around between objects.</summary>
+		public FFontImportOptionsData Data;
+		
+		
+	}
+	
 }

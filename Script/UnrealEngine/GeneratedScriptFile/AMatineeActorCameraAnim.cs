@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class AMatineeActorCameraAnim:AMatineeActor 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class AMatineeActorCameraAnim:AMatineeActor
+	{
+		/// <summary>The camera anim we are editing</summary>
+		public UCameraAnim CameraAnim;
+		
+		
+	}
+	
 }

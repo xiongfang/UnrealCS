@@ -1,10 +1,11 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UPreviewMeshCollection:UDataAsset 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UPreviewMeshCollection:UDataAsset
+	{
+		public USkeleton Skeleton;
+		
+		
+	}
+	
 }

@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneCameraCutSection:UMovieSceneSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneCameraCutSection:UMovieSceneSection
+	{
+		/// <summary>The camera possessable or spawnable that this movie CameraCut uses</summary>
+		public FGuid CameraGuid;
+		
+		/// <summary>The reference frame offset for single thumbnail rendering</summary>
+		public float ThumbnailReferenceOffset;
+		
+		
+	}
+	
 }

@@ -1,10 +1,21 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionBlendMaterialAttributes:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionBlendMaterialAttributes:UMaterialExpression
+	{
+		public FMaterialAttributesInput A;
+		
+		public FMaterialAttributesInput B;
+		
+		public FExpressionInput Alpha;
+		
+		/// <summary>Optionally skip blending attributes of this type.</summary>
+		public EMaterialAttributeBlend PixelAttributeBlendType;
+		
+		/// <summary>Optionally skip blending attributes of this type.</summary>
+		public EMaterialAttributeBlend VertexAttributeBlendType;
+		
+		
+	}
+	
 }

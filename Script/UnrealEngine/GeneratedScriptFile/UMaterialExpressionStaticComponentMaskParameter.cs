@@ -1,10 +1,19 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionStaticComponentMaskParameter:UMaterialExpressionParameter 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionStaticComponentMaskParameter:UMaterialExpressionParameter
+	{
+		public FExpressionInput Input;
+		
+		public bool DefaultR;
+		
+		public bool DefaultG;
+		
+		public bool DefaultB;
+		
+		public bool DefaultA;
+		
+		
+	}
+	
 }

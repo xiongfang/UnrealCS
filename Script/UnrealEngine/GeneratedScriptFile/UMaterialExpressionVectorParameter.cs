@@ -1,10 +1,11 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionVectorParameter:UMaterialExpressionParameter 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionVectorParameter:UMaterialExpressionParameter
+	{
+		public FLinearColor DefaultValue;
+		
+		
+	}
+	
 }

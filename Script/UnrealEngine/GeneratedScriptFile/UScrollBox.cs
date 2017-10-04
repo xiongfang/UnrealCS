@@ -1,59 +1,39 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UScrollBox:UPanelWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ScrollWidgetIntoView(IntPtr _this,IntPtr WidgetToFind,int AnimateScroll);
-/// <summary>Scrolls the ScrollBox to the widget during the next layout pass.</summary>
-public  void ScrollWidgetIntoView(UWidget WidgetToFind,bool AnimateScroll=true)
-{
-	CheckIsValid();
-	ScrollWidgetIntoView(_this.Get(),WidgetToFind,AnimateScroll?1:0);
+	public partial class UScrollBox:UPanelWidget
+	{
+		/// <summary>Scrolls the ScrollBox to the widget during the next layout pass.</summary>
+		public extern void ScrollWidgetIntoView(UWidget WidgetToFind,bool AnimateScroll=true);
+		/// <summary>Scrolls the ScrollBox to the bottom instantly during the next layout pass.</summary>
+		public extern void ScrollToEnd();
+		/// <summary>Scrolls the ScrollBox to the top instantly</summary>
+		public extern void ScrollToStart();
+		/// <summary>Gets the scroll offset of the scrollbox in Slate Units.</summary>
+		public extern float GetScrollOffset();
+		/// <summary>
+		/// Updates the scroll offset of the scrollbox.
+		/// @param NewScrollOffset is in Slate Units.
+		/// </summary>
+		public extern void SetScrollOffset(float NewScrollOffset);
+		/// <summary>The style</summary>
+		public FScrollBoxStyle WidgetStyle;
+		
+		/// <summary>The bar style</summary>
+		public FScrollBarStyle WidgetBarStyle;
+		
+		public USlateWidgetStyleAsset Style;
+		
+		public USlateWidgetStyleAsset BarStyle;
+		
+		/// <summary>The orientation of the scrolling and stacking in the box.</summary>
+		public EOrientation Orientation;
+		
+		public FVector2D ScrollbarThickness;
+		
+		public bool AlwaysShowScrollbar;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ScrollToEnd(IntPtr _this);
-/// <summary>Scrolls the ScrollBox to the bottom instantly during the next layout pass.</summary>
-public  void ScrollToEnd()
-{
-	CheckIsValid();
-	ScrollToEnd(_this.Get());
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void ScrollToStart(IntPtr _this);
-/// <summary>Scrolls the ScrollBox to the top instantly</summary>
-public  void ScrollToStart()
-{
-	CheckIsValid();
-	ScrollToStart(_this.Get());
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static float GetScrollOffset(IntPtr _this);
-/// <summary>Gets the scroll offset of the scrollbox in Slate Units.</summary>
-public  float GetScrollOffset()
-{
-	CheckIsValid();
-	float ___ret = GetScrollOffset(_this.Get());
-	return ___ret;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetScrollOffset(IntPtr _this,float NewScrollOffset);
-/// <summary>
-/// Updates the scroll offset of the scrollbox.
-/// @param NewScrollOffset is in Slate Units.
-/// </summary>
-public  void SetScrollOffset(float NewScrollOffset)
-{
-	CheckIsValid();
-	SetScrollOffset(_this.Get(),NewScrollOffset);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

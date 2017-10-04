@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class ADocumentationActor:AActor 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class ADocumentationActor:AActor
+	{
+		/// <summary>Link to a help document.</summary>
+		public FString DocumentLink;
+		
+		public UMaterialBillboardComponent Billboard;
+		
+		
+	}
+	
 }

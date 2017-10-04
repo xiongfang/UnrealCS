@@ -1,10 +1,16 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UConsole:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UConsole:UObject
+	{
+		/// <summary>The player which the next console command should be executed in the context of.  If nullptr, execute in the viewport.</summary>
+		public ULocalPlayer ConsoleTargetPlayer;
+		
+		public UTexture2D DefaultTexture_Black;
+		
+		public UTexture2D DefaultTexture_White;
+		
+		
+	}
+	
 }

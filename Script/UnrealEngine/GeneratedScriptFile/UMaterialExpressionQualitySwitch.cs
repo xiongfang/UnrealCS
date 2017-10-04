@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionQualitySwitch:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionQualitySwitch:UMaterialExpression
+	{
+		/// <summary>Default connection, used when a specific quality level input is missing.</summary>
+		public FExpressionInput Default;
+		
+		public FExpressionInput Inputs;
+		
+		
+	}
+	
 }

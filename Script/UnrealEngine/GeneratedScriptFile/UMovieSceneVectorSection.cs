@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneVectorSection:UMovieSceneSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneVectorSection:UMovieSceneSection
+	{
+		/// <summary>Vector t</summary>
+		public FRichCurve Curves;
+		
+		/// <summary>How many curves are actually used</summary>
+		public int ChannelsUsed;
+		
+		
+	}
+	
 }

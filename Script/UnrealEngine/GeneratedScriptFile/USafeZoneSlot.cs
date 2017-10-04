@@ -1,8 +1,9 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USafeZoneSlot:UPanelSlot 
+namespace UnrealEngine
 {
-}
+	public partial class USafeZoneSlot:UPanelSlot
+	{
+		
+	}
+	
 }

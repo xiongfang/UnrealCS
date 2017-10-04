@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>If using RCIM_Cubic, this enum describes how the tangents should be controlled in editor.</summary>

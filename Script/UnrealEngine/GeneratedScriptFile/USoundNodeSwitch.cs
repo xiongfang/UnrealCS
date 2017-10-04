@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USoundNodeSwitch:USoundNode 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USoundNodeSwitch:USoundNode
+	{
+		/// <summary>The name of the integer parameter to use to determine which branch we should take</summary>
+		public FName IntParameterName;
+		
+		
+	}
+	
 }

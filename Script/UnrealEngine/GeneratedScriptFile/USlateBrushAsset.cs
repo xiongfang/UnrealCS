@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USlateBrushAsset:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USlateBrushAsset:UObject
+	{
+		/// <summary>The slate brush resource describing the texture's behavior.</summary>
+		public FSlateBrush Brush;
+		
+		
+	}
+	
 }

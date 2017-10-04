@@ -1,10 +1,21 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieScene2DTransformSection:UMovieSceneSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieScene2DTransformSection:UMovieSceneSection
+	{
+		/// <summary>Translation curves</summary>
+		public FRichCurve Translation;
+		
+		/// <summary>Rotation curve</summary>
+		public FRichCurve Rotation;
+		
+		/// <summary>Scale curves</summary>
+		public FRichCurve Scale;
+		
+		/// <summary>Shear curve</summary>
+		public FRichCurve Shear;
+		
+		
+	}
+	
 }

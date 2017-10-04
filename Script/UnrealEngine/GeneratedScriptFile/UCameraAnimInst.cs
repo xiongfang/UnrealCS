@@ -1,37 +1,30 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UCameraAnimInst:UObject 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetScale(IntPtr _this,float NewDuration);
-/// <summary>Changes the scale of the animation while playing.</summary>
-public  void SetScale(float NewDuration)
-{
-	CheckIsValid();
-	SetScale(_this.Get(),NewDuration);
+	public partial class UCameraAnimInst:UObject
+	{
+		/// <summary>Changes the scale of the animation while playing.</summary>
+		public extern void SetScale(float NewDuration);
+		/// <summary>Changes the running duration of this active anim, while maintaining playback position.</summary>
+		public extern void SetDuration(float NewDuration);
+		/// <summary>Stops this instance playing whatever animation it is playing.</summary>
+		public extern void Stop(bool bImmediate=false);
+		/// <summary>which CameraAnim this is an instance of</summary>
+		public UCameraAnim CamAnim;
+		
+		public UInterpGroupInst InterpGroupInst;
+		
+		/// <summary>Multiplier for playback rate.  1.0 = normal.</summary>
+		public float PlayRate;
+		
+		/// <summary>cached movement track from the currently playing anim so we don't have to go find it every frame</summary>
+		public UInterpTrackMove MoveTrack;
+		
+		public UInterpTrackInstMove MoveInst;
+		
+		public ECameraAnimPlaySpace PlaySpace;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetDuration(IntPtr _this,float NewDuration);
-/// <summary>Changes the running duration of this active anim, while maintaining playback position.</summary>
-public  void SetDuration(float NewDuration)
-{
-	CheckIsValid();
-	SetDuration(_this.Get(),NewDuration);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void Stop(IntPtr _this,int bImmediate);
-/// <summary>Stops this instance playing whatever animation it is playing.</summary>
-public  void Stop(bool bImmediate=false)
-{
-	CheckIsValid();
-	Stop(_this.Get(),bImmediate?1:0);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

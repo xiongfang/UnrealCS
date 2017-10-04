@@ -1,10 +1,19 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneCameraShakeSection:UMovieSceneSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneCameraShakeSection:UMovieSceneSection
+	{
+		public FMovieSceneCameraShakeSectionData ShakeData;
+		
+		public TSubclassOf<UCameraShake>  ShakeClass;
+		
+		public float PlayScale;
+		
+		public ECameraAnimPlaySpace PlaySpace;
+		
+		public FRotator UserDefinedPlaySpace;
+		
+		
+	}
+	
 }

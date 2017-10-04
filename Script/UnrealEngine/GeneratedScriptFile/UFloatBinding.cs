@@ -1,19 +1,10 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UFloatBinding:UPropertyBinding 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static float GetValue(IntPtr _this);
-public  float GetValue()
-{
-	CheckIsValid();
-	float ___ret = GetValue(_this.Get());
-	return ___ret;
+	public partial class UFloatBinding:UPropertyBinding
+	{
+		public extern float GetValue();
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

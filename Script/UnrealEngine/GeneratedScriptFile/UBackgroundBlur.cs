@@ -1,66 +1,47 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UBackgroundBlur:UContentWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetLowQualityFallbackBrush(IntPtr _this,ref FSlateBrush InBrush);
-public  void SetLowQualityFallbackBrush(FSlateBrush InBrush)
-{
-	CheckIsValid();
-	SetLowQualityFallbackBrush(_this.Get(),ref InBrush);
+	public partial class UBackgroundBlur:UContentWidget
+	{
+		public extern void SetLowQualityFallbackBrush(FSlateBrush InBrush);
+		public extern virtual void SetBlurStrength(float InStrength);
+		public extern void SetBlurRadius(int InBlurRadius);
+		public extern void SetApplyAlphaToBlur(bool bInApplyAlphaToBlur);
+		public extern void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment);
+		public extern void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment);
+		public extern void SetPadding(FMargin InPadding);
+		/// <summary>The padding area between the slot and the content it contains.</summary>
+		public FMargin Padding;
+		
+		/// <summary>The alignment of the content horizontally.</summary>
+		public EHorizontalAlignment HorizontalAlignment;
+		
+		/// <summary>The alignment of the content vertically.</summary>
+		public EVerticalAlignment VerticalAlignment;
+		
+		/// <summary>True to modulate the strength of the blur based on the widget alpha.</summary>
+		public bool bApplyAlphaToBlur;
+		
+		/// <summary>How blurry the background is.  Larger numbers mean more blurry but will result in larger runtime cost on the gpu.</summary>
+		public float BlurStrength;
+		
+		/// <summary>Whether or not the radius should be computed automatically or if it should use the radius</summary>
+		public bool bOverrideAutoRadiusCalculation;
+		
+		/// <summary>
+		/// This is the number of pixels which will be weighted in each direction from any given pixel when computing the blur
+		/// A larger value is more costly but allows for stronger blurs.
+		/// </summary>
+		public int BlurRadius;
+		
+		/// <summary>
+		/// An image to draw instead of applying a blur when low quality override mode is enabled.
+		/// You can enable low quality mode for background blurs by setting the cvar Slate.ForceBackgroundBlurLowQualityOverride to 1.
+		/// This is usually done in the project's scalability settings
+		/// </summary>
+		public FSlateBrush LowQualityFallbackBrush;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetBlurStrength(IntPtr _this,float InStrength);
-public  void SetBlurStrength(float InStrength)
-{
-	CheckIsValid();
-	SetBlurStrength(_this.Get(),InStrength);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetBlurRadius(IntPtr _this,int InBlurRadius);
-public  void SetBlurRadius(int InBlurRadius)
-{
-	CheckIsValid();
-	SetBlurRadius(_this.Get(),InBlurRadius);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetApplyAlphaToBlur(IntPtr _this,int bInApplyAlphaToBlur);
-public  void SetApplyAlphaToBlur(bool bInApplyAlphaToBlur)
-{
-	CheckIsValid();
-	SetApplyAlphaToBlur(_this.Get(),bInApplyAlphaToBlur?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetVerticalAlignment(IntPtr _this,int InVerticalAlignment);
-public  void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
-{
-	CheckIsValid();
-	SetVerticalAlignment(_this.Get(),(int)InVerticalAlignment);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetHorizontalAlignment(IntPtr _this,int InHorizontalAlignment);
-public  void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
-{
-	CheckIsValid();
-	SetHorizontalAlignment(_this.Get(),(int)InHorizontalAlignment);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetPadding(IntPtr _this,ref FMargin InPadding);
-public  void SetPadding(FMargin InPadding)
-{
-	CheckIsValid();
-	SetPadding(_this.Get(),ref InPadding);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

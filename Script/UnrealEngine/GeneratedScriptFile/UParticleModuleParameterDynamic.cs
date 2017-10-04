@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleParameterDynamic:UParticleModuleParameterBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleParameterDynamic:UParticleModuleParameterBase
+	{
+		/// <summary>Flags for optimizing update</summary>
+		public int UpdateFlags;
+		
+		public bool bUsesVelocity;
+		
+		
+	}
+	
 }

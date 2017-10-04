@@ -1,20 +1,29 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UHierarchicalInstancedStaticMeshComponent:UInstancedStaticMeshComponent 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int RemoveInstances(IntPtr _this,int[] InstancesToRemove);
-/// <summary>Removes all the instances with indices specified in the InstancesToRemove array. Returns true on success.</summary>
-public  bool RemoveInstances(int[] InstancesToRemove)
-{
-	CheckIsValid();
-	int ___ret = RemoveInstances(_this.Get(),InstancesToRemove);
-	return ___ret!=0;
+	public partial class UHierarchicalInstancedStaticMeshComponent:UInstancedStaticMeshComponent
+	{
+		/// <summary>The number of instances in the ClusterTree. Subsequent instances will always be rendered.</summary>
+		public int NumBuiltInstances;
+		
+		/// <summary>Bounding box of any built instances (cached from the ClusterTree)</summary>
+		public FBox BuiltInstanceBounds;
+		
+		/// <summary>Bounding box of any unbuilt instances</summary>
+		public FBox UnbuiltInstanceBounds;
+		
+		/// <summary>
+		/// Enable for detail meshes that don't really affect the game. Disable for anything important.
+		/// Typically, this will be enabled for small meshes without collision (e.g. grass) and disabled for large meshes with collision (e.g. trees)
+		/// </summary>
+		public bool bEnableDensityScaling;
+		
+		/// <summary>The number of nodes in the occlusion layer</summary>
+		public int OcclusionLayerNumNodes;
+		
+		public bool bDisableCollision;
+		
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

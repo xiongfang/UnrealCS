@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleVelocityInheritParent:UParticleModuleVelocityBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleVelocityInheritParent:UParticleModuleVelocityBase
+	{
+		/// <summary>
+		/// The scale to apply tot he parent velocity prior to adding it to the particle velocity during spawn.
+		/// Value is retrieved using the EmitterTime of the emitter.
+		/// </summary>
+		public FRawDistributionVector Scale;
+		
+		
+	}
+	
 }

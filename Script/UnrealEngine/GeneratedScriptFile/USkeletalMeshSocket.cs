@@ -1,28 +1,34 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USkeletalMeshSocket:UObject 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void InitializeSocketFromLocation(IntPtr _this,IntPtr SkelComp,ref FVector WorldLocation,ref FVector WorldNormal);
-/// <summary>Sets BoneName, RelativeLocation and RelativeRotation based on closest bone to WorldLocation and WorldNormal</summary>
-public  void InitializeSocketFromLocation(USkeletalMeshComponent SkelComp,FVector WorldLocation,FVector WorldNormal)
-{
-	CheckIsValid();
-	InitializeSocketFromLocation(_this.Get(),SkelComp,ref WorldLocation,ref WorldNormal);
+	public partial class USkeletalMeshSocket:UObject
+	{
+		/// <summary>Sets BoneName, RelativeLocation and RelativeRotation based on closest bone to WorldLocation and WorldNormal</summary>
+		public extern void InitializeSocketFromLocation(USkeletalMeshComponent SkelComp,FVector WorldLocation,FVector WorldNormal);
+		public extern FVector GetSocketLocation(USkeletalMeshComponent SkelComp);
+		/// <summary>
+		/// Defines a named attachment location on the USkeletalMesh.
+		/// These are set up in editor and used as a shortcut instead of specifying
+		/// everything explicitly to AttachComponent in the SkeletalMeshComponent.
+		/// The Outer of a SkeletalMeshSocket should always be the USkeletalMesh.
+		/// </summary>
+		public FName SocketName;
+		
+		public FName BoneName;
+		
+		public FVector RelativeLocation;
+		
+		public FRotator RelativeRotation;
+		
+		public FVector RelativeScale;
+		
+		/// <summary>
+		/// If true then the hierarchy of bones this socket is attached to will always be
+		///           evaluated, even if it had previously been removed due to the current lod setting
+		/// </summary>
+		public bool bForceAlwaysAnimated;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FVector GetSocketLocation(IntPtr _this,IntPtr SkelComp);
-public  FVector GetSocketLocation(USkeletalMeshComponent SkelComp)
-{
-	CheckIsValid();
-	FVector ___ret = GetSocketLocation(_this.Get(),SkelComp);
-	return ___ret;
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

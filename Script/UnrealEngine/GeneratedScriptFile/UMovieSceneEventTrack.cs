@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneEventTrack:UMovieSceneNameableTrack 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneEventTrack:UMovieSceneNameableTrack
+	{
+		/// <summary>If events should be fired when passed playing the sequence forwards.</summary>
+		public bool bFireEventsWhenForwards;
+		
+		/// <summary>If events should be fired when passed playing the sequence backwards.</summary>
+		public bool bFireEventsWhenBackwards;
+		
+		
+	}
+	
 }

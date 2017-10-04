@@ -1,10 +1,13 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionAntialiasedTextureMask:UMaterialExpressionTextureSampleParameter2D 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionAntialiasedTextureMask:UMaterialExpressionTextureSampleParameter2D
+	{
+		public float Threshold;
+		
+		public ETextureColorChannel Channel;
+		
+		
+	}
+	
 }

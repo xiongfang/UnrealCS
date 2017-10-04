@@ -1,42 +1,51 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UPointLightComponent:ULightComponent 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetSourceLength(IntPtr _this,float NewValue);
-public  void SetSourceLength(float NewValue)
-{
-	CheckIsValid();
-	SetSourceLength(_this.Get(),NewValue);
+	public partial class UPointLightComponent:ULightComponent
+	{
+		public extern void SetSourceLength(float NewValue);
+		public extern void SetSourceRadius(float bNewValue);
+		public extern void SetLightFalloffExponent(float NewLightFalloffExponent);
+		public extern void SetAttenuationRadius(float NewRadius);
+		public float Radius;
+		
+		/// <summary>
+		/// Bounds the light's visible influence.
+		/// This clamping of the light's influence is not physically correct but very important for performance, larger lights cost more.
+		/// </summary>
+		public float AttenuationRadius;
+		
+		/// <summary>
+		/// Whether to use physically based inverse squared distance falloff, where AttenuationRadius is only clamping the light's contribution.
+		/// Disabling inverse squared falloff can be useful when placing fill lights (don't want a super bright spot near the light).
+		/// When enabled, the light's Intensity is in units of lumens, where 1700 lumens is a 100W lightbulb.
+		/// When disabled, the light's Intensity is a brightness scale.
+		/// </summary>
+		public bool bUseInverseSquaredFalloff;
+		
+		/// <summary>
+		/// Controls the radial falloff of the light when UseInverseSquaredFalloff is disabled.
+		/// 2 is almost linear and very unrealistic and around 8 it looks reasonable.
+		/// With large exponents, the light has contribution to only a small area of its influence radius but still costs the same as low exponents.
+		/// </summary>
+		public float LightFalloffExponent;
+		
+		/// <summary>
+		/// Radius of light source shape.
+		/// Note that light sources shapes which intersect shadow casting geometry can cause shadowing artifacts.
+		/// </summary>
+		public float SourceRadius;
+		
+		/// <summary>
+		/// Length of light source shape.
+		/// Note that light sources shapes which intersect shadow casting geometry can cause shadowing artifacts.
+		/// </summary>
+		public float SourceLength;
+		
+		/// <summary>The Lightmass settings for this object.</summary>
+		public FLightmassPointLightSettings LightmassSettings;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetSourceRadius(IntPtr _this,float bNewValue);
-public  void SetSourceRadius(float bNewValue)
-{
-	CheckIsValid();
-	SetSourceRadius(_this.Get(),bNewValue);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetLightFalloffExponent(IntPtr _this,float NewLightFalloffExponent);
-public  void SetLightFalloffExponent(float NewLightFalloffExponent)
-{
-	CheckIsValid();
-	SetLightFalloffExponent(_this.Get(),NewLightFalloffExponent);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetAttenuationRadius(IntPtr _this,float NewRadius);
-public  void SetAttenuationRadius(float NewRadius)
-{
-	CheckIsValid();
-	SetAttenuationRadius(_this.Get(),NewRadius);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

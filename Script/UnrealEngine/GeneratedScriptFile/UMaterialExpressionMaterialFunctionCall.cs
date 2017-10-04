@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionMaterialFunctionCall:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionMaterialFunctionCall:UMaterialExpression
+	{
+		/// <summary>The function to call.</summary>
+		public UMaterialFunction MaterialFunction;
+		
+		
+	}
+	
 }

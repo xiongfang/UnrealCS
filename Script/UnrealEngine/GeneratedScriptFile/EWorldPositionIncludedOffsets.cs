@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Specifies which shader generated offsets should included in the world position (displacement/WPO etc.)</summary>

@@ -1,19 +1,16 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class ASkyLight:AInfo 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void OnRep_bEnabled(IntPtr _this);
-/// <summary>Replication Notification Callbacks</summary>
-public  void OnRep_bEnabled()
-{
-	CheckIsValid();
-	OnRep_bEnabled(_this.Get());
+	public partial class ASkyLight:AInfo
+	{
+		/// <summary>Replication Notification Callbacks</summary>
+		public extern virtual void OnRep_bEnabled();
+		public USkyLightComponent LightComponent;
+		
+		/// <summary>replicated copy of LightComponent's bEnabled property</summary>
+		public bool bEnabled;
+		
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

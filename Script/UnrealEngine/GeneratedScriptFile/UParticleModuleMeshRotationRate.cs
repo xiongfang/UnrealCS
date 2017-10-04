@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleMeshRotationRate:UParticleModuleRotationRateBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleMeshRotationRate:UParticleModuleRotationRateBase
+	{
+		/// <summary>
+		/// Initial rotation rate, in rotations per second.
+		/// The value is retrieved using the EmitterTime.
+		/// </summary>
+		public FRawDistributionVector StartRotationRate;
+		
+		
+	}
+	
 }

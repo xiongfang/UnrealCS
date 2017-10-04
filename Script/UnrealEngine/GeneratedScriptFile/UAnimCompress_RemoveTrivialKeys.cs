@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UAnimCompress_RemoveTrivialKeys:UAnimCompress 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UAnimCompress_RemoveTrivialKeys:UAnimCompress
+	{
+		public float MaxPosDiff;
+		
+		public float MaxAngleDiff;
+		
+		public float MaxScaleDiff;
+		
+		
+	}
+	
 }

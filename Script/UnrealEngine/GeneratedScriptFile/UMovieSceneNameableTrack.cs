@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneNameableTrack:UMovieSceneTrack 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneNameableTrack:UMovieSceneTrack
+	{
+		/// <summary>The track's human readable display name.</summary>
+		public FText DisplayName;
+		
+		
+	}
+	
 }

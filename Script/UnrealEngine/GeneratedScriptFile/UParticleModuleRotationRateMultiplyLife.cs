@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleRotationRateMultiplyLife:UParticleModuleRotationRateBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleRotationRateMultiplyLife:UParticleModuleRotationRateBase
+	{
+		/// <summary>
+		/// The scale factor that should be applied to the rotation rate.
+		/// The value is retrieved using the RelativeTime of the particle.
+		/// </summary>
+		public FRawDistributionFloat LifeMultiplier;
+		
+		
+	}
+	
 }

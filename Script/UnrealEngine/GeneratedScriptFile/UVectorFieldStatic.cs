@@ -1,10 +1,22 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UVectorFieldStatic:UVectorField 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UVectorFieldStatic:UVectorField
+	{
+		/// <summary>Size of the vector field volume.</summary>
+		public int SizeX;
+		
+		/// <summary>Size of the vector field volume.</summary>
+		public int SizeY;
+		
+		/// <summary>Size of the vector field volume.</summary>
+		public int SizeZ;
+		
+		public FString SourceFilePath;
+		
+		public UAssetImportData AssetImportData;
+		
+		
+	}
+	
 }

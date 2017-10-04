@@ -1,10 +1,21 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionDivide:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionDivide:UMaterialExpression
+	{
+		/// <summary>Defaults to 'ConstA' if not specified</summary>
+		public FExpressionInput A;
+		
+		/// <summary>Defaults to 'ConstB' if not specified</summary>
+		public FExpressionInput B;
+		
+		/// <summary>only used if A is not hooked up</summary>
+		public float ConstA;
+		
+		/// <summary>only used if B is not hooked up</summary>
+		public float ConstB;
+		
+		
+	}
+	
 }

@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USpectatorPawnMovement:UFloatingPawnMovement 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USpectatorPawnMovement:UFloatingPawnMovement
+	{
+		/// <summary>If true, component moves at full speed no matter the time dilation. Default is false.</summary>
+		public bool bIgnoreTimeDilation;
+		
+		
+	}
+	
 }

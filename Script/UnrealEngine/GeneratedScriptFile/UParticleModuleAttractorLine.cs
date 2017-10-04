@@ -1,10 +1,21 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleAttractorLine:UParticleModuleAttractorBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleAttractorLine:UParticleModuleAttractorBase
+	{
+		/// <summary>The first endpoint of the line.</summary>
+		public FVector EndPoint0;
+		
+		/// <summary>The second endpoint of the line.</summary>
+		public FVector EndPoint1;
+		
+		/// <summary>The range of the line attractor.</summary>
+		public FRawDistributionFloat Range;
+		
+		/// <summary>The strength of the line attractor.</summary>
+		public FRawDistributionFloat Strength;
+		
+		
+	}
+	
 }

@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInterpTrackLinearColorProp:UInterpTrackLinearColorBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UInterpTrackLinearColorProp:UInterpTrackLinearColorBase
+	{
+		/// <summary>Name of property in Group  AActor  which this track mill modify over time.</summary>
+		public FName PropertyName;
+		
+		
+	}
+	
 }

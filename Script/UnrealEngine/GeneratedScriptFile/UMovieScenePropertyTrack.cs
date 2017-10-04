@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieScenePropertyTrack:UMovieSceneNameableTrack 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieScenePropertyTrack:UMovieSceneNameableTrack
+	{
+		/// <summary>Name of the property being changed</summary>
+		public FName PropertyName;
+		
+		/// <summary>Path to the property from the source object being changed</summary>
+		public FString PropertyPath;
+		
+		
+	}
+	
 }

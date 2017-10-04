@@ -1,35 +1,25 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInvalidationBox:UContentWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetCanCache(IntPtr _this,int CanCache);
-public  void SetCanCache(bool CanCache)
-{
-	CheckIsValid();
-	SetCanCache(_this.Get(),CanCache?1:0);
+	public partial class UInvalidationBox:UContentWidget
+	{
+		public extern void SetCanCache(bool CanCache);
+		public extern bool GetCanCache();
+		public extern void InvalidateCache();
+		/// <summary>
+		/// Should the invalidation panel cache the widgets?  Making this false makes it so the invalidation
+		/// panel stops acting like an invalidation panel, just becomes a simple container widget.
+		/// </summary>
+		public bool bCanCache;
+		
+		/// <summary>
+		/// Caches the locations for child draw elements relative to the invalidation box,
+		/// this adds extra overhead to drawing them every frame.  However, in cases where
+		/// the position of the invalidation boxes changes every frame this can be a big savings.
+		/// </summary>
+		public bool CacheRelativeTransforms;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetCanCache(IntPtr _this);
-public  bool GetCanCache()
-{
-	CheckIsValid();
-	int ___ret = GetCanCache(_this.Get());
-	return ___ret!=0;
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void InvalidateCache(IntPtr _this);
-public  void InvalidateCache()
-{
-	CheckIsValid();
-	InvalidateCache(_this.Get());
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

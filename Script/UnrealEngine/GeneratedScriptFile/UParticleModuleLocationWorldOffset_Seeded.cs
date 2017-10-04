@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleLocationWorldOffset_Seeded:UParticleModuleLocationWorldOffset 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleLocationWorldOffset_Seeded:UParticleModuleLocationWorldOffset
+	{
+		/// <summary>The random seed(s) to use for looking up values in StartLocation</summary>
+		public FParticleRandomSeedInfo RandomSeedInfo;
+		
+		
+	}
+	
 }

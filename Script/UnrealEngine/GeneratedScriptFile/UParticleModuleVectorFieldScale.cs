@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UParticleModuleVectorFieldScale:UParticleModuleVectorFieldBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UParticleModuleVectorFieldScale:UParticleModuleVectorFieldBase
+	{
+		/// <summary>Per-particle vector field scale. Evaluated using emitter time.</summary>
+		public UDistributionFloat VectorFieldScale;
+		
+		/// <summary>Per-particle vector field scale. Evaluated using emitter time.</summary>
+		public FRawDistributionFloat VectorFieldScaleRaw;
+		
+		
+	}
+	
 }

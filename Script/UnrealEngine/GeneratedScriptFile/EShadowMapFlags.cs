@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Bit-field flags that affects storage (e.g. packing, streaming) and other info about a shadowmap.</summary>

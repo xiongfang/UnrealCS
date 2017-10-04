@@ -71,36 +71,45 @@ void FMonoScriptCodeGenerator::FinishExport()
 		}
 	}
 
-	//写入需要导出的类和结构体到文件
+	//导出枚举
 	{
-		FString ExportStructs;
-		ExportStructs += "const char* ExportedStructName[]={\r\n";
-
-		for (auto s : NeededExportedStruct)
+		for (auto e : NeededExportedStruct)
 		{
-			const FString ClassNameCPP = GetStructNameCPP(s);
-			ExportStructs += FString::Printf(TEXT("\t\"%s\",\r\n"), *ClassNameCPP);
+			ExportStruct(e);
 		}
-		ExportStructs += "\tNULL\r\n};\r\n";
-		ExportStructs += "const char* ExportedClassName[]={\r\n";
-		//写入需要修复的类
-		for (auto Class : ClassInfos)
-		{
-			if (Class.CanExport)
-			{
-				const FString ClassNameCPP = GetClassNameCPP(Class.Class);
-				ExportStructs += FString::Printf(TEXT("\t\"%s\",\r\n"), *ClassNameCPP);
-			}
-		}
-		ExportStructs += "\tNULL\r\n};\r\n";
-
-
-		//保存到编辑器目录
-		FString csFileName = IPluginManager::Get().FindPlugin(TEXT("UnrealCS"))->GetBaseDir();
-		csFileName = FPaths::Combine(*csFileName, TEXT("Source"), TEXT("MonoPlugin"), TEXT("Private"), TEXT("ImplementStruct.h"));
-		SaveHeaderIfChanged(csFileName, ExportStructs);
 	}
-	
+
+
+	////写入需要导出的类和结构体到文件
+	//{
+	//	FString ExportStructs;
+	//	ExportStructs += "const char* ExportedStructName[]={\r\n";
+
+	//	for (auto s : NeededExportedStruct)
+	//	{
+	//		const FString ClassNameCPP = GetStructNameCPP(s);
+	//		ExportStructs += FString::Printf(TEXT("\t\"%s\",\r\n"), *ClassNameCPP);
+	//	}
+	//	ExportStructs += "\tNULL\r\n};\r\n";
+	//	ExportStructs += "const char* ExportedClassName[]={\r\n";
+	//	//写入需要修复的类
+	//	for (auto Class : ClassInfos)
+	//	{
+	//		if (Class.CanExport)
+	//		{
+	//			const FString ClassNameCPP = GetClassNameCPP(Class.Class);
+	//			ExportStructs += FString::Printf(TEXT("\t\"%s\",\r\n"), *ClassNameCPP);
+	//		}
+	//	}
+	//	ExportStructs += "\tNULL\r\n};\r\n";
+
+
+	//	//保存到编辑器目录
+	//	FString csFileName = IPluginManager::Get().FindPlugin(TEXT("UnrealCS"))->GetBaseDir();
+	//	csFileName = FPaths::Combine(*csFileName, TEXT("Source"), TEXT("MonoPlugin"), TEXT("Private"), TEXT("ImplementStruct.h"));
+	//	SaveHeaderIfChanged(csFileName, ExportStructs);
+	//}
+	//
 
 
 
@@ -110,39 +119,102 @@ void FMonoScriptCodeGenerator::FinishExport()
 
 void FMonoScriptCodeGenerator::GlueAllGeneratedFiles()
 {
-	// Generate inl library file
-	FString LibGlueFilename = GeneratedCodePath / TEXT("GeneratedScriptLibraries.inl");
-	FString LibGlue;
-
-	// Include all source header files
-	for (auto& HeaderFilename : AllSourceClassHeaders)
-	{
-		// Re-base to make sure we're including the right files on a remote machine
-		FString NewFilename(RebaseToBuildPath(HeaderFilename));
-		LibGlue += FString::Printf(TEXT("#include \"%s\"\r\n"), *NewFilename);
-	}
-
-	// Include all script glue headers
-	for (auto& HeaderFilename : AllScriptHeaders)
-	{
-		// Re-base to make sure we're including the right files on a remote machine
-		FString NewFilename(FPaths::GetCleanFilename(HeaderFilename));
-		LibGlue += FString::Printf(TEXT("#include \"%s\"\r\n"), *NewFilename);
-	}
+	//// Generate inl library file
+	//FString LibGlueFilename = GeneratedCodePath / TEXT("GeneratedScriptLibraries.inl");
 	
-	LibGlue += TEXT("\r\n namespace UnrealEngine{\r\n void MonoBindFunctions()\r\n{\r\n");
+	
+	// Include all source header files
+	FMonoTextBuilder Builder;
+	Builder.AppendLine("[");
 	for (auto Class : ClassInfos)
 	{
-		if (Class.CanExport)
+		if (!Class.SourceHeader.IsEmpty())
 		{
-			const FString ClassNameCPP = GetClassNameCPP(Class.Class);
-			LibGlue += FString::Printf(TEXT("\t_%s::BindFunctions();\r\n"), *ClassNameCPP);
+			Builder.OpenBrace();
+			Builder.AppendLine(FString::Printf(TEXT("\"name\":\"%s\","), *( TEXT("UnrealEngine.")+ GetClassNameCPP(Class.Class))));
+			FString NewFilename = Class.SourceHeader;
+			FPaths::MakePathRelativeTo(NewFilename, *FPaths::EngineSourceDir());
+			NewFilename = NewFilename.Replace(TEXT("\\"), TEXT("/"));
+			Builder.AppendLine(FString::Printf(TEXT("\"header_path\":\"%s\""), *NewFilename));
+			Builder.CloseBrace();
+			Builder.Append(",");
 		}
-
 	}
-	LibGlue += TEXT("}\r\n\r\n}");
+	Builder.AppendLine("]");
+	FString LibGlueFilename = FPaths::Combine(*CSFileExportPath, TEXT("type_setting.json"));
+	SaveHeaderIfChanged(LibGlueFilename, Builder.ToText());
+	
+	
 
-	SaveHeaderIfChanged(LibGlueFilename, LibGlue);
+	//// Include all script glue headers
+	//for (auto& HeaderFilename : AllScriptHeaders)
+	//{
+	//	// Re-base to make sure we're including the right files on a remote machine
+	//	FString NewFilename(FPaths::GetCleanFilename(HeaderFilename));
+	//	LibGlue += FString::Printf(TEXT("#include \"%s\"\r\n"), *NewFilename);
+	//}
+	//
+	//LibGlue += TEXT("\r\n namespace UnrealEngine{\r\n void MonoBindFunctions()\r\n{\r\n");
+	//for (auto Class : ClassInfos)
+	//{
+	//	if (Class.CanExport)
+	//	{
+	//		const FString ClassNameCPP = GetClassNameCPP(Class.Class);
+	//		LibGlue += FString::Printf(TEXT("\t_%s::BindFunctions();\r\n"), *ClassNameCPP);
+	//	}
+
+	//}
+	//LibGlue += TEXT("}\r\n\r\n}");
+
+	//SaveHeaderIfChanged(LibGlueFilename, LibGlue);
+}
+
+
+void FMonoScriptCodeGenerator::ExportStruct(UScriptStruct* Struct)
+{
+	UScriptStruct* s = Struct;
+	FString typeName = GetStructNameCPP(s);
+	//if (!MonoExportedStructs.Contains(typeName))
+	//	continue;
+
+	UE_LOG(LogScriptGenerator, Log, TEXT("Export Struct %s"), *s->GetName());
+
+	FMonoTextBuilder StructCSFile;
+	//StructCSFile.AppendLine("#if " + EDITOR_TEXT);
+	//StructCSFile.AppendLine("#if " + BIT_TEXT);
+
+	StructCSFile.AppendLine("using System;");
+	//StructCSFile.AppendLine("using System.Runtime.CompilerServices;");
+	//StructCSFile.AppendLine("using System.Runtime.InteropServices;");
+	StructCSFile.AppendLine(TEXT("namespace UnrealEngine"));
+	StructCSFile.OpenBrace();
+
+
+	StructCSFile += DocHelper::AppendDocCommentSummary(DocHelper::GetFieldToolTip(*s));
+	//StructCSFile.AppendLine(FString::Printf(TEXT("[StructLayout(LayoutKind.Explicit,Size=%d)]"), GetStructSize(s)));
+
+	StructCSFile.AppendLine(FString::Printf(TEXT("public partial struct %s"), *typeName));
+	StructCSFile.OpenBrace();
+
+	int32 PropertyIndex = 0;
+	for (TFieldIterator<UProperty> PropertyIt(s /*, EFieldIteratorFlags::ExcludeSuper*/); PropertyIt; ++PropertyIt, ++PropertyIndex)
+	{
+		UProperty* Property = *PropertyIt;
+		if (Factory.IsPropertySupported(Property))
+		{
+			StructCSFile += DocHelper::AppendDocCommentSummary(DocHelper::GetFieldToolTip(*Property));
+			StructCSFile.Append(Factory.BuildCSharpStructProperty(typeName, Property));
+
+		}
+	}
+	StructCSFile.CloseBrace();
+	StructCSFile.CloseBrace();
+
+	//StructCSFile.AppendLine("#endif");
+	//StructCSFile.AppendLine("#endif");
+	//FString csFileName = FPaths::Combine(*CSFileExportPath, *(ClassNameCPP + TEXT(".cs")));
+	FString csFileName = FPaths::Combine(*CSFileExportPath, *(typeName + TEXT(".cs")));
+	SaveHeaderIfChanged(csFileName, StructCSFile.ToText());
 }
 
 void FMonoScriptCodeGenerator::ExportClass(ClassInfo& CI)
@@ -153,22 +225,25 @@ void FMonoScriptCodeGenerator::ExportClass(ClassInfo& CI)
 
 	const FString ClassNameCPP = GetClassNameCPP(Class);
 
-	GeneratedCSFile.Empty();
-	GeneratedCSFile = TEXT("using System;\r\nusing System.Runtime.CompilerServices;\r\n");
-	GeneratedCSFile += TEXT("using System.Runtime.InteropServices;\r\n");
-
+	GeneratedCSFile.Clear();
+	GeneratedCSFile.AppendLine("using System;");
+	//GeneratedCSFile = TEXT("nusing System.Runtime.CompilerServices;\r\n");
+	//GeneratedCSFile += TEXT("using System.Runtime.InteropServices;\r\n");
+	GeneratedCSFile.AppendLine("namespace UnrealEngine");
+	GeneratedCSFile.OpenBrace();
 
 	UClass* superClass = Class->GetSuperClass();
 
 	if (superClass != NULL)
 	{
 		FString SuperClassName = GetClassNameCPP(superClass);
-		GeneratedCSFile += FString::Printf(TEXT("namespace UnrealEngine{\r\npublic partial class %s:%s \r\n{\r\n"), *ClassNameCPP, *SuperClassName);
+		GeneratedCSFile.AppendLine(FString::Printf(TEXT("public partial class %s:%s"), *ClassNameCPP, *SuperClassName));
 	}
 	else
 	{
-		GeneratedCSFile += FString::Printf(TEXT("namespace UnrealEngine{\r\npublic partial class %s \r\n{\r\n"), *ClassNameCPP);
+		GeneratedCSFile.AppendLine(FString::Printf(TEXT("public partial class %s"), *ClassNameCPP));
 	}
+	GeneratedCSFile.OpenBrace();
 
 	if (CI.CanExport)
 	{
@@ -202,27 +277,33 @@ void FMonoScriptCodeGenerator::ExportClass(ClassInfo& CI)
 			}
 		}
 
-		//// Export properties that are owned by this class
-		//int32 PropertyIndex = 0;
-		//for (TFieldIterator<UProperty> PropertyIt(Class, EFieldIteratorFlags::ExcludeSuper); PropertyIt; ++PropertyIt, ++PropertyIndex)
-		//{
-		//	UProperty* Property = *PropertyIt;
-		//	if (Factory.IsPropertySupported(Property))
-		//	{
-		//		FMonoTextBuilder Text = Factory.BuildCppProperty(ClassNameCPP, Property);
-		//		if (Text.ToText().Len() > 0)
-		//		{
-		//			GeneratedGlue.Append(Text);
-		//			UE_LOG(LogScriptGenerator, Log, TEXT("Exporting Property %s"), *Property->GetName());
-		//			AllExportedFunctions.Add(FString::Printf(TEXT("Get_%s"), *Property->GetName()));
-		//			AllExportedFunctions.Add(FString::Printf(TEXT("Set_%s"), *Property->GetName()));
-		//		}
-		//	}
-		//	else
-		//	{
-		//		UE_LOG(LogScriptGenerator, Log, TEXT("Skip Property %s"), *Property->GetName());
-		//	}
-		//}
+		// Export properties that are owned by this class
+		int32 PropertyIndex = 0;
+		for (TFieldIterator<UProperty> PropertyIt(Class, EFieldIteratorFlags::ExcludeSuper); PropertyIt; ++PropertyIt, ++PropertyIndex)
+		{
+			UProperty* Property = *PropertyIt;
+			if (Factory.IsPropertySupported(Property))
+			{
+				//FMonoTextBuilder Text = Factory.BuildCppProperty(ClassNameCPP, Property);
+				//if (Text.ToText().Len() > 0)
+				//{
+				//	GeneratedGlue.Append(Text);
+				//	UE_LOG(LogScriptGenerator, Log, TEXT("Exporting Property %s"), *Property->GetName());
+				//	AllExportedFunctions.Add(FString::Printf(TEXT("Get_%s"), *Property->GetName()));
+				//	AllExportedFunctions.Add(FString::Printf(TEXT("Set_%s"), *Property->GetName()));
+
+					//C#
+					GeneratedCSFile += DocHelper::AppendDocCommentSummary(DocHelper::GetFieldToolTip(*Property));
+					GeneratedCSFile += Factory.BuildCSharpClassProperty(Property);
+
+					GeneratedCSFile.AppendLine();
+				//}
+			}
+			else
+			{
+				UE_LOG(LogScriptGenerator, Log, TEXT("Skip Property %s"), *Property->GetName());
+			}
+		}
 
 
 		GeneratedGlue.AppendLine(FString::Printf(TEXT("static UClass* StaticClass(){return %s::StaticClass();}"), *ClassNameCPP));
@@ -245,15 +326,14 @@ void FMonoScriptCodeGenerator::ExportClass(ClassInfo& CI)
 		GeneratedGlue.CloseBrace();//Namespace
 		
 
-		SaveHeaderIfChanged(CI.ClassHeader, GeneratedGlue.ToText());
+		//SaveHeaderIfChanged(CI.ClassHeader, GeneratedGlue.ToText());
 
-		GeneratedCSFile += TEXT("\t[MethodImplAttribute(MethodImplOptions.InternalCall)]\r\n\tpublic extern static new IntPtr StaticClass();\r\n");
+		//GeneratedCSFile += TEXT("\t[MethodImplAttribute(MethodImplOptions.InternalCall)]\r\n\tpublic extern static new IntPtr StaticClass();\r\n");
 	}
-	
-
-	GeneratedCSFile += TEXT("}\r\n}\r\n");
+	GeneratedCSFile.CloseBrace();
+	GeneratedCSFile.CloseBrace();
 	FString csFileName = FPaths::Combine(*CSFileExportPath, *(ClassNameCPP + TEXT(".cs")));
-	SaveHeaderIfChanged(csFileName, GeneratedCSFile);
+	SaveHeaderIfChanged(csFileName, GeneratedCSFile.ToText());
 }
 
 void FMonoScriptCodeGenerator::ExportClass(UClass* Class, const FString& SourceHeaderFilename, const FString& GeneratedHeaderFilename, bool bHasChanged)
@@ -346,23 +426,39 @@ FMonoTextBuilder FMonoScriptCodeGenerator::ExportFunction(const FString& ClassNa
 
 	//C#声明以及返回值
 	{
-		FMonoTextBuilder Body_Static;
+		//FMonoTextBuilder Body_Static;
 		FMonoTextBuilder Body_Public;
-		Body_Static.AppendLine("[MethodImplAttribute(MethodImplOptions.InternalCall)]");
+		//Body_Static.AppendLine("[MethodImplAttribute(MethodImplOptions.InternalCall)]");
 		UProperty* ReturnValue = Function->GetReturnProperty();
-		if (ReturnValue)
+		//if (ReturnValue)
+		//{
+		//	Body_Static += FString::Printf(TEXT("extern static %s %s(IntPtr _this"), *Factory.GetCSharpMarshalReturnTypeName(ReturnValue), *Function->GetName());
+		//}
+		//else
+		//{
+		//	Body_Static += FString::Printf(TEXT("extern static void %s(IntPtr _this"), *Function->GetName());
+		//}
+
+
+		TCHAR* modifier = TEXT("");
+
+		if (Function->HasAnyFunctionFlags(FUNC_Final))
 		{
-			Body_Static += FString::Printf(TEXT("extern static %s %s(IntPtr _this"), *Factory.GetCSharpMarshalReturnTypeName(ReturnValue), *Function->GetName());
+
+		}
+		else if (Function->GetSuperFunction() != nullptr)
+		{
+			modifier = TEXT("override ");
 		}
 		else
 		{
-			Body_Static += FString::Printf(TEXT("extern static void %s(IntPtr _this"), *Function->GetName());
+			modifier = TEXT("virtual ");
 		}
 
 		Body_Public.AppendLine();
 		Body_Public += DocHelper::AppendDocCommentSummary(DocHelper::GetFieldToolTip(*Function));
-		Body_Public.Append(FString::Printf(TEXT("public %s %s %s("),
-			static_func?TEXT("static"):TEXT(""), ReturnValue?*Factory.GetCSharpParamTypeName(ReturnValue):TEXT("void"), *Function->GetName()));
+		Body_Public.Append(FString::Printf(TEXT("public extern %s%s%s %s("),
+			modifier, static_func?TEXT("static "):TEXT(""), ReturnValue?*Factory.GetCSharpParamTypeName(ReturnValue):TEXT("void"), *Function->GetName()));
 
 		FMonoTextBuilder PreCallDeclare;
 		FMonoTextBuilder PostCallSet;
@@ -380,7 +476,7 @@ FMonoTextBuilder FMonoScriptCodeGenerator::ExportFunction(const FString& ClassNa
 					Body_Public += ",";
 				}
 				
-				Body_Static += FString::Printf(TEXT(",%s %s"), *Factory.GetCSharpMarshalTypeName(Param), *Param->GetName());
+				//Body_Static += FString::Printf(TEXT(",%s %s"), *Factory.GetCSharpMarshalTypeName(Param), *Param->GetName());
 				FString DefaultParamValue = Factory.GetCSharpDefaultParameterValue(Function, Param);
 				Body_Public += FString::Printf(TEXT("%s %s"), *Factory.GetCSharpParamTypeName(Param), *Param->GetName());
 				if (HasDefaultParamter || DefaultParamValue.Len() > 0)
@@ -404,10 +500,16 @@ FMonoTextBuilder FMonoScriptCodeGenerator::ExportFunction(const FString& ClassNa
 			}
 		}
 
-		Body_Static.AppendLine(");");
-		Body_Public.AppendLine(")");
-		Body_Public.OpenBrace();
+		//Body_Static.AppendLine(");");
+		Body_Public.AppendLine(");");
+		//Body_Public.OpenBrace();
 
+		//if (ReturnValue != NULL)
+		//{
+		//	Body_Public.AppendLine(FString::Printf(TEXT("return %s;"), *Factory.GetNullReturnCSharpValue(Function, ReturnValue)));
+		//}
+		
+		/*
 		if (!static_func)
 		{
 			Body_Public.AppendLine(TEXT("CheckIsValid();"));
@@ -429,12 +531,12 @@ FMonoTextBuilder FMonoScriptCodeGenerator::ExportFunction(const FString& ClassNa
 			Body_Public.AppendLine(FString::Printf(TEXT("%s(%s%s);"), *Function->GetName(), *Caller, *paramList.ToText()));
 			Body_Public.Append(PostCallSet);
 			
-		}
-		Body_Public.CloseBrace();
+		}*/
+		//Body_Public.CloseBrace();
 
 
-		GeneratedCSFile += Body_Static.ToText();
-		GeneratedCSFile += Body_Public.ToText();
+		//GeneratedCSFile += Body_Static.ToText();
+		GeneratedCSFile += Body_Public;
 
 
 	}
@@ -512,8 +614,8 @@ void FMonoScriptCodeGenerator::ExportEnum(UEnum* e)
 	FString typeName = e->GetName();
 	FMonoTextBuilder EnumContext;
 	EnumContext.AppendLine("using System;");
-	EnumContext.AppendLine("using System.Runtime.CompilerServices;");
-	EnumContext.AppendLine("using System.Runtime.InteropServices;");
+	//EnumContext.AppendLine("using System.Runtime.CompilerServices;");
+	//EnumContext.AppendLine("using System.Runtime.InteropServices;");
 	EnumContext.AppendLine("namespace UnrealEngine");
 	EnumContext.OpenBrace();
 

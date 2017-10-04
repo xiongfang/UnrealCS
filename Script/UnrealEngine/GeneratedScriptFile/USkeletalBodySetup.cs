@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USkeletalBodySetup:UBodySetup 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USkeletalBodySetup:UBodySetup
+	{
+		/// <summary>dummy place for customization inside phat. Profiles are ordered dynamically and we need a static place for detail customization</summary>
+		public FPhysicalAnimationProfile CurrentPhysicalAnimationProfile;
+		
+		
+	}
+	
 }

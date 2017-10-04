@@ -1,34 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UWindowTitleBarArea:UContentWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetVerticalAlignment(IntPtr _this,int InVerticalAlignment);
-public  void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
-{
-	CheckIsValid();
-	SetVerticalAlignment(_this.Get(),(int)InVerticalAlignment);
+	public partial class UWindowTitleBarArea:UContentWidget
+	{
+		public extern void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment);
+		public extern void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment);
+		public extern void SetPadding(FMargin InPadding);
+		/// <summary>Should double clicking the title bar area toggle fullscreen instead of maximizing the window.</summary>
+		public bool bDoubleClickTogglesFullscreen;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetHorizontalAlignment(IntPtr _this,int InHorizontalAlignment);
-public  void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
-{
-	CheckIsValid();
-	SetHorizontalAlignment(_this.Get(),(int)InHorizontalAlignment);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetPadding(IntPtr _this,ref FMargin InPadding);
-public  void SetPadding(FMargin InPadding)
-{
-	CheckIsValid();
-	SetPadding(_this.Get(),ref InPadding);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UTextureRenderTarget:UTexture 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UTextureRenderTarget:UTexture
+	{
+		/// <summary>Will override FTextureRenderTarget2DResource::GetDisplayGamma if > 0.</summary>
+		public float TargetGamma;
+		
+		
+	}
+	
 }

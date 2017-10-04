@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class APlayerStart:ANavigationObjectBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class APlayerStart:ANavigationObjectBase
+	{
+		/// <summary>Used when searching for which playerstart to use.</summary>
+		public FName PlayerStartTag;
+		
+		public UArrowComponent ArrowComponent;
+		
+		
+	}
+	
 }

@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UDistributionFloatConstantCurve:UDistributionFloat 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UDistributionFloatConstantCurve:UDistributionFloat
+	{
+		/// <summary>Keyframe data for how output constant varies over time.</summary>
+		public FInterpCurveFloat ConstantCurve;
+		
+		
+	}
+	
 }

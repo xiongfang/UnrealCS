@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USoundNodeDelay:USoundNode 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USoundNodeDelay:USoundNode
+	{
+		/// <summary>The lower bound of delay time in seconds.</summary>
+		public float DelayMin;
+		
+		/// <summary>The upper bound of delay time in seconds.</summary>
+		public float DelayMax;
+		
+		
+	}
+	
 }

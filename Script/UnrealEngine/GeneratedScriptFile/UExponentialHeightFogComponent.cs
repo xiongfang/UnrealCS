@@ -1,114 +1,79 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UExponentialHeightFogComponent:USceneComponent 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetFogCutoffDistance(IntPtr _this,float Value);
-public  void SetFogCutoffDistance(float Value)
-{
-	CheckIsValid();
-	SetFogCutoffDistance(_this.Get(),Value);
+	public partial class UExponentialHeightFogComponent:USceneComponent
+	{
+		public extern void SetFogCutoffDistance(float Value);
+		public extern void SetStartDistance(float Value);
+		public extern void SetFogMaxOpacity(float Value);
+		public extern void SetFogHeightFalloff(float Value);
+		public extern void SetDirectionalInscatteringColor(FLinearColor Value);
+		public extern void SetDirectionalInscatteringStartDistance(float Value);
+		public extern void SetDirectionalInscatteringExponent(float Value);
+		public extern void SetInscatteringTextureTint(FLinearColor Value);
+		public extern void SetNonDirectionalInscatteringColorDistance(float Value);
+		public extern void SetFullyDirectionalInscatteringColorDistance(float Value);
+		public extern void SetInscatteringColorCubemap(UTextureCube Value);
+		public extern void SetFogInscatteringColor(FLinearColor Value);
+		public extern void SetFogDensity(float Value);
+		/// <summary>Global density factor.</summary>
+		public float FogDensity;
+		
+		public FLinearColor FogInscatteringColor;
+		
+		/// <summary>
+		/// Cubemap that can be specified for fog color, which is useful to make distant, heavily fogged scene elements match the sky.
+		/// When the cubemap is specified, FogInscatteringColor is ignored and Directional inscattering is disabled.
+		/// </summary>
+		public UTextureCube InscatteringColorCubemap;
+		
+		/// <summary>Tint color used when InscatteringColorCubemap is specified, for quick edits without having to reimport InscatteringColorCubemap.</summary>
+		public FLinearColor InscatteringTextureTint;
+		
+		/// <summary>Distance at which InscatteringColorCubemap should be used directly for the Inscattering Color.</summary>
+		public float FullyDirectionalInscatteringColorDistance;
+		
+		/// <summary>Distance at which only the average color of InscatteringColorCubemap should be used as Inscattering Color.</summary>
+		public float NonDirectionalInscatteringColorDistance;
+		
+		/// <summary>
+		/// Controls the size of the directional inscattering cone, which is used to approximate inscattering from a directional light.
+		/// Note: there must be a directional light with bUsedAsAtmosphereSunLight enabled for DirectionalInscattering to be used.
+		/// </summary>
+		public float DirectionalInscatteringExponent;
+		
+		/// <summary>
+		/// Controls the start distance from the viewer of the directional inscattering, which is used to approximate inscattering from a directional light.
+		/// Note: there must be a directional light with bUsedAsAtmosphereSunLight enabled for DirectionalInscattering to be used.
+		/// </summary>
+		public float DirectionalInscatteringStartDistance;
+		
+		/// <summary>
+		/// Controls the color of the directional inscattering, which is used to approximate inscattering from a directional light.
+		/// Note: there must be a directional light with bUsedAsAtmosphereSunLight enabled for DirectionalInscattering to be used.
+		/// </summary>
+		public FLinearColor DirectionalInscatteringColor;
+		
+		/// <summary>
+		/// Height density factor, controls how the density increases as height decreases.
+		/// Smaller values make the visible transition larger.
+		/// </summary>
+		public float FogHeightFalloff;
+		
+		/// <summary>
+		/// Maximum opacity of the fog.
+		/// A value of 1 means the fog can become fully opaque at a distance and replace scene color completely,
+		/// A value of 0 means the fog color will not be factored in at all.
+		/// </summary>
+		public float FogMaxOpacity;
+		
+		/// <summary>Distance from the camera that the fog will start, in world units.</summary>
+		public float StartDistance;
+		
+		/// <summary>Scene elements past this distance will not have fog applied.  This is useful for excluding skyboxes which already have fog baked in.</summary>
+		public float FogCutoffDistance;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetStartDistance(IntPtr _this,float Value);
-public  void SetStartDistance(float Value)
-{
-	CheckIsValid();
-	SetStartDistance(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetFogMaxOpacity(IntPtr _this,float Value);
-public  void SetFogMaxOpacity(float Value)
-{
-	CheckIsValid();
-	SetFogMaxOpacity(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetFogHeightFalloff(IntPtr _this,float Value);
-public  void SetFogHeightFalloff(float Value)
-{
-	CheckIsValid();
-	SetFogHeightFalloff(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetDirectionalInscatteringColor(IntPtr _this,ref FLinearColor Value);
-public  void SetDirectionalInscatteringColor(FLinearColor Value)
-{
-	CheckIsValid();
-	SetDirectionalInscatteringColor(_this.Get(),ref Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetDirectionalInscatteringStartDistance(IntPtr _this,float Value);
-public  void SetDirectionalInscatteringStartDistance(float Value)
-{
-	CheckIsValid();
-	SetDirectionalInscatteringStartDistance(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetDirectionalInscatteringExponent(IntPtr _this,float Value);
-public  void SetDirectionalInscatteringExponent(float Value)
-{
-	CheckIsValid();
-	SetDirectionalInscatteringExponent(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetInscatteringTextureTint(IntPtr _this,ref FLinearColor Value);
-public  void SetInscatteringTextureTint(FLinearColor Value)
-{
-	CheckIsValid();
-	SetInscatteringTextureTint(_this.Get(),ref Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetNonDirectionalInscatteringColorDistance(IntPtr _this,float Value);
-public  void SetNonDirectionalInscatteringColorDistance(float Value)
-{
-	CheckIsValid();
-	SetNonDirectionalInscatteringColorDistance(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetFullyDirectionalInscatteringColorDistance(IntPtr _this,float Value);
-public  void SetFullyDirectionalInscatteringColorDistance(float Value)
-{
-	CheckIsValid();
-	SetFullyDirectionalInscatteringColorDistance(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetInscatteringColorCubemap(IntPtr _this,IntPtr Value);
-public  void SetInscatteringColorCubemap(UTextureCube Value)
-{
-	CheckIsValid();
-	SetInscatteringColorCubemap(_this.Get(),Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetFogInscatteringColor(IntPtr _this,ref FLinearColor Value);
-public  void SetFogInscatteringColor(FLinearColor Value)
-{
-	CheckIsValid();
-	SetFogInscatteringColor(_this.Get(),ref Value);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetFogDensity(IntPtr _this,float Value);
-public  void SetFogDensity(float Value)
-{
-	CheckIsValid();
-	SetFogDensity(_this.Get(),Value);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

@@ -1,19 +1,10 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UWidgetBinding:UPropertyBinding 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static IntPtr GetValue(IntPtr _this);
-public  UWidget GetValue()
-{
-	CheckIsValid();
-	IntPtr ___ret = GetValue(_this.Get());
-	if(___ret==IntPtr.Zero) return null; UWidget ___ret2= new UWidget(){ _this = ___ret }; return ___ret2;
+	public partial class UWidgetBinding:UPropertyBinding
+	{
+		public extern UWidget GetValue();
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

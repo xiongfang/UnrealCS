@@ -1,10 +1,17 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionPower:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionPower:UMaterialExpression
+	{
+		public FExpressionInput Base;
+		
+		/// <summary>Defaults to 'ConstExponent' if not specified</summary>
+		public FExpressionInput Exponent;
+		
+		/// <summary>only used if Exponent is not hooked up</summary>
+		public float ConstExponent;
+		
+		
+	}
+	
 }

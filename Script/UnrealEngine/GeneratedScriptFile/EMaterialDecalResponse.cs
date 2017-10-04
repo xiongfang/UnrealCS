@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Defines how the material reacts on DBuffer decals, later we can expose more variants between None and Default.</summary>

@@ -1,10 +1,21 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieScene3DPathSection:UMovieScene3DConstraintSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieScene3DPathSection:UMovieScene3DConstraintSection
+	{
+		/// <summary>Timing Curve</summary>
+		public FRichCurve TimingCurve;
+		
+		/// <summary>Follow Curve</summary>
+		public bool bFollow;
+		
+		/// <summary>Reverse Timing</summary>
+		public bool bReverse;
+		
+		/// <summary>Force Upright</summary>
+		public bool bForceUpright;
+		
+		
+	}
+	
 }

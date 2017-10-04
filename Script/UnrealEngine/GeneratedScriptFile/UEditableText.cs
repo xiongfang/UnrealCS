@@ -1,60 +1,83 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UEditableText:UWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetIsReadOnly(IntPtr _this,int InbIsReadyOnly);
-public  void SetIsReadOnly(bool InbIsReadyOnly)
-{
-	CheckIsValid();
-	SetIsReadOnly(_this.Get(),InbIsReadyOnly?1:0);
+	public partial class UEditableText:UWidget
+	{
+		public extern void SetIsReadOnly(bool InbIsReadyOnly);
+		public extern void SetHintText(FText InHintText);
+		public extern void SetIsPassword(bool InbIsPassword);
+		/// <summary>
+		/// Directly sets the widget text.
+		/// Warning: This will wipe any binding created for the Text property!
+		/// @param InText The text to assign to the widget
+		/// </summary>
+		public extern void SetText(FText InText);
+		/// <summary>
+		/// Gets the widget text
+		/// @return The widget text
+		/// </summary>
+		public extern FText GetText();
+		/// <summary>The text content for this editable text box widget</summary>
+		public FText Text;
+		
+		/// <summary>Hint text that appears when there is no text in the text box</summary>
+		public FText HintText;
+		
+		/// <summary>The style</summary>
+		public FEditableTextStyle WidgetStyle;
+		
+		/// <summary>Text style</summary>
+		public USlateWidgetStyleAsset Style;
+		
+		/// <summary>Background image for the selected text (overrides Style)</summary>
+		public USlateBrushAsset BackgroundImageSelected;
+		
+		/// <summary>Background image for the composing text (overrides Style)</summary>
+		public USlateBrushAsset BackgroundImageComposing;
+		
+		/// <summary>Image brush used for the caret (overrides Style)</summary>
+		public USlateBrushAsset CaretImage;
+		
+		/// <summary>Font color and opacity (overrides Style)</summary>
+		public FSlateFontInfo Font;
+		
+		/// <summary>Text color and opacity (overrides Style)</summary>
+		public FSlateColor ColorAndOpacity;
+		
+		/// <summary>Sets whether this text box can actually be modified interactively by the user</summary>
+		public bool IsReadOnly;
+		
+		/// <summary>Sets whether this text box is for storing a password</summary>
+		public bool IsPassword;
+		
+		/// <summary>Minimum width that a text block should be</summary>
+		public float MinimumDesiredWidth;
+		
+		/// <summary>Workaround as we lose focus when the auto completion closes.</summary>
+		public bool IsCaretMovedWhenGainFocus;
+		
+		/// <summary>Whether to select all text when the user clicks to give focus on the widget</summary>
+		public bool SelectAllTextWhenFocused;
+		
+		/// <summary>Whether to allow the user to back out of changes when they press the escape key</summary>
+		public bool RevertTextOnEscape;
+		
+		/// <summary>Whether to clear keyboard focus when pressing enter to commit changes</summary>
+		public bool ClearKeyboardFocusOnCommit;
+		
+		/// <summary>Whether to select all text when pressing enter to commit changes</summary>
+		public bool SelectAllTextOnCommit;
+		
+		/// <summary>Whether the context menu can be opened</summary>
+		public bool AllowContextMenu;
+		
+		/// <summary>If we're on a platform that requires a virtual keyboard, what kind of keyboard should this widget use?</summary>
+		public EVirtualKeyboardType KeyboardType;
+		
+		/// <summary>Controls how the text within this widget should be shaped.</summary>
+		public FShapedTextOptions ShapedTextOptions;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetHintText(IntPtr _this,string InHintText);
-public  void SetHintText(string InHintText)
-{
-	CheckIsValid();
-	SetHintText(_this.Get(),InHintText);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetIsPassword(IntPtr _this,int InbIsPassword);
-public  void SetIsPassword(bool InbIsPassword)
-{
-	CheckIsValid();
-	SetIsPassword(_this.Get(),InbIsPassword?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetText(IntPtr _this,string InText);
-/// <summary>
-/// Directly sets the widget text.
-/// Warning: This will wipe any binding created for the Text property!
-/// @param InText The text to assign to the widget
-/// </summary>
-public  void SetText(string InText)
-{
-	CheckIsValid();
-	SetText(_this.Get(),InText);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static string GetText(IntPtr _this);
-/// <summary>
-/// Gets the widget text
-/// @return The widget text
-/// </summary>
-public  string GetText()
-{
-	CheckIsValid();
-	string ___ret = GetText(_this.Get());
-	return ___ret;
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

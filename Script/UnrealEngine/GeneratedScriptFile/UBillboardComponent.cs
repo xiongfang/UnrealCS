@@ -1,37 +1,38 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UBillboardComponent:UPrimitiveComponent 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetSpriteAndUV(IntPtr _this,IntPtr NewSprite,int NewU,int NewUL,int NewV,int NewVL);
-/// <summary>Change the sprite texture and the UV's used by this component</summary>
-public  void SetSpriteAndUV(UTexture2D NewSprite,int NewU,int NewUL,int NewV,int NewVL)
-{
-	CheckIsValid();
-	SetSpriteAndUV(_this.Get(),NewSprite,NewU,NewUL,NewV,NewVL);
+	public partial class UBillboardComponent:UPrimitiveComponent
+	{
+		/// <summary>Change the sprite texture and the UV's used by this component</summary>
+		public extern virtual void SetSpriteAndUV(UTexture2D NewSprite,int NewU,int NewUL,int NewV,int NewVL);
+		/// <summary>Change the sprite's UVs</summary>
+		public extern virtual void SetUV(int NewU,int NewUL,int NewV,int NewVL);
+		/// <summary>Change the sprite texture used by this component</summary>
+		public extern virtual void SetSprite(UTexture2D NewSprite);
+		public UTexture2D Sprite;
+		
+		public bool bIsScreenSizeScaled;
+		
+		public float ScreenSize;
+		
+		public float U;
+		
+		public float UL;
+		
+		public float V;
+		
+		public float VL;
+		
+		/// <summary>Sprite category that the component belongs to. Value serves as a key into the localization file.</summary>
+		public FName SpriteCategoryName;
+		
+		/// <summary>Sprite category information regarding the component</summary>
+		public FSpriteCategoryInfo SpriteInfo;
+		
+		/// <summary>Whether to use in-editor arrow scaling (i.e. to be affected by the global arrow scale)</summary>
+		public bool bUseInEditorScaling;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetUV(IntPtr _this,int NewU,int NewUL,int NewV,int NewVL);
-/// <summary>Change the sprite's UVs</summary>
-public  void SetUV(int NewU,int NewUL,int NewV,int NewVL)
-{
-	CheckIsValid();
-	SetUV(_this.Get(),NewU,NewUL,NewV,NewVL);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetSprite(IntPtr _this,IntPtr NewSprite);
-/// <summary>Change the sprite texture used by this component</summary>
-public  void SetSprite(UTexture2D NewSprite)
-{
-	CheckIsValid();
-	SetSprite(_this.Get(),NewSprite);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

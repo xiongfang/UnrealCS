@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMorphTarget:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMorphTarget:UObject
+	{
+		/// <summary>USkeletalMesh that this vertex animation works on.</summary>
+		public USkeletalMesh BaseSkelMesh;
+		
+		
+	}
+	
 }

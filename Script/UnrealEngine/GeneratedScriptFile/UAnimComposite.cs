@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UAnimComposite:UAnimCompositeBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UAnimComposite:UAnimCompositeBase
+	{
+		/// <summary>Serializable data that stores section/anim pairing *</summary>
+		public FAnimTrack AnimationTrack;
+		
+		/// <summary>Preview Base pose for additive BlendSpace *</summary>
+		public UAnimSequence PreviewBasePose;
+		
+		
+	}
+	
 }

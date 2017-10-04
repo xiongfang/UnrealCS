@@ -1,20 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UCurveVector:UCurveBase 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FVector GetVectorValue(IntPtr _this,float InTime);
-/// <summary>Evaluate this float curve at the specified time</summary>
-public  FVector GetVectorValue(float InTime)
-{
-	CheckIsValid();
-	FVector ___ret = GetVectorValue(_this.Get(),InTime);
-	return ___ret;
+	public partial class UCurveVector:UCurveBase
+	{
+		/// <summary>Evaluate this float curve at the specified time</summary>
+		public extern FVector GetVectorValue(float InTime);
+		/// <summary>Keyframe data, one curve for X, Y and Z</summary>
+		public FRichCurve FloatCurves;
+		
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

@@ -1,10 +1,17 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UDistributionVectorConstant:UDistributionVector 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UDistributionVectorConstant:UDistributionVector
+	{
+		/// <summary>This FVector will be returned for all input times.</summary>
+		public FVector Constant;
+		
+		/// <summary>If true, X == Y == Z ie. only one degree of freedom. If false, each axis is picked independently.</summary>
+		public bool bLockAxes;
+		
+		public EDistributionVectorLockFlags LockedAxes;
+		
+		
+	}
+	
 }

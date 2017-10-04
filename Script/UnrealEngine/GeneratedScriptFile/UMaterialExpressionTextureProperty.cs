@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionTextureProperty:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionTextureProperty:UMaterialExpression
+	{
+		/// <summary>Texture Object to access the property from.</summary>
+		public FExpressionInput TextureObject;
+		
+		/// <summary>Texture property to be accessed</summary>
+		public EMaterialExposedTextureProperty Property;
+		
+		
+	}
+	
 }

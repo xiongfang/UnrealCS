@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionCustom:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionCustom:UMaterialExpression
+	{
+		public FString Code;
+		
+		public ECustomMaterialOutputType OutputType;
+		
+		public FString Description;
+		
+		
+	}
+	
 }

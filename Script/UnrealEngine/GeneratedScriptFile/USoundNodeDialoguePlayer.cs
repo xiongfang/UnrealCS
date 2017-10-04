@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USoundNodeDialoguePlayer:USoundNode 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USoundNodeDialoguePlayer:USoundNode
+	{
+		public FDialogueWaveParameter DialogueWaveParameter;
+		
+		/// <summary>Whether the dialogue line should be played looping</summary>
+		public bool bLooping;
+		
+		
+	}
+	
 }

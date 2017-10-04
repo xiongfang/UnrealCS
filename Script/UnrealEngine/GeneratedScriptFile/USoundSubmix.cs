@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USoundSubmix:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USoundSubmix:UObject
+	{
+		public USoundSubmix ParentSubmix;
+		
+		/// <summary>The output wet level to use for the output of this submix in parent submixes</summary>
+		public float OutputWetLevel;
+		
+		
+	}
+	
 }

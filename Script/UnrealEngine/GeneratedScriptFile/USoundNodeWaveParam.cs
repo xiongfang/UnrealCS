@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USoundNodeWaveParam:USoundNode 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USoundNodeWaveParam:USoundNode
+	{
+		/// <summary>The name of the wave parameter to use to look up the SoundWave we should play</summary>
+		public FName WaveParameterName;
+		
+		
+	}
+	
 }

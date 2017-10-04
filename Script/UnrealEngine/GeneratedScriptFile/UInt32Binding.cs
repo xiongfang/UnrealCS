@@ -1,19 +1,10 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInt32Binding:UPropertyBinding 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetValue(IntPtr _this);
-public  int GetValue()
-{
-	CheckIsValid();
-	int ___ret = GetValue(_this.Get());
-	return ___ret;
+	public partial class UInt32Binding:UPropertyBinding
+	{
+		public extern int GetValue();
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

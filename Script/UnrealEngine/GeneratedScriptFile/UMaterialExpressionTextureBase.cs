@@ -1,10 +1,16 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionTextureBase:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionTextureBase:UMaterialExpression
+	{
+		public UTexture Texture;
+		
+		public EMaterialSamplerType SamplerType;
+		
+		/// <summary>Is default selected texture when using mesh paint mode texture painting</summary>
+		public bool IsDefaultMeshpaintTexture;
+		
+		
+	}
+	
 }

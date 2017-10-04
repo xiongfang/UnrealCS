@@ -1,20 +1,28 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class ACameraActor:AActor 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static int GetAutoActivatePlayerIndex(IntPtr _this);
-/// <summary>Returns index of the player for whom we auto-activate, or INDEX_NONE (-1) if disabled.</summary>
-public  int GetAutoActivatePlayerIndex()
-{
-	CheckIsValid();
-	int ___ret = GetAutoActivatePlayerIndex(_this.Get());
-	return ___ret;
+	public partial class ACameraActor:AActor
+	{
+		/// <summary>Returns index of the player for whom we auto-activate, or INDEX_NONE (-1) if disabled.</summary>
+		public extern int GetAutoActivatePlayerIndex();
+		/// <summary>Specifies which player controller, if any, should automatically use this Camera when the controller is active.</summary>
+		public EAutoReceiveInput AutoActivateForPlayer;
+		
+		public UCameraComponent CameraComponent;
+		
+		public USceneComponent SceneComponent;
+		
+		public bool bConstrainAspectRatio;
+		
+		public float AspectRatio;
+		
+		public float FOVAngle;
+		
+		public float PostProcessBlendWeight;
+		
+		public FPostProcessSettings PostProcessSettings;
+		
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

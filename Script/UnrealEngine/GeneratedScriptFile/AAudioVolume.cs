@@ -1,42 +1,28 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class AAudioVolume:AVolume 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetInteriorSettings(IntPtr _this,ref FInteriorSettings NewInteriorSettings);
-public  void SetInteriorSettings(FInteriorSettings NewInteriorSettings)
-{
-	CheckIsValid();
-	SetInteriorSettings(_this.Get(),ref NewInteriorSettings);
+	public partial class AAudioVolume:AVolume
+	{
+		public extern void SetInteriorSettings(FInteriorSettings NewInteriorSettings);
+		public extern void SetReverbSettings(FReverbSettings NewReverbSettings);
+		public extern void SetEnabled(bool bNewEnabled);
+		public extern void SetPriority(float NewPriority);
+		/// <summary>
+		/// Priority of this volume. In the case of overlapping volumes the one with the highest priority
+		/// is chosen. The order is undefined if two or more overlapping volumes have the same priority.
+		/// </summary>
+		public float Priority;
+		
+		/// <summary>whether this volume is currently enabled and able to affect sounds</summary>
+		public bool bEnabled;
+		
+		/// <summary>Reverb settings to use for this volume.</summary>
+		public FReverbSettings Settings;
+		
+		/// <summary>Interior settings used for this volume</summary>
+		public FInteriorSettings AmbientZoneSettings;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetReverbSettings(IntPtr _this,ref FReverbSettings NewReverbSettings);
-public  void SetReverbSettings(FReverbSettings NewReverbSettings)
-{
-	CheckIsValid();
-	SetReverbSettings(_this.Get(),ref NewReverbSettings);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetEnabled(IntPtr _this,int bNewEnabled);
-public  void SetEnabled(bool bNewEnabled)
-{
-	CheckIsValid();
-	SetEnabled(_this.Get(),bNewEnabled?1:0);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetPriority(IntPtr _this,float NewPriority);
-public  void SetPriority(float NewPriority)
-{
-	CheckIsValid();
-	SetPriority(_this.Get(),NewPriority);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

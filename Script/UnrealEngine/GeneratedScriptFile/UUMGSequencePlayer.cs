@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UUMGSequencePlayer:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UUMGSequencePlayer:UObject
+	{
+		/// <summary>Animation being played</summary>
+		public UWidgetAnimation Animation;
+		
+		
+	}
+	
 }

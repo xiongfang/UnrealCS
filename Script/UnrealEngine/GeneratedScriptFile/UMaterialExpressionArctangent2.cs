@@ -1,8 +1,9 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionArctangent2:UMaterialExpression 
+namespace UnrealEngine
 {
-}
+	public partial class UMaterialExpressionArctangent2:UMaterialExpression
+	{
+		
+	}
+	
 }

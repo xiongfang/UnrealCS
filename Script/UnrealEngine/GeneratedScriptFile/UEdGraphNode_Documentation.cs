@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UEdGraphNode_Documentation:UEdGraphNode 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UEdGraphNode_Documentation:UEdGraphNode
+	{
+		/// <summary>Documentation Link</summary>
+		public FString Link;
+		
+		/// <summary>Documentation Excerpt</summary>
+		public FString Excerpt;
+		
+		
+	}
+	
 }

@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieScene3DConstraintSection:UMovieSceneSection 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieScene3DConstraintSection:UMovieSceneSection
+	{
+		/// <summary>The possessable guid that this constraint uses</summary>
+		public FGuid ConstraintId;
+		
+		
+	}
+	
 }

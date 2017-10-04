@@ -1,10 +1,21 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UPlayer:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UPlayer:UObject
+	{
+		/// <summary>The actor this player controls.</summary>
+		public APlayerController PlayerController;
+		
+		/// <summary>the current speed of the connection</summary>
+		public int CurrentNetSpeed;
+		
+		/// <summary>@todo document</summary>
+		public int ConfiguredInternetSpeed;
+		
+		/// <summary>@todo document</summary>
+		public int ConfiguredLanSpeed;
+		
+		
+	}
+	
 }

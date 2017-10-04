@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInterpTrackBoolProp:UInterpTrack 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UInterpTrackBoolProp:UInterpTrack
+	{
+		/// <summary>Name of property in Group  AActor  which this track will modify over time.</summary>
+		public FName PropertyName;
+		
+		
+	}
+	
 }

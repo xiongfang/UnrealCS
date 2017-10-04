@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USoundClass:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USoundClass:UObject
+	{
+		/// <summary>Configurable properties like volume and priority.</summary>
+		public FSoundClassProperties Properties;
+		
+		public USoundClass ParentClass;
+		
+		
+	}
+	
 }

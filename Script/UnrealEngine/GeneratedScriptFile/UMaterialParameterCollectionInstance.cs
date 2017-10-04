@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialParameterCollectionInstance:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialParameterCollectionInstance:UObject
+	{
+		/// <summary>Collection resource this instance is based off of.</summary>
+		public UMaterialParameterCollection Collection;
+		
+		/// <summary>World that owns this instance.</summary>
+		public UWorld World;
+		
+		
+	}
+	
 }

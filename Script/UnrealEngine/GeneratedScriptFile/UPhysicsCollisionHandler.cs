@@ -1,10 +1,21 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UPhysicsCollisionHandler:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UPhysicsCollisionHandler:UObject
+	{
+		/// <summary>How hard an impact must be to trigger effect/sound</summary>
+		public float ImpactThreshold;
+		
+		/// <summary>Min time between effect/sound being triggered</summary>
+		public float ImpactReFireDelay;
+		
+		/// <summary>Sound to play</summary>
+		public USoundBase DefaultImpactSound;
+		
+		/// <summary>Time since last impact sound</summary>
+		public float LastImpactSoundTime;
+		
+		
+	}
+	
 }

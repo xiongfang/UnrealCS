@@ -1,10 +1,24 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UAnimNotify_PlaySound:UAnimNotify 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UAnimNotify_PlaySound:UAnimNotify
+	{
+		/// <summary>Sound to Play</summary>
+		public USoundBase Sound;
+		
+		/// <summary>Volume Multiplier</summary>
+		public float VolumeMultiplier;
+		
+		/// <summary>Pitch Multiplier</summary>
+		public float PitchMultiplier;
+		
+		/// <summary>If this sound should follow its owner</summary>
+		public bool bFollow;
+		
+		/// <summary>Socket or bone name to attach sound to</summary>
+		public FName AttachName;
+		
+		
+	}
+	
 }

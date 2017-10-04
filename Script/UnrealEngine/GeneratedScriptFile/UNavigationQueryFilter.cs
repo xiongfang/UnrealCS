@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UNavigationQueryFilter:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UNavigationQueryFilter:UObject
+	{
+		/// <summary>required flags of navigation nodes</summary>
+		public FNavigationFilterFlags IncludeFlags;
+		
+		/// <summary>forbidden flags of navigation nodes</summary>
+		public FNavigationFilterFlags ExcludeFlags;
+		
+		
+	}
+	
 }

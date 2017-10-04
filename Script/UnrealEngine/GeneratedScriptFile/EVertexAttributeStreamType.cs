@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>typical vertex attribute formats but as they are only CPU processed at the moment we could chnage that</summary>

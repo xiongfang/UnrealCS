@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class USimpleConstructionScript:UObject 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class USimpleConstructionScript:UObject
+	{
+		/// <summary>Default scene root node; used when no other nodes are available to use as the root</summary>
+		public USCS_Node DefaultSceneRootNode;
+		
+		/// <summary>(DEPRECATED) Root node of the construction script</summary>
+		public USCS_Node RootNode;
+		
+		
+	}
+	
 }

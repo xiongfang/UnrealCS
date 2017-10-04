@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInterpTrackVectorBase:UInterpTrack 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UInterpTrackVectorBase:UInterpTrack
+	{
+		/// <summary>Actually track data containing keyframes of a FVector as it varies over time.</summary>
+		public FInterpCurveVector VectorTrack;
+		
+		/// <summary>Tension of curve, used for keypoints using automatic tangents.</summary>
+		public float CurveTension;
+		
+		
+	}
+	
 }

@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInterpTrackMoveAxis:UInterpTrackFloatBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UInterpTrackMoveAxis:UInterpTrackFloatBase
+	{
+		/// <summary>The axis which this track will use when transforming an actor</summary>
+		public EInterpMoveAxis MoveAxis;
+		
+		/// <summary>Lookup track to use when looking at different groups for transform information</summary>
+		public FInterpLookupTrack LookupTrack;
+		
+		
+	}
+	
 }

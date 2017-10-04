@@ -1,10 +1,15 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UDistributionFloatUniform:UDistributionFloat 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UDistributionFloatUniform:UDistributionFloat
+	{
+		/// <summary>Low end of output float distribution.</summary>
+		public float Min;
+		
+		/// <summary>High end of output float distribution.</summary>
+		public float Max;
+		
+		
+	}
+	
 }

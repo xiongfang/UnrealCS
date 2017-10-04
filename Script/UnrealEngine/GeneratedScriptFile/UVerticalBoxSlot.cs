@@ -1,42 +1,25 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UVerticalBoxSlot:UPanelSlot 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetVerticalAlignment(IntPtr _this,int InVerticalAlignment);
-public  void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
-{
-	CheckIsValid();
-	SetVerticalAlignment(_this.Get(),(int)InVerticalAlignment);
+	public partial class UVerticalBoxSlot:UPanelSlot
+	{
+		public extern void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment);
+		public extern void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment);
+		public extern void SetSize(FSlateChildSize InSize);
+		public extern void SetPadding(FMargin InPadding);
+		/// <summary>The padding area between the slot and the content it contains.</summary>
+		public FMargin Padding;
+		
+		/// <summary>How much space this slot should occupy in the direction of the panel.</summary>
+		public FSlateChildSize Size;
+		
+		/// <summary>The alignment of the object horizontally.</summary>
+		public EHorizontalAlignment HorizontalAlignment;
+		
+		/// <summary>The alignment of the object vertically.</summary>
+		public EVerticalAlignment VerticalAlignment;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetHorizontalAlignment(IntPtr _this,int InHorizontalAlignment);
-public  void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
-{
-	CheckIsValid();
-	SetHorizontalAlignment(_this.Get(),(int)InHorizontalAlignment);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetSize(IntPtr _this,ref FSlateChildSize InSize);
-public  void SetSize(FSlateChildSize InSize)
-{
-	CheckIsValid();
-	SetSize(_this.Get(),ref InSize);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetPadding(IntPtr _this,ref FMargin InPadding);
-public  void SetPadding(FMargin InPadding)
-{
-	CheckIsValid();
-	SetPadding(_this.Get(),ref InPadding);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

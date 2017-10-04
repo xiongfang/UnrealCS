@@ -1,10 +1,18 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class URichTextBlock:UTextLayoutWidget 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class URichTextBlock:UTextLayoutWidget
+	{
+		/// <summary>The text to display</summary>
+		public FText Text;
+		
+		/// <summary>The default font for the text.</summary>
+		public FSlateFontInfo Font;
+		
+		/// <summary>The default color for the text.</summary>
+		public FLinearColor Color;
+		
+		
+	}
+	
 }

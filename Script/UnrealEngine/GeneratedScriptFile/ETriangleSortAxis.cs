@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>Enum to specify which axis to use for the forward vector when using TRISORT_CustomLeftRight sort mode.</summary>

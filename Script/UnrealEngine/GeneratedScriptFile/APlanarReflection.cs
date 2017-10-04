@@ -1,10 +1,16 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class APlanarReflection:ASceneCapture 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class APlanarReflection:ASceneCapture
+	{
+		/// <summary>Planar reflection component.</summary>
+		public UPlanarReflectionComponent PlanarReflectionComponent;
+		
+		public UBillboardComponent SpriteComponent;
+		
+		public bool bShowPreviewPlane;
+		
+		
+	}
+	
 }

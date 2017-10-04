@@ -1,0 +1,14 @@
+{
+  "name": "pj",
+  "dirs": [
+    "UnrealEngine",
+    "UnrealEngine/GeneratedScriptFile",
+    "UnrealEngine/Math"
+  ],
+  "ref_namespace": [
+    "System"
+  ],
+  "ref_type": [
+  ],
+  "ingore_method_body": true
+}

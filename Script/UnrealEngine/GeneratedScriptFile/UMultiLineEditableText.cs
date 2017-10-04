@@ -1,27 +1,26 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMultiLineEditableText:UTextLayoutWidget 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetText(IntPtr _this,string InText);
-public  void SetText(string InText)
-{
-	CheckIsValid();
-	SetText(_this.Get(),InText);
+	public partial class UMultiLineEditableText:UTextLayoutWidget
+	{
+		public extern void SetText(FText InText);
+		public extern FText GetText();
+		/// <summary>The text content for this editable text box widget</summary>
+		public FText Text;
+		
+		/// <summary>Hint text that appears when there is no text in the text box</summary>
+		public FText HintText;
+		
+		/// <summary>The style</summary>
+		public FTextBlockStyle WidgetStyle;
+		
+		/// <summary>Font color and opacity (overrides Style)</summary>
+		public FSlateFontInfo Font;
+		
+		/// <summary>Whether the context menu can be opened</summary>
+		public bool AllowContextMenu;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static string GetText(IntPtr _this);
-public  string GetText()
-{
-	CheckIsValid();
-	string ___ret = GetText(_this.Get());
-	return ___ret;
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

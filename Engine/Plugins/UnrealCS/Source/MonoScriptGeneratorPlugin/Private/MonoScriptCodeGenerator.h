@@ -30,11 +30,11 @@ class FMonoScriptCodeGenerator : public FScriptCodeGeneratorBase
 	TArray<UEnum*> NeededExportedEnums;
 
 	FString CSFileExportPath;
-	FString GeneratedCSFile;
+	FMonoTextBuilder GeneratedCSFile;
 
 	PropertyHandlerFactroy Factory;
-	FMonoTextBuilder CppText;
-	FMonoTextBuilder CsText;
+	//FMonoTextBuilder CppText;
+	//FMonoTextBuilder CsText;
 
 	void GlueAllGeneratedFiles();
 
@@ -45,6 +45,7 @@ class FMonoScriptCodeGenerator : public FScriptCodeGeneratorBase
 	void ExportClass(ClassInfo& ci);
 	FMonoTextBuilder ExportFunction(const FString& ClassNameCPP, UClass* Class, UFunction* Function);
 	void ExportEnum(UEnum* e);
+	void ExportStruct(UScriptStruct* Struct);
 
 	bool CollectExportInfo(UStruct* Struct);
 	void CollectExportInfo(UFunction* Struct);

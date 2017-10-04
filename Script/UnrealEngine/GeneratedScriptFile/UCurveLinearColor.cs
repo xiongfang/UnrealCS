@@ -1,19 +1,13 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UCurveLinearColor:UCurveBase 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static FLinearColor GetLinearColorValue(IntPtr _this,float InTime);
-public  FLinearColor GetLinearColorValue(float InTime)
-{
-	CheckIsValid();
-	FLinearColor ___ret = GetLinearColorValue(_this.Get(),InTime);
-	return ___ret;
+	public partial class UCurveLinearColor:UCurveBase
+	{
+		public extern virtual FLinearColor GetLinearColorValue(float InTime);
+		/// <summary>Keyframe data, one curve for red, green, blue, and alpha</summary>
+		public FRichCurve FloatCurves;
+		
+		
+	}
 	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

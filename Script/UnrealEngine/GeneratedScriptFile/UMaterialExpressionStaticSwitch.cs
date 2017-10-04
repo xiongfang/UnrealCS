@@ -1,10 +1,18 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionStaticSwitch:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionStaticSwitch:UMaterialExpression
+	{
+		public bool DefaultValue;
+		
+		public FExpressionInput A;
+		
+		public FExpressionInput B;
+		
+		/// <summary>Ignored if not specified</summary>
+		public FExpressionInput Value;
+		
+		
+	}
+	
 }

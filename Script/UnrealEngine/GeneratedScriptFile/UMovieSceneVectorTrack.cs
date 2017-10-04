@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMovieSceneVectorTrack:UMovieScenePropertyTrack 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMovieSceneVectorTrack:UMovieScenePropertyTrack
+	{
+		/// <summary>The number of channels used by the vector (2,3, or 4)</summary>
+		public int NumChannelsUsed;
+		
+		
+	}
+	
 }

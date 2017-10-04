@@ -1,44 +1,27 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UUniformGridSlot:UPanelSlot 
+namespace UnrealEngine
 {
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetVerticalAlignment(IntPtr _this,int InVerticalAlignment);
-public  void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment)
-{
-	CheckIsValid();
-	SetVerticalAlignment(_this.Get(),(int)InVerticalAlignment);
+	public partial class UUniformGridSlot:UPanelSlot
+	{
+		public extern void SetVerticalAlignment(EVerticalAlignment InVerticalAlignment);
+		public extern void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment);
+		/// <summary>Sets the column index of the slot, this determines what cell the slot is in the panel</summary>
+		public extern void SetColumn(int InColumn);
+		/// <summary>Sets the row index of the slot, this determines what cell the slot is in the panel</summary>
+		public extern void SetRow(int InRow);
+		/// <summary>The alignment of the object horizontally.</summary>
+		public EHorizontalAlignment HorizontalAlignment;
+		
+		/// <summary>The alignment of the object vertically.</summary>
+		public EVerticalAlignment VerticalAlignment;
+		
+		/// <summary>The row index of the cell this slot is in</summary>
+		public int Row;
+		
+		/// <summary>The column index of the cell this slot is in</summary>
+		public int Column;
+		
+		
+	}
 	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetHorizontalAlignment(IntPtr _this,int InHorizontalAlignment);
-public  void SetHorizontalAlignment(EHorizontalAlignment InHorizontalAlignment)
-{
-	CheckIsValid();
-	SetHorizontalAlignment(_this.Get(),(int)InHorizontalAlignment);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetColumn(IntPtr _this,int InColumn);
-/// <summary>Sets the column index of the slot, this determines what cell the slot is in the panel</summary>
-public  void SetColumn(int InColumn)
-{
-	CheckIsValid();
-	SetColumn(_this.Get(),InColumn);
-	
-}
-[MethodImplAttribute(MethodImplOptions.InternalCall)]
-extern static void SetRow(IntPtr _this,int InRow);
-/// <summary>Sets the row index of the slot, this determines what cell the slot is in the panel</summary>
-public  void SetRow(int InRow)
-{
-	CheckIsValid();
-	SetRow(_this.Get(),InRow);
-	
-}
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
 }

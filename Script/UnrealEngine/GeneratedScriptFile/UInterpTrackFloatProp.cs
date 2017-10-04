@@ -1,10 +1,12 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UInterpTrackFloatProp:UInterpTrackFloatBase 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UInterpTrackFloatProp:UInterpTrackFloatBase
+	{
+		/// <summary>Name of property in Group  AActor  which this track mill modify over time.</summary>
+		public FName PropertyName;
+		
+		
+	}
+	
 }

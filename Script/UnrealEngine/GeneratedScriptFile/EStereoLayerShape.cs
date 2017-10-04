@@ -1,6 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
 	/// <summary>The shape to use for the stereo layer.  Note that some shapes might not be supported on all platforms!</summary>

@@ -91,184 +91,184 @@ namespace UnrealEngine
         public int NumFreeIndices;
     }
 
-    public class TStructArray<T> where T:struct
-    {
-        public FScriptArray InterArray;
+    //public class TStructArray<T> where T:struct
+    //{
+    //    public FScriptArray InterArray;
 
-        public TStructArray(FScriptArray ScriptArray) { InterArray = ScriptArray; }
+    //    public TStructArray(FScriptArray ScriptArray) { InterArray = ScriptArray; }
 
-        public static explicit operator TStructArray<T>(FScriptArray ScriptArray) { return new TStructArray<T>(ScriptArray); }
+    //    public static explicit operator TStructArray<T>(FScriptArray ScriptArray) { return new TStructArray<T>(ScriptArray); }
 
-        public T this[int index]
-        {
-            //实现索引器的get方法
-            get
-            {
-                if (!IsValidIndex(index))
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                return (T)Marshal.PtrToStructure(FScriptArray.GetData(ref InterArray) + Marshal.SizeOf(typeof(T))*index, typeof(T));
-            }
+    //    public T this[int index]
+    //    {
+    //        //实现索引器的get方法
+    //        get
+    //        {
+    //            if (!IsValidIndex(index))
+    //            {
+    //                throw new IndexOutOfRangeException();
+    //            }
+    //            return (T)Marshal.PtrToStructure(FScriptArray.GetData(ref InterArray) + Marshal.SizeOf(typeof(T))*index, typeof(T));
+    //        }
 
-            //实现索引器的set方法
-            set
-            {
-                if (!IsValidIndex(index))
-                {
-                    throw new IndexOutOfRangeException();
-                }
+    //        //实现索引器的set方法
+    //        set
+    //        {
+    //            if (!IsValidIndex(index))
+    //            {
+    //                throw new IndexOutOfRangeException();
+    //            }
 
-                Marshal.StructureToPtr(value, FScriptArray.GetData(ref InterArray) + Marshal.SizeOf(typeof(T)) * index, false);
-            }
-        }
+    //            Marshal.StructureToPtr(value, FScriptArray.GetData(ref InterArray) + Marshal.SizeOf(typeof(T)) * index, false);
+    //        }
+    //    }
 
-        public void InsertZeroed(int Index, int Count)
-        {
-            FScriptArray.InsertZeroed(ref InterArray, Index, Count, Marshal.SizeOf(typeof(T)));
-        }
+    //    public void InsertZeroed(int Index, int Count)
+    //    {
+    //        FScriptArray.InsertZeroed(ref InterArray, Index, Count, Marshal.SizeOf(typeof(T)));
+    //    }
 
-        public void Insert(int Index, int Count)
-        {
-            FScriptArray.Insert(ref InterArray, Index, Count, Marshal.SizeOf(typeof(T)));
-        }
+    //    public void Insert(int Index, int Count)
+    //    {
+    //        FScriptArray.Insert(ref InterArray, Index, Count, Marshal.SizeOf(typeof(T)));
+    //    }
 
-        public int Add(int Count)
-        {
-            return FScriptArray.Add(ref InterArray, Count, Marshal.SizeOf(typeof(T)));
-        }
+    //    public int Add(int Count)
+    //    {
+    //        return FScriptArray.Add(ref InterArray, Count, Marshal.SizeOf(typeof(T)));
+    //    }
 
-        public int Add(T v)
-        {
-            int idx = Add(1);
-            this[idx] = v;
-            return idx;
-        }
+    //    public int Add(T v)
+    //    {
+    //        int idx = Add(1);
+    //        this[idx] = v;
+    //        return idx;
+    //    }
 
-        public int AddZerod(int Count)
-        {
-            return FScriptArray.AddZerod(ref InterArray, Count, Marshal.SizeOf(typeof(T)));
-        }
+    //    public int AddZerod(int Count)
+    //    {
+    //        return FScriptArray.AddZerod(ref InterArray, Count, Marshal.SizeOf(typeof(T)));
+    //    }
 
-        public void Shrink()
-        {
-            FScriptArray.Shrink(ref InterArray, Marshal.SizeOf(typeof(T)));
-        }
+    //    public void Shrink()
+    //    {
+    //        FScriptArray.Shrink(ref InterArray, Marshal.SizeOf(typeof(T)));
+    //    }
 
-        public void Empty(int Slack)
-        {
-            FScriptArray.Empty(ref InterArray, Slack, Marshal.SizeOf(typeof(T)));
-        }
+    //    public void Empty(int Slack)
+    //    {
+    //        FScriptArray.Empty(ref InterArray, Slack, Marshal.SizeOf(typeof(T)));
+    //    }
 
-        public void Remove(int Index, int Count)
-        {
-            FScriptArray.Remove(ref InterArray, Index, Count, Marshal.SizeOf(typeof(T)));
-        }
-
-
-        public int GetSlack()
-        {
-            return InterArray.GetSlack();
-        }
-
-        public int Num()
-        {
-            return InterArray.Num();
-        }
-
-        public bool IsValidIndex(int i)
-        {
-            return InterArray.IsValidIndex(i);
-        }
-    }
+    //    public void Remove(int Index, int Count)
+    //    {
+    //        FScriptArray.Remove(ref InterArray, Index, Count, Marshal.SizeOf(typeof(T)));
+    //    }
 
 
-    public class TObjectArray<T> where T:UObject, new()
-    {
-        public FScriptArray InterArray;
-        public TObjectArray(FScriptArray ScriptArray) { InterArray = ScriptArray; }
+    //    public int GetSlack()
+    //    {
+    //        return InterArray.GetSlack();
+    //    }
 
-        public T this[int index]
-        {
-            //实现索引器的get方法
-            get
-            {
-                if (!IsValidIndex(index))
-                {
-                    throw new IndexOutOfRangeException();
-                }
-                return  UObject.WrapObject<T>(Marshal.ReadIntPtr(FScriptArray.GetData(ref InterArray) + IntPtr.Size * index));
-            }
+    //    public int Num()
+    //    {
+    //        return InterArray.Num();
+    //    }
 
-            //实现索引器的set方法
-            set
-            {
-                if (!IsValidIndex(index))
-                {
-                    throw new IndexOutOfRangeException();
-                }
-
-                Marshal.WriteIntPtr(FScriptArray.GetData(ref InterArray) + IntPtr.Size * index,value!=null? value._this.Get():IntPtr.Zero);
-            }
-        }
-
-        public void InsertZeroed(int Index, int Count)
-        {
-            FScriptArray.InsertZeroed(ref InterArray, Index, Count, IntPtr.Size);
-        }
-
-        public void Insert(int Index, int Count)
-        {
-            FScriptArray.Insert(ref InterArray, Index, Count, IntPtr.Size);
-        }
-
-        public int Add(int Count)
-        {
-            return FScriptArray.Add(ref InterArray, Count, IntPtr.Size);
-        }
-
-        public int Add(T v)
-        {
-            int idx = Add(1);
-            this[idx] = v;
-            return idx;
-        }
-
-        public int AddZerod(int Count)
-        {
-            return FScriptArray.AddZerod(ref InterArray, Count, IntPtr.Size);
-        }
-
-        public void Shrink()
-        {
-            FScriptArray.Shrink(ref InterArray, IntPtr.Size);
-        }
-
-        public void Empty(int Slack)
-        {
-            FScriptArray.Empty(ref InterArray, Slack, IntPtr.Size);
-        }
-
-        public void Remove(int Index, int Count)
-        {
-            FScriptArray.Remove(ref InterArray, Index, Count, IntPtr.Size);
-        }
+    //    public bool IsValidIndex(int i)
+    //    {
+    //        return InterArray.IsValidIndex(i);
+    //    }
+    //}
 
 
-        public int GetSlack()
-        {
-            return InterArray.GetSlack();
-        }
+    //public class TObjectArray<T> where T:UObject, new()
+    //{
+    //    public FScriptArray InterArray;
+    //    public TObjectArray(FScriptArray ScriptArray) { InterArray = ScriptArray; }
 
-        public int Num()
-        {
-            return InterArray.Num();
-        }
+    //    public T this[int index]
+    //    {
+    //        //实现索引器的get方法
+    //        get
+    //        {
+    //            if (!IsValidIndex(index))
+    //            {
+    //                throw new IndexOutOfRangeException();
+    //            }
+    //            return  UObject.WrapObject<T>(Marshal.ReadIntPtr(FScriptArray.GetData(ref InterArray) + IntPtr.Size * index));
+    //        }
 
-        public bool IsValidIndex(int i)
-        {
-            return InterArray.IsValidIndex(i);
-        }
-    }
+    //        //实现索引器的set方法
+    //        set
+    //        {
+    //            if (!IsValidIndex(index))
+    //            {
+    //                throw new IndexOutOfRangeException();
+    //            }
+
+    //            Marshal.WriteIntPtr(FScriptArray.GetData(ref InterArray) + IntPtr.Size * index,value!=null? value._this.Get():IntPtr.Zero);
+    //        }
+    //    }
+
+    //    public void InsertZeroed(int Index, int Count)
+    //    {
+    //        FScriptArray.InsertZeroed(ref InterArray, Index, Count, IntPtr.Size);
+    //    }
+
+    //    public void Insert(int Index, int Count)
+    //    {
+    //        FScriptArray.Insert(ref InterArray, Index, Count, IntPtr.Size);
+    //    }
+
+    //    public int Add(int Count)
+    //    {
+    //        return FScriptArray.Add(ref InterArray, Count, IntPtr.Size);
+    //    }
+
+    //    public int Add(T v)
+    //    {
+    //        int idx = Add(1);
+    //        this[idx] = v;
+    //        return idx;
+    //    }
+
+    //    public int AddZerod(int Count)
+    //    {
+    //        return FScriptArray.AddZerod(ref InterArray, Count, IntPtr.Size);
+    //    }
+
+    //    public void Shrink()
+    //    {
+    //        FScriptArray.Shrink(ref InterArray, IntPtr.Size);
+    //    }
+
+    //    public void Empty(int Slack)
+    //    {
+    //        FScriptArray.Empty(ref InterArray, Slack, IntPtr.Size);
+    //    }
+
+    //    public void Remove(int Index, int Count)
+    //    {
+    //        FScriptArray.Remove(ref InterArray, Index, Count, IntPtr.Size);
+    //    }
+
+
+    //    public int GetSlack()
+    //    {
+    //        return InterArray.GetSlack();
+    //    }
+
+    //    public int Num()
+    //    {
+    //        return InterArray.Num();
+    //    }
+
+    //    public bool IsValidIndex(int i)
+    //    {
+    //        return InterArray.IsValidIndex(i);
+    //    }
+    //}
 
 }

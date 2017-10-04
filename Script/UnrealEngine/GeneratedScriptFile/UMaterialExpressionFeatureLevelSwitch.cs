@@ -1,10 +1,14 @@
 using System;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-namespace UnrealEngine{
-public partial class UMaterialExpressionFeatureLevelSwitch:UMaterialExpression 
+namespace UnrealEngine
 {
-	[MethodImplAttribute(MethodImplOptions.InternalCall)]
-	public extern static new IntPtr StaticClass();
-}
+	public partial class UMaterialExpressionFeatureLevelSwitch:UMaterialExpression
+	{
+		/// <summary>Default connection, used when a certain feature level doesn't have an override.</summary>
+		public FExpressionInput Default;
+		
+		public FExpressionInput Inputs;
+		
+		
+	}
+	
 }
