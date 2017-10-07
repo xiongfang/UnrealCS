@@ -1,4 +1,5 @@
 public:
+	String() { _v = 0; }
 	String(const char* c);
 	~String() { delete[] _v; }
 private:

@@ -2,12 +2,14 @@
 using UnrealEngine;
 namespace ChineseChessCS
 {
-    public class MyPlayer:APawn
+    public class AMyPlayer:APawn
     {
-        public int why;
+        public FInt32 why;
         public void Say()
         {
-            why = 1;
+            int v = why.ToInt32();
+            v = 6;
+            why.FromInt32(v);
         }
 
         public override void SetOwner(AActor NewOwner)

@@ -1,8 +1,6 @@
 #pragma once
 #include "Object.h"
-namespace System{
-	class String:public System::Object
+	class String:public Object
 	{
 	#include "String_ExtHeader.h"
 	};
-}

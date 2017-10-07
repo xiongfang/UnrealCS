@@ -5,3 +5,4 @@
 #include "Engine.h"
 
 #define UnrealEngine
+#define System

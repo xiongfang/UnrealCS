@@ -2,7 +2,7 @@
 #include "Object.h"
 class Boolean;
 class Int32;
-	class UInt16:public Object
+	class Int16:public Object
 	{
 		public:
 		Boolean op_Equals(Int32  b);

@@ -1,5 +1,5 @@
 {
-  "export_dir": "E:\\Git\\GIT_Projects\\UE_Chess\\ChineseChess\\Source\\ChineseChess",
+  "export_dir": "E:\\Git\\UnrealCS\\Demo\\ChineseChess\\Source\\ChineseChess",
   "type_settings": [
     {
       "name": "System.Boolean",
@@ -12,7 +12,9 @@
     },
     {
       "name": "System.String",
-      "ext_header": "String_ExtHeader.h"
+      "ext_header": "String_ExtHeader.h",
+      "ext_cpp": "String_ExtCpp.h",
+      "header_path": "System_String.h"
     },
     {
       "name": "System.Console",
@@ -21,6 +23,11 @@
     {
       "name": "System.Object",
       "ext_cpp": "Object_ExtCpp.h"
+    },
+    {
+      "name": "ChineseChessCS.FInt32",
+      "ext_cpp": "FInt32_ExtCpp.h",
+      "ext_header": "FInt32_ExtHeader.h"
     },
     {
       "name": "UnrealEngine.UObject",

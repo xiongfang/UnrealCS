@@ -1,8 +1,6 @@
 #pragma once
 #include "Object.h"
-namespace System{
-	class Boolean:public System::Object
+	class Boolean:public Object
 	{
 	#include "Boolean_ExtHeader.h"
 	};
-}

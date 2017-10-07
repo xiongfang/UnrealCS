@@ -1,5 +1,8 @@
-
-void System::Console::WriteLine(System::String*  v)
+namespace System
 {
-	printf("%s\n",v->c_str());
+	void Console::WriteLine(String*  v)
+	{
+		printf("%s\n", v->c_str());
+	}
 }
+

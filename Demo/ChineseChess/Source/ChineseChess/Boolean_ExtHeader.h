@@ -11,4 +11,5 @@ public:
 	{
 		_v = false;
 	}
+	UPROPERTY()
 	bool _v;

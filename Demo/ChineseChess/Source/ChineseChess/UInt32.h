@@ -1,23 +1,15 @@
 #pragma once
 #include "Object.h"
-namespace System
-{
 class Boolean;
-}
-namespace System
-{
 class Int32;
-}
-namespace System{
-	class UInt32:public System::Object
+	class UInt32:public Object
 	{
 		public:
-		System::Boolean op_Equals(System::Int32  b);
+		Boolean op_Equals(Int32  b);
 		public:
-		System::Boolean op_Small(System::Int32  b);
+		Boolean op_Small(Int32  b);
 		public:
-		System::Int32 op_Assign(System::Int32  b);
+		Int32 op_Assign(Int32  b);
 		public:
-		System::Int32 op_PlusPlus(System::Int32  b);
+		Int32 op_PlusPlus(Int32  b);
 	};
-}
