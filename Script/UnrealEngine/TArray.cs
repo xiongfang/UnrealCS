@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace UnrealEngine
 {
-    [StructLayout(LayoutKind.Sequential)]
+    //[StructLayout(LayoutKind.Sequential)]
     public struct FScriptArray
     {
         IntPtr Data;
@@ -12,32 +12,32 @@ namespace UnrealEngine
         int ArrayMax;
 
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern IntPtr GetData(ref FScriptArray _this);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void InsertZeroed(ref FScriptArray _this, int Index, int Count, int NumBytesPerElement);
 
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void Insert(ref FScriptArray _this, int Index, int Count, int NumBytesPerElement);
 
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern int Add(ref FScriptArray _this, int Count, int NumBytesPerElement);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern int AddZerod(ref FScriptArray _this, int Count, int NumBytesPerElement);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void Shrink(ref FScriptArray _this, int NumBytesPerElement);
 
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void Empty(ref FScriptArray _this, int Slack, int NumBytesPerElement);
 
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void Remove(ref FScriptArray _this, int Index, int Count, int NumBytesPerElement);
 
         public int GetSlack()
@@ -56,38 +56,38 @@ namespace UnrealEngine
         }
     }
 
-    [StructLayout(LayoutKind.Explicit, Size = 32)]
+    //[StructLayout(LayoutKind.Explicit, Size = 32)]
     public struct FScriptBitArray
     {
-        //[FieldOffset(0)]
+        //////[FieldOffset(0)]
         //public fixed  byte[] AllocatorInstance[24];
-        [FieldOffset(24)]
+        //[FieldOffset(24)]
         public int NumBits;
-        [FieldOffset(28)]
+        //[FieldOffset(28)]
         public int MaxBits;
     }
 
-    [StructLayout(LayoutKind.Explicit, Size = 12)]
+    //[StructLayout(LayoutKind.Explicit, Size = 12)]
     public struct FScriptSparseArrayLayout
     {
-        [FieldOffset(0)]
+        ////[FieldOffset(0)]
         public int ElementOffset;
-        [FieldOffset(4)]
+        //[FieldOffset(4)]
         public int Alignment;
-        [FieldOffset(8)]
+        //[FieldOffset(8)]
         public int Size;
     };
 
-    [StructLayout(LayoutKind.Explicit, Size = 56)]
+    //[StructLayout(LayoutKind.Explicit, Size = 56)]
     public struct FScriptSparseArray
     {
-        [FieldOffset(0)]
+        ////[FieldOffset(0)]
         public FScriptArray Data;
-        [FieldOffset(16)]
+        //[FieldOffset(16)]
         public FScriptBitArray AllocationFlags;
-        [FieldOffset(48)]
+        //[FieldOffset(48)]
         public int FirstFreeIndex;
-        [FieldOffset(52)]
+        //[FieldOffset(52)]
         public int NumFreeIndices;
     }
 

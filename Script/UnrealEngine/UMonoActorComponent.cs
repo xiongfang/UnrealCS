@@ -5,7 +5,7 @@ namespace UnrealEngine
 {
     public class UMonoActorComponent:UActorComponent
     {
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static new IntPtr StaticClass();
     }
 }

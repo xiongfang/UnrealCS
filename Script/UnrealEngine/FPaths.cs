@@ -8,13 +8,13 @@ namespace UnrealEngine
         /**
 	     * Should the "saved" directory structures be rooted in the user dir or relative to the "engine/game" 
 	     */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static bool ShouldSaveToUserDir();
 
         /**
          * Returns the directory the application was launched from (useful for commandline utilities)
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string LaunchDir();
 
         /** 
@@ -24,7 +24,7 @@ namespace UnrealEngine
          *
          * @return engine directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EngineDir();
 
         /**
@@ -32,7 +32,7 @@ namespace UnrealEngine
         *
         * @return root user directory
         */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EngineUserDir();
 
         /**
@@ -40,7 +40,7 @@ namespace UnrealEngine
         *
         * @return root user directory
         */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EngineVersionAgnosticUserDir();
 
         /** 
@@ -49,7 +49,7 @@ namespace UnrealEngine
          *
          * @return engine content directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EngineContentDir();
 
         /**
@@ -57,7 +57,7 @@ namespace UnrealEngine
          *
          * @return root config directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EngineConfigDir();
 
         /**
@@ -65,7 +65,7 @@ namespace UnrealEngine
          *
          * @return content directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EngineIntermediateDir();
 
         /**
@@ -73,7 +73,7 @@ namespace UnrealEngine
          *
          * @return Saved directory.
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EngineSavedDir();
 
         /**
@@ -81,7 +81,7 @@ namespace UnrealEngine
          *
          * @return Plugins directory.
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string EnginePluginsDir();
 
         /**
@@ -89,7 +89,7 @@ namespace UnrealEngine
          *
          * @return Root directory.
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string RootDir();
 
         /**
@@ -100,7 +100,7 @@ namespace UnrealEngine
          *
          * @return base directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameDir();
 
         /**
@@ -108,7 +108,7 @@ namespace UnrealEngine
         *
         * @return game user directory
         */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameUserDir();
 
         /**
@@ -116,7 +116,7 @@ namespace UnrealEngine
          *
          * @return content directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameContentDir();
 
         /**
@@ -124,7 +124,7 @@ namespace UnrealEngine
         *
         * @return root config directory
         */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameConfigDir();
 
         /**
@@ -132,7 +132,7 @@ namespace UnrealEngine
          *
          * @return saved directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameSavedDir();
 
         /**
@@ -140,7 +140,7 @@ namespace UnrealEngine
          *
          * @return intermediate directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameIntermediateDir();
 
         /**
@@ -148,13 +148,13 @@ namespace UnrealEngine
          *
          * @return plugins directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GamePluginsDir();
 
         /*
         * Returns the writable directory for downloaded data that persists across play sessions.
         */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GamePersistentDownloadDir();
 
         /**
@@ -163,7 +163,7 @@ namespace UnrealEngine
          *
          * @return source config directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string SourceConfigDir();
 
         /**
@@ -171,7 +171,7 @@ namespace UnrealEngine
          *
          * @return config directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GeneratedConfigDir();
 
         /**
@@ -179,7 +179,7 @@ namespace UnrealEngine
          *
          * @return sandbox directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string SandboxesDir();
 
         /**
@@ -187,7 +187,7 @@ namespace UnrealEngine
          *
          * @return log directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string ProfilingDir();
 
         /**
@@ -195,7 +195,7 @@ namespace UnrealEngine
          *
          * @return screenshot directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string ScreenShotDir();
 
         /**
@@ -203,7 +203,7 @@ namespace UnrealEngine
          *
          * @return screenshot directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string BugItDir();
 
         /**
@@ -211,7 +211,7 @@ namespace UnrealEngine
          *
          * @return Video capture directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string VideoCaptureDir();
 
         /**
@@ -221,49 +221,49 @@ namespace UnrealEngine
          *
          * @return log directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameLogDir();
 
         /**
          * @return The directory for automation save files
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string AutomationDir();
 
         /**
          * @return The directory for automation save files that are meant to be deleted every run
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string AutomationTransientDir();
 
         /**
         * @return The directory for automation log files.
         */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string AutomationLogDir();
 
         /**
          * @return The directory for local files used in cloud emulation or support
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string CloudDir();
 
         /**
 	    * @return The directory that contains subfolders for developer-specific content
 	    */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameDevelopersDir();
 
         /**
          * @return The directory that contains developer-specific content for the current user
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string GameUserDeveloperDir();
 
         /**
          * @return The directory for temp files used for diff'ing
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string DiffDir();
 
 
@@ -298,25 +298,25 @@ namespace UnrealEngine
          *
          * @return saved directory
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern string GameAgnosticSavedDir();
 
         /**
          * @return The directory where engine source code files are kept
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern string EngineSourceDir();
 
         /**
          * @return The directory where game source code files are kept
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern string GameSourceDir();
 
         /**
          * @return The directory where feature packs are kept
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern string FeaturePackDir();
 
         //       /**
@@ -403,7 +403,7 @@ namespace UnrealEngine
          * and converts it to:
          *	BaseDirectory/SomeOtherDirectory/Filename.ext
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         static extern int CollapseRelativeDirectories(ref string InPath);
 
         /**
@@ -423,11 +423,11 @@ namespace UnrealEngine
          *    - Collapses internal ..'s
          *    - Makes relative to Engine\Binaries\<Platform> (will ALWAYS start with ..\..\..)
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void MakeStandardFilename(ref string InPath);
 
         /** Takes an "Unreal" pathname and converts it to a platform filename. */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern void MakePlatformFilename(ref string InPath);
 
         /** 
@@ -441,7 +441,7 @@ namespace UnrealEngine
         /**
          * Converts a relative path name to a fully qualified name relative to the process BaseDir().
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public static extern string ConvertRelativePathToFull(string InPath);
 
         ///**

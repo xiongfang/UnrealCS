@@ -4,15 +4,15 @@ using System.Runtime.InteropServices;
 
 namespace UnrealEngine
 {
-    [StructLayout(LayoutKind.Sequential)]
+    //[StructLayout(LayoutKind.Sequential)]
     public struct FMulticastScriptDelegate
     {
         //public FScriptArray InvocationList;
 
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static void Add(ref FMulticastScriptDelegate This,IntPtr InObject, string funcName);
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static void Remove(ref FMulticastScriptDelegate This, IntPtr InObject, string funcName);
 
         //public void Add(UObject InObject, string funcName)

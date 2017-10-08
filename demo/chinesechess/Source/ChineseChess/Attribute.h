@@ -1,4 +1,5 @@
 #pragma once
 #include "Object.h"
-struct Single{
+class Attribute:public Object
+{
 };

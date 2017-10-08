@@ -3,14 +3,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 namespace UnrealEngine
 {
-    [StructLayout(LayoutKind.Sequential)]
+    //[StructLayout(LayoutKind.Sequential)]
     public struct FString
     {
         public FScriptArray Data;
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static string ToString(ref FString str);
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static FString FromString(string ret);
 
         public override string ToString()

@@ -6,7 +6,7 @@ namespace UnrealEngine
     public partial class UWidgetTree
     {
         ///** Finds the widget in the tree by name. */
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr FindWidget(IntPtr _This, string Name);
 
         public extern UWidget FindWidget(string Name);
@@ -21,7 +21,7 @@ namespace UnrealEngine
         //}
 
         ///** Removes the widget from the hierarchy and all sub widgets. */
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static bool RemoveWidget(IntPtr _This, IntPtr Widget);
 
         public extern bool RemoveWidget(UWidget Widget);
@@ -31,7 +31,7 @@ namespace UnrealEngine
         //}
 
         ///** Gets the parent widget of a given widget, and potentially the child index. */
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr FindWidgetParent(IntPtr _This, IntPtr Widget, out int OutChildIndex);
 
         public extern UPanelWidget FindWidgetParent(UWidget Widget, out int OutChildIndex);
@@ -40,7 +40,7 @@ namespace UnrealEngine
         //}
 
         ///** Gathers all the widgets in the tree recursively */
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static void GetAllWidgets(IntPtr _This, out IntPtr[] Widgets);
 
         public extern void GetAllWidgets(out UWidget[] Widgets);

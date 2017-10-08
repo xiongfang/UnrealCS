@@ -5,7 +5,7 @@ namespace UnrealEngine
 {
     public partial class UWorld
     {
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern IntPtr SpawnActor(IntPtr _this,IntPtr Class,ref FVector Location,ref FRotator Rotation);
 
         public extern AActor SpawnActor(UClass Class, FVector Location, FRotator Rotation);

@@ -99,7 +99,7 @@ namespace UnrealEngine
             return ((W * W) > ((1.0f - Const.DELTA) * (1.0f - Const.DELTA)));
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FQuat Multiply(ref FQuat _this,ref FQuat Other);
         /**
          * Gets the result of multiplying this by another quaternion (this * Q).
@@ -204,7 +204,7 @@ namespace UnrealEngine
             return A.X * Q.X + A.Y * Q.Y + A.Z * Q.Z + A.W * Q.W;
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FQuat MakeFromMatrix(ref FMatrix Matrix);
         public static FQuat MakeFromMatrix(FMatrix Matrix)
         {
@@ -465,7 +465,7 @@ namespace UnrealEngine
             return GetAxisX();
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FRotator Rotator(ref FQuat _this);
         /** Get the FRotator representation of this Quaternion. */
         public FRotator Rotator()

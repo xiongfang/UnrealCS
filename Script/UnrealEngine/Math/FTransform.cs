@@ -60,7 +60,7 @@ namespace UnrealEngine
 		    SetFromMatrix(new FMatrix(InX, InY, InZ, InTranslation));
 		    DiagnosticCheckNaN_All();
 	    }
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FMatrix ToMatrixWithScale(ref FTransform This);
 
         /**
@@ -92,7 +92,7 @@ namespace UnrealEngine
 		    return new FTransform(InvRotation, InvTranslation, InvScale3D);
 	    }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FMatrix ToMatrixNoScale(ref FTransform This);
         /**
 	    * Convert this Transform to a transformation matrix, ignoring its scaling
@@ -102,14 +102,14 @@ namespace UnrealEngine
             return ToMatrixNoScale(ref this);
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static void Blend(ref FTransform This, ref  FTransform Atom1, ref  FTransform Atom2, float Alpha);
         /** Set this transform to the weighted blend of the supplied two transforms. */
 	    public void Blend(FTransform Atom1,FTransform Atom2, float Alpha)
         {
             Blend(ref this, ref  Atom1, ref  Atom2, Alpha);
         }
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static void BlendWith(ref FTransform This, ref FTransform OtherAtom, float Alpha);
         /** Set this Transform to the weighted blend of it and the supplied Transform. */
 	    public void BlendWith(FTransform OtherAtom, float Alpha)
@@ -191,11 +191,11 @@ namespace UnrealEngine
 	        return Scale3D.GetAbsMin();
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FTransform GetRelativeTransform(ref FTransform This, ref FTransform Other);
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FTransform GetRelativeTransformReverse(ref FTransform This, ref FTransform Other);
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static void SetToRelativeTransform(ref FTransform This, ref FTransform ParentTransform);
         /*******************************************************************************************
 	     * The below 2 functions are the ones to get delta transform and return FTransform format that can be concatenated
@@ -221,13 +221,13 @@ namespace UnrealEngine
         {
             SetToRelativeTransform(ref this,ref ParentTransform);
         }
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FVector4 TransformFVector4(ref FTransform This,ref FVector4 V);
 	    public FVector4	TransformFVector4(FVector4 V)
         {
             return TransformFVector4(ref this,ref V);
         }
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FVector4 TransformFVector4NoScale(ref FTransform This,ref FVector4 V);
 	    public FVector4	TransformFVector4NoScale(FVector4 V)
         {
@@ -409,7 +409,7 @@ namespace UnrealEngine
 	        * @param  A Transform A.
 	        * @param  B Transform B.
 	        */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
 	    public extern static void Multiply(out FTransform OutTransform, ref  FTransform A, ref  FTransform B);
 
             /**

@@ -5,7 +5,7 @@ namespace UnrealEngine
 {
     public partial class UClass
     {
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern string GetClassNameCpp(IntPtr _this);
 
         //public string GetClassNameCpp()

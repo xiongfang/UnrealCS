@@ -22,11 +22,11 @@ namespace UnrealEngine
         //}
 
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern void _LogInfo(string msg);
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern void _LogWarning(string msg);
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern void _LogError(string msg);
 
         //public extern static void LogInfo(string msg, params object[] args);
@@ -42,7 +42,7 @@ namespace UnrealEngine
         ////    _LogError(string.Format(msg, args));
         ////}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern string GetName(IntPtr _this);
 
         public extern FName GetName();
@@ -51,7 +51,7 @@ namespace UnrealEngine
         //    return GetName(_this.Get());
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern IntPtr _GetClass(IntPtr _this);
         //public UClass GetClass()
         //{
@@ -59,7 +59,7 @@ namespace UnrealEngine
         //    return _GetClass(this);
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern IntPtr GetOuter(IntPtr _this);
         //public UObject GetOuter()
         //{
@@ -123,7 +123,7 @@ namespace UnrealEngine
         //    return base.GetHashCode();
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern IntPtr NewObject(IntPtr _Class);
 
 
@@ -183,7 +183,7 @@ namespace UnrealEngine
         //    return t;
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern int IsChildOf(IntPtr _this, IntPtr _class);
 
         public extern bool IsChildOf<T>() where T : UObject, new();
@@ -221,10 +221,10 @@ namespace UnrealEngine
         //    return null;
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static object GetManagedObject(IntPtr Ptr);
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr _StaticClass();
 
         //public static UClass StaticClass()
@@ -232,16 +232,16 @@ namespace UnrealEngine
         //    return _StaticClass();
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //public static extern int GetPropertyOffset(IntPtr Struct, string ProName);
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //public static extern IntPtr GetNativeClassFromName(string InClassName);
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //public static extern IntPtr GetNativeStructFromName(string InStructName);
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //public static extern int GetNativeStructSize(string InStructName);
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr GetWorld(IntPtr _this);
 
         public extern UWorld GetWorld();
@@ -249,7 +249,7 @@ namespace UnrealEngine
         //    return new UWorld() { _this = GetWorld(_this.Get()) };
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr _StaticFindObjectFast(IntPtr Class, IntPtr InOuter, string InName, bool ExactClass = false, bool AnyPackage = false);
 
         public extern static UObject StaticFindObjectFast(UClass Class, UObject InOuter, string InName, bool ExactClass = false, bool AnyPackage = false);
@@ -257,7 +257,7 @@ namespace UnrealEngine
         //    return new UObject() { _this = _StaticFindObjectFast(Class, InOuter, InName, ExactClass, AnyPackage) };
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr _StaticFindObject(IntPtr Class, IntPtr InOuter, string InName, bool ExactClass = false);
 
         public extern static UObject StaticFindObject(UClass Class, UObject InOuter, string InName, bool ExactClass = false);
@@ -271,14 +271,14 @@ namespace UnrealEngine
         //    };
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr _StaticLoadObject(IntPtr Class, IntPtr InOuter, string Name, string Filename, uint LoadFlags, IntPtr Sandbox, bool bAllowObjectReconciliation);
 
         public extern static UObject StaticLoadObject(UClass Class, UObject InOuter, string Name, string Filename = null, uint LoadFlags = 0, UPackageMap Sandbox = null, bool bAllowObjectReconciliation = true);
         //{
         //    return _StaticLoadObject(Class, InOuter, Name, Filename, LoadFlags, Sandbox , bAllowObjectReconciliation);
         //}
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static IntPtr _StaticLoadClass(IntPtr BaseClass, IntPtr InOuter, string Name, string Filename, uint LoadFlags, IntPtr Sandbox);
 
         public extern static UClass StaticLoadClass(UClass BaseClass, UObject InOuter, string Name, string Filename = null, uint LoadFlags = 0, UPackageMap Sandbox = null);
@@ -304,7 +304,7 @@ namespace UnrealEngine
         //    return StaticLoadClass(TypeClass<T>(), InOuter, Name, Filename, LoadFlags, Sandbox);
         //}
 
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //extern static string _MakeUniqueObjectName(IntPtr Outer, IntPtr Class, string BaseName);
 
         public extern static string MakeUniqueObjectName(UObject Outer, UClass Class, string BaseName);

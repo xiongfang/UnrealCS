@@ -40,6 +40,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes.cs" />
     <Compile Include="BoolWrap.cs" />
     <Compile Include="FApp.cs" />
     <Compile Include="FMulticastScriptDelegate.cs" />
@@ -1889,6 +1890,7 @@
     <Compile Include="Math\FVector4.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SctuctWrap.cs" />
+    <Compile Include="SimpleType.cs" />
     <Compile Include="TArray.cs" />
     <Compile Include="TMap.cs" />
     <Compile Include="TSet.cs" />

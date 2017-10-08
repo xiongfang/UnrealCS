@@ -11,7 +11,7 @@ namespace UnrealEngine
          * 
          * @return	filename using absolute path
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string ConvertToAbsolutePathForExternalAppForRead(string AbsolutePath);
 
 
@@ -22,13 +22,13 @@ namespace UnrealEngine
          * 
          * @return	filename using absolute path
          */
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string ConvertToAbsolutePathForExternalAppForWrite(string AbsolutePath);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static int ReadAllBytes(string InPath, out byte[] bytes);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static int WriteAllBytes(string InPath, byte[] bytes);
     }
 }

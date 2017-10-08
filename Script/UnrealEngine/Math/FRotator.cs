@@ -128,7 +128,7 @@ namespace UnrealEngine
             return Quaternion().Inverse().Rotator();
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FVector Vector(ref FRotator _this);
 
         /**
@@ -141,7 +141,7 @@ namespace UnrealEngine
             return Vector(ref this);
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FQuat Quaternion(ref FRotator _this);
 	    /**
 	     * Get Rotation as a quaternion.
@@ -163,7 +163,7 @@ namespace UnrealEngine
             return new FVector( Roll, Pitch, Yaw );
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FVector RotateVector(ref FRotator _this,FVector V);
 	    /**
 	     * Rotate a vector rotated by this rotator.
@@ -176,7 +176,7 @@ namespace UnrealEngine
             return RotateVector(ref this,V);
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FVector UnrotateVector(ref FRotator _this,FVector V);
 	    /**
 	     * Returns the vector rotated by the inverse of this rotator.

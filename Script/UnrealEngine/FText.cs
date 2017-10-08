@@ -3,12 +3,12 @@ using System.Runtime.InteropServices;
 
 namespace UnrealEngine
 {
-    [StructLayout(LayoutKind.Explicit, Size = 24)]
+    //[StructLayout(LayoutKind.Explicit, Size = 24)]
     public struct FText
     {
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static string ToString(ref FText str);
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         public extern static FText FromString(string ret);
 
 

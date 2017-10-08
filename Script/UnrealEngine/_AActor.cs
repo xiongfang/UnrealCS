@@ -5,7 +5,7 @@ namespace UnrealEngine
 {
     public partial class AActor
     {
-        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
+        ////[MethodImplAttribute(MethodImplOptions.InternalCall)]
         //static extern void Destroy(IntPtr _this);
 
         public extern void Destroy();

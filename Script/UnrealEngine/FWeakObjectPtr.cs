@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace UnrealEngine
 {
-    [StructLayout(LayoutKind.Sequential, Pack = 4)]
+    //[StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct FWeakObjectPtr
     {
         private int ObjectIndex;
@@ -20,19 +20,19 @@ namespace UnrealEngine
             Reset(ref this);
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static int IsValid(ref FWeakObjectPtr data);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static void Reset(ref FWeakObjectPtr data);
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static void Set(ref FWeakObjectPtr data, IntPtr Ptr);
         public void Set(IntPtr Ptr)
         {
             Set(ref this, Ptr);
         }
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static IntPtr Get(ref FWeakObjectPtr data);
         public IntPtr Get()
         {

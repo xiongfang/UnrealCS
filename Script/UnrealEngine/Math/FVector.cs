@@ -553,7 +553,7 @@ namespace UnrealEngine
             return this - TempPlane;//new FVector(TempPlane.X,TempPlane.Y,TempPlane.Z);
         }
 
-        [MethodImplAttribute(MethodImplOptions.InternalCall)]
+        //[MethodImplAttribute(MethodImplOptions.InternalCall)]
         extern static FVector RotateAngleAxis(ref FVector _this, float AngleDeg, FVector Axis);
 	    /**
 	     * Rotates around Axis (assumes Axis.Size() == 1).
