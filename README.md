@@ -1,7 +1,7 @@
 # UnrealCS
 
 # News
-The project is no longer maintained. It is also not recommended to use this solution as an illusory C# script plug-in. Alternatives are suggested:
+The project is no longer maintained. It is also not recommended to use this solution as an UE4 C# script plug-in. Alternatives are suggested:
 https://github.com/xiongfang/UL.git
 
 # WHAT IS THIS
