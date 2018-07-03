@@ -1,5 +1,9 @@
 # UnrealCS
 
+# News
+The project is no longer maintained. It is also not recommended to use this solution as an illusory C# script plug-in. Alternatives are suggested:
+https://github.com/xiongfang/UL.git
+
 # WHAT IS THIS
 
 This is the C # script plug-in built for Unreal Engine 4, you can use the C# language and a little blueprint, to develop the game, without any C++ 
