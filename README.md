@@ -45,8 +45,3 @@ use compile command like this:
 - Licensed under the MIT license
 
 - see [LICENSE](https://github.com/xiongfang/UnrealCS/blob/master/LICENSE) for details
-
-
-Mono Class Libraries and The Mono.Cecil are distributed under the MIT License,
-Are copyright the (c) authors. For details see http://github.com/mono/mono and
- Https://github.com/jbevain/cecil.

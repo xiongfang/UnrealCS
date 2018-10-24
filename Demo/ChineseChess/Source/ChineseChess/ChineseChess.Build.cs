@@ -4,12 +4,12 @@ using UnrealBuildTool;
 
 public class ChineseChess : ModuleRules
 {
-	public ChineseChess(TargetInfo Target)
+	public ChineseChess(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
-        Definitions.Add("USE_SECURE_CRT=1");
+        //Definitions.Add("USE_SECURE_CRT=1");
         // Uncomment if you are using Slate UI
         // PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 

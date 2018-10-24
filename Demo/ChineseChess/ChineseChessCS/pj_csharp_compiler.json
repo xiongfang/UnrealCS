@@ -1,14 +1,9 @@
 {
-  "name":"pj",
-	"dirs":
-	[
-		"."
-	],
-  "ref_namespace": [
-    "UnrealEngine",
-    "System"
+  "source_dirs": [
+    "."
   ],
-	"ref_type":
-	[
-	]
+
+  "ref_library_dir": "Data",
+  "ingore_method_body": false,
+  "output_dir": "Data"
 }
