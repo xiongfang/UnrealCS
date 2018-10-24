@@ -1,12 +1,11 @@
 {
 	"FileVersion" : 3,
-	"MarketplaceURL" : "com.epicgames.launcher://ue/marketplace/content/b34ba80007834687ae57a556a57b05f4",
+	
 	"FriendlyName" : "UnrealCS - C# Script Plugin",
 	"Version" : 1,
 	"VersionName" : "1.0",
 	"CreatedBy" : "xg_55",
 	"CreatedByURL" : "https://github.com/xiongfang/UnrealCS",
-	"EngineVersion" : "4.15.0",
 	"Description" : "C# script plugin built for Unreal Engine 4.",
 	"Category" : "Script",
 	"SupportURL" : "xg_55@126.com",
@@ -18,24 +17,12 @@
 			"Name" : "MonoHelper",
 			"Type" : "Runtime",
 			"LoadingPhase" : "PreDefault",
-			"WhitelistPlatforms": [ "Win64","Win32","Android","Mac" ]
-		},
-    		{
-    			"Name" : "MonoScriptGeneratorPlugin",
-    			"Type" : "Program",
-    			"LoadingPhase" : "PostConfigInit",
-			"WhitelistPlatforms": [ "Win64","Win32","Android","Mac" ]
-    		},
-		{
-			"Name" : "MonoPlugin",
-			"Type" : "Runtime",
-			"LoadingPhase" : "PreDefault",
-			"WhitelistPlatforms": [ "Win64","Win32","Android","Mac" ]
+			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
 		},
 		{
 			"Name" : "MonoEditorPlugin",
 			"Type" : "Editor",
-			"WhitelistPlatforms": [ "Win64","Win32","Android","Mac" ]
+			"WhitelistPlatforms": [ "Win32","Win64", "Mac", "Android" ]
 		}
 	]
 }
