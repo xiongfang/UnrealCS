@@ -1,0 +1,4 @@
+[submodule "Demo/ChineseChess/UL"]
+	path = Demo/ChineseChess/UL
+	url = https://github.com/xiongfang/UL.git
+	branch = ue4_plugin
