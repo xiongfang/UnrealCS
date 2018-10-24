@@ -24,9 +24,3 @@ bool FInclusionLists::HasFunction(const UStruct* Struct, const UFunction* Functi
 	//}
 	return false;
 }
-
-bool FInclusionLists::HasProperty(const UStruct* Struct, const UProperty* Property) const
-{
-	const TSet<FName>* List = Properties.Find(Struct->GetFName());
-	return List && List->Contains(Property->GetFName());
-}

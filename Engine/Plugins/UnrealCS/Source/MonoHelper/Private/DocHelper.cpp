@@ -2,119 +2,24 @@
 // For details, see LICENSE.txt
 #include "DocHelper.h"
 #include "MonoHelperPrivatePCH.h"
-
+#include "LocTextHelper.h"
 
 static const FName NAME_ToolTip(TEXT("ToolTip"));
 
 namespace LocalizationHack
 {
-	struct FLocalizationEntryTracker
-	{
-		struct FEntry
-		{
-			FString TableName;
-			uint32 SourceStringHash;
-			FString LocalizedString;
-		};
-
-		typedef TArray<FEntry> FEntryArray;
-		typedef TMap<FString, FEntryArray> FKeyTable;
-		typedef TMap<FString, FKeyTable> FNamespaceTable;
-
-		FNamespaceTable Namespaces;
-
-		void ReadFromDirectory(const FString& DirectoryPath);
-		bool ReadFromFile(const FString& FilePath);
-		void ReadFromArchive(FArchive& Archive, const FString& Identifier);
-	};
-
-	void FLocalizationEntryTracker::ReadFromDirectory(const FString& DirectoryPath)
-	{
-		// Find resources in the specified folder.
-		TArray<FString> ResourceFileNames;
-		IFileManager::Get().FindFiles(ResourceFileNames, *(DirectoryPath / TEXT("*.locres")), true, false);
-
-		// For each resource:
-		for (int32 ResourceIndex = 0; ResourceIndex < ResourceFileNames.Num(); ++ResourceIndex)
-		{
-			const FString ResourceFilePath = DirectoryPath / ResourceFileNames[ResourceIndex];
-			ReadFromFile(FPaths::ConvertRelativePathToFull(ResourceFilePath));
-		}
-	}
-
-	bool FLocalizationEntryTracker::ReadFromFile(const FString& FilePath)
-	{
-		FArchive* Reader = IFileManager::Get().CreateFileReader(*FilePath);
-		if (!Reader)
-		{
-			return false;
-		}
-
-		Reader->SetForceUnicode(true);
-
-		ReadFromArchive(*Reader, FilePath);
-
-		bool Success = Reader->Close();
-		delete Reader;
-
-		return Success;
-	}
-
-	void FLocalizationEntryTracker::ReadFromArchive(FArchive& Archive, const FString& Identifier)
-	{
-		// Read namespace count
-		uint32 NamespaceCount;
-		Archive << NamespaceCount;
-
-		for (uint32 i = 0; i < NamespaceCount; ++i)
-		{
-			// Read namespace
-			FString Namespace;
-			Archive << Namespace;
-
-			// Read key count
-			uint32 KeyCount;
-			Archive << KeyCount;
-
-			FLocalizationEntryTracker::FKeyTable& KeyTable = Namespaces.FindOrAdd(*Namespace);
-
-			for (uint32 j = 0; j < KeyCount; ++j)
-			{
-				// Read key
-				FString Key;
-				Archive << Key;
-
-				FLocalizationEntryTracker::FEntryArray& EntryArray = KeyTable.FindOrAdd(*Key);
-
-				FLocalizationEntryTracker::FEntry NewEntry;
-				NewEntry.TableName = Identifier;
-
-				// Read string entry.
-				Archive << NewEntry.SourceStringHash;
-				Archive << NewEntry.LocalizedString;
-
-				EntryArray.Add(NewEntry);
-			}
-		}
-	}
-
-	static FLocalizationEntryTracker ToolTipLocalization;
 	static bool ToolTipLocalizationInitialized = false;
+	static FLocTextHelper* Helper = nullptr;
 
 	bool FindToolTip(const FString& Namespace, const FString& Key, FString& OutText)
 	{
 		check(ToolTipLocalizationInitialized);
-		FLocalizationEntryTracker::FKeyTable* Table = ToolTipLocalization.Namespaces.Find(Namespace);
 
-		if (nullptr != Table)
+		auto m = Helper->FindSourceText(Namespace, Key);
+		if (m.IsValid())
 		{
-			FLocalizationEntryTracker::FEntryArray* Entries = Table->Find(Key);
-
-			if (nullptr != Entries && Entries->Num() > 0)
-			{
-				OutText = (*Entries)[0].LocalizedString;
-				return true;
-			}
+			OutText = m->Source.Text;
+			return true;
 		}
 
 		return false;
@@ -127,16 +32,22 @@ void DocHelper::InitializeToolTipLocalization()
 {
 	if (!LocalizationHack::ToolTipLocalizationInitialized)
 	{
-		TArray<FString> ToolTipPaths;
-		ToolTipPaths.Add(TEXT("../../../Engine/Content/Localization/ToolTips"));
+		if (LocalizationHack::Helper != nullptr)
+			return;
 
-		for (int32 PathIndex = 0; PathIndex < ToolTipPaths.Num(); ++PathIndex)
+		const FString LocTargetName = TEXT("ToolTips");
+		const FString LocTargetPath = FPaths::EngineContentDir() / TEXT("Localization") / LocTargetName;
+
+		LocalizationHack::Helper = new FLocTextHelper(LocTargetPath, FString::Printf(TEXT("%s.manifest"), *LocTargetName), FString::Printf(TEXT("%s.archive"), *LocTargetName), TEXT("en"), TArray<FString>(), nullptr);
+
+		// We need the manifest to work with
 		{
-			const FString& LocalizationPath = ToolTipPaths[PathIndex];
-			//Ê¹ÓÃÓ¢ÎÄ
-			const FString CulturePath = LocalizationPath / TEXT("en");
-
-			LocalizationHack::ToolTipLocalization.ReadFromDirectory(CulturePath);
+			FText LoadManifestError;
+			if (!LocalizationHack::Helper->LoadAll(ELocTextHelperLoadFlags::Load, &LoadManifestError))
+			{
+				UE_LOG(LogMonoHelper, Error, TEXT("Failed to load %s"), *LoadManifestError.ToString());
+				return;
+			}
 		}
 
 		LocalizationHack::ToolTipLocalizationInitialized = true;

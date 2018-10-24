@@ -7,11 +7,9 @@ namespace UnrealBuildTool.Rules
 {
 	public class MonoHelper : ModuleRules
 	{
-		public MonoHelper(TargetInfo Target)
+		public MonoHelper(ReadOnlyTargetRules Target) : base(Target)
 		{
-            PrivatePCHHeaderFile = "Private/MonoHelperPrivatePCH.h";
-
-            PublicIncludePaths.AddRange(
+			PublicIncludePaths.AddRange(
 				new string[] {					
 					//"Programs/UnrealHeaderTool/Public",
 					// ... add other public include paths required here ...
@@ -24,11 +22,12 @@ namespace UnrealBuildTool.Rules
 				}
 				);
 
-            PrivateDependencyModuleNames.AddRange(
+            PublicDependencyModuleNames.AddRange(
 				new string[]
 				{
 					"Core",
 					"CoreUObject",
+                    "Localization"
 					// ... add other public dependencies that you statically link with here ...
 				}
 				);

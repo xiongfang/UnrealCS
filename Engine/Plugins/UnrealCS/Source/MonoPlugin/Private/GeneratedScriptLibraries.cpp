@@ -1,5 +1,0 @@
-#include "MonoPluginPrivatePCH.h"
-#include "MonoDomain.h"
-#include "MonoScriptClass.h"
-#include "MonoScriptBindHelper.h"
-#include "GeneratedScriptLibraries/GeneratedScriptLibraries.inl"

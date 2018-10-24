@@ -2,8 +2,9 @@
 // For details, see LICENSE.txt
 
 #pragma once
+#include "CoreUObject.h"
 
-//包含文件列表
+//鍖呭惈鏂囦欢鍒楄〃
 class MONOHELPER_API FInclusionLists
 {
 public:
@@ -70,7 +71,11 @@ public:
 		Properties.FindOrAdd(StructName).Add(PropertyName);
 	}
 
-	bool HasProperty(const UStruct* Struct, const UProperty* Property) const;
+	bool HasProperty(const UStruct* Struct, const UProperty* Property) const
+	{
+		const TSet<FName>* List = Properties.Find(Struct->GetFName());
+		return List && List->Contains(Property->GetFName());
+	}
 
 private:
 	TSet<FName> Enumerations;
