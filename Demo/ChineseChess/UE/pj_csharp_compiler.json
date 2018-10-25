@@ -1,0 +1,9 @@
+{
+  "source_dirs": [
+    "."
+  ],
+
+  "ref_library_dir": "../Lib",
+  "ingore_method_body": false,
+  "output_dir": "../Lib"
+}

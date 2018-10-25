@@ -2,10 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="cd $(ProjectDir)&#xD;&#xA;build.bat" />
   </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UE\UE.csproj" />
+  </ItemGroup>
 
 </Project>

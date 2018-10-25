@@ -4,10 +4,13 @@
 	"Category": "",
 	"Description": "",
 	"Modules": [
-		{
-			"Name": "ChineseChess",
-			"Type": "Runtime",
-			"LoadingPhase": "Default"
-		}
+    {
+      "Name": "ChineseChess",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "AdditionalDependencies": [
+        "Engine"
+      ]
+    }
 	]
 }

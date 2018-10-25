@@ -1,5 +1,0 @@
-#include "ChineseChess.h"
-#include "UInt16.h"
-#include "Object.h"
-#include "Boolean.h"
-#include "Int32.h"

@@ -2,7 +2,5 @@
 
 #pragma once
 
-#include "Engine.h"
+#include "CoreMinimal.h"
 
-#define UnrealEngine
-#define System

@@ -1,9 +1,0 @@
-{
-  "source_dirs": [
-    "."
-  ],
-
-  "ref_library_dir": "Data",
-  "ingore_method_body": false,
-  "output_dir": "Data"
-}
