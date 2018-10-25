@@ -8,7 +8,6 @@ namespace ChineseChessCS
         {
             base.BeginPlay();
             Log("BeginPlay");
-
         }
     }
 }
